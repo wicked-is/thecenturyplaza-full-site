@@ -1,28 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { PageTitle } from "shared/styled-components/Typography.js";
+import { Wrapper } from 'shared/styled-components/Layouts.js';
+import { ContainerStyled, EntryStyled, PubDateStyled, PubInfoStyled } from 'Press/style.js';
 
-const PrimaryContainer = styled.div`
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.25s;
-  height: auto;
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  margin: ${props => props.isExpanded ? "-80px 0 0" : "0 40px"};
-  ${'' /* background:  red; */}
-  overflow: hidden;
-`
+const PressWrapper = styled.div`${Wrapper};`;
+const PressContainer = styled.div`${ContainerStyled}; `;
+const PressTitle = styled.h1`${PageTitle};`;
+const PressEntry = styled.article`${EntryStyled};`;
+const PressPubDate = styled.div`${PubDateStyled};`;
+const PressPubInfo = styled.div`${PubInfoStyled};`;
 
 const Press = props => {
-  const { pressData } = props;
+  const { pressData, setPageColor } = props;
+
+  useEffect(() => {
+    setPageColor(props => props.theme.grayLight);
+  }, [setPageColor]);
+
   return (
-    <PrimaryContainer>
-      {pressData.map((entry, index) => (
-        <article key={index}>
-          <span>{entry.date}</span>
-          <h2><a href="{entry.source}" target="_blank">{entry.headline}</a></h2>
-          <p>{entry.publication}</p>
-        </article>
-      ))}
-    </PrimaryContainer>
+    <PressWrapper>
+      <PressContainer>
+        <PressTitle>Featured Press</PressTitle>
+        {pressData.map((entry, index) => (
+
+          <PressEntry key={index}>
+            <PressPubDate>{entry.date}</PressPubDate>
+            <PressPubInfo>
+              <h2><a href={entry.source} target="_blank">{entry.headline}</a></h2>
+              <p>{entry.publication}</p>
+            </PressPubInfo>
+          </PressEntry>
+        ))}
+      </PressContainer>
+    </PressWrapper>
   );
 }
 

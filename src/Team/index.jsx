@@ -1,29 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Router } from "@reach/router";
 import styled from "styled-components";
+import { Wrapper } from 'shared/styled-components/Layouts.js';
+import { ContainerStyled } from "Team/style.js";
 import Member from "Team/components/Member.jsx";
 
-const PrimaryContainer = styled.div`
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.25s;
-  height: auto;
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  margin: ${props => props.isExpanded ? "-80px 0 0" : "0 40px"};
-  ${'' /* background:  red; */}
-  overflow: hidden;
-`
+const TeamWrapper = styled.div`${Wrapper};`;
+const TeamContainer = styled.div`${ContainerStyled};`;
 
 const Team = props => {
-  const { isExpanded, teamData } = props;
+  const { isExpanded, teamData, setPageColor } = props;
+
+  useEffect(() => {
+    setPageColor(props => props.theme.white);
+  }, []);
 
   return (
-    <PrimaryContainer isExpanded={isExpanded}>
-      <Router>
-        {teamData.map((member, index) => (
-          <Member teamData={teamData} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} path={member.slug} member={member} />
-        ))}
-      </Router>
-    </PrimaryContainer>
+    <TeamWrapper isExpanded={isExpanded}>
+      <TeamContainer>
+        <Router primary={false}>
+          {teamData.map((member, index) => (
+            <Member teamData={teamData} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} path={member.slug} member={member} />
+          ))}
+        </Router>
+      </TeamContainer>
+    </TeamWrapper>
   );
 }
 
