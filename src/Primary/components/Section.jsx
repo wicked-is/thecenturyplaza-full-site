@@ -7,7 +7,7 @@ import TextSlide from "Primary/components/TextSlide.jsx";
 
 
 const Section = props => {
-  const { section, previousSection, nextSection, isExpanded, isFirstSection } = props;
+  const { section, previousSection, nextSection, isExpanded, isFirstSection, scrollPath } = props;
 
   const getActiveSlide = (slide, index) => {
 
@@ -27,26 +27,26 @@ const Section = props => {
       nextPath = "/" + section.slug + "/" + section.slides[index + 1].slug
     } else {
       if (nextSection === null) {
-        nextPath = "/show-me-more"; // Last Slide
+        nextPath = "/continue"; // Last Slide
       } else {
         nextPath = "/" + nextSection;
       }
     }
 
     if (slide.type === "video") {
-      return <VideoSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} />;
+      return <VideoSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} scrollPath={scrollPath} />;
     } else if (slide.type === "image") {
-      return <ImageSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} />;
+      return <ImageSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} scrollPath={scrollPath} />;
     } else if (slide.type === "split") {
-      return <SplitSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} />;
+      return <SplitSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} scrollPath={scrollPath} />;
     } else if (slide.type === "text") {
-      return <TextSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} />;
+      return <TextSlide isFirstSection={isFirstSection} isFirstLoad={index === 0 && true} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} slide={slide} path={slide.slug} nextPath={nextPath} previousPath={previousPath} scrollPath={scrollPath} />;
     }
   };
 
   return (
     <section>
-      <Router>
+      <Router primary={false}>
         {section.slides.map((slide, index) => (
           getActiveSlide(slide, index)
         ))}

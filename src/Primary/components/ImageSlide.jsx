@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { SlideContainerStyled, ImageFullStyled } from "Primary/style.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
 import parse from "html-react-parser";
 import ResponsiveImage from "shared/components/ResponsiveImage.js"
@@ -9,56 +10,49 @@ import { navigate } from "@reach/router";
 
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
-// Wil be refactored into global slide styled compontent
-const ImageSlideContainer = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 160px);
-  opacity: 0;
-  animation: ${fadeIn} 0.25s ease-in-out forwards;
-  will-change: opacity;
-
-  &:focus {
-    outline: none;
-  }
-
-  img {
-    max-height: calc(80vh - 160px);
-    max-width: calc(70vw - 80px);
-  }
-
-  p {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-  }
-`
+const SlideContainer = styled.div`${SlideContainerStyled};`;
+const ImageFull = styled.div`${ImageFullStyled};`;
 
 const ImageSlide = props => {
   const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
 
   return (
     <ReactScrollWheelHandler
-      pauseListeners={true}
+      // pauseListeners={true}
       upHandler={() => {
         // console.log("scroll up");
-        closeExpand();
+        // closeExpand();
+        // if (props.location === previousPath) {
+        //   // console.log("where you going");
+        //   // navigate(previousPath);
+        // } else {
+        //   // console.log(props.location);
+        //   // navigate(previousPath);
+        // }
         navigate(previousPath);
       }}
       downHandler={() => {
         // console.log("scroll down")
-        closeExpand();
+        // closeExpand();
+        // if (props.location === nextPath) {
+        //   console.log("where you going");
+        //   // navigate(nextPath);
+        // } else {
+        //   console.log(props.location);
+        //   console.log(nextPath);
+        //   // navigate(nextPath);
+        // }
         navigate(nextPath);
       }}
     >
-      <ImageSlideContainer>
+      <SlideContainer>
         <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} />
-        <ResponsiveImage srcPath={slide.source} />
+        <ImageFull>
+          <ResponsiveImage srcPath={slide.source} />
+        </ImageFull>
         <p>{parse(slide.caption)}</p>
-      </ImageSlideContainer>
+      </SlideContainer>
     </ReactScrollWheelHandler>
   );
 };
