@@ -1,34 +1,14 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
+import { MenuStyled } from 'Team/style.js';
 
-const ActiveMenuContainer = styled.ul`
-  display: inline-block;
-  width: 30%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  transition: all 0.5s ease-in-out;
-  opacity: ${props => props.isExpanded ? "0" : "1"};
+const TeamMembers = styled.ul`${MenuStyled};`;
 
-  li {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    margin: 0 0 20px;
-
-    a {
-      color: ${props => props.theme.black};
-      text-decoration: none;
-      padding: 0 0 5px;
-    }
-  }
-`
-
-const ActiveMenu = props => {
+const TeamMenu = props => {
   const { isExpanded, teamData } = props;
 
-  const ActiveMenuLink = props => (
+  const TeamMember = props => (
     <li>
       <Link
         {...props}
@@ -47,13 +27,13 @@ const ActiveMenu = props => {
   return (
     <div>
       <nav>
-        <ActiveMenuContainer isExpanded={isExpanded}>
+        <TeamMembers isExpanded={isExpanded}>
           {teamData.map((member, index) => (
-            <ActiveMenuLink key={index} to={"/team/" + member.slug}>{member.title}</ActiveMenuLink>
+            <TeamMember key={index} to={"/team/" + member.slug}>{member.title}</TeamMember>
           ))}
-        </ActiveMenuContainer>
+        </TeamMembers>
       </nav>
     </div>
   );
 };
-export default ActiveMenu;
+export default TeamMenu;
