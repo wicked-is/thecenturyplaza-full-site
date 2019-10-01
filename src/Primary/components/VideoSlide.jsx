@@ -101,7 +101,7 @@ const VideoSlide = props => {
         //   // console.log(props.location);
         //   // navigate(previousPath);
         // }
-        navigate(previousPath);
+        // navigate(previousPath);
       }}
       downHandler={() => {
         // console.log("scroll down")
@@ -114,7 +114,7 @@ const VideoSlide = props => {
         //   console.log(nextPath);
         //   // navigate(nextPath);
         // }
-        navigate(nextPath);
+        // navigate(nextPath);
       }}
     >
       <SlideContainer isExpanded={isExpanded}>
