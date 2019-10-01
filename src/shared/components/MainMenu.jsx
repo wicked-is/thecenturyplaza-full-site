@@ -240,7 +240,7 @@ const MainMenu = props => {
               +1 310 246 4777<br />
               <a href="mailto:info@thecenturyplaza.com" >info@thecenturyplaza.com</a>
             </p>
-            <Link to="/register" onClick={() => setIsOpen(false)}>Register Your Interest</Link>
+            <Link to="/contact" onClick={() => setIsOpen(false)}>Register Your Interest</Link>
           </InfoCluster>
           <DownloadsLinks>
             <li>Downloads</li>
