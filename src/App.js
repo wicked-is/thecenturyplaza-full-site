@@ -5,10 +5,14 @@ import { PageBody } from "shared/styled-components/Typography.js"
 import Header from "shared/components/Header.jsx";
 import Primary from "Primary";
 import primaryData from "Primary/primaryData.json";
+import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
 import Team from "Team";
 import teamData from "Team/teamData.json";
 import Press from "Press";
 import pressData from "Press/pressData.json";
+import Gallery from "Gallery";
+import galleryData from "Gallery/galleryData.json";
+
 
 const theme = {
   breakpoints: {
@@ -96,6 +100,8 @@ class App extends Component {
                 ))}
               </Team>
               <Press pressData={pressData} path="press" setPageColor={this.setPageColor} />
+              <Gallery galleryData={galleryData} path="gallery" setPageColor={this.setPageColor} />
+              <SecondaryMenu setPageColor={this.setPageColor} path="continue" />
             </Router>
           </main>
         </AppPageBody>

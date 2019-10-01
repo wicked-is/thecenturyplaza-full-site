@@ -29,7 +29,7 @@ const ImageSlide = props => {
         //   // console.log(props.location);
         //   // navigate(previousPath);
         // }
-        navigate(previousPath);
+        // navigate(previousPath);
       }}
       downHandler={() => {
         // console.log("scroll down")
@@ -42,7 +42,7 @@ const ImageSlide = props => {
         //   console.log(nextPath);
         //   // navigate(nextPath);
         // }
-        navigate(nextPath);
+        // navigate(nextPath);
       }}
     >
       <SlideContainer>
