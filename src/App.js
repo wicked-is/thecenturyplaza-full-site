@@ -6,6 +6,8 @@ import Header from "shared/components/Header.jsx";
 import Primary from "Primary";
 import primaryData from "Primary/primaryData.json";
 import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
+import Neighborhood from "Neighborhood";
+import neighborhoodData from "Neighborhood/neighborhoodData.json";
 import Team from "Team";
 import teamData from "Team/teamData.json";
 import Press from "Press";
@@ -94,6 +96,7 @@ class App extends Component {
                 ))}
               </Primary>
               <Redirect from="/" to="century-plaza" noThrow />
+              <Neighborhood neighborhoodData={neighborhoodData} path="neighborhood" setPageColor={this.setPageColor} />
               <Team teamData={teamData} path="team" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor}>
                 {teamData.map((member, index) => (
                   <div key={index} path={member.slug} />
