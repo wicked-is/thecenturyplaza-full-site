@@ -16,14 +16,22 @@ export const ContainerStyled = css`
 export const SectionStyled = css`
   margin: 0 0 50px;
 `
+export const SectionTitlesStyled = css`
+  position: relative;
+
+  ${mediaMin.tabletLandscape` 
+    top: 100px;
+    position: sticky;
+  `}
+`
 export const SectionTitleStyled = css`
   margin: 0 10px 20px;
 
   ${mediaMin.tabletLandscape` 
     margin: 0;
-    position: fixed;
   `}
 `
+
 export const SectionMediaStyled = css`
   display: flex;
   width: 100%;
