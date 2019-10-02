@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import { Link, Match } from "@reach/router";
 import styled from "styled-components";
+import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
 
 const ActiveMenuContainer = styled.ul`
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  margin: 30px 0 0;
-  padding: 0;
-  transition: all 0.5s ease-in-out;
-  opacity: ${props => props.isExpanded ? "0" : "1"};
+  display: none;
 
-  li {
+  ${ mediaMin.tabletLandscape`
+
     display: inline-block;
-    margin: 0 15px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 30px 0 0;
+    padding: 0;
+    transition: all 0.5s ease-in-out;
+    opacity: ${props => props.isExpanded ? "0" : "1"};
 
-    a {
-      color: ${props => props.theme.black};
-      text-decoration: none;
-      padding: 0 0 5px;
+    li {
+      display: inline-block;
+      margin: 0 15px;
+
+      a {
+        color: ${props => props.theme.black};
+        text-decoration: none;
+        padding: 0 0 5px;
+      }
     }
-  }
+
+  `}
 `
 
 const ActiveMenu = props => {

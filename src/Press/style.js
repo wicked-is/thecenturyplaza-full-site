@@ -6,11 +6,11 @@ import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
 export const ContainerStyled = css`
   ${Container}
   width: ${props => parseFloat(props.theme.mobileColumn) * 10}vw;
-  margin: 50px 0 0;
+  margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
     width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
-    margin: 100px 0 0;
+    margin: 40px 0 0;
   `}
 
   h1 {

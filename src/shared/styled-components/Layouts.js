@@ -6,7 +6,8 @@ import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
 export const Wrapper = css`
   height: auto;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  margin: 0 ${props => props.theme.mobileMargin}px;
+  margin: 0 ${props => props.theme.mobileMargin}px 0;
+  padding: ${props => props.theme.headerHeight}px 0 0;
   display: flex;
   justify-content: center;
   opacity: 0;
@@ -15,14 +16,14 @@ export const Wrapper = css`
 
   ${ mediaMin.tabletLandscape`
     width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
-    margin: 0 ${props => props.theme.desktopMargin}px;
+    margin: 0 ${props => props.theme.desktopMargin}px 0;
   `}
   
 `
 
 export const ViewportWrapper = css`
   ${Wrapper}
-  height: calc(100vw - ${props => props.theme.header});
+  height: calc(100vh - ${props => props.theme.headerHeight}px);
 `
 
 export const Container = css`
