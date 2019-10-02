@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { SectionStyled, SectionTitleStyled, SectionMediaStyled, MediaStyled } from 'Gallery/style.js';
+import { SectionStyled, SectionTitlesStyled, SectionTitleStyled, SectionMediaStyled, MediaStyled } from 'Gallery/style.js';
 import ResponsiveImage from "shared/components/ResponsiveImage.js"
 import ReactPlayer from 'react-player';
 import Grid from 'styled-components-grid';
 
 const GallerySection = styled.section`${SectionStyled};`;
+const GallerySectionTitles = styled.div`${SectionTitlesStyled};`;
 const GallerySectionTitle = styled.h2`${SectionTitleStyled};`;
 const GallerySectionMedia = styled.div`${SectionMediaStyled};`;
 const GalleryMedia = styled.div`${MediaStyled};`;
@@ -28,7 +29,9 @@ const Section = props => {
     <GallerySection>
       <Grid>
         <Grid.Unit size={{ phone: 1, tabletLandscape: 2 / 12 }}>
-          <GallerySectionTitle>{section.title}</GallerySectionTitle>
+          <GallerySectionTitles>
+            <GallerySectionTitle>{section.title}</GallerySectionTitle>
+          </GallerySectionTitles>
         </Grid.Unit>
         <Grid.Unit size={{ phone: 1, tabletLandscape: 10 / 12 }}>
           <GallerySectionMedia>
