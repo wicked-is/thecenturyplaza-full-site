@@ -27,10 +27,10 @@ const Section = props => {
   return (
     <GallerySection>
       <Grid>
-        <Grid.Unit size={{ phone: 1, tabletLandscape: 4 / 12 }}>
+        <Grid.Unit size={{ phone: 1, tabletLandscape: 2 / 12 }}>
           <GallerySectionTitle>{section.title}</GallerySectionTitle>
         </Grid.Unit>
-        <Grid.Unit size={{ phone: 1, tabletLandscape: 8 / 12 }}>
+        <Grid.Unit size={{ phone: 1, tabletLandscape: 10 / 12 }}>
           <GallerySectionMedia>
             {section.media.map((media, index) => (
               <GalleryMedia key={index}>

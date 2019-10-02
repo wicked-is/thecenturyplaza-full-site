@@ -9,10 +9,11 @@ import logoBlackSVG from 'icons/logo-black.svg';
 
 const HeaderContainer = styled.header`
   display: inline-block;
-  position: relative;
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 80px;
-  background: transparent;
+  height:  ${props => props.theme.headerHeight}px;
+  background: ${props => props.theme.white};
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
   will-change: opacity;

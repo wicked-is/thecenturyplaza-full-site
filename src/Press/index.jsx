@@ -23,7 +23,6 @@ const Press = props => {
       <PressContainer>
         <PressTitle>Featured Press</PressTitle>
         {pressData.map((entry, index) => (
-
           <PressEntry key={index}>
             <PressPubDate>{entry.date}</PressPubDate>
             <PressPubInfo>

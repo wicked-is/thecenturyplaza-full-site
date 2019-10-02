@@ -169,8 +169,6 @@ export const PlaceHolderStyled = css`
     position: relative;
     width: auto;
     height: auto;
-    filter: grayscale(25%);
-    filter: brightness(.995);
   }
 `
 
