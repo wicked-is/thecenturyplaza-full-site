@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { SlideContainerStyled, ImageFullStyled } from "Primary/style.js";
-import { fadeIn } from "shared/styled-components/Transitions.js";
 import parse from "html-react-parser";
 import ResponsiveImage from "shared/components/ResponsiveImage.js"
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import { navigate } from "@reach/router";
-
+// import { navigate } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 const SlideContainer = styled.div`${SlideContainerStyled};`;
@@ -49,7 +47,7 @@ const ImageSlide = props => {
         <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} />
         <ImageFull>
-          <ResponsiveImage srcPath={slide.source} />
+          <ResponsiveImage srcPath={slide.source[0]} />
         </ImageFull>
         <p>{parse(slide.caption)}</p>
       </SlideContainer>

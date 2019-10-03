@@ -28,16 +28,16 @@ const SlideForwardContainer = styled.span`
     text-decoration: none;
     width: 100%;
     height: 100%;
-    background: url(${rightArrowGrayPNG}) no-repeat center center;
-    background: url(${rightArrowGraySVG}) no-repeat center center, none;
+    ${'' /* background: url(${rightArrowGrayPNG}) no-repeat center center;
+    background: url(${rightArrowGraySVG}) no-repeat center center, none; */}
     transition: all 0.5s ease-in-out;
     opacity: 0;
     ${'' /* opacity: ${props => props.isExpanded ? "0" : "1"};  */}
 
     &:hover {
       opacity: 1;
-      background: url(${rightArrowBlackPNG}) no-repeat center center;
-      background: url(${rightArrowBlackSVG}) no-repeat center center, none;      
+      ${'' /* background: url(${rightArrowBlackPNG}) no-repeat center center;
+      background: url(${rightArrowBlackSVG}) no-repeat center center, none;       */}
     }
   }
 `

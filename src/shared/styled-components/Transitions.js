@@ -4,15 +4,10 @@ export const fadeIn = keyframes`
   0% { opacity: 0;}
   100% { opacity: 1;}
 `
-export const pushDownIn = keyframes`
-  0% { opacity: 0; transform: translateY(-10%);}
-  100% { opacity: 1; transform: translateY(0);}
+export const fadeOut = keyframes`
+  0% { opacity: 1;}
+  100% { opacity: 0;}
 `
-export const pushUpIn = keyframes`
-  0% { opacity: 0; transform: translateY(10%);}
-  100% { opacity: 1; transform: translateY(0);}
-`
-
 export const cascadeText = keyframes`
   0% {transform: translateY(0);}
   100% {transform: translateY(100%);}
@@ -24,4 +19,43 @@ export const revealLeft = keyframes`
 export const revealRight = keyframes`
   0% { transform: translateX(0);}
   100% { transform: translateX(-100%);}
+`
+
+// Custom Slideshow Animations. Each Slide gets 25% (4 Slides)
+// Assuming 4s or 6.25% per sec to cover three states In, On & Out
+// 0.5s (3.125%) for In, 3s(18.75%) for On, 0.5s(3.125%) for Out
+// Shift figures according for Slides 2, 3, 4
+// Control overal time with duration value when calling animation
+// set delay for any intro animations on parent container
+
+export const slideOne = keyframes`
+  0% { opacity: 0;}
+  3.125% { opacity: 1;}
+  18.75% { opacity: 1;}
+  25% { opacity: 0;}
+  100% { opacity: 0;}
+`
+export const slideTwo = keyframes`
+  0% { opacity: 0;}
+  25% { opacity: 0;}
+  28.125% { opacity: 1;}
+  46.875% { opacity: 1;}
+  50% { opacity: 0;}
+  100% { opacity: 0;}
+`
+export const slideThree = keyframes`
+  0% { opacity: 0;}
+  50% { opacity: 0;}
+  53.125% { opacity: 1;}
+  71.875% { opacity: 1;}
+  75% { opacity: 0;}
+  100% { opacity: 0;}
+`
+
+export const slideFour = keyframes`
+  0% { opacity: 0;}
+  75% { opacity: 0;}
+  78.125% { opacity: 1;}
+  96.875% { opacity: 1;}
+  100% { opacity: 0;}
 `

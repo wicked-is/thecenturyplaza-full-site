@@ -25,16 +25,16 @@ const SlideBackwardContainer = styled.span`
     text-decoration: none;
     width: 100%;
     height: 100%;
-    background: url(${leftArrowGrayPNG}) no-repeat center center;
-    background: url(${leftArrowGraySVG}) no-repeat center center, none;
+    ${'' /* background: url(${leftArrowGrayPNG}) no-repeat center center;
+    background: url(${leftArrowGraySVG}) no-repeat center center, none; */}
     transition: all 0.5s ease-in-out;
     opacity: 0;
     ${'' /* opacity: ${props => props.isExpanded ? "0" : "1"};  */}
 
     &:hover {
       opacity: 1;
-      background: url(${leftArrowBlackPNG}) no-repeat center center;
-      background: url(${leftArrowBlackSVG}) no-repeat center center, none;      
+      ${'' /* background: url(${leftArrowBlackPNG}) no-repeat center center;
+      background: url(${leftArrowBlackSVG}) no-repeat center center, none;       */}
     }
   }
 `

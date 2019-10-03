@@ -15,7 +15,7 @@ const Press = props => {
   const { pressData, setPageColor } = props;
 
   useEffect(() => {
-    setPageColor(props => props.theme.grayLight);
+    setPageColor(props => props.theme.white);
   }, [setPageColor]);
 
   return (
