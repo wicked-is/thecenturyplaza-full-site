@@ -1,25 +1,25 @@
 import { css } from 'styled-components';
 import { Container } from 'shared/styled-components/Layouts.js';
-import { fadeIn, cascadeText, } from "shared/styled-components/Transitions.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js"
+import { fadeIn, cascadeText } from 'shared/styled-components/Transitions.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries.js';
 
 export const SlideContainerStyled = css`
   ${Container}
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
+  height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
+  width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
 
   ${mediaMin.tabletLandscape` 
-    height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-    width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
+    height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
+    width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
   `}
 
   h2 {
-    font-family:  ${props => props.theme.serifMedium};
+    font-family: ${props => props.theme.serifMedium};
     font-size: 34px;
-    letter-spacing: .34px;    
+    letter-spacing: 0.34px;
     width: 55vw;
     text-align: center;
     position: relative;
@@ -36,7 +36,7 @@ export const SlideContainerStyled = css`
     animation: ${fadeIn} 0.5s ease-in-out 0.75s forwards;
     will-change: opacity;
   }
-`
+`;
 
 export const SplitSlideContainerStyled = css`
   display: flex;
@@ -44,7 +44,7 @@ export const SplitSlideContainerStyled = css`
   align-items: center;
   width: calc(100vw - 80px);
   height: calc(100vh - 160px);
-  flex-direction: ${props => props.isInverted ? "row-reverse" : "row"};
+  flex-direction: ${props => (props.isInverted ? 'row-reverse' : 'row')};
   justify-content: space-evenly;
 
   img {
@@ -53,12 +53,12 @@ export const SplitSlideContainerStyled = css`
   }
 
   h2 {
-    font-family:  ${props => props.theme.serifMedium};
+    font-family: ${props => props.theme.serifMedium};
     font-size: 34px;
-    letter-spacing: .34px;
+    letter-spacing: 0.34px;
     width: 30vw;
     text-align: center;
-    margin: ${props => props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0"};
+    margin: ${props => (props.isInverted ? '0 0 0 5vw' : '0 5vw 0 0')};
     position: relative;
     overflow: hidden;
   }
@@ -73,7 +73,7 @@ export const SplitSlideContainerStyled = css`
     animation: ${fadeIn} 0.5s ease-in-out 1.5s forwards;
     will-change: opacity;
   }
-`
+`;
 
 // export const ToggleFullScreen = styled.div`
 //     position: absolute;
@@ -95,20 +95,19 @@ export const PlayerContainerStyled = css`
   justify-content: center;
   ${'' /* transition: all 0.5s ease-in-out;
   transition-delay: 0.05s; */}
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
+  height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
+  width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
   overflow: hidden;
   position: relative;
   opacity: 0; 
   animation: ${fadeIn} 0.5s ease-in-out 0.25s forwards;
   will-change: opacity;
-`
+`;
 
 export const FullScreenStyled = css`
   height: 100%;
   width: 100%;
   overflow: hidden;
-
 
   @media (max-aspect-ratio: 375/812) {
     transform: scale(3);
@@ -149,20 +148,19 @@ export const FullScreenStyled = css`
   @media (min-aspect-ratio: 16/4) {
     transform: scale(3.5);
   }
-
-`
+`;
 
 export const PlaceHolderStyled = css`
   width: 100vw;
   height: 100vh;
-  display: ${props => props.isPlaying ? "none" : "flex"};
+  display: ${props => (props.isPlaying ? 'none' : 'flex')};
   align-items: center;
   justify-content: center;
   position: absolute;
   transition: display 0s;
   transition-delay: 4s;
-  top: ${props => props.isExpanded ? "0" : "-80px"};
-  left: ${props => props.isExpanded ? "0" : "-40px"};
+  top: ${props => (props.isExpanded ? '0' : '-80px')};
+  left: ${props => (props.isExpanded ? '0' : '-40px')};
   overflow: hidden;
 
   img {
@@ -170,7 +168,7 @@ export const PlaceHolderStyled = css`
     width: auto;
     height: auto;
   }
-`
+`;
 
 export const ImageFullStyled = css`
   display: flex;
@@ -178,35 +176,49 @@ export const ImageFullStyled = css`
   align-items: center;
   max-height: calc(80vh - 160px);
   max-width: calc(70vw - 80px);
-  opacity: 0; 
+  opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.25s forwards;
   will-change: opacity;
-`
+`;
+
+export const PanoFullStyled = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  animation: ${fadeIn} 0.5s ease-in-out 0.25s forwards;
+  will-change: opacity;
+`;
 
 export const TextMaskStyled = css`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 45%, rgba(255,255,255,0) 100%);
-    animation: ${cascadeText} 1.5s ease-out .25s forwards;
-    will-change: transform;
-`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 45%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: ${cascadeText} 1.5s ease-out 0.25s forwards;
+  will-change: transform;
+`;
 
 export const ImageContainerStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  position:relative;
+  position: relative;
   opacity: 0;
-  animation: ${fadeIn} 1s ease-in-out .5s forwards;
+  animation: ${fadeIn} 1s ease-in-out 0.5s forwards;
   will-change: opacity;
   width: 30vw;
   max-width: 30vw;
-  margin: ${props => props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw"};
-`
+  margin: ${props => (props.isInverted ? '0 5vw 0 0' : '0 0 0 5vw')};
+`;
 
 // export const ImageMaskStyled = css`
 //   position: absolute;
@@ -218,4 +230,3 @@ export const ImageContainerStyled = css`
 //   will-change: transform;
 // }
 // `
-
