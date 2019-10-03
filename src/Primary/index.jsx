@@ -30,13 +30,7 @@ const Primary = props => {
     <PrimaryWrapper isExpanded={isExpanded}>
       <Router primary={false}>
         {primaryData.map((section, index) => (
-          <Section isFirstSection={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} path={section.slug} section={section} previousSection={getPreviousSection(index)} nextSection={getNextSection(index)} scrollPath={scrollPath}>
-            {
-              section.slides.map((slide, index) => (
-                <div key={index} path={slide.slug} />
-              ))
-            }
-          </Section>
+          <Section key={index} path={section.slug + "/*"} isFirstSection={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} section={section} previousSection={getPreviousSection(index)} nextSection={getNextSection(index)} scrollPath={scrollPath} />
         ))}
       </Router>
     </PrimaryWrapper>

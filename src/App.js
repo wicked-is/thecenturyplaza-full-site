@@ -9,6 +9,7 @@ import primaryData from "Primary/primaryData.json";
 import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
 import Neighborhood from "Neighborhood";
 import neighborhoodData from "Neighborhood/neighborhoodData.json";
+import Availability from "Availability";
 import Team from "Team";
 import teamData from "Team/teamData.json";
 import Press from "Press";
@@ -80,7 +81,6 @@ class App extends Component {
     this.setState(state => ({ isExpanded: false }));
   };
 
-
   render() {
 
     return (
@@ -91,24 +91,14 @@ class App extends Component {
           </AppHeader>
           <main>
             <Router primary={false}>
-              <Primary primaryData={primaryData} path="/" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} scrollPath={this.state.scrollPath}>
-                {primaryData.map((section, index) => (
-                  <div key={index} path={section.slug}>
-                    {
-                      section.slides.map((slide, index) => (
-                        <div key={index} path={slide.slug} />
-                      ))
-                    }
-                  </div>
-                ))}
-              </Primary>
-              <Redirect from="/" to="century-plaza" noThrow />
+              <Redirect from="/" to="home" noThrow />
+              {primaryData.map((section, index) => (
+                <Primary key={index} default path={section.slug + "/*"} primaryData={primaryData} isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} scrollPath={this.state.scrollPath} />
+              ))}
+              <Redirect from="fairmont" to="fairmont/hotel" noThrow />
               <Neighborhood neighborhoodData={neighborhoodData} path="neighborhood" setPageColor={this.setPageColor} />
-              <Team teamData={teamData} path="team" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor}>
-                {teamData.map((member, index) => (
-                  <div key={index} path={member.slug} />
-                ))}
-              </Team>
+              <Team teamData={teamData} path="team/*" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} />
+              <Availability path="availability/*" />
               <Press pressData={pressData} path="press" setPageColor={this.setPageColor} />
               <Gallery galleryData={galleryData} path="gallery" setPageColor={this.setPageColor} />
               <SecondaryMenu setPageColor={this.setPageColor} path="continue" />

@@ -1,7 +1,7 @@
 [
   {
     "title": "Century Plaza",
-    "slug": "century-plaza",
+    "slug": "home",
     "slides": [
       {
         "type": "video",
@@ -51,7 +51,7 @@
   },
   {
     "title": "Fairmont Hotel",
-    "slug": "fairmont-hotel",
+    "slug": "fairmont/hotel",
     "slides": [
       {
         "type": "video",
@@ -117,7 +117,7 @@
   },
   {
     "title": "Fairmont Residences",
-    "slug": "fairmont-residences",
+    "slug": "fairmont/residences",
     "slides": [
       {
         "type": "video",
@@ -167,7 +167,7 @@
   },
   {
     "title": "Tower Residences",
-    "slug": "tower-residences",
+    "slug": "tower/residences",
     "slides": [
       {
         "type": "video",

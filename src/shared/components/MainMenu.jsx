@@ -221,7 +221,7 @@ const MainMenu = props => {
               <Link to="/team" onClick={() => setIsOpen(false)}>Team</Link>
             </li>
             <li>
-              <a href="https://www.thecenturyplaza.com/availability/?hotel" target="_blank" onClick={() => setIsOpen(false)}>Availability</a>
+              <a href="/availability" target="_blank" onClick={() => setIsOpen(false)}>Availability</a>
             </li>
             <li>
               <Link to="/press" onClick={() => setIsOpen(false)}>Press</Link>
@@ -239,7 +239,7 @@ const MainMenu = props => {
             <p>
               <strong>Schedule an Appointment</strong>
               +1 310 246 4777<br />
-              <a href="mailto:info@thecenturyplaza.com" >info@thecenturyplaza.com</a>
+              <a href="mailto:info@thecenturyplaza.com" rel="noopener noreferrer">info@thecenturyplaza.com</a>
             </p>
             <Link to="/contact" onClick={() => setIsOpen(false)}>Register Your Interest</Link>
           </InfoCluster>

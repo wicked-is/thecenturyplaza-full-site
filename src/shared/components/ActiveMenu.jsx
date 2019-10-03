@@ -82,7 +82,7 @@ const ActiveMenu = props => {
         <Match path="/team/*">
           {props => props.match && <SecondaryMenu />}
         </Match>
-        <Match path="/availability">
+        <Match path="/availability/*">
           {props => props.match && <SecondaryMenu />}
         </Match>
         <Match path="/press">

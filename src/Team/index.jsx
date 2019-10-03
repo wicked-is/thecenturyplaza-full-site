@@ -13,7 +13,7 @@ const Team = props => {
 
   useEffect(() => {
     setPageColor(props => props.theme.white);
-  }, []);
+  }, [setPageColor]);
 
   return (
     <TeamWrapper isExpanded={isExpanded}>
