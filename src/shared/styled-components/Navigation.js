@@ -6,7 +6,7 @@ import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
 
 export const MenuWrapper = css`
   ${Wrapper}
-  height: calc(100vh - 80px);
+  height: calc(100vh - 160px);
   align-items: center;
 `
 export const MenuContainer = css`
@@ -47,4 +47,30 @@ export const MenuContainer = css`
     }
   }
 }
+`
+
+export const FooterWrapper = css`
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 0 0 20px;
+
+      a{
+        color: ${props => props.theme.gray};
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
 `

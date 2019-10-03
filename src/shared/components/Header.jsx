@@ -13,7 +13,7 @@ const HeaderContainer = styled.header`
   top: 0;
   width: 100%;
   height:  ${props => props.theme.headerHeight}px;
-  background: ${props => props.theme.white};
+  background: ${props => props.pageColor};
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
   will-change: opacity;
@@ -35,13 +35,13 @@ const Logo = styled.div`
 
 const Header = props => {
 
-  const { isExpanded, primaryData } = props;
+  const { isExpanded, primaryData, pageColor } = props;
   // console.log("Header State" + props.isExpanded);
   return (
-    <HeaderContainer isExpanded={isExpanded} >
+    <HeaderContainer pageColor={pageColor} isExpanded={isExpanded} >
       <Link to="/" ><Logo isExpanded={isExpanded} /></Link>
       <ActiveMenu primaryData={primaryData} isExpanded={isExpanded} />
-      <MainMenu primaryData={primaryData} isExpanded={isExpanded} />
+      <MainMenu pageColor={pageColor} primaryData={primaryData} isExpanded={isExpanded} />
     </HeaderContainer>
   );
 };

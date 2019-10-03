@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { SlideShow } from "shared/styled-components/SlideShow.js";
 import { SplitSlideContainerStyled, TextMaskStyled, ImageContainerStyled, ImageMaskStyled } from "Primary/style.js";
 import parse from "html-react-parser";
 import ResponsiveImage from "shared/components/ResponsiveImage.js"
@@ -12,6 +13,7 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 const SlideContainer = styled.div`${SplitSlideContainerStyled};`;
 const TextMask = styled.div`${TextMaskStyled};`;
 const ImageContainer = styled.div`${ImageContainerStyled};`;
+const ImageSlideShow = styled.div`${SlideShow};`;
 // const ImageMask = styled.div`${ImageMaskStyled};`;
 
 const SplitSlide = props => {
@@ -64,9 +66,11 @@ const SplitSlide = props => {
         <ImageContainer>
           {/* <ImageMask isInverted={slide.inverted} /> */}
           {slide.source.length > 1 ? (
-            slide.source.map((source, index) => (
-              <ResponsiveImage key={index} srcPath={source} />
-            ))
+            <ImageSlideShow > {
+              slide.source.map((source, index) => (
+                <ResponsiveImage key={index} srcPath={source} />
+              ))
+            } </ImageSlideShow>
           ) : (
               <ResponsiveImage srcPath={slide.source[0]} />
             )}

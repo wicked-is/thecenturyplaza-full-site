@@ -1,7 +1,7 @@
-import { css, keyframes } from 'styled-components';
-import { Wrapper, Container } from 'shared/styled-components/Layouts.js';
-import { fadeIn, fadeOut, slideOne, slideTwo, slideThree, slideFour, cascadeText, revealLeft, revealRight } from "shared/styled-components/Transitions.js";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
+import { css } from 'styled-components';
+import { Container } from 'shared/styled-components/Layouts.js';
+import { fadeIn, cascadeText, } from "shared/styled-components/Transitions.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js"
 
 export const SlideContainerStyled = css`
   ${Container}
@@ -23,6 +23,7 @@ export const SlideContainerStyled = css`
     width: 55vw;
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
 
   p {
@@ -32,7 +33,7 @@ export const SlideContainerStyled = css`
     margin: 0;
     max-width: calc(100vw - 80px);
     opacity: 0;
-    animation: ${fadeIn} 0.5s ease-in-out 1s forwards;
+    animation: ${fadeIn} 0.5s ease-in-out 0.75s forwards;
     will-change: opacity;
   }
 `
@@ -205,34 +206,6 @@ export const ImageContainerStyled = css`
   width: 30vw;
   max-width: 30vw;
   margin: ${props => props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw"};
-
-  img:nth-child(1) {
-    position: relative;
-    z-index: 140;
-    opacity: 0;
-    animation: ${slideOne} 10s ease-in-out 0.5s infinite; 
-  }
-
-  img:nth-child(2) {
-    position: absolute;
-    z-index: 130;
-    opacity: 0;
-    animation: ${slideTwo} 10s ease-in-out 0.5s infinite ;  
-  }
-
-  img:nth-child(3) {
-    position: absolute;
-    z-index: 120;
-    opacity: 0;
-    animation: ${slideThree} 10s ease-in-out 0.5s infinite ;  
-  }
-
-  img:nth-child(4) {
-    position: absolute;
-    z-index: 110;
-    opacity: 0;
-    animation: ${slideFour} 10s ease-in-out 0.5s infinite ;  
-  }
 `
 
 // export const ImageMaskStyled = css`
@@ -245,3 +218,4 @@ export const ImageContainerStyled = css`
 //   will-change: transform;
 // }
 // `
+

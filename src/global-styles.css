@@ -1,3 +1,74 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3813776, 2019-09-30T17:44:55-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: HelveticaNeueLTStd-UltLt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-25-ultra-light-189171/
+ * Licensed pageviews: 500,000
+ * 
+ * Webfont: HelveticaNeueLTStd-Lt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-45-light-189171/
+ * Licensed pageviews: 250,000
+ * 
+ * Webfont: HelveticaNeueLTStd-LtIt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-46-light-italic-189171/
+ * Licensed pageviews: 750,000
+ * 
+ * Webfont: HelveticaNeueLTStd-Roman by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-55-roman-189171/
+ * Licensed pageviews: 750,000
+ * 
+ * Webfont: HelveticaNeueLTStd-It by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-56-italic-189171/
+ * Licensed pageviews: 750,000
+ * 
+ * Webfont: HelveticaNeueLTStd-Md by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-65-medium-189171/
+ * Licensed pageviews: 250,000
+ * 
+ * Webfont: HelveticaNeueLTStd-MdIt by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-helvetica/pro-66-medium-italic-189171/
+ * Licensed pageviews: 250,000
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3813776
+ * Webfonts copyright: Copyright &#x00A9; 2014 Monotype Imaging Inc. All rights reserved.
+ * 
+ * © 2019 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3a3190");
+
+  
+@font-face {font-family: 'HelveticaNeueLTStd-UltLt';src: url('././fonts/3A3190_0_0.eot');src: url('././fonts/3A3190_0_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_0_0.woff2') format('woff2'),url('././fonts/3A3190_0_0.woff') format('woff'),url('././fonts/3A3190_0_0.ttf') format('truetype'),url('././fonts/3A3190_0_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Lt';src: url('././fonts/3A3190_1_0.eot');src: url('././fonts/3A3190_1_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_1_0.woff2') format('woff2'),url('././fonts/3A3190_1_0.woff') format('woff'),url('././fonts/3A3190_1_0.ttf') format('truetype'),url('././fonts/3A3190_1_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-LtIt';src: url('././fonts/3A3190_2_0.eot');src: url('././fonts/3A3190_2_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_2_0.woff2') format('woff2'),url('././fonts/3A3190_2_0.woff') format('woff'),url('././fonts/3A3190_2_0.ttf') format('truetype'),url('././fonts/3A3190_2_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Roman';src: url('././fonts/3A3190_3_0.eot');src: url('././fonts/3A3190_3_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_3_0.woff2') format('woff2'),url('././fonts/3A3190_3_0.woff') format('woff'),url('././fonts/3A3190_3_0.ttf') format('truetype'),url('././fonts/3A3190_3_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-It';src: url('././fonts/3A3190_4_0.eot');src: url('././fonts/3A3190_4_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_4_0.woff2') format('woff2'),url('././fonts/3A3190_4_0.woff') format('woff'),url('././fonts/3A3190_4_0.ttf') format('truetype'),url('././fonts/3A3190_4_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Md';src: url('././fonts/3A3190_5_0.eot');src: url('././fonts/3A3190_5_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_5_0.woff2') format('woff2'),url('././fonts/3A3190_5_0.woff') format('woff'),url('././fonts/3A3190_5_0.ttf') format('truetype'),url('././fonts/3A3190_5_0.svg#wf') format('svg');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-MdIt';src: url('././fonts/3A3190_6_0.eot');src: url('././fonts/3A3190_6_0.eot?#iefix') format('embedded-opentype'),url('././fonts/3A3190_6_0.woff2') format('woff2'),url('././fonts/3A3190_6_0.woff') format('woff'),url('././fonts/3A3190_6_0.ttf') format('truetype'),url('././fonts/3A3190_6_0.svg#wf') format('svg');}
+ 
+/* 
 
 @font-face {
   font-family: 'HelveticaNeueLT-UltraLight';
@@ -51,7 +122,7 @@
        url('././fonts/2F1EBB_0_0.woff') format('woff'),
        url('././fonts/2F1EBB_0_0.ttf') format('truetype'),
        url('././fonts/2F1EBB_0_0.svg#wf') format('svg');
-}
+} */
 
 @font-face {
 	font-family: 'Austin-Roman';
