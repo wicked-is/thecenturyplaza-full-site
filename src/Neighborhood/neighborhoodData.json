@@ -4,6 +4,7 @@
       12,
       12
     ],
+    "valign": "flex-start",
     "source": [
       "century-city-sunset"
     ],
@@ -18,6 +19,7 @@
       10,
       3
     ],
+    "valign": "flex-start",
     "source": [
       ""
     ],
@@ -32,6 +34,7 @@
       10,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "walt-disney-concert-hall"
     ],
@@ -46,6 +49,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "lacma-smoke",
       "lacma-levitated-mass"
@@ -61,6 +65,7 @@
       10,
       7
     ],
+    "valign": "flex-start",
     "source": [
       "santa-monica-state-park"
     ],
@@ -75,6 +80,7 @@
       10,
       10
     ],
+    "valign": "flex-start",
     "source": [
       "bottega-veneta-melrose"
     ],
@@ -89,6 +95,7 @@
       10,
       3
     ],
+    "valign": "center",
     "source": [
       ""
     ],
@@ -101,8 +108,9 @@
   {
     "span": [
       10,
-      76
+      6
     ],
+    "valign": "flex-start",
     "source": [
       "irene-neuwirth-melrose-one",
       "irene-neuwirth-melrose-two"
@@ -118,6 +126,7 @@
       10,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "isabel-marant-melrose"
     ],
@@ -132,6 +141,7 @@
       5,
       3
     ],
+    "valign": "flex-start",
     "source": [
       "the-row-melrose"
     ],
@@ -146,6 +156,7 @@
       10,
       10
     ],
+    "valign": "flex-start",
     "source": [
       "bijan-rodeo-drive-beverly-hills"
     ],
@@ -160,6 +171,7 @@
       10,
       3
     ],
+    "valign": "flex-start",
     "source": [
       ""
     ],
@@ -174,6 +186,7 @@
       10,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "rodeo-drive-beverly-hills"
     ],
@@ -188,6 +201,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "spago-beverly-hills-dining"
     ],
@@ -202,6 +216,7 @@
       5,
       3
     ],
+    "valign": "flex-start",
     "source": [
       "spago-beverly-hills-dish"
     ],
@@ -216,6 +231,7 @@
       10,
       7
     ],
+    "valign": "flex-start",
     "source": [
       "prada-rodeo-drive-beverly-hills",
       "gucci-rodeo-drive-beverly-hills"
@@ -231,6 +247,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "gagosian-gallery-beverly-hills"
     ],
@@ -245,6 +262,7 @@
       10,
       3
     ],
+    "valign": "center",
     "source": [
       ""
     ],
@@ -257,8 +275,9 @@
   {
     "span": [
       10,
-      5
+      4
     ],
+    "valign": "flex-start",
     "source": [
       "annenberg-center-for-the-performing-arts"
     ],
@@ -273,6 +292,7 @@
       10,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "craft-los-angeles"
     ],
@@ -287,6 +307,7 @@
       5,
       3
     ],
+    "valign": "flex-start",
     "source": [
       "hinoki-and-the-bird-century-city"
     ],
@@ -301,6 +322,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "tennis-club",
       "country-club-with-golf-course"
@@ -316,6 +338,7 @@
       10,
       3
     ],
+    "valign": "center",
     "source": [
       ""
     ],
@@ -330,6 +353,7 @@
       10,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "annenberg-space-for-photography"
     ],
@@ -344,6 +368,7 @@
       10,
       10
     ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-entrance"
     ],
@@ -358,6 +383,7 @@
       10,
       3
     ],
+    "valign": "flex-start",
     "source": [
       ""
     ],
@@ -372,6 +398,7 @@
       5,
       5
     ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-randys-donuts"
     ],
@@ -386,20 +413,7 @@
       10,
       6
     ],
-    "source": [
-      "westfield-century-city-mall-aritzia"
-    ],
-    "caption": "",
-    "headline": "",
-    "copy": "",
-    "cta": "",
-    "url": ""
-  },
-  {
-    "span": [
-      10,
-      6
-    ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-aritzia"
     ],
@@ -414,6 +428,7 @@
       5,
       3
     ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-macys"
     ],
@@ -428,6 +443,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-eataly",
       "westfield-century-city-mall-ted-baker"
@@ -443,6 +459,7 @@
       10,
       6
     ],
+    "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-apple-store"
     ],
@@ -457,6 +474,7 @@
       10,
       3
     ],
+    "valign": "flex-end",
     "source": [
       ""
     ],

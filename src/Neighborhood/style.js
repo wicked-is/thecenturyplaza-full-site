@@ -11,18 +11,19 @@ export const WrapperStyled = css`
 export const HeaderStyled = css`
   ${Container}
   width: 100%;
-  margin: 0;
+  margin: 0 0 50px;
   position: relative;
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
-    margin: 0;
+    margin: 0 0 100px;
   `}
 
   h1 {
     position: absolute;
     display: inline-block;
     width: 100%;
+    font-size: 2em;
     text-align: center;
     top: 20vh;
     left: 0;
@@ -45,26 +46,56 @@ export const ContainerStyled = css`
 export const ItemStyled = css`
   display: flex;
   flex-wrap: wrap;
+  margin: 0 0 100px;
+  height: calc(100% - 100px);
+  align-items: ${props => props.valign};
+  align-content: ${props => props.valign};
 `
 
 export const PairedStyled = css`
   display: flex;
 
   img {
-    width: 50%;
+    width: calc(50% - ${props => props.theme.mobileGutter}px);
     float: left;
-    margin-right: ${props => props.theme.desktopGutter};
+    margin-right: ${props => props.theme.mobileGutter}px;
+
+    ${mediaMin.tabletLandscape` 
+      margin-right: ${props => props.theme.desktopGutter}px;
+    `}
   }
 
 `
 
 export const ItemCaptionStyled = css`
-  font-size: 0.8em;
+  font-size: 11.5px;
+  letter-spacing: 0.5px;
+  font-family: ${props => props.theme.sansSerifItalic};
 `
 export const ItemHeadlineStyled = css`
-  font-size: 1.4em;
+  font-size: 14px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  font-family: ${props => props.theme.sansSerifMedium};
+  margin: 0 0 20px;
 `
 export const ItemCopyStyled = css`
-  font-size: 1.4em;
+  font-size: 2em;
+  letter-spacing: 1px;
+  font-family: ${props => props.theme.sansSerifLight};
+  margin: 0;
+`
+export const ItemCTAStyled = css`
+   font-size: 14px;
+  letter-spacing: 0.65px;
+  font-family: ${props => props.theme.sansSerifMedium};
+  margin: 40px 0 0 0;
+  
+  a {
+    color: ${props => props.theme.gray};
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 `

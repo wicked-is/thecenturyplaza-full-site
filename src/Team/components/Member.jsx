@@ -20,9 +20,13 @@ const Member = props => {
         </TeamAside>
       </Grid.Unit>
       <Grid.Unit size={{ phone: 1, tabletLandscape: 8 / 12 }}>
-        {member.images.map((image, index) => (
-          <ResponsiveImage key={index} srcPath={image.source} />
-        ))}
+        <Grid>
+          {member.images.map((image, index) => (
+            <Grid.Unit key={index} size={{ phone: image.span[0] / 10, tabletLandscape: image.span[1] / 6 }}>
+              <ResponsiveImage key={index} srcPath={image.source} />
+            </Grid.Unit>
+          ))}
+        </Grid>
       </Grid.Unit>
     </Grid>
   );
