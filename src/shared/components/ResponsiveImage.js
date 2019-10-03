@@ -30,6 +30,8 @@ const ResponsiveImage = ({
 
   const srcSet = Object.entries(srcSetPaths).map(([name, path]) => `${path} ${name}`).join(', ');
 
+  console.log(srcSet)
+
   return (
     <ResponsiveImg
       src={defaultPath}
