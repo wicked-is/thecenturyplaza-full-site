@@ -7,6 +7,7 @@ import {
   PageBody,
   PageHeader,
   PageFooter
+<<<<<<< HEAD
 } from "shared/styled-components/Typography.js";
 import Header from "shared/components/Header.jsx";
 import Footer from "shared/components/Footer.jsx";
@@ -24,6 +25,25 @@ import Gallery from "Gallery";
 import galleryData from "Gallery/galleryData.json";
 import Legal from "Legal";
 import Accessibility from "Accessibility";
+=======
+} from 'shared/styled-components/Typography.js';
+import Header from 'shared/components/Header.jsx';
+import Footer from 'shared/components/Footer.jsx';
+import Primary from 'Primary';
+import primaryData from 'Primary/primaryData.json';
+import SecondaryMenu from 'shared/components/SecondaryMenu.jsx';
+import Neighborhood from 'Neighborhood';
+import neighborhoodData from 'Neighborhood/neighborhoodData.json';
+import Team from 'Team';
+import Contact from 'Contact';
+import teamData from 'Team/teamData.json';
+import Press from 'Press';
+import pressData from 'Press/pressData.json';
+import Gallery from 'Gallery';
+import galleryData from 'Gallery/galleryData.json';
+import Legal from 'Legal';
+import Accessibility from 'Accessibility';
+>>>>>>> adds contact form for desktop
 // import pressData from "Legal/pressData.json";
 
 const theme = {
@@ -151,6 +171,7 @@ class App extends Component {
                   path="continue"
                 />
                 <Legal path="legal" setPageColor={this.setPageColor} />
+                <Contact path="contact" setPageColor={this.setPageColor} />
                 <Accessibility
                   path="accessibility"
                   setPageColor={this.setPageColor}
