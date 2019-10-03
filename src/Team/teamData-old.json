@@ -77,22 +77,22 @@
       {
         "source": "the-savoy-london",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "fairmont-san-francisco-exterior",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "fairmont-san-francisco-penthouse",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
@@ -105,22 +105,22 @@
       {
         "source": "chateau-frontenac-quebec",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "pacific-rim-vancouver-exterior",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "pacific-rim-vancouver-suite",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       }
     ]
@@ -140,15 +140,15 @@
       {
         "source": "bank-of-china-hong-kong",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "torre-espacio-madrid",
         "span": [
-          4,
-          2
+          10,
+          6
         ]
       },
       {
@@ -161,29 +161,29 @@
       {
         "source": "us-bank-tower-los-angeles",
         "span": [
-          4,
-          2
+          10,
+          6
         ]
       },
       {
         "source": "7-bryant-park-new-york",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "fountain-place-dallas",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "first-international-bank-of-israel-tel-aviv",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       }
     ]
@@ -203,15 +203,15 @@
       {
         "source": "park-hyatt-new-york-pool",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "four-seasons-new-york-suite",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
@@ -224,29 +224,29 @@
       {
         "source": "parkland-toronto-lounge",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "parkland-toronto-master-bath",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "waldorf-astoria-beijing-dining",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "waldorf-astoria-beijing-stair",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       }
     ]
@@ -266,22 +266,22 @@
       {
         "source": "neutra-kaufmann-house-palm-springs-living",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "summitridge-beverly-hills-pool",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "summitridge-beverly-hills-entrance",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
@@ -294,22 +294,22 @@
       {
         "source": "palm-springs-art-museum",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "ward-los-angeles",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "the-accelerated-school-los-angeles",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       }
     ]
@@ -329,15 +329,15 @@
       {
         "source": "shanghai-tower-china",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "ritz-carlton-jw-marriott-lalive-los-angeles",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
@@ -350,22 +350,22 @@
       {
         "source": "the-tower-pnc-plaza-pittsburgh",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "jackson-hole-airport-terminal-wyoming",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "hyundai-card-air-lounge-south-korea",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
@@ -392,22 +392,22 @@
       {
         "source": "the-carlyle-westwood-pool",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "americana-at-brand-california-pool",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "americana-at-brand-california-retail",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
@@ -420,15 +420,15 @@
       {
         "source": "usc-village-los-angeles",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "the-vermont-los-angeles",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
@@ -455,15 +455,15 @@
       {
         "source": "private-residence-two",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "private-residence-three",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
@@ -476,29 +476,29 @@
       {
         "source": "private-residence-five",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "private-residence-six",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "grand-park-los-angeles",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "private-residence-seven",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       }
     ]
@@ -518,22 +518,22 @@
       {
         "source": "jaume-plensa-crown-fountain-chicago",
         "span": [
-          5,
-          3
+          10,
+          6
         ]
       },
       {
         "source": "jaume-plensa-poets-in-bordeaux-france",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "jaume-plensa-awilda-and-laura-palm-springs",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
@@ -546,15 +546,15 @@
       {
         "source": "jaume-plensa-house-of-knowledge-bordeaux-france",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {
         "source": "jaume-plensa-lou-olivia-duna",
         "span": [
-          6,
-          4
+          10,
+          6
         ]
       },
       {

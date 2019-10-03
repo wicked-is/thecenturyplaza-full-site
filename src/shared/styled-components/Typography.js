@@ -15,7 +15,7 @@ export const PageBody = css`
   position: relative;
 
   a {
-    color: ${props => props.theme.black};
+    ${'' /* color: ${props => props.theme.black}; */}
     text-decoration: none;
   }
 `
