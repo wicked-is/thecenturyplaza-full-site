@@ -9,7 +9,7 @@ export const ContainerStyled = css`
   margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
-    width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
+    width: ${props => parseFloat(props.theme.desktopColumn) * 4}vw;
     margin: 40px 0 0;
   `}
 

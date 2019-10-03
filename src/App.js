@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
-import { PageBody } from "shared/styled-components/Typography.js"
+import { PageBody, PageHeader, PageFooter } from "shared/styled-components/Typography.js"
 import Header from "shared/components/Header.jsx";
+import Footer from "shared/components/Footer.jsx";
 import Primary from "Primary";
 import primaryData from "Primary/primaryData.json";
 import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
@@ -14,7 +15,9 @@ import Press from "Press";
 import pressData from "Press/pressData.json";
 import Gallery from "Gallery";
 import galleryData from "Gallery/galleryData.json";
-
+import Legal from "Legal";
+import Accessibility from "Accessibility";
+// import pressData from "Legal/pressData.json";
 
 const theme = {
   breakpoints: {
@@ -32,14 +35,14 @@ const theme = {
   grayLight: "#E7E7E7",
   gray: "#B4BAC1",
   white: "#FFFFFF",
-  sansSerifThin: "HelveticaNeueLT-Thin",
-  sansSerifThinItalic: "HelveticaNeueLT-ThinItalic",
-  sansSerifLight: "HelveticaNeueLT-Light",
-  sansSerifLightItalic: "HelveticaNeueLT-LightItalic",
-  sansSerifRegular: "HelveticaNeueLT-Light",
-  sansSerifItalic: "HelveticaNeueLT-LightItalic",
-  sansSerifMedium: "HelveticaNeueLT-Light",
-  sansSerifMediumItalic: "HelveticaNeueLT-LightItalic",
+  sansSerifThin: "HelveticaNeueLTStd-UltLt",
+  sansSerifThinItalic: "HHelveticaNeueLTStd-UltLt",
+  sansSerifLight: "HelveticaNeueLTStd-Lt",
+  sansSerifLightItalic: "HelveticaNeueLTStd-LtIt",
+  sansSerifRegular: "HelveticaNeueLTStd-Roman",
+  sansSerifItalic: "'HelveticaNeueLTStd-It",
+  sansSerifMedium: "HelveticaNeueLTStd-Md",
+  sansSerifMediumItalic: "HelveticaNeueLTStd-MdIt",
   serifLight: "Austin-Roman",
   serifMedium: "Austin-Medium",
   serifBold: "Austin-Bold",
@@ -52,19 +55,21 @@ const theme = {
   desktopGutter: "20"
 };
 
-const AppPageBody = styled.div`${PageBody};`;
+const AppBody = styled.div`${PageBody};`;
+const AppHeader = styled.div`${PageHeader};`;
+const AppFooter = styled.div`${PageFooter};`;
 
 class App extends Component {
   state = {
     isExpanded: false,
-    PageColor: theme.white,
+    pageColor: theme.white,
     scrollPath: null
   };
 
   // setScrollPath = path =>
 
   setPageColor = color => {
-    this.setState(state => ({ PageColor: color }));
+    this.setState(state => ({ pageColor: color }));
   }
 
   toggleExpand = () => {
@@ -80,8 +85,10 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <AppPageBody PageColor={this.state.PageColor}>
-          <Header primaryData={primaryData} isExpanded={this.state.isExpanded} />
+        <AppBody pageColor={this.state.pageColor}>
+          <AppHeader pageColor={this.state.pageColor}>
+            <Header primaryData={primaryData} isExpanded={this.state.isExpanded} pageColor={this.state.pageColor} />
+          </AppHeader>
           <main>
             <Router primary={false}>
               <Primary primaryData={primaryData} path="/" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} scrollPath={this.state.scrollPath}>
@@ -105,9 +112,14 @@ class App extends Component {
               <Press pressData={pressData} path="press" setPageColor={this.setPageColor} />
               <Gallery galleryData={galleryData} path="gallery" setPageColor={this.setPageColor} />
               <SecondaryMenu setPageColor={this.setPageColor} path="continue" />
+              <Legal path="legal" setPageColor={this.setPageColor} />
+              <Accessibility path="accessibility" setPageColor={this.setPageColor} />
             </Router>
           </main>
-        </AppPageBody>
+          <AppFooter pageColor={this.state.pageColor} >
+            <Footer />
+          </AppFooter>
+        </AppBody>
       </ThemeProvider>
     );
   }

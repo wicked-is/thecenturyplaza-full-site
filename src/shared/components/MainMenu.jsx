@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
+import Footer from "shared/components/Footer.jsx";
 import hamburgerBlackPNG from "icons/hamburger-black.png";
 import hamburgerBlackSVG from "icons/hamburger-black.svg";
 import hamburgerGrayPNG from "icons/hamburger-gray.png";
@@ -196,7 +197,7 @@ const DownloadsLinks = styled.ul`
 `
 
 const MainMenu = props => {
-  const { isExpanded, primaryData } = props;
+  const { isExpanded, primaryData, pageColor, setPageColor } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -255,6 +256,7 @@ const MainMenu = props => {
             </li>
           </DownloadsLinks>
         </LinksContainer>
+        <Footer pageColor={pageColor} setPageColor={setPageColor} />
       </MainMenuContainer>
       <MainMenuOpen isExpanded={isExpanded} onClick={() => setIsOpen(true)}>
         Open Main Menu

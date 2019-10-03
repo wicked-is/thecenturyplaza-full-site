@@ -4,8 +4,8 @@ import { fadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
 
 export const Wrapper = css`
-  height: auto;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  min-height: calc(100vh - 160px);
   margin: 0 ${props => props.theme.mobileMargin}px 0;
   padding: ${props => props.theme.headerHeight}px 0 0;
   display: flex;
@@ -23,7 +23,7 @@ export const Wrapper = css`
 
 export const ViewportWrapper = css`
   ${Wrapper}
-  height: calc(100vh - ${props => props.theme.headerHeight}px);
+  height: calc(100vh - ${props => props.theme.headerHeight}px - ${props => props.theme.headerHeight}px);
 `
 
 export const Container = css`

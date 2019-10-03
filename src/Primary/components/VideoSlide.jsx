@@ -5,10 +5,8 @@ import { SlideContainerStyled, PlayerContainerStyled, FullScreenStyled, PlaceHol
 import parse from "html-react-parser";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-
 import ResponsiveImage from "shared/components/ResponsiveImage.js"
 import ReactPlayer from 'react-player';
-
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 // Wil be refactored into global slide styled compontent
@@ -124,7 +122,7 @@ const VideoSlide = props => {
         <PlayerContainer isExpanded={isExpanded}>
           <FullScreen isExpanded={isExpanded}>
             <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}><ResponsiveImage srcPath={slide.placeholder} /></PlaceHolder>
-            <ReactPlayer url={slide.source} playing muted playsinline loop width="100vw" height="100vh" onStart={() => removePlaceholder(props)} style={videoElement(isExpanded)} preload="true" />
+            <ReactPlayer url={slide.source[0]} playing muted playsinline loop width="100vw" height="100vh" onStart={() => removePlaceholder(props)} style={videoElement(isExpanded)} preload="true" />
           </FullScreen>
         </PlayerContainer>
         <p>{parse(slide.caption)}</p>

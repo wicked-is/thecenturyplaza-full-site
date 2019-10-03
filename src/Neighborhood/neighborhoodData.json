@@ -164,6 +164,303 @@
       ""
     ],
     "caption": "",
+    "headline": "Your Neighborhood",
+    "copy": "The proximity to Beverly Hills, celebrated restaurants, top universities, and famed cultural icons define Century Plaza’s location in the heart of Los Angeles.",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      5
+    ],
+    "source": [
+      "rodeo-drive-beverly-hills"
+    ],
+    "caption": "Rodeo Drive, Beverly Hills",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "spago-beverly-hills-dining"
+    ],
+    "caption": "Spago, Beverly Hills",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
+      3
+    ],
+    "source": [
+      "spago-beverly-hills-dish"
+    ],
+    "caption": "Spago, Beverly Hills",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      7
+    ],
+    "source": [
+      "prada-rodeo-drive-beverly-hills",
+      "gucci-rodeo-drive-beverly-hills"
+    ],
+    "caption": "Luxury Shops on Rodeo Drive",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "gagosian-gallery-beverly-hills"
+    ],
+    "caption": "Gagosian Art Gallery",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      3
+    ],
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "Long regarded as the hub of the investment banking, entertainment, and travel industries, Century City now boasts shops, restaurants, and cultural venues that are among the hottest destinations in all of Los Angeles.",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      5
+    ],
+    "source": [
+      "annenberg-center-for-the-performing-arts"
+    ],
+    "caption": "Annenberg Center for the Performing Arts",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      5
+    ],
+    "source": [
+      "craft-los-angeles"
+    ],
+    "caption": "Craft",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
+      3
+    ],
+    "source": [
+      "hinoki-and-the-bird-century-city"
+    ],
+    "caption": "Hinoki and the Bird",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "tennis-club",
+      "country-club-with-golf-course"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      3
+    ],
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "By distilling city living to its luxurious essence, the neighborhood has reshaped the entire fabric of the Westside.",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      5
+    ],
+    "source": [
+      "annenberg-space-for-photography"
+    ],
+    "caption": "The Annenberg Space for Photography",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      10
+    ],
+    "source": [
+      "westfield-century-city-mall-entrance"
+    ],
+    "caption": "Westfield Century City Mall, North Entrance",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      3
+    ],
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "Westfield Century City",
+    "copy": "Across the street, Westfield Century City redefines the retail experience, creating a destination for more than just consumption.",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
+      5
+    ],
+    "source": [
+      "westfield-century-city-mall-randys-donuts"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "westfield-century-city-mall-aritzia"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "westfield-century-city-mall-aritzia"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
+      3
+    ],
+    "source": [
+      "westfield-century-city-mall-macys"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "westfield-century-city-mall-eataly",
+      "westfield-century-city-mall-ted-baker"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      6
+    ],
+    "source": [
+      "westfield-century-city-mall-apple-store"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      10,
+      3
+    ],
+    "source": [
+      ""
+    ],
+    "caption": "",
     "headline": "",
     "copy": "Amongst some of the finest retailers, Westfield Century City includes an outdoor dining district, walkable plazas, tree-lined paths, an entertaining space, and shelters to relax on a sunny day.",
     "cta": "Visit the Westfield Century City Mall Website",
