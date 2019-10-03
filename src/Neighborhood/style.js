@@ -11,12 +11,11 @@ export const WrapperStyled = css`
 export const HeaderStyled = css`
   ${Container}
   width: 100%;
-  margin: 0 0 50px;
+  margin: 0 0 9vw;
   position: relative;
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
-    margin: 0 0 100px;
   `}
 
   h1 {
@@ -46,8 +45,8 @@ export const ContainerStyled = css`
 export const ItemStyled = css`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 0 100px;
-  height: calc(100% - 100px);
+  margin: 0 0 9vw;
+  height: calc(100% - 9vw);
   align-items: ${props => props.valign};
   align-content: ${props => props.valign};
 `

@@ -12,6 +12,13 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "fairmont-san-francisco-lobby",
         "span": [
           6,
@@ -26,10 +33,31 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "ritz-carlton-kapalua-ocean",
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -44,6 +72,13 @@
         "span": [
           10,
           6
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -82,6 +117,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "fairmont-san-francisco-exterior",
         "span": [
           5,
@@ -96,10 +145,24 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "peace-hotel-shanghai",
         "span": [
           10,
           6
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -114,6 +177,20 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
         ]
       },
       {
@@ -145,6 +222,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          4
+        ]
+      },
+      {
         "source": "torre-espacio-madrid",
         "span": [
           4,
@@ -166,6 +257,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "7-bryant-park-new-york",
         "span": [
           5,
@@ -176,6 +281,20 @@
         "source": "fountain-place-dallas",
         "span": [
           5,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
           3
         ]
       },
@@ -208,6 +327,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "four-seasons-new-york-suite",
         "span": [
           5,
@@ -229,6 +362,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "parkland-toronto-master-bath",
         "span": [
           5,
@@ -239,6 +386,20 @@
         "source": "waldorf-astoria-beijing-dining",
         "span": [
           5,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
           3
         ]
       },
@@ -271,10 +432,31 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "summitridge-beverly-hills-pool",
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -299,6 +481,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "ward-los-angeles",
         "span": [
           6,
@@ -310,6 +506,13 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       }
     ]
@@ -334,6 +537,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "ritz-carlton-jw-marriott-lalive-los-angeles",
         "span": [
           5,
@@ -355,6 +572,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "jackson-hole-airport-terminal-wyoming",
         "span": [
           6,
@@ -365,6 +596,13 @@
         "source": "hyundai-card-air-lounge-south-korea",
         "span": [
           5,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
           3
         ]
       },
@@ -390,6 +628,13 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "the-carlyle-westwood-pool",
         "span": [
           5,
@@ -401,6 +646,20 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
         ]
       },
       {
@@ -422,6 +681,20 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -460,6 +733,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "private-residence-three",
         "span": [
           6,
@@ -481,6 +768,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
         "source": "private-residence-six",
         "span": [
           5,
@@ -492,6 +793,20 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -523,6 +838,20 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          3
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "jaume-plensa-poets-in-bordeaux-france",
         "span": [
           6,
@@ -537,10 +866,24 @@
         ]
       },
       {
+        "source": "",
+        "span": [
+          0,
+          2
+        ]
+      },
+      {
         "source": "jaume-plensa-awilda-and-irma-tennessee",
         "span": [
           10,
           6
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {
@@ -555,6 +898,13 @@
         "span": [
           6,
           4
+        ]
+      },
+      {
+        "source": "",
+        "span": [
+          0,
+          2
         ]
       },
       {

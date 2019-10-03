@@ -42,3 +42,7 @@ export const MenuStyled = css`
     }
   }
 `
+
+export const ItemStyled = css`
+  margin: 0 0 3.5vw;
+`

@@ -62,6 +62,36 @@
   },
   {
     "span": [
+      0,
+      4
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      0,
+      3
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
       10,
       7
     ],
@@ -228,6 +258,21 @@
   },
   {
     "span": [
+      0,
+      3
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
       10,
       7
     ],
@@ -259,6 +304,21 @@
   },
   {
     "span": [
+      0,
+      4
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
       10,
       3
     ],
@@ -275,7 +335,7 @@
   {
     "span": [
       10,
-      4
+      5
     ],
     "valign": "flex-start",
     "source": [
@@ -304,6 +364,21 @@
   },
   {
     "span": [
+      0,
+      1
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
       5,
       3
     ],
@@ -312,6 +387,21 @@
       "hinoki-and-the-bird-century-city"
     ],
     "caption": "Hinoki and the Bird",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      0,
+      1
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
     "headline": "",
     "copy": "",
     "cta": "",
@@ -345,6 +435,21 @@
     "caption": "",
     "headline": "",
     "copy": "By distilling city living to its luxurious essence, the neighborhood has reshaped the entire fabric of the Westside.",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      0,
+      5
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
     "cta": "",
     "url": ""
   },
@@ -431,6 +536,21 @@
     "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-macys"
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      0,
+      4
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
     ],
     "caption": "",
     "headline": "",
