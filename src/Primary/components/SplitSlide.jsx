@@ -1,63 +1,58 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { SlideShow } from "shared/styled-components/SlideShow.js";
-import { SplitSlideContainerStyled, TextMaskStyled, ImageContainerStyled, ImageMaskStyled } from "Primary/style.js";
-import parse from "html-react-parser";
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-// import { navigate } from "@reach/router";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import parse from 'html-react-parser';
+import { navigate } from '@reach/router';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+
+import Context from '../../config/Context';
+import { SlideShow } from 'shared/styled-components/SlideShow.js';
+import {
+  SplitSlideContainerStyled,
+  TextMaskStyled,
+  ImageContainerStyled,
+  ImageMaskStyled
+} from 'Primary/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
 // import SimpleSlider from "shared/components/SlickSlider.jsx";
 
-const SlideContainer = styled.div`${SplitSlideContainerStyled};`;
-const TextMask = styled.div`${TextMaskStyled};`;
-const ImageContainer = styled.div`${ImageContainerStyled};`;
-const ImageSlideShow = styled.div`${SlideShow};`;
+const SlideContainer = styled.div`
+  ${SplitSlideContainerStyled};
+`;
+const TextMask = styled.div`
+  ${TextMaskStyled};
+`;
+const ImageContainer = styled.div`
+  ${ImageContainerStyled};
+`;
+const ImageSlideShow = styled.div`
+  ${SlideShow};
+`;
 // const ImageMask = styled.div`${ImageMaskStyled};`;
 
-const SplitSlide = props => {
-  const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
-
-  //   useEffect(() => {
-  //     .preventDefault();
-  // }, []);
-
-  // var settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1
-  // }
+const SplitSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  toggleExpand,
+  closeExpand
+}) => {
+  const context = useContext(Context);
+  const { pauseScroll, scrollCooldown } = context;
 
   return (
     <ReactScrollWheelHandler
-      // pauseListeners={true}
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        // closeExpand();
-        // if (props.location === previousPath) {
-        //   // console.log("where you going");
-        //   // navigate(previousPath);
-        // } else {
-        //   // console.log(props.location);
-        //   // navigate(previousPath);
-        // }
-        // navigate(previousPath);
+        closeExpand();
+        navigate(previousPath);
+        scrollCooldown();
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        // closeExpand();
-        // if (props.location === nextPath) {
-        //   console.log("where you going");
-        //   // navigate(nextPath);
-        // } else {
-        //   console.log(props.location);
-        //   console.log(nextPath);
-        //   // navigate(nextPath);
-        // }
-        // navigate(nextPath);
+        closeExpand();
+        navigate(nextPath);
+        scrollCooldown();
       }}
     >
       <SlideContainer isInverted={slide.inverted}>
@@ -66,16 +61,20 @@ const SplitSlide = props => {
         <ImageContainer>
           {/* <ImageMask isInverted={slide.inverted} /> */}
           {slide.source.length > 1 ? (
-            <ImageSlideShow > {
-              slide.source.map((source, index) => (
+            <ImageSlideShow>
+              {' '}
+              {slide.source.map((source, index) => (
                 <ResponsiveImage key={index} srcPath={source} />
-              ))
-            } </ImageSlideShow>
+              ))}{' '}
+            </ImageSlideShow>
           ) : (
-              <ResponsiveImage srcPath={slide.source[0]} />
-            )}
+            <ResponsiveImage srcPath={slide.source[0]} />
+          )}
         </ImageContainer>
-        <h2><TextMask />{parse(slide.headline)}</h2>
+        <h2>
+          <TextMask />
+          {parse(slide.headline)}
+        </h2>
         {slide.caption.length > 0 && <p>{parse(slide.caption)}</p>}
       </SlideContainer>
     </ReactScrollWheelHandler>

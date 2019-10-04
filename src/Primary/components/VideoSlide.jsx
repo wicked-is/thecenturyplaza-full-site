@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { navigate, Location } from "@reach/router";
-import styled from "styled-components";
+import React, { useState, useEffect, useContext } from 'react';
+import { navigate, Location } from '@reach/router';
+import styled from 'styled-components';
+import ReactPlayer from 'react-player';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import parse from 'html-react-parser';
+
+import Context from 'config/Context';
 import {
   SlideContainerStyled,
   PlayerContainerStyled,
   FullScreenStyled,
   PlaceHolderStyled
-} from "Primary/style.js";
-import parse from "html-react-parser";
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import ReactPlayer from "react-player";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+} from 'Primary/style.js';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
+import ScrollController from 'shared/components/ScrollController';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
 
 // Wil be refactored into global slide styled compontent
 // const VideoSlideContainer = styled.article`
@@ -51,28 +54,30 @@ const PlaceHolder = styled.div`
 `;
 
 const videoElement = isExpanded => ({
-  width: "100%",
-  height: "100%",
-  position: "absolute",
-  transition: isExpanded ? "0" : "top 0.5s linear, left 0.5s linear",
-  top: isExpanded ? "0" : "-80px",
-  left: isExpanded ? "0" : "-40px",
-  background: "transparent"
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  transition: isExpanded ? '0' : 'top 0.5s linear, left 0.5s linear',
+  top: isExpanded ? '0' : '-80px',
+  left: isExpanded ? '0' : '-40px',
+  background: 'transparent'
 });
 
-const VideoSlide = props => {
-  const {
-    slide,
-    nextPath,
-    previousPath,
-    isExpanded,
-    isFirstSection,
-    isFirstLoad,
-    toggleExpand,
-    closeExpand
-  } = props;
+const VideoSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  isExpanded,
+  isFirstSection,
+  isFirstLoad,
+  toggleExpand,
+  closeExpand
+}) => {
+  const context = useContext(Context);
+  const { pauseScroll, scrollCooldown } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
+
   const removePlaceholder = () => {
     startTimer();
     setTimeout(() => {
@@ -81,11 +86,11 @@ const VideoSlide = props => {
   };
 
   const startTimer = () => {
-    slide.delay.length > 0 &&
-      setTimeout(() => {
-        console.log("hey");
-        closeExpand();
-      }, slide.delay);
+    closeExpand();
+    // slide.delay.length > 0 &&
+    //   setTimeout(() => {
+    //     closeExpand();
+    //   }, slide.delay);
   };
 
   useEffect(() => {
@@ -94,42 +99,19 @@ const VideoSlide = props => {
     }
   }, [isFirstSection, isFirstLoad, toggleExpand]);
 
-  // const advancePath = () => {
-  //   <Match path={curre}>
-  //     {props => (
-  //       // props.match.uri === "/somewhere/deep"
-  //       <div>{props.match.uri}</div>
-  //     )}
-  //   </Match>
-  // }
-
   return (
     <ReactScrollWheelHandler
-      // pauseListeners={true}
+      id="test"
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        // closeExpand();
-        // if (props.location === previousPath) {
-        //   // console.log("where you going");
-        //   // navigate(previousPath);
-        // } else {
-        //   // console.log(props.location);
-        //   // navigate(previousPath);
-        // }
-        // navigate(previousPath);
+        closeExpand();
+        navigate(previousPath);
+        scrollCooldown();
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        // closeExpand();
-        // if (props.location === nextPath) {
-        //   console.log("where you going");
-        //   // navigate(nextPath);
-        // } else {
-        //   console.log(props.location);
-        //   console.log(nextPath);
-        //   // navigate(nextPath);
-        // }
-        // navigate(nextPath);
+        closeExpand();
+        navigate(nextPath);
+        scrollCooldown();
       }}
     >
       <SlideContainer isExpanded={isExpanded}>
@@ -141,6 +123,12 @@ const VideoSlide = props => {
         />
         <SlideForward
           nextPath={nextPath}
+          isExpanded={isExpanded}
+          closeExpand={closeExpand}
+        />
+        <ScrollController
+          nextPath={nextPath}
+          previousPath={previousPath}
           isExpanded={isExpanded}
           closeExpand={closeExpand}
         />
@@ -157,7 +145,7 @@ const VideoSlide = props => {
               loop
               width="100vw"
               height="100vh"
-              onStart={() => removePlaceholder(props)}
+              onStart={removePlaceholder}
               style={videoElement(isExpanded)}
               preload="true"
             />

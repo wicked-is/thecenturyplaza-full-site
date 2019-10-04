@@ -1,46 +1,45 @@
-import React from "react";
-import styled from "styled-components";
-import { SlideContainerStyled, ImageFullStyled } from "Primary/style.js";
-import parse from "html-react-parser";
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-// import { navigate } from "@reach/router";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import parse from 'html-react-parser';
+import { navigate } from '@reach/router';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
 
-const SlideContainer = styled.div`${SlideContainerStyled};`;
-const ImageFull = styled.div`${ImageFullStyled};`;
+import Context from '../../config/Context';
+import { SlideContainerStyled, ImageFullStyled } from 'Primary/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
 
-const ImageSlide = props => {
-  const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
+const ImageFull = styled.div`
+  ${ImageFullStyled};
+`;
+
+const ImageSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  toggleExpand,
+  closeExpand,
+  location
+}) => {
+  const context = useContext(Context);
+  const { pauseScroll, scrollCooldown } = context;
 
   return (
     <ReactScrollWheelHandler
-      // pauseListeners={true}
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        // closeExpand();
-        // if (props.location === previousPath) {
-        //   // console.log("where you going");
-        //   // navigate(previousPath);
-        // } else {
-        //   // console.log(props.location);
-        //   // navigate(previousPath);
-        // }
-        // navigate(previousPath);
+        closeExpand();
+        navigate(previousPath);
+        scrollCooldown();
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        // closeExpand();
-        // if (props.location === nextPath) {
-        //   console.log("where you going");
-        //   // navigate(nextPath);
-        // } else {
-        //   console.log(props.location);
-        //   console.log(nextPath);
-        //   // navigate(nextPath);
-        // }
-        // navigate(nextPath);
+        closeExpand();
+        navigate(nextPath);
+        scrollCooldown();
       }}
     >
       <SlideContainer>
