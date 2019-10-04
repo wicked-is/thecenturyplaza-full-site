@@ -1,7 +1,5 @@
-import styled, { css } from 'styled-components';
-import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
-
-console.log('balls');
+import styled, { css } from "styled-components";
+import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
@@ -14,7 +12,7 @@ export const PageBody = css`
   position: relative;
 
   a {
-    ${'' /* color: ${props => props.theme.black}; */}
+    ${"" /* color: ${props => props.theme.black}; */}
     text-decoration: none;
   }
 `;

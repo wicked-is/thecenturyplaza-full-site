@@ -201,7 +201,10 @@ const MainMenu = props => {
             <li>Downloads</li>
             <li>
               <a
-                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                href={
+                  process.env.PUBLIC_URL +
+                  "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
+                }
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -210,7 +213,10 @@ const MainMenu = props => {
             </li>
             <li>
               <a
-                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                href={
+                  process.env.PUBLIC_URL +
+                  "/downloads/Fairmont-Century-Plaza-Residences.pdf"
+                }
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -219,7 +225,10 @@ const MainMenu = props => {
             </li>
             <li>
               <a
-                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                href={
+                  process.env.PUBLIC_URL +
+                  "/downloads/Century-Plaza_Tower-Residences.pdf"
+                }
                 target="_blank"
                 rel="noopener noreferrer"
               >

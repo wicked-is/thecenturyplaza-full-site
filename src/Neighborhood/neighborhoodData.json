@@ -1,28 +1,18 @@
 [
   {
-    "span": [
-      12,
-      12
-    ],
+    "span": [12, 12],
     "valign": "flex-start",
-    "source": [
-      "century-city-sunset"
-    ],
+    "source": ["century-city-sunset"],
     "caption": "",
-    "headline": "In The Heart of Los Angeles",
+    "headline": "",
     "copy": "",
     "cta": "",
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "Greater Los Angeles",
     "copy": "Los Angeles’ most celebrated project takes center stage. Located in the heart of the city, Century Plaza provides ease of access to LA’s most coveted destinations.",
@@ -30,14 +20,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "walt-disney-concert-hall"
-    ],
+    "source": ["walt-disney-concert-hall"],
     "caption": "Walt Disney Concert Hall",
     "headline": "",
     "copy": "",
@@ -45,15 +30,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "lacma-smoke",
-      "lacma-levitated-mass"
-    ],
+    "source": ["lacma-smoke", "lacma-levitated-mass"],
     "caption": "Los Angeles County Museum of Art (LACMA)",
     "headline": "",
     "copy": "",
@@ -61,14 +40,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      4
-    ],
+    "span": [0, 4],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -76,14 +50,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      3
-    ],
+    "span": [0, 3],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -91,14 +60,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      7
-    ],
+    "span": [10, 7],
     "valign": "flex-start",
-    "source": [
-      "santa-monica-state-park"
-    ],
+    "source": ["santa-monica-state-park"],
     "caption": "Santa Monica State Park and Pier",
     "headline": "",
     "copy": "",
@@ -106,14 +70,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      10
-    ],
+    "span": [10, 10],
     "valign": "flex-start",
-    "source": [
-      "bottega-veneta-melrose"
-    ],
+    "source": ["bottega-veneta-melrose"],
     "caption": "Bottega Veneta, Melrose Place",
     "headline": "",
     "copy": "",
@@ -121,14 +80,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "center",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "World renowned shopping is just moments away on Melrose Place and Rodeo Drive.",
@@ -136,15 +90,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "irene-neuwirth-melrose-one",
-      "irene-neuwirth-melrose-two"
-    ],
+    "source": ["irene-neuwirth-melrose-one", "irene-neuwirth-melrose-two"],
     "caption": "Irene Neuwirth Boutique",
     "headline": "",
     "copy": "",
@@ -152,14 +100,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "isabel-marant-melrose"
-    ],
+    "source": ["isabel-marant-melrose"],
     "caption": "Isabel Marant Boutique",
     "headline": "",
     "copy": "",
@@ -167,14 +110,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      0
-    ],
+    "span": [5, 0],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -182,14 +120,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      3
-    ],
+    "span": [5, 3],
     "valign": "flex-start",
-    "source": [
-      "the-row-melrose"
-    ],
+    "source": ["the-row-melrose"],
     "caption": "The Row Boutique",
     "headline": "",
     "copy": "",
@@ -197,14 +130,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      10
-    ],
+    "span": [10, 10],
     "valign": "flex-start",
-    "source": [
-      "bijan-rodeo-drive-beverly-hills"
-    ],
+    "source": ["bijan-rodeo-drive-beverly-hills"],
     "caption": "Rodeo Drive, Beverly Hills",
     "headline": "",
     "copy": "",
@@ -212,14 +140,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "Your Neighborhood",
     "copy": "The proximity to Beverly Hills, celebrated restaurants, top universities, and famed cultural icons define Century Plaza’s location in the heart of Los Angeles.",
@@ -227,14 +150,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "rodeo-drive-beverly-hills"
-    ],
+    "source": ["rodeo-drive-beverly-hills"],
     "caption": "Rodeo Drive, Beverly Hills",
     "headline": "",
     "copy": "",
@@ -242,14 +160,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "spago-beverly-hills-dining"
-    ],
+    "source": ["spago-beverly-hills-dining"],
     "caption": "Spago, Beverly Hills",
     "headline": "",
     "copy": "",
@@ -257,14 +170,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      0
-    ],
+    "span": [5, 0],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -272,14 +180,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      3
-    ],
+    "span": [5, 3],
     "valign": "flex-start",
-    "source": [
-      "spago-beverly-hills-dish"
-    ],
+    "source": ["spago-beverly-hills-dish"],
     "caption": "Spago, Beverly Hills",
     "headline": "",
     "copy": "",
@@ -287,14 +190,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      3
-    ],
+    "span": [0, 3],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -302,10 +200,7 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      7
-    ],
+    "span": [10, 7],
     "valign": "flex-start",
     "source": [
       "prada-rodeo-drive-beverly-hills",
@@ -318,14 +213,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "gagosian-gallery-beverly-hills"
-    ],
+    "source": ["gagosian-gallery-beverly-hills"],
     "caption": "Gagosian Art Gallery",
     "headline": "",
     "copy": "",
@@ -333,14 +223,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      4
-    ],
+    "span": [0, 4],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -348,14 +233,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "center",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "Long regarded as the hub of the investment banking, entertainment, and travel industries, Century City now boasts shops, restaurants, and cultural venues that are among the hottest destinations in all of Los Angeles.",
@@ -363,14 +243,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "annenberg-center-for-the-performing-arts"
-    ],
+    "source": ["annenberg-center-for-the-performing-arts"],
     "caption": "Annenberg Center for the Performing Arts",
     "headline": "",
     "copy": "",
@@ -378,14 +253,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "craft-los-angeles"
-    ],
+    "source": ["craft-los-angeles"],
     "caption": "Craft",
     "headline": "",
     "copy": "",
@@ -393,14 +263,9 @@
     "url": ""
   },
   {
-    "span": [
-      3,
-      1
-    ],
+    "span": [3, 1],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -408,14 +273,9 @@
     "url": ""
   },
   {
-    "span": [
-      7,
-      3
-    ],
+    "span": [7, 3],
     "valign": "flex-start",
-    "source": [
-      "hinoki-and-the-bird-century-city"
-    ],
+    "source": ["hinoki-and-the-bird-century-city"],
     "caption": "Hinoki and the Bird",
     "headline": "",
     "copy": "",
@@ -423,14 +283,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      1
-    ],
+    "span": [0, 1],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -438,15 +293,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "tennis-club",
-      "country-club-with-golf-course"
-    ],
+    "source": ["tennis-club", "country-club-with-golf-course"],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -454,14 +303,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "center",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "By distilling city living to its luxurious essence, the neighborhood has reshaped the entire fabric of the Westside.",
@@ -469,14 +313,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      5
-    ],
+    "span": [0, 5],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -484,14 +323,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      5
-    ],
+    "span": [10, 5],
     "valign": "flex-start",
-    "source": [
-      "annenberg-space-for-photography"
-    ],
+    "source": ["annenberg-space-for-photography"],
     "caption": "The Annenberg Space for Photography",
     "headline": "",
     "copy": "",
@@ -499,14 +333,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      10
-    ],
+    "span": [10, 10],
     "valign": "flex-start",
-    "source": [
-      "westfield-century-city-mall-entrance"
-    ],
+    "source": ["westfield-century-city-mall-entrance"],
     "caption": "Westfield Century City Mall, North Entrance",
     "headline": "",
     "copy": "",
@@ -514,14 +343,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "Westfield Century City",
     "copy": "Across the street, Westfield Century City redefines the retail experience, creating a destination for more than just consumption.",
@@ -529,14 +353,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      5
-    ],
+    "span": [5, 5],
     "valign": "flex-start",
-    "source": [
-      "westfield-century-city-mall-randys-donuts"
-    ],
+    "source": ["westfield-century-city-mall-randys-donuts"],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -544,14 +363,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "westfield-century-city-mall-aritzia"
-    ],
+    "source": ["westfield-century-city-mall-aritzia"],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -559,14 +373,9 @@
     "url": ""
   },
   {
-    "span": [
-      5,
-      3
-    ],
+    "span": [5, 3],
     "valign": "flex-start",
-    "source": [
-      "westfield-century-city-mall-macys"
-    ],
+    "source": ["westfield-century-city-mall-macys"],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -574,14 +383,9 @@
     "url": ""
   },
   {
-    "span": [
-      0,
-      4
-    ],
+    "span": [0, 4],
     "valign": "flex-start",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -589,10 +393,7 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
     "source": [
       "westfield-century-city-mall-eataly",
@@ -605,14 +406,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      6
-    ],
+    "span": [10, 6],
     "valign": "flex-start",
-    "source": [
-      "westfield-century-city-mall-apple-store"
-    ],
+    "source": ["westfield-century-city-mall-apple-store"],
     "caption": "",
     "headline": "",
     "copy": "",
@@ -620,14 +416,9 @@
     "url": ""
   },
   {
-    "span": [
-      10,
-      3
-    ],
+    "span": [10, 3],
     "valign": "flex-end",
-    "source": [
-      ""
-    ],
+    "source": [""],
     "caption": "",
     "headline": "",
     "copy": "Amongst some of the finest retailers, Westfield Century City includes an outdoor dining district, walkable plazas, tree-lined paths, an entertaining space, and shelters to relax on a sunny day.",

@@ -1,15 +1,32 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { PageTitle } from "shared/styled-components/Typography.js";
-import { Wrapper } from 'shared/styled-components/Layouts.js';
-import { ContainerStyled, EntryStyled, PubDateStyled, PubInfoStyled } from 'Press/style.js';
+import { Wrapper } from "shared/styled-components/Layouts.js";
+import {
+  ContainerStyled,
+  EntryStyled,
+  PubDateStyled,
+  PubInfoStyled
+} from "Press/style.js";
 
-const PressWrapper = styled.div`${Wrapper};`;
-const PressContainer = styled.div`${ContainerStyled}; `;
-const PressTitle = styled.h1`${PageTitle};`;
-const PressEntry = styled.article`${EntryStyled};`;
-const PressPubDate = styled.div`${PubDateStyled};`;
-const PressPubInfo = styled.div`${PubInfoStyled};`;
+const PressWrapper = styled.div`
+  ${Wrapper};
+`;
+const PressContainer = styled.div`
+  ${ContainerStyled};
+`;
+const PressTitle = styled.h1`
+  ${PageTitle};
+`;
+const PressEntry = styled.article`
+  ${EntryStyled};
+`;
+const PressPubDate = styled.div`
+  ${PubDateStyled};
+`;
+const PressPubInfo = styled.div`
+  ${PubInfoStyled};
+`;
 
 const Press = props => {
   const { pressData, setPageColor } = props;
@@ -26,7 +43,15 @@ const Press = props => {
           <PressEntry key={index}>
             <PressPubDate>{entry.date}</PressPubDate>
             <PressPubInfo>
-              <h2><a href={entry.source} target="_blank">{entry.headline}</a></h2>
+              <h2>
+                <a
+                  href={entry.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {entry.headline}
+                </a>
+              </h2>
               <p>{entry.publication}</p>
             </PressPubInfo>
           </PressEntry>
@@ -34,6 +59,6 @@ const Press = props => {
       </PressContainer>
     </PressWrapper>
   );
-}
+};
 
 export default Press;

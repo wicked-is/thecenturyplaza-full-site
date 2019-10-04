@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, Match } from '@reach/router';
-import styled from 'styled-components';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import React from "react";
+import { Link, Match } from "@reach/router";
+import styled from "styled-components";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const ActiveMenuContainer = styled.ul`
   display: none;
@@ -10,10 +10,11 @@ const ActiveMenuContainer = styled.ul`
     width: 100%;
     height: auto;
     text-align: center;
-    margin: 0;
+    top: 18px;
+    position: absolute;
     padding: 0;
     transition: all 0.5s ease-in-out;
-    opacity: ${props => (props.isExpanded ? '0' : '1')};
+    opacity: ${props => (props.isExpanded ? "0" : "1")};
 
     li {
       display: inline-block;
@@ -39,8 +40,8 @@ const ActiveMenu = props => {
           return {
             style: {
               borderBottom: isPartiallyCurrent
-                ? '1px solid #101820'
-                : '1px solid transparent'
+                ? "1px solid #101820"
+                : "1px solid transparent"
             }
           };
         }}
@@ -69,7 +70,7 @@ const ActiveMenu = props => {
     <nav>
       <ActiveMenuContainer isExpanded={isExpanded}>
         {primaryData.map((section, index) => (
-          <Match key={index} path={'/' + section.slug + '/*'}>
+          <Match key={index} path={"/" + section.slug + "/*"}>
             {props => props.match && <PrimaryMenu />}
           </Match>
         ))}

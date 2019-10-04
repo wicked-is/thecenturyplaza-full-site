@@ -107,7 +107,7 @@ class App extends Component {
             </AppHeader>
             <main>
               <Router primary={false}>
-                <Redirect from="/" to="century-plaza" noThrow />
+                <Redirect from="/" to="home" noThrow />
                 {primaryData.map((section, index) => (
                   <Primary
                     key={index}
@@ -133,8 +133,12 @@ class App extends Component {
                   isExpanded={this.state.isExpanded}
                   toggleExpand={this.toggleExpand}
                   closeExpand={this.closeExpand}
+                  setPageColor={this.setPageColor}
                 />
-                <Availability path="availability/*" />
+                <Availability
+                  path="availability/*"
+                  setPageColor={this.setPageColor}
+                />
                 <Redirect from="availability" to="availability/hotel" noThrow />
                 <Press
                   pressData={pressData}
