@@ -86,11 +86,10 @@ const VideoSlide = ({
   };
 
   const startTimer = () => {
-    closeExpand();
-    // slide.delay.length > 0 &&
-    //   setTimeout(() => {
-    //     closeExpand();
-    //   }, slide.delay);
+    slide.delay.length > 0 &&
+      setTimeout(() => {
+        closeExpand();
+      }, slide.delay);
   };
 
   useEffect(() => {
