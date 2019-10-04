@@ -35,7 +35,7 @@ const Neighborhood = props => {
       <NeighborhoodContainer>
         <Grid halign="justify">
           {neighborhoodData.slice(1).map((item, index) => (
-            <Grid.Unit key={index} size={{ phone: item.span[1] / 10, tabletLandscape: item.span[1] / 10 }}>
+            <Grid.Unit key={index} size={{ phone: item.span[0] / 10, tabletLandscape: item.span[1] / 10 }}>
               <NeighborhoodItem valign={item.valign}>
                 {item.source.length === 1 && item.source != "" && <ResponsiveImage srcPath={item.source[0]} />}
                 {item.source.length > 1 && (

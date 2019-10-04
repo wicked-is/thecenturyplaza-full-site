@@ -169,6 +169,21 @@
   {
     "span": [
       5,
+      0
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
       3
     ],
     "valign": "flex-start",
@@ -236,6 +251,21 @@
       "spago-beverly-hills-dining"
     ],
     "caption": "Spago, Beverly Hills",
+    "headline": "",
+    "copy": "",
+    "cta": "",
+    "url": ""
+  },
+  {
+    "span": [
+      5,
+      0
+    ],
+    "valign": "flex-start",
+    "source": [
+      ""
+    ],
+    "caption": "",
     "headline": "",
     "copy": "",
     "cta": "",
@@ -364,7 +394,7 @@
   },
   {
     "span": [
-      0,
+      3,
       1
     ],
     "valign": "flex-start",
@@ -379,7 +409,7 @@
   },
   {
     "span": [
-      5,
+      7,
       3
     ],
     "valign": "flex-start",
