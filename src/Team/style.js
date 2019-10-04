@@ -16,8 +16,8 @@ export const ContainerStyled = css`
 
 export const AsideStyled = css`
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 
   ${mediaMin.tabletLandscape` 
     position: fixed;
@@ -75,6 +75,6 @@ export const MenuStyled = css`
 export const ItemStyled = css`
   margin: 0 0 3.5vw;
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 `;

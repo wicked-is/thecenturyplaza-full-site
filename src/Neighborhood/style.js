@@ -15,16 +15,15 @@ export const HeaderStyled = css`
   margin: 0 0 9vw;
   position: relative;
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
-  
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
+
   ${mediaMin.tabletLandscape` 
     width: 100%;
     height: calc(100vh - 160px);
   `}
 
-  ${
-    "" /* h1 {
+  ${"" /* h1 {
     position: absolute;
     display: inline-block;
     width: 100%;
@@ -34,8 +33,7 @@ export const HeaderStyled = css`
     left: 0;
     margin: 0 0 0;
     z-index: 500;
-  } */
-  }
+  } */}
 
   img {
     width: 100%;
@@ -63,8 +61,8 @@ export const ItemStyled = css`
   align-items: ${props => props.valign};
   align-content: ${props => props.valign};
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 `;
 
 export const PairedStyled = css`
