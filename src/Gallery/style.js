@@ -39,8 +39,8 @@ export const SectionTitlesStyled = css`
 export const SectionTitleStyled = css`
   margin: 0 10px 20px;
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 
   ${mediaMin.tabletLandscape` 
     margin: 0;
@@ -60,8 +60,8 @@ export const MediaStyled = css`
   width: calc(33.333% - 20px);
   float: left;
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out .5s forwards;
-  will-change: opacity:
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 
   ${mediaMin.tabletLandscape` 
     margin: 0 0 20px 20px;
