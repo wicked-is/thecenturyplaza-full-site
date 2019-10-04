@@ -18,6 +18,8 @@ export const PageBody = css`
 `;
 
 export const PageHeader = css`
+  display: ${props => (props.isExpanded ? "none" : "block")};
+
   header {
     transition: background 0.25s ease-in-out;
     background: ${props => props.pageColor};
@@ -25,6 +27,7 @@ export const PageHeader = css`
 `;
 
 export const PageFooter = css`
+  display: ${props => (props.isExpanded ? "none" : "block")};
   position: relative;
   width: 100%;
   height: 80px;

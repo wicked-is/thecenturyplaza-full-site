@@ -1,19 +1,23 @@
-import { css } from 'styled-components';
-import { Container } from 'shared/styled-components/Layouts.js';
-import { fadeIn, cascadeText } from 'shared/styled-components/Transitions.js';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import { css } from "styled-components";
+import { Container } from "shared/styled-components/Layouts.js";
+import { fadeIn, cascadeText } from "shared/styled-components/Transitions.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const SlideContainerStyled = css`
   ${Container}
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
-  width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
+  transition: ${props =>
+    props.isExpanded
+      ? "0"
+      : "height 0.5s linear, width 0.5s linear, margin 0.5s linear, padding 0.5s linear"};
+  height: ${props => (props.isExpanded ? "100vh" : "calc(100vh - 160px)")};
+  width: ${props => (props.isExpanded ? "100vw" : "calc(100vw - 80px)")};
 
   ${mediaMin.tabletLandscape` 
-    height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
-    width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
+    height: ${props => (props.isExpanded ? "100vh" : "calc(100vh - 160px)")};
+    width: ${props => (props.isExpanded ? "100vw" : "calc(100vw - 80px)")};
   `}
 
   h2 {
@@ -27,6 +31,7 @@ export const SlideContainerStyled = css`
   }
 
   p {
+    display: ${props => (props.isExpanded ? "none" : "inline-block")};
     position: absolute;
     bottom: 30px;
     left: 40px;
@@ -44,11 +49,11 @@ export const SplitSlideContainerStyled = css`
   align-items: center;
   width: calc(100vw - 80px);
   height: calc(100vh - 160px);
-  flex-direction: ${props => (props.isInverted ? 'row-reverse' : 'row')};
+  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
   justify-content: space-evenly;
 
   img {
-    ${'' /* max-width: 30vw;
+    ${"" /* max-width: 30vw;
     margin: ${props => props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw"}; */}
   }
 
@@ -58,7 +63,7 @@ export const SplitSlideContainerStyled = css`
     letter-spacing: 0.34px;
     width: 30vw;
     text-align: center;
-    margin: ${props => (props.isInverted ? '0 0 0 5vw' : '0 5vw 0 0')};
+    margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
     position: relative;
     overflow: hidden;
   }
@@ -93,13 +98,15 @@ export const PlayerContainerStyled = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${'' /* transition: all 0.5s ease-in-out;
-  transition-delay: 0.05s; */}
-  height: ${props => (props.isExpanded ? '100vh' : 'calc(100vh - 160px)')};
-  width: ${props => (props.isExpanded ? '100vw' : 'calc(100vw - 80px)')};
+  transition: ${props =>
+    props.isExpanded
+      ? "0"
+      : "height 0.5s linear, width 0.5s linear, margin 0.5s linear, padding 0.5s linear"};
+  height: ${props => (props.isExpanded ? "100vh" : "calc(100vh - 160px)")};
+  width: ${props => (props.isExpanded ? "100vw" : "calc(100vw - 80px)")};
   overflow: hidden;
   position: relative;
-  opacity: 0; 
+  opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.25s forwards;
   will-change: opacity;
 `;
@@ -108,59 +115,60 @@ export const FullScreenStyled = css`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  transition: ${props => (props.isExpanded ? "0" : "transform 0.5s linear")};
 
   @media (max-aspect-ratio: 375/812) {
-    transform: scale(3);
+    transform: ${props => (props.isExpanded ? "scale(3.5)" : "scale(3)")};
   }
 
   @media (min-aspect-ratio: 376/812) and (max-aspect-ratio: 550/812) {
-    transform: scale(2.5);
+    transform: ${props => (props.isExpanded ? "scale(3)" : "scale(2.5)")};
   }
 
   @media (min-aspect-ratio: 551/812) and (max-aspect-ratio: 750/812) {
-    transform: scale(2);
+    transform: ${props => (props.isExpanded ? "scale(2.5)" : "scale(2)")};
   }
 
   @media (min-aspect-ratio: 751/812) and (max-aspect-ratio: 100/100) {
-    transform: scale(1.5);
+    transform: ${props => (props.isExpanded ? "scale(2)" : "scale(1.5)")};
   }
 
   @media (min-aspect-ratio: 101/100) and (max-aspect-ratio: 16/13) {
-    transform: scale(1.35);
+    transform: ${props => (props.isExpanded ? "scale(1.85)" : "scale(1.35)")};
   }
 
   @media (min-aspect-ratio: 16/12) and (max-aspect-ratio: 16/11) {
-    transform: scale(1.25);
+    transform: ${props => (props.isExpanded ? "scale(1.75)" : "scale(1.25)")};
   }
 
   @media (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
-    transform: scale(1);
+    transform: ${props => (props.isExpanded ? "scale(1.5)" : "scale(1)")};
   }
 
   @media (min-aspect-ratio: 16/8) and (max-aspect-ratio: 16/7) {
-    transform: scale(1.25);
+    transform: ${props => (props.isExpanded ? "scale(1.75)" : "scale(1.25)")};
   }
 
   @media (min-aspect-ratio: 16/6) and (max-aspect-ratio: 16/5) {
-    transform: scale(2.5);
+    transform: ${props => (props.isExpanded ? "scale(3)" : "scale(2.5)")};
   }
 
   @media (min-aspect-ratio: 16/4) {
-    transform: scale(3.5);
+    transform: ${props => (props.isExpanded ? "scale(4)" : "scale(3.5)")};
   }
 `;
 
 export const PlaceHolderStyled = css`
   width: 100vw;
   height: 100vh;
-  display: ${props => (props.isPlaying ? 'none' : 'flex')};
+  display: ${props => (props.isPlaying ? "none" : "flex")};
   align-items: center;
   justify-content: center;
   position: absolute;
-  transition: display 0s;
-  transition-delay: 4s;
-  top: ${props => (props.isExpanded ? '0' : '-80px')};
-  left: ${props => (props.isExpanded ? '0' : '-40px')};
+  transition: ${props =>
+    props.isExpanded ? "0" : "top 0.5s linear, left 0.5s linear"};
+  top: ${props => (props.isExpanded ? "0" : "-80px")};
+  left: ${props => (props.isExpanded ? "0" : "-40px")};
   overflow: hidden;
 
   img {
@@ -217,7 +225,7 @@ export const ImageContainerStyled = css`
   will-change: opacity;
   width: 30vw;
   max-width: 30vw;
-  margin: ${props => (props.isInverted ? '0 5vw 0 0' : '0 0 0 5vw')};
+  margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
 `;
 
 // export const ImageMaskStyled = css`

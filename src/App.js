@@ -98,7 +98,10 @@ class App extends Component {
       <ContextProvider>
         <ThemeProvider theme={theme}>
           <AppBody pageColor={this.state.pageColor}>
-            <AppHeader pageColor={this.state.pageColor}>
+            <AppHeader
+              pageColor={this.state.pageColor}
+              isExpanded={this.state.isExpanded}
+            >
               <Header
                 primaryData={primaryData}
                 isExpanded={this.state.isExpanded}
@@ -162,8 +165,11 @@ class App extends Component {
                 />
               </Router>
             </main>
-            <AppFooter pageColor={this.state.pageColor}>
-              <Footer />
+            <AppFooter
+              pageColor={this.state.pageColor}
+              isExpanded={this.state.isExpanded}
+            >
+              <Footer isExpanded={this.state.isExpanded} />
             </AppFooter>
           </AppBody>
         </ThemeProvider>

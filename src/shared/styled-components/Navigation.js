@@ -1,13 +1,14 @@
-import { css } from 'styled-components';
-import { Wrapper, Container } from 'shared/styled-components/Layouts.js';
-import { fadeIn } from 'shared/styled-components/Transitions.js';
-import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
+import { css } from "styled-components";
+import { Wrapper, Container } from "shared/styled-components/Layouts.js";
+import { fadeIn } from "shared/styled-components/Transitions.js";
+import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
 
 export const MenuWrapper = css`
   ${Wrapper}
   height: calc(100vh - 160px);
   align-items: center;
 `;
+
 export const MenuContainer = css`
   display: inline-block;
   position: relative;

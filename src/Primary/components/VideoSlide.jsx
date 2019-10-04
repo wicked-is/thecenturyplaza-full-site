@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { navigate, Location } from "@reach/router";
 import styled from "styled-components";
-import { SlideContainerStyled, PlayerContainerStyled, FullScreenStyled, PlaceHolderStyled } from "Primary/style.js";
+import {
+  SlideContainerStyled,
+  PlayerContainerStyled,
+  FullScreenStyled,
+  PlaceHolderStyled
+} from "Primary/style.js";
 import parse from "html-react-parser";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import ReactPlayer from 'react-player';
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
+import ReactPlayer from "react-player";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
 // Wil be refactored into global slide styled compontent
@@ -32,50 +37,62 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 //   }
 // `
 
-const SlideContainer = styled.div`${SlideContainerStyled};`;
-const PlayerContainer = styled.div`${PlayerContainerStyled};`;
-const FullScreen = styled.div`${FullScreenStyled};`;
-const PlaceHolder = styled.div`${PlaceHolderStyled};`;
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
+const PlayerContainer = styled.div`
+  ${PlayerContainerStyled};
+`;
+const FullScreen = styled.div`
+  ${FullScreenStyled};
+`;
+const PlaceHolder = styled.div`
+  ${PlaceHolderStyled};
+`;
 
-const videoElement = (isExpanded) => ({
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  // transition: 'all 0.5s ease-in-out',
-  // transitionDelay: '0.05s',
-  top: isExpanded ? '0' : '-80px',
-  left: isExpanded ? '0' : '-40px',
-  background: 'transparent'
+const videoElement = isExpanded => ({
+  width: "100%",
+  height: "100%",
+  position: "absolute",
+  transition: isExpanded ? "0" : "top 0.5s linear, left 0.5s linear",
+  top: isExpanded ? "0" : "-80px",
+  left: isExpanded ? "0" : "-40px",
+  background: "transparent"
 });
 
 const VideoSlide = props => {
-  const { slide, nextPath, previousPath, isExpanded, isFirstSection, isFirstLoad, toggleExpand, closeExpand } = props;
-
-  // const [isFull, setIsFull] = useState(() => checkDelay());
+  const {
+    slide,
+    nextPath,
+    previousPath,
+    isExpanded,
+    isFirstSection,
+    isFirstLoad,
+    toggleExpand,
+    closeExpand
+  } = props;
 
   const [isPlaying, setIsPlaying] = useState(false);
   const removePlaceholder = () => {
+    startTimer();
     setTimeout(() => {
       setIsPlaying(true);
-    }, 100)
+    }, 100);
   };
 
-  // const startTimer = props => {
-  //   props.closeExpand()
-  //   slide.delay.length > 0 && setTimeout(() => {
-  //     props.closeExpand()
-  //   }, slide.delay)
-  // };
+  const startTimer = () => {
+    slide.delay.length > 0 &&
+      setTimeout(() => {
+        console.log("hey");
+        closeExpand();
+      }, slide.delay);
+  };
 
-  // useEffect(() => {
-  //   if (isFirstSection && isFirstLoad) {
-  //     toggleExpand();
-  //   }
-  // }, [isFirstSection, isFirstLoad, toggleExpand]);
-
-  // const forceSmall = () => {
-  //   setIsFull(!isFull);
-  // };
+  useEffect(() => {
+    if (isFirstSection && isFirstLoad) {
+      toggleExpand();
+    }
+  }, [isFirstSection, isFirstLoad, toggleExpand]);
 
   // const advancePath = () => {
   //   <Match path={curre}>
@@ -117,12 +134,33 @@ const VideoSlide = props => {
     >
       <SlideContainer isExpanded={isExpanded}>
         {/* <ToggleFullScreen onClick={toggleExpand} isExpanded={isExpanded} /> */}
-        <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
-        <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
+        <SlideBackward
+          previousPath={previousPath}
+          isExpanded={isExpanded}
+          closeExpand={closeExpand}
+        />
+        <SlideForward
+          nextPath={nextPath}
+          isExpanded={isExpanded}
+          closeExpand={closeExpand}
+        />
         <PlayerContainer isExpanded={isExpanded}>
           <FullScreen isExpanded={isExpanded}>
-            <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}><ResponsiveImage srcPath={slide.placeholder} /></PlaceHolder>
-            <ReactPlayer url={slide.source[0]} playing muted playsinline loop width="100vw" height="100vh" onStart={() => removePlaceholder(props)} style={videoElement(isExpanded)} preload="true" />
+            <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
+              <ResponsiveImage srcPath={slide.placeholder} />
+            </PlaceHolder>
+            <ReactPlayer
+              url={slide.source[0]}
+              playing
+              muted
+              playsinline
+              loop
+              width="100vw"
+              height="100vh"
+              onStart={() => removePlaceholder(props)}
+              style={videoElement(isExpanded)}
+              preload="true"
+            />
           </FullScreen>
         </PlayerContainer>
         <p>{parse(slide.caption)}</p>
