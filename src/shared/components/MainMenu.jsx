@@ -42,9 +42,13 @@ const PrimaryLinks = styled.ul`
     margin: 0 0 10px;
 
     a {
-      font-family: ${props => props.theme.serifLight};
+      font-family: ${props => props.theme.serifRoman}, serif;
+      font-weight: 300;
       font-size: 40px;
-      letter-spacing: 1.5px;
+      line-height: 1.1em;
+      letter-spacing: 0.05em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: antialiased;
       color: ${props => props.theme.gray};
       text-decoration: none;
     }

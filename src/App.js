@@ -50,9 +50,9 @@ const theme = {
   sansSerifItalic: "HelveticaNeueLTStd-It",
   sansSerifMedium: "HelveticaNeueLTStd-Md",
   sansSerifMediumItalic: "HelveticaNeueLTStd-MdIt",
-  serifLight: "Austin-Roman",
+  serifRoman: "Austin-Roman",
   serifMedium: "Austin-Medium",
-  serifBold: "Austin-Bold",
+  serifMediumItalic: "Austin-Medium-Italic",
   headerHeight: "80",
   mobileMargin: "25",
   mobileColumn: "7.2822%",
@@ -138,6 +138,7 @@ class App extends Component {
                   closeExpand={this.closeExpand}
                   setPageColor={this.setPageColor}
                 />
+                <Redirect from="team" to={"team/" + teamData[0].slug} noThrow />
                 <Availability
                   path="availability/*"
                   setPageColor={this.setPageColor}

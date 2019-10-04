@@ -21,13 +21,21 @@ export const SlideContainerStyled = css`
   `}
 
   h2 {
-    font-family: ${props => props.theme.serifMedium};
+    font-family: ${props => props.theme.serifMedium}, serif;
+    font-weight: 400;
     font-size: 34px;
-    letter-spacing: 0.34px;
+    line-height: 1.1em;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
     width: 55vw;
     text-align: center;
     position: relative;
     overflow: hidden;
+
+    em {
+      font-family: ${props => props.theme.serifMediumItalic};
+    }
   }
 
   p {
@@ -36,10 +44,17 @@ export const SlideContainerStyled = css`
     bottom: 30px;
     left: 40px;
     margin: 0;
-    max-width: calc(100vw - 80px);
+    max-width: calc(100vw - 80px - 400px);
     opacity: 0;
     animation: ${fadeIn} 0.5s ease-in-out 0.75s forwards;
     will-change: opacity;
+    font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.35em;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
   }
 `;
 
@@ -58,14 +73,22 @@ export const SplitSlideContainerStyled = css`
   }
 
   h2 {
-    font-family: ${props => props.theme.serifMedium};
+    font-family: ${props => props.theme.serifMedium}, serif;
+    font-weight: 400;
     font-size: 34px;
-    letter-spacing: 0.34px;
+    line-height: 1.1em;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
     width: 30vw;
     text-align: center;
     margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
     position: relative;
     overflow: hidden;
+
+    em {
+      font-family: ${props => props.theme.serifMediumItalic};
+    }
   }
 
   p {
@@ -73,10 +96,17 @@ export const SplitSlideContainerStyled = css`
     bottom: 30px;
     left: 40px;
     margin: 0;
-    max-width: calc(100vw - 80px);
+    max-width: calc(100vw - 80px - 400px);
     opacity: 0;
     animation: ${fadeIn} 0.5s ease-in-out 1.5s forwards;
     will-change: opacity;
+    font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.35em;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
   }
 `;
 

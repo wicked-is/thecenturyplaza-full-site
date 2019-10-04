@@ -10,7 +10,7 @@ const ActiveMenuContainer = styled.ul`
     width: 100%;
     height: auto;
     text-align: center;
-    top: 18px;
+    top: 15px;
     position: absolute;
     padding: 0;
     transition: all 0.5s ease-in-out;
@@ -24,6 +24,13 @@ const ActiveMenuContainer = styled.ul`
         color: ${props => props.theme.black};
         text-decoration: none;
         padding: 0 0 5px;
+        font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.35em;
+        letter-spacing: 0.056em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: antialiased;
       }
     }
   `}
@@ -41,7 +48,8 @@ const ActiveMenu = props => {
             style: {
               borderBottom: isPartiallyCurrent
                 ? "1px solid #101820"
-                : "1px solid transparent"
+                : "1px solid transparent",
+              fontWeight: isPartiallyCurrent ? "600" : "300"
             }
           };
         }}
