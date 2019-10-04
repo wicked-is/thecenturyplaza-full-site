@@ -64,10 +64,18 @@ export const FooterWrapper = css`
       display: inline-block;
       margin: 0 0 0 20px;
       a {
+        font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 1.35em;
+        letter-spacing: 0.03em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: antialiased;
+
         color: ${props =>
           props.navActive || props.isLight
             ? props.theme.grayLight
-            : props.theme.black};
+            : props.theme.gray};
         d &:hover {
           opacity: 0.5;
         }

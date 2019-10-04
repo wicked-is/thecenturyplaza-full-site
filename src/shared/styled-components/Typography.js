@@ -35,9 +35,13 @@ export const PageFooter = css`
 `;
 
 export const PageTitle = css`
-  font-family: ${props => props.theme.serifMedium};
+  font-family: ${props => props.theme.serifRoman}, serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.1em;
+  letter-spacing: 0.3em;
   text-align: center;
   text-transform: uppercase;
-  font-size: 22px;
-  letter-spacing: 6.11px;
+  ${"" /* font-size: 22px;
+  letter-spacing: 6.11px; */}
 `;

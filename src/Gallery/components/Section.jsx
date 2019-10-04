@@ -1,25 +1,41 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { SectionStyled, SectionTitlesStyled, SectionTitleStyled, SectionMediaStyled, MediaStyled } from 'Gallery/style.js';
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import ReactPlayer from 'react-player';
-import Grid from 'styled-components-grid';
+import {
+  SectionStyled,
+  SectionTitlesStyled,
+  SectionTitleStyled,
+  SectionMediaStyled,
+  MediaStyled
+} from "Gallery/style.js";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
+import ReactPlayer from "react-player";
+import Grid from "styled-components-grid";
 
-const GallerySection = styled.section`${SectionStyled};`;
-const GallerySectionTitles = styled.div`${SectionTitlesStyled};`;
-const GallerySectionTitle = styled.h2`${SectionTitleStyled};`;
-const GallerySectionMedia = styled.div`${SectionMediaStyled};`;
-const GalleryMedia = styled.div`${MediaStyled};`;
+const GallerySection = styled.section`
+  ${SectionStyled};
+`;
+const GallerySectionTitles = styled.div`
+  ${SectionTitlesStyled};
+`;
+const GallerySectionTitle = styled.h2`
+  ${SectionTitleStyled};
+`;
+const GallerySectionMedia = styled.div`
+  ${SectionMediaStyled};
+`;
+const GalleryMedia = styled.div`
+  ${MediaStyled};
+`;
 
-const videoElement = (isExpanded) => ({
-  width: '100%',
-  height: '100%',
+const videoElement = isExpanded => ({
+  width: "100%",
+  height: "100%",
   // position: 'absolute',
   // // transition: 'all 0.5s ease-in-out',
   // // transitionDelay: '0.05s',
   // top: isExpanded ? '0' : '-80px',
   // left: isExpanded ? '0' : '-40px',
-  background: 'transparent'
+  background: "transparent"
 });
 
 const Section = props => {
@@ -38,10 +54,18 @@ const Section = props => {
             {section.media.map((media, index) => (
               <GalleryMedia key={index}>
                 {media.type === "video" ? (
-                  <ReactPlayer url={media.source} playsinline controls preload="true" style={videoElement()} />
+                  <ReactPlayer
+                    url={media.source}
+                    playsinline
+                    controls
+                    preload="true"
+                    width="100%"
+                    height="100%"
+                    style={videoElement()}
+                  />
                 ) : (
-                    <ResponsiveImage srcPath={media.source} />
-                  )}
+                  <ResponsiveImage srcPath={media.source} />
+                )}
               </GalleryMedia>
             ))}
           </GallerySectionMedia>
@@ -49,6 +73,6 @@ const Section = props => {
       </Grid>
     </GallerySection>
   );
-}
+};
 
 export default Section;
