@@ -99,6 +99,7 @@ class App extends Component {
               <Neighborhood neighborhoodData={neighborhoodData} path="neighborhood" setPageColor={this.setPageColor} />
               <Team teamData={teamData} path="team/*" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} />
               <Availability path="availability/*" />
+              <Redirect from="availability" to="availability/hotel" noThrow />
               <Press pressData={pressData} path="press" setPageColor={this.setPageColor} />
               <Gallery galleryData={galleryData} path="gallery" setPageColor={this.setPageColor} />
               <SecondaryMenu setPageColor={this.setPageColor} path="continue" />
