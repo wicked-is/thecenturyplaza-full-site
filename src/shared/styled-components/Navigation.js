@@ -1,14 +1,13 @@
 import { css } from 'styled-components';
 import { Wrapper, Container } from 'shared/styled-components/Layouts.js';
-import { fadeIn } from "shared/styled-components/Transitions.js";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
-
+import { fadeIn } from 'shared/styled-components/Transitions.js';
+import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
 
 export const MenuWrapper = css`
   ${Wrapper}
   height: calc(100vh - 160px);
   align-items: center;
-`
+`;
 export const MenuContainer = css`
   display: inline-block;
   position: relative;
@@ -39,22 +38,22 @@ export const MenuContainer = css`
   }
 
   > a {
-    font-family: ${ props => props.theme.sansSerifLight};
-    color: ${ props => props.theme.black};
+    font-family: ${props => props.theme.sansSerifLight};
+    color: ${props => props.theme.black};
 
     &:hover {
       opacity: 0.5;
     }
   }
 }
-`
+`;
 
 export const FooterWrapper = css`
   display: inline-block;
   position: absolute;
   bottom: 30px;
   right: 40px;
-
+  z-index: 10000;
   ul {
     list-style: none;
     margin: 0;
@@ -63,14 +62,15 @@ export const FooterWrapper = css`
     li {
       display: inline-block;
       margin: 0 0 0 20px;
-
-      a{
-        color: ${props => props.theme.gray};
-
-        &:hover {
+      a {
+        color: ${props =>
+          props.navActive || props.isLight
+            ? props.theme.grayLight
+            : props.theme.black};
+        d &:hover {
           opacity: 0.5;
         }
       }
     }
   }
-`
+`;

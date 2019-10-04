@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
-import { PageBody, PageHeader, PageFooter } from "shared/styled-components/Typography.js"
+
+import ContextProvider from "./provider/ContextProvider";
+import {
+  PageBody,
+  PageHeader,
+  PageFooter
+} from "shared/styled-components/Typography.js";
 import Header from "shared/components/Header.jsx";
 import Footer from "shared/components/Footer.jsx";
 import Primary from "Primary";
@@ -9,9 +15,9 @@ import primaryData from "Primary/primaryData.json";
 import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
 import Neighborhood from "Neighborhood";
 import neighborhoodData from "Neighborhood/neighborhoodData.json";
-import Availability from "Availability";
 import Team from "Team";
 import teamData from "Team/teamData.json";
+import Availability from "Availability";
 import Press from "Press";
 import pressData from "Press/pressData.json";
 import Gallery from "Gallery";
@@ -37,7 +43,7 @@ const theme = {
   gray: "#B4BAC1",
   white: "#FFFFFF",
   sansSerifThin: "HelveticaNeueLTStd-UltLt",
-  sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
+  sansSerifThinItalic: "HHelveticaNeueLTStd-UltLt",
   sansSerifLight: "HelveticaNeueLTStd-Lt",
   sansSerifLightItalic: "HelveticaNeueLTStd-LtIt",
   sansSerifRegular: "HelveticaNeueLTStd-Roman",
@@ -56,9 +62,15 @@ const theme = {
   desktopGutter: "20"
 };
 
-const AppBody = styled.div`${PageBody};`;
-const AppHeader = styled.div`${PageHeader};`;
-const AppFooter = styled.div`${PageFooter};`;
+const AppBody = styled.div`
+  ${PageBody};
+`;
+const AppHeader = styled.div`
+  ${PageHeader};
+`;
+const AppFooter = styled.div`
+  ${PageFooter};
+`;
 
 class App extends Component {
   state = {
@@ -71,7 +83,7 @@ class App extends Component {
 
   setPageColor = color => {
     this.setState(state => ({ pageColor: color }));
-  }
+  };
 
   toggleExpand = () => {
     this.setState(state => ({ isExpanded: !state.isExpanded }));
@@ -82,36 +94,75 @@ class App extends Component {
   };
 
   render() {
-
     return (
-      <ThemeProvider theme={theme}>
-        <AppBody pageColor={this.state.pageColor}>
-          <AppHeader pageColor={this.state.pageColor}>
-            <Header primaryData={primaryData} isExpanded={this.state.isExpanded} pageColor={this.state.pageColor} />
-          </AppHeader>
-          <main>
-            <Router primary={false}>
-              <Redirect from="/" to="home" noThrow />
-              {primaryData.map((section, index) => (
-                <Primary key={index} default path={section.slug + "/*"} primaryData={primaryData} isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} scrollPath={this.state.scrollPath} />
-              ))}
-              <Redirect from="fairmont" to="fairmont/hotel" noThrow />
-              <Neighborhood neighborhoodData={neighborhoodData} path="neighborhood" setPageColor={this.setPageColor} />
-              <Team teamData={teamData} path="team/*" isExpanded={this.state.isExpanded} toggleExpand={this.toggleExpand} closeExpand={this.closeExpand} setPageColor={this.setPageColor} />
-              <Availability path="availability/*" />
-              <Redirect from="availability" to="availability/hotel" noThrow />
-              <Press pressData={pressData} path="press" setPageColor={this.setPageColor} />
-              <Gallery galleryData={galleryData} path="gallery" setPageColor={this.setPageColor} />
-              <SecondaryMenu setPageColor={this.setPageColor} path="continue" />
-              <Legal path="legal" setPageColor={this.setPageColor} />
-              <Accessibility path="accessibility" setPageColor={this.setPageColor} />
-            </Router>
-          </main>
-          <AppFooter pageColor={this.state.pageColor} >
-            <Footer />
-          </AppFooter>
-        </AppBody>
-      </ThemeProvider>
+      <ContextProvider>
+        <ThemeProvider theme={theme}>
+          <AppBody pageColor={this.state.pageColor}>
+            <AppHeader pageColor={this.state.pageColor}>
+              <Header
+                primaryData={primaryData}
+                isExpanded={this.state.isExpanded}
+                pageColor={this.state.pageColor}
+              />
+            </AppHeader>
+            <main>
+              <Router primary={false}>
+                <Redirect from="/" to="century-plaza" noThrow />
+                {primaryData.map((section, index) => (
+                  <Primary
+                    key={index}
+                    default
+                    path={section.slug + "/*"}
+                    primaryData={primaryData}
+                    isExpanded={this.state.isExpanded}
+                    toggleExpand={this.toggleExpand}
+                    closeExpand={this.closeExpand}
+                    setPageColor={this.setPageColor}
+                    scrollPath={this.state.scrollPath}
+                  />
+                ))}
+                <Redirect from="fairmont" to="fairmont/hotel" noThrow />
+                <Neighborhood
+                  neighborhoodData={neighborhoodData}
+                  path="neighborhood"
+                  setPageColor={this.setPageColor}
+                />
+                <Team
+                  teamData={teamData}
+                  path="team/*"
+                  isExpanded={this.state.isExpanded}
+                  toggleExpand={this.toggleExpand}
+                  closeExpand={this.closeExpand}
+                />
+                <Availability path="availability/*" />
+                <Redirect from="availability" to="availability/hotel" noThrow />
+                <Press
+                  pressData={pressData}
+                  path="press"
+                  setPageColor={this.setPageColor}
+                />
+                <Gallery
+                  galleryData={galleryData}
+                  path="gallery"
+                  setPageColor={this.setPageColor}
+                />
+                <SecondaryMenu
+                  setPageColor={this.setPageColor}
+                  path="continue"
+                />
+                <Legal path="legal" setPageColor={this.setPageColor} />
+                <Accessibility
+                  path="accessibility"
+                  setPageColor={this.setPageColor}
+                />
+              </Router>
+            </main>
+            <AppFooter pageColor={this.state.pageColor}>
+              <Footer />
+            </AppFooter>
+          </AppBody>
+        </ThemeProvider>
+      </ContextProvider>
     );
   }
 }

@@ -1,99 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import Footer from "shared/components/Footer.jsx";
-import hamburgerBlackPNG from "icons/hamburger-black.png";
-import hamburgerBlackSVG from "icons/hamburger-black.svg";
-import hamburgerGrayPNG from "icons/hamburger-gray.png";
-import hamburgerGraySVG from "icons/hamburger-gray.svg";
-import closeGrayPNG from "icons/close-gray.png";
-import closeGraySVG from "icons/close-gray.svg";
-import logoGrayPNG from 'icons/logo-gray.png';
-import logoGraySVG from 'icons/logo-gray.svg';
-
-const MainMenuOpen = styled.button`
-  position: absolute;
-  right: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 25px;
-  height: 16px;
-  overflow: hidden;
-  border: 0;
-  text-indent: -99999px;
-  background: url(${hamburgerBlackPNG}) no-repeat center center;
-  background: url(${hamburgerBlackSVG}) no-repeat center center, none;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  opacity: ${props => props.isExpanded ? "0" : "1"}; 
-  
-  &:hover {
-    background: url(${hamburgerGrayPNG}) no-repeat center center;
-    background: url(${hamburgerGraySVG}) no-repeat center center, none;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`
-
-const MainMenuClose = styled.button`
-  position: absolute;
-  right: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 25px;
-  height: 16px;
-  overflow: hidden;
-  border: 0;
-  text-indent: -99999px;
-  background: url(${closeGrayPNG}) no-repeat center center;
-  background: url(${closeGraySVG}) no-repeat center center, none;
-  cursor: pointer;
-  
-  &:hover {
-    opacity: 0.5;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`
 
 const MainMenuContainer = styled.div`
-  display: ${props => props.isOpen ? "flex" : "none"};
-  position: fixed;
+  opacity: ${props => (props.navActive ? "1" : "0")};
+  visibility: ${props => (props.navActive ? "visible" : "hidden")};
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  display: flex;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1;
   background: ${props => props.theme.black};
-  z-index: ${props => props.isExpanded ? "0" : "1000"};
   text-indent: 0;
   color: ${props => props.theme.gray};
-
   a:hover {
     opacity: 0.5;
   }
-`
-
-const Logo = styled.div`
-  position: absolute;
-  left: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 250px;
-  height: 17px;
-  background: url(${logoGrayPNG}) no-repeat center center;
-  background: url(${logoGraySVG}) no-repeat center center, none;
-`
+`;
 
 const LinksContainer = styled.nav`
   position: relative;
   width: 400px;
   margin: 0 0 100px 35vw;
   align-self: flex-end;
-`
+`;
 
 const PrimaryLinks = styled.ul`
   display: inline-block;
@@ -115,7 +49,7 @@ const PrimaryLinks = styled.ul`
       text-decoration: none;
     }
   }
-`
+`;
 
 const SecondaryLinks = styled.ul`
   display: inline-block;
@@ -124,7 +58,7 @@ const SecondaryLinks = styled.ul`
   text-align: left;
   margin: 0 0 60px;
   padding: 0;
-
+  z-index: 100000;
   li {
     display: block;
     margin: 0 0 15px;
@@ -137,7 +71,7 @@ const SecondaryLinks = styled.ul`
       text-decoration: none;
     }
   }
-`
+`;
 
 const InfoCluster = styled.div`
   position: absolute;
@@ -167,7 +101,7 @@ const InfoCluster = styled.div`
     color: ${props => props.theme.gray};
     text-decoration: none;
   }
-`
+`;
 
 const DownloadsLinks = styled.ul`
   display: inline-block;
@@ -191,77 +125,111 @@ const DownloadsLinks = styled.ul`
       letter-spacing: 0.6px;
       color: ${props => props.theme.gray};
       text-decoration: none;
-
     }
   }
-`
+`;
 
 const MainMenu = props => {
-  const { isExpanded, primaryData, pageColor, setPageColor } = props;
-  const [isOpen, setIsOpen] = useState(false);
+  const { primaryData, navActive, toggleMenu } = props;
 
   return (
-    <React.Fragment>
-      <MainMenuContainer isOpen={isOpen} >
-        <Link to="/" onClick={() => setIsOpen(false)}><Logo /></Link>
-        <MainMenuClose onClick={() => setIsOpen(false)}>
-          Toggle Main Menu
-        </MainMenuClose>
+    <>
+      <MainMenuContainer navActive={navActive}>
         <LinksContainer>
           <PrimaryLinks>
             {primaryData.map((section, index) => (
-              <li key={index}><Link to={"/" + section.slug + "/" + section.slides[0].slug} onClick={() => setIsOpen(false)}>{section.title}</Link></li>
+              <li key={index}>
+                <Link
+                  to={"/" + section.slug + "/" + section.slides[0].slug}
+                  onClick={toggleMenu}
+                >
+                  {section.title}
+                </Link>
+              </li>
             ))}
           </PrimaryLinks>
           <SecondaryLinks>
             <li>
-              <Link to="/neighborhood" onClick={() => setIsOpen(false)}>Neighborhood</Link>
+              <Link to="/neighborhood" onClick={toggleMenu}>
+                Neighborhood
+              </Link>
             </li>
             <li>
-              <Link to="/team" onClick={() => setIsOpen(false)}>Team</Link>
+              <Link to="/team" onClick={toggleMenu}>
+                Team
+              </Link>
             </li>
             <li>
-              <a href="/availability" target="_blank" onClick={() => setIsOpen(false)}>Availability</a>
+              <Link to="/availability" onClick={toggleMenu}>
+                Availability
+              </Link>
             </li>
             <li>
-              <Link to="/press" onClick={() => setIsOpen(false)}>Press</Link>
+              <Link to="/press" onClick={toggleMenu}>
+                Press
+              </Link>
             </li>
             <li>
-              <Link to="/gallery" onClick={() => setIsOpen(false)}>Gallery</Link>
+              <Link to="/gallery" onClick={toggleMenu}>
+                Gallery
+              </Link>
             </li>
           </SecondaryLinks>
           <InfoCluster>
             <p>
               <strong>Sales Gallery</strong>
-              10250 Consteallation Boulevard<br />
+              10250 Consteallation Boulevard
+              <br />
               Los Angeles, California 90067
             </p>
             <p>
               <strong>Schedule an Appointment</strong>
-              +1 310 246 4777<br />
-              <a href="mailto:info@thecenturyplaza.com" rel="noopener noreferrer">info@thecenturyplaza.com</a>
+              +1 310 246 4777
+              <br />
+              <a
+                href="mailto:info@thecenturyplaza.com"
+                rel="noopener noreferrer"
+              >
+                info@thecenturyplaza.com
+              </a>
             </p>
-            <Link to="/contact" onClick={() => setIsOpen(false)}>Register Your Interest</Link>
+            <Link to="/contact" onClick={toggleMenu}>
+              Register Your Interest
+            </Link>
           </InfoCluster>
           <DownloadsLinks>
             <li>Downloads</li>
             <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Brochure</a>
+              <a
+                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Brochure
+              </a>
             </li>
             <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Hotel Fact Sheet</a>
+              <a
+                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hotel Fact Sheet
+              </a>
             </li>
             <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Tower Fact Sheet</a>
+              <a
+                href={process.env.PUBLIC_URL + "/downloads/placeholder.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tower Fact Sheet
+              </a>
             </li>
           </DownloadsLinks>
         </LinksContainer>
-        <Footer pageColor={pageColor} setPageColor={setPageColor} />
       </MainMenuContainer>
-      <MainMenuOpen isExpanded={isExpanded} onClick={() => setIsOpen(true)}>
-        Open Main Menu
-      </MainMenuOpen>
-    </React.Fragment>
+    </>
   );
 };
 export default MainMenu;
