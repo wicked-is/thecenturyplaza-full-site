@@ -1,9 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from "react";
-import Context from "../config/Context";
+import React, { useState, useEffect, useRef } from 'react';
+import Context from '../config/Context';
 
 const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
+  const [pauseScroll, setPauseScroll] = useState(false);
+
+  const scrollCooldown = () => {
+    setPauseScroll(true);
+    setTimeout(() => setPauseScroll(false), 1000);
+  };
 
   const toggleMenu = () => {
     setNavActive(!navActive);
@@ -14,7 +20,9 @@ const ContextProvider = props => {
       value={{
         ...props,
         navActive,
-        toggleMenu
+        toggleMenu,
+        pauseScroll,
+        scrollCooldown
       }}
     >
       {props.children}

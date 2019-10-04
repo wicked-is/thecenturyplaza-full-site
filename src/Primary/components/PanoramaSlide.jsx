@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import PhotoSphereViewer from 'photo-sphere-viewer';
 import parse from 'html-react-parser';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-// import { navigate } from "@reach/router";
+import { navigate } from '@reach/router';
 
+import Context from '../../config/Context';
 import { SlideContainerStyled, PanoFullStyled } from 'Primary/style.js';
 import SlideForward from 'shared/components/SlideForward.jsx';
 import SlideBackward from 'shared/components/SlideBackward.jsx';
@@ -53,7 +54,16 @@ const PanoViewer = styled.div`
   }
 `;
 
-const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
+const PanoramaSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  closeExpand,
+  location
+}) => {
+  const context = useContext(Context);
+  const { pauseScroll, scrollCooldown } = context;
+
   const setUpPanorama = () => {
     new PhotoSphereViewer({
       container: 'panorama',
@@ -72,31 +82,16 @@ const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
 
   return (
     <ReactScrollWheelHandler
-      // pauseListeners={true}
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        // closeExpand();
-        // if (props.location === previousPath) {
-        //   // console.log("where you going");
-        //   // navigate(previousPath);
-        // } else {
-        //   // console.log(props.location);
-        //   // navigate(previousPath);
-        // }
-        // navigate(previousPath);
+        closeExpand();
+        navigate(previousPath);
+        scrollCooldown();
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        // closeExpand();
-        // if (props.location === nextPath) {
-        //   console.log("where you going");
-        //   // navigate(nextPath);
-        // } else {
-        //   console.log(props.location);
-        //   console.log(nextPath);
-        //   // navigate(nextPath);
-        // }
-        // navigate(nextPath);
+        closeExpand();
+        navigate(nextPath);
+        scrollCooldown();
       }}
     >
       <SlideContainer>

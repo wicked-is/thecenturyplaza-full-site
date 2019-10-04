@@ -1,51 +1,54 @@
-import React from "react";
-import styled from "styled-components";
-import { SlideContainerStyled, TextMaskStyled } from "Primary/style.js";
-import parse from "html-react-parser";
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-// import { navigate } from "@reach/router";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import parse from 'html-react-parser';
+import { navigate } from '@reach/router';
 
-const SlideContainer = styled.div`${SlideContainerStyled};`;
-const TextMask = styled.div`${TextMaskStyled};`;
+import Context from '../../config/Context';
+import { SlideContainerStyled, TextMaskStyled } from 'Primary/style.js';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
 
-const TextSlide = props => {
-  const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
+const TextMask = styled.div`
+  ${TextMaskStyled};
+`;
+
+const TextSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  toggleExpand,
+  closeExpand
+}) => {
+  const context = useContext(Context);
+  const { pauseScroll, scrollCooldown } = context;
 
   return (
     <ReactScrollWheelHandler
-      // pauseListeners={true}
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        // closeExpand();
-        // if (props.location === previousPath) {
-        //   // console.log("where you going");
-        //   // navigate(previousPath);
-        // } else {
-        //   // console.log(props.location);
-        //   // navigate(previousPath);
-        // }
-        // navigate(previousPath);
+        closeExpand();
+        navigate(previousPath);
+        scrollCooldown();
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        // closeExpand();
-        // if (props.location === nextPath) {
-        //   console.log("where you going");
-        //   // navigate(nextPath);
-        // } else {
-        //   console.log(props.location);
-        //   console.log(nextPath);
-        //   // navigate(nextPath);
-        // }
-        // navigate(nextPath);
+        closeExpand();
+        navigate(nextPath);
+        scrollCooldown();
       }}
     >
       <SlideContainer>
         <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} />
-        {slide.headline.length > 0 && <h2><TextMask />{parse(slide.headline)}</h2>}
+        {slide.headline.length > 0 && (
+          <h2>
+            <TextMask />
+            {parse(slide.headline)}
+          </h2>
+        )}
         {slide.caption.length > 0 && <p>{parse(slide.caption)}</p>}
       </SlideContainer>
     </ReactScrollWheelHandler>
