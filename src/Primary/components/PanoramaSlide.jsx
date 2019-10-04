@@ -72,7 +72,8 @@ const PanoramaSlide = ({
       anim_speed: 0,
       default_lat: 0,
       latitude_range: [0.3, -0.3],
-      max_fov: 38
+      max_fov: 38,
+      mousewheel: false
     });
   };
 

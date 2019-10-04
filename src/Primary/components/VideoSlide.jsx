@@ -14,6 +14,7 @@ import {
 } from 'Primary/style.js';
 import SlideForward from 'shared/components/SlideForward.jsx';
 import SlideBackward from 'shared/components/SlideBackward.jsx';
+import ScrollController from 'shared/components/ScrollController';
 import ResponsiveImage from 'shared/components/ResponsiveImage.js';
 
 // Wil be refactored into global slide styled compontent
@@ -76,6 +77,7 @@ const VideoSlide = ({
   const { pauseScroll, scrollCooldown } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
+
   const removePlaceholder = () => {
     startTimer();
     setTimeout(() => {
@@ -121,6 +123,12 @@ const VideoSlide = ({
         />
         <SlideForward
           nextPath={nextPath}
+          isExpanded={isExpanded}
+          closeExpand={closeExpand}
+        />
+        <ScrollController
+          nextPath={nextPath}
+          previousPath={previousPath}
           isExpanded={isExpanded}
           closeExpand={closeExpand}
         />
