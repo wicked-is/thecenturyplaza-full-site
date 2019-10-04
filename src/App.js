@@ -7,24 +7,24 @@ import {
   PageBody,
   PageHeader,
   PageFooter
-} from 'shared/styled-components/Typography.js';
-import Header from 'shared/components/Header.jsx';
-import Footer from 'shared/components/Footer.jsx';
-import Primary from 'Primary';
-import primaryData from 'Primary/primaryData.json';
-import SecondaryMenu from 'shared/components/SecondaryMenu.jsx';
-import Neighborhood from 'Neighborhood';
-import neighborhoodData from 'Neighborhood/neighborhoodData.json';
-import Team from 'Team';
-import teamData from 'Team/teamData.json';
-import Availability from 'Availability';
-import Press from 'Press';
-import pressData from 'Press/pressData.json';
-import Gallery from 'Gallery';
-import galleryData from 'Gallery/galleryData.json';
-import Contact from 'Contact';
-import Legal from 'Legal';
-import Accessibility from 'Accessibility';
+} from "shared/styled-components/Typography.js";
+import Header from "shared/components/Header.jsx";
+import Footer from "shared/components/Footer.jsx";
+import Primary from "Primary";
+import primaryData from "Primary/primaryData.json";
+import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
+import Neighborhood from "Neighborhood";
+import neighborhoodData from "Neighborhood/neighborhoodData.json";
+import Team from "Team";
+import teamData from "Team/teamData.json";
+import Availability from "Availability";
+import Press from "Press";
+import pressData from "Press/pressData.json";
+import Gallery from "Gallery";
+import galleryData from "Gallery/galleryData.json";
+import Contact from "Contact";
+import Legal from "Legal";
+import Accessibility from "Accessibility";
 
 const theme = {
   breakpoints: {
@@ -38,13 +38,12 @@ const theme = {
     desktopLarge: 1920,
     desktopXLarge: 2048
   },
-<<<<<<< HEAD
   black: "#101820",
   grayLight: "#E7E7E7",
   gray: "#B4BAC1",
   white: "#FFFFFF",
   sansSerifThin: "HelveticaNeueLTStd-UltLt",
-  sansSerifThinItalic: "HHelveticaNeueLTStd-UltLt",
+  sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
   sansSerifLight: "HelveticaNeueLTStd-Lt",
   sansSerifLightItalic: "HelveticaNeueLTStd-LtIt",
   sansSerifRegular: "HelveticaNeueLTStd-Roman",
@@ -61,30 +60,6 @@ const theme = {
   desktopMargin: "40",
   desktopColumn: "8.3125%",
   desktopGutter: "20"
-=======
-  black: '#101820',
-  grayLight: '#E7E7E7',
-  gray: '#B4BAC1',
-  white: '#FFFFFF',
-  sansSerifThin: 'HelveticaNeueLTStd-UltLt',
-  sansSerifThinItalic: 'HelveticaNeueLTStd-UltLt',
-  sansSerifLight: 'HelveticaNeueLTStd-Lt',
-  sansSerifLightItalic: 'HelveticaNeueLTStd-LtIt',
-  sansSerifRegular: 'HelveticaNeueLTStd-Roman',
-  sansSerifItalic: 'HelveticaNeueLTStd-It',
-  sansSerifMedium: 'HelveticaNeueLTStd-Md',
-  sansSerifMediumItalic: 'HelveticaNeueLTStd-MdIt',
-  serifLight: 'Austin-Roman',
-  serifMedium: 'Austin-Medium',
-  serifBold: 'Austin-Bold',
-  headerHeight: '80',
-  mobileMargin: '25',
-  mobileColumn: '7.2822%',
-  mobileGutter: '20',
-  desktopMargin: '40',
-  desktopColumn: '8.3125%',
-  desktopGutter: '20'
->>>>>>> Theme prop bug on font used for Neighborhood that killed page
 };
 
 const AppBody = styled.div`
