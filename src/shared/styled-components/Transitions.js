@@ -3,23 +3,44 @@ import { keyframes } from "styled-components";
 export const fadeIn = keyframes`
   0% { opacity: 0;}
   100% { opacity: 1;}
-`
+`;
 export const fadeOut = keyframes`
   0% { opacity: 1;}
   100% { opacity: 0;}
-`
+`;
+export const pushUp = keyframes`
+  0% { transform: translate3d(0, 3em, 0);}
+  100% { transform: translate3d(0, 0, 0);}
+`;
+
+export const pushDown = keyframes`
+  0% { transform: translate3d(0, -3em, 0);}
+  100% { transform: translate3d(0, 0, 0);}
+`;
+
+export const pushUpVideo = keyframes`
+  0% { transform: translate3d(0, 10em, 0);}
+  100% { transform: translate3d(0, 0, 0);}
+`;
+
+export const pushDownVideo = keyframes`
+  0% { transform: translate3d(0, 0, 0);}
+  100% { transform: translate3d(0, 10em, 0);}
+`;
+
 export const cascadeText = keyframes`
   0% {transform: translateY(0);}
   100% {transform: translateY(100%);}
-`
+`;
+
 export const revealLeft = keyframes`
   0% { transform: translateX(0);}
   100% { transform: translateX(100%);}
-`
+`;
 export const revealRight = keyframes`
   0% { transform: translateX(0);}
   100% { transform: translateX(-100%);}
-`
+`;
 
 // Custom Slideshow Animations. Each Slide gets 25% (4 Slides)
 // Assuming 4s or 6.25% per sec to cover three states In, On & Out
@@ -34,7 +55,7 @@ export const slideOne = keyframes`
   18.75% { opacity: 1;}
   25% { opacity: 0;}
   100% { opacity: 0;}
-`
+`;
 export const slideTwo = keyframes`
   0% { opacity: 0;}
   25% { opacity: 0;}
@@ -42,7 +63,7 @@ export const slideTwo = keyframes`
   46.875% { opacity: 1;}
   50% { opacity: 0;}
   100% { opacity: 0;}
-`
+`;
 export const slideThree = keyframes`
   0% { opacity: 0;}
   50% { opacity: 0;}
@@ -50,7 +71,7 @@ export const slideThree = keyframes`
   71.875% { opacity: 1;}
   75% { opacity: 0;}
   100% { opacity: 0;}
-`
+`;
 
 export const slideFour = keyframes`
   0% { opacity: 0;}
@@ -58,4 +79,4 @@ export const slideFour = keyframes`
   78.125% { opacity: 1;}
   96.875% { opacity: 1;}
   100% { opacity: 0;}
-`
+`;

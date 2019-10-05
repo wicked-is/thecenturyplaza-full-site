@@ -11,11 +11,11 @@ import { fadeIn } from "shared/styled-components/Transitions.js";
 const SlideForwardContainer = styled.span`
   position: absolute;
   right: 0px;
-  top: 100px;
+  top: 80px;
   display: inline-block;
-  width: 100px;
-  height: calc(100vh - 200px);
-  margin: 00;
+  width: 40px;
+  height: calc(100vh - 160px);
+  margin: 0;
   z-index: 600;
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out forwards;

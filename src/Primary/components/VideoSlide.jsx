@@ -1,44 +1,21 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { navigate, Location } from '@reach/router';
-import styled from 'styled-components';
-import ReactPlayer from 'react-player';
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-import parse from 'html-react-parser';
+import React, { useState, useEffect, useContext } from "react";
+import { navigate, Location } from "@reach/router";
+import styled from "styled-components";
+import ReactPlayer from "react-player";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import parse from "html-react-parser";
 
-import Context from 'config/Context';
+import Context from "config/Context";
 import {
   SlideContainerStyled,
   PlayerContainerStyled,
   FullScreenStyled,
   PlaceHolderStyled
-} from 'Primary/style.js';
-import SlideForward from 'shared/components/SlideForward.jsx';
-import SlideBackward from 'shared/components/SlideBackward.jsx';
-import ScrollController from 'shared/components/ScrollController';
-import ResponsiveImage from 'shared/components/ResponsiveImage.js';
-
-// Wil be refactored into global slide styled compontent
-// const VideoSlideContainer = styled.article`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   transition: all 0.5s ease-in-out;
-//   transition-delay: 0.05s;
-//   height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-//   width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-//   ${'' /* opacity: 0;
-//   animation: ${fadeIn} 0.5s ease-in-out forwards;
-//   will-change: opacity; */}
-
-//   p {
-//     position: absolute;
-//     bottom: 30px;
-//     left: 40px;
-//     margin: 0;
-//     transition: all 0.5s ease-in-out;
-//     ${'' /* opacity: ${props => props.isExpanded ? "0" : "1"};  */}
-//   }
-// `
+} from "Primary/style.js";
+import SlideForward from "shared/components/SlideForward.jsx";
+import SlideBackward from "shared/components/SlideBackward.jsx";
+import InnerScrollController from "shared/components/VideoScrollController.jsx";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
@@ -54,13 +31,14 @@ const PlaceHolder = styled.div`
 `;
 
 const videoElement = isExpanded => ({
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  transition: isExpanded ? '0' : 'top 0.5s linear, left 0.5s linear',
-  top: isExpanded ? '0' : '-80px',
-  left: isExpanded ? '0' : '-40px',
-  background: 'transparent'
+  width: "100%",
+  height: "100%",
+  position: "absolute",
+  transition: "all 0.5s linear",
+  // transition: isExpanded ? "0" : "top 0.5s linear, left 0.5s linear",
+  top: isExpanded ? "0" : "-80px",
+  left: isExpanded ? "0" : "-40px",
+  background: "transparent"
 });
 
 const VideoSlide = ({
@@ -69,12 +47,12 @@ const VideoSlide = ({
   previousPath,
   isExpanded,
   isFirstSection,
-  isFirstLoad,
+  isFirstSlide,
   toggleExpand,
   closeExpand
 }) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown } = context;
+  const { pauseScroll, scrollCooldown, hasPlayed, markPlayed } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -87,29 +65,41 @@ const VideoSlide = ({
 
   const startTimer = () => {
     slide.delay.length > 0 &&
+      hasPlayed &&
       setTimeout(() => {
-        closeExpand();
+        toggleExpand();
       }, slide.delay);
   };
 
   useEffect(() => {
-    if (isFirstSection && isFirstLoad) {
+    if (isFirstSection && isFirstSlide && !hasPlayed) {
       toggleExpand();
+      markPlayed();
     }
-  }, [isFirstSection, isFirstLoad, toggleExpand]);
+  }, [isFirstSection, isFirstSlide, toggleExpand, hasPlayed]);
 
   return (
     <ReactScrollWheelHandler
-      id="test"
       pauseListeners={pauseScroll}
       upHandler={() => {
-        closeExpand();
-        navigate(previousPath);
+        isExpanded && toggleExpand();
+        !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
+        !isExpanded &&
+          !isFirstSection &&
+          !isFirstSlide &&
+          navigate(previousPath);
+        !isExpanded &&
+          !isFirstSection &&
+          isFirstSlide &&
+          navigate(previousPath);
+        !isExpanded &&
+          isFirstSection &&
+          !isFirstSlide &&
+          navigate(previousPath);
         scrollCooldown();
       }}
       downHandler={() => {
-        closeExpand();
-        navigate(nextPath);
+        isExpanded ? toggleExpand() : navigate(nextPath);
         scrollCooldown();
       }}
     >
@@ -125,11 +115,14 @@ const VideoSlide = ({
           isExpanded={isExpanded}
           closeExpand={closeExpand}
         />
-        <ScrollController
+        <InnerScrollController
           nextPath={nextPath}
           previousPath={previousPath}
           isExpanded={isExpanded}
           closeExpand={closeExpand}
+          isFirstSection={isFirstSection}
+          isFirstSlide={isFirstSlide}
+          toggleExpand={toggleExpand}
         />
         <PlayerContainer isExpanded={isExpanded}>
           <FullScreen isExpanded={isExpanded}>

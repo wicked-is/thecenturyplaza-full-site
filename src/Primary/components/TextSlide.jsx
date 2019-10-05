@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
-import { navigate } from '@reach/router';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import parse from "html-react-parser";
+import { navigate } from "@reach/router";
 
-import Context from '../../config/Context';
-import { SlideContainerStyled, TextMaskStyled } from 'Primary/style.js';
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-import SlideForward from 'shared/components/SlideForward.jsx';
-import SlideBackward from 'shared/components/SlideBackward.jsx';
+import Context from "../../config/Context";
+import { SlideContainerStyled, TextMaskStyled } from "Primary/style.js";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import SlideForward from "shared/components/SlideForward.jsx";
+import SlideBackward from "shared/components/SlideBackward.jsx";
 
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
-const TextMask = styled.div`
-  ${TextMaskStyled};
-`;
+// const TextMask = styled.div`
+//   ${TextMaskStyled};
+// `;
 
 const TextSlide = ({
   slide,
@@ -30,12 +30,10 @@ const TextSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        closeExpand();
         navigate(previousPath);
         scrollCooldown();
       }}
       downHandler={() => {
-        closeExpand();
         navigate(nextPath);
         scrollCooldown();
       }}
@@ -45,7 +43,7 @@ const TextSlide = ({
         <SlideForward nextPath={nextPath} />
         {slide.headline.length > 0 && (
           <h2>
-            <TextMask />
+            {/* <TextMask /> */}
             {parse(slide.headline)}
           </h2>
         )}

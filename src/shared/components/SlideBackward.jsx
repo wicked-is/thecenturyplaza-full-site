@@ -11,10 +11,10 @@ import { fadeIn } from "shared/styled-components/Transitions.js";
 const SlideBackwardContainer = styled.span`
   position: absolute;
   left: 0;
-  top: 100px;
+  top: 80px;
   display: inline-block;
-  width: 100px;
-  height: calc(100vh - 200px);
+  width: 40px;
+  height: calc(100vh - 160px);
   margin: 0;
   z-index: 600;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
