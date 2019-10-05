@@ -22,10 +22,13 @@ export const Wrapper = css`
 
 export const ViewportWrapper = css`
   ${Wrapper}
-  transition: ${props =>
+  transition: all 0.5s linear;
+  ${
+    "" /* transition: ${props =>
     props.isExpanded
       ? "0"
-      : "height 0.5s linear, width 0.5s linear, margin 0.5s linear, padding 0.5s linear"};
+      : "height 0.5s linear, width 0.5s linear, margin 0.5s linear, padding 0.5s linear"}; */
+  }
   width: ${props =>
     props.isExpanded
       ? "100vw"

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
-import { navigate } from '@reach/router';
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import React, { useContext } from "react";
+import styled from "styled-components";
+import parse from "html-react-parser";
+import { navigate } from "@reach/router";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
-import Context from '../../config/Context';
-import { SlideContainerStyled, ImageFullStyled } from 'Primary/style.js';
-import ResponsiveImage from 'shared/components/ResponsiveImage.js';
-import SlideForward from 'shared/components/SlideForward.jsx';
-import SlideBackward from 'shared/components/SlideBackward.jsx';
+import Context from "../../config/Context";
+import { SlideContainerStyled, ImageFullStyled } from "Primary/style.js";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
+import SlideForward from "shared/components/SlideForward.jsx";
+import SlideBackward from "shared/components/SlideBackward.jsx";
 
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
@@ -32,12 +32,10 @@ const ImageSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        closeExpand();
         navigate(previousPath);
         scrollCooldown();
       }}
       downHandler={() => {
-        closeExpand();
         navigate(nextPath);
         scrollCooldown();
       }}
