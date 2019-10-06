@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import Context from "../config/Context";
+import { navigate } from "@reach/router";
 
 const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [isExisting, setIsExisting] = useState(false);
   // const [fixedFooter, setfixedFooter] = useState(false);
 
   const scrollCooldown = () => {
@@ -19,6 +21,15 @@ const ContextProvider = props => {
 
   const markPlayed = () => {
     setHasPlayed(true);
+  };
+
+  const triggerExit = path => {
+    setIsExisting(true);
+    setTimeout(() => {
+      scrollCooldown();
+      setIsExisting(false);
+      navigate(path);
+    }, 500);
   };
 
   // const applyFixedFooter = () => {
@@ -38,7 +49,10 @@ const ContextProvider = props => {
         pauseScroll,
         scrollCooldown,
         hasPlayed,
-        markPlayed
+        markPlayed,
+        isExisting,
+        setIsExisting,
+        triggerExit
         // fixedFooter,
         // setfixedFooter,
         // applyFixedFooter,
