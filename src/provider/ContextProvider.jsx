@@ -25,11 +25,12 @@ const ContextProvider = props => {
 
   const triggerExit = path => {
     setIsExisting(true);
+    scrollCooldown();
     setTimeout(() => {
       scrollCooldown();
       setIsExisting(false);
       navigate(path);
-    }, 500);
+    }, 1000);
   };
 
   // const applyFixedFooter = () => {

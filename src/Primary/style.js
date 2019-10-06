@@ -2,6 +2,7 @@ import { css } from "styled-components";
 import { Container } from "shared/styled-components/Layouts.js";
 import {
   fadeIn,
+  fadeOut,
   pushUp,
   enterOnRight,
   exitOnLeft
@@ -15,7 +16,7 @@ export const SlideMaskStyled = css`
   width: ${props => (props.isExisting ? "0vw" : "100vw")};
   height: 100vh;
   overflow: hidden;
-  transition: width 0.5s cubic-bezier(0, 0.7, 0.3, 1);
+  transition: width 1s cubic-bezier(0, 0.7, 0.3, 1);
 
   &::after {
     position: absolute;
@@ -27,7 +28,7 @@ export const SlideMaskStyled = css`
     background: linear-gradient(
       -90deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 0) 80%
     );
     content: "";
     z-index: 300;
@@ -58,12 +59,19 @@ export const SlideContainerStyled = css`
     text-align: center;
     position: relative;
     overflow: hidden;
-    opacity: 0;
-    transform: translate3d(0, 3em, 0);
-    animation: ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
-      ${fadeIn} 1s 0.25s forwards;
+    opacity: ${props => (props.isExisting ? "0" : "1")};
+    transform: ${props =>
+      props.isExisting ? "translate3d(-2em, 0, 0)" : "translate3d(0, 0, 0)"};
+    animation: ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1),
+      ${fadeIn} 1s;
+    transition: transform 1.25s cubic-bezier(0, 0.7, 0.3, 1), opacity 1s;
+    
+    ${
+      "" /* ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
+      ${fadeIn} 1s 0.25s forwards; */
+    }
     will-change: opacity, transform;
-
+  
     em {
       font-family: ${props => props.theme.serifMediumItalic};
     }
