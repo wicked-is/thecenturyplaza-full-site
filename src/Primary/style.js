@@ -221,7 +221,7 @@ export const PanoFullStyled = css`
   justify-content: center;
   align-items: center;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   opacity: 0;
   animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   will-change: opacity;

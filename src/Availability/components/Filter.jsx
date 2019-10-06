@@ -1,11 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { directions } from '../config';
+import React, { useState, useEffect } from "react";
+import { directions } from "../config";
+import styled from "styled-components";
+import {
+  FilterContainer,
+  FilterCategory,
+  FilterLabel,
+  FilterList
+} from "Availability/style.js";
 
-const Filter = (props) => {
+const Container = styled.div`
+  ${FilterContainer};
+`;
+
+const Category = styled.div`
+  ${FilterCategory};
+`;
+
+const Label = styled.span`
+  ${FilterLabel};
+`;
+
+const List = styled.ul`
+  ${FilterList};
+`;
+
+const Filter = props => {
   const { listings, currentFilters, setCurrentFilters } = props;
 
   const getCurrentPage = () => {
-    const parts = window.location.pathname.split('/');
+    const parts = window.location.pathname.split("/");
     return parts[parts.length - 1];
   };
 
@@ -17,7 +40,7 @@ const Filter = (props) => {
   useEffect(() => {
     const getBedOptions = () => {
       const bedOptions = [];
-      listings[currentPage].forEach((d) => {
+      listings[currentPage].forEach(d => {
         const beds = d.acf.beds;
         if (!bedOptions.includes(beds)) {
           bedOptions.push(beds);
@@ -28,10 +51,10 @@ const Filter = (props) => {
 
     const getViewOptions = () => {
       const viewOptions = [];
-      listings[currentPage].forEach((d) => {
+      listings[currentPage].forEach(d => {
         const viewsStr = d.acf.views;
-        const views = viewsStr.split('').map(v => directions[v]);
-        views.forEach((v) => {
+        const views = viewsStr.split("").map(v => directions[v]);
+        views.forEach(v => {
           if (!viewOptions.includes(v)) {
             viewOptions.push(v);
           }
@@ -49,35 +72,47 @@ const Filter = (props) => {
     let setFilters = setCurrentFilters[currentPage];
 
     if (filters.includes(name)) {
-      let newFilters = filters.filter(f => f !== name)
-      setFilters({ ...currentFilters[currentPage], [type]: newFilters })
+      let newFilters = filters.filter(f => f !== name);
+      setFilters({ ...currentFilters[currentPage], [type]: newFilters });
     } else {
-      setFilters({ ...currentFilters[currentPage], [type]: [...filters, name] })
+      setFilters({
+        ...currentFilters[currentPage],
+        [type]: [...filters, name]
+      });
     }
   };
 
-  const isChecked = (name, type) => (
-    currentFilters[currentPage][type].includes(name) ? 'checked' : ''
-  );
+  const isChecked = (name, type) =>
+    currentFilters[currentPage][type].includes(name) ? "checked" : "";
 
   const renderFilterOption = (name, type, index) => (
     <li key={index}>
-      <input type="checkbox" onChange={() => toggleFilter(name, type)} id={`${type}-${name}`} name={`${type}-${name}`} checked={isChecked(name, type)} />
+      <input
+        type="checkbox"
+        onChange={() => toggleFilter(name, type)}
+        id={`${type}-${name}`}
+        name={`${type}-${name}`}
+        checked={isChecked(name, type)}
+      />
       <label htmlFor={`${type}-${name}`}>{name}</label>
     </li>
   );
 
   return (
-    <div>
-      <div>
-        <p>Beds</p>
-        <ul>{bedOptions.map((opt, i) => renderFilterOption(opt, 'beds', i))}</ul>
-      </div>
-      <div>
-        <p>Views</p>
-        <ul>{viewOptions.map((opt, i) => renderFilterOption(opt, 'views', i))}</ul>
-      </div>
-    </div>
+    <Container>
+      <Category>
+        <Label>Beds</Label>
+        <List>
+          {bedOptions.map((opt, i) => renderFilterOption(opt, "beds", i))}
+        </List>
+      </Category>
+      <Category>
+        <Label>Views</Label>
+        <List>
+          {viewOptions.map((opt, i) => renderFilterOption(opt, "views", i))}
+        </List>
+      </Category>
+    </Container>
   );
 };
 

@@ -19,7 +19,7 @@ const ImageFull = styled.div`
 
 const PanoViewer = styled.div`
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   overflow: hidden;
   z-index: 0;
 
@@ -31,9 +31,7 @@ const PanoViewer = styled.div`
   .psv-container {
     position: relative;
     width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-    height: calc(
-      100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-    );
+    height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
     overflow: hidden;
     position: relative;
 
@@ -47,7 +45,7 @@ const PanoViewer = styled.div`
         100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
       );
       height: calc(
-        100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+        80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
       );
       overflow: hidden;
       position: absolute;
@@ -62,9 +60,7 @@ const PanoViewer = styled.div`
   .psv-loader-container {
     position: relative;
     width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-    height: calc(
-      100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-    );
+    height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
     overflow: hidden;
 
     ${mediaMin.tabletLandscape`
@@ -77,7 +73,7 @@ const PanoViewer = styled.div`
         100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
       );
       height: calc(
-        100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+        80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
       );
       display: flex;
       flex-direction: column;
@@ -111,7 +107,7 @@ const PanoViewer = styled.div`
   }
 `;
 
-const PanoramaSlide = ({ slide, nextPath, previousPath, location }) => {
+const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown } = context;
 
@@ -120,9 +116,10 @@ const PanoramaSlide = ({ slide, nextPath, previousPath, location }) => {
       container: "panorama",
       panorama: require("../../imgs/panorama/pano_10000.jpg"),
       navbar: false,
-      anim_speed: 0,
+      anim_speed: "1rpm",
       default_lat: 0,
       latitude_range: [0.3, -0.3],
+      default_long: 0.3,
       max_fov: 38,
       mousewheel: false,
       loading_txt: "360° Pano"
@@ -130,7 +127,7 @@ const PanoramaSlide = ({ slide, nextPath, previousPath, location }) => {
   };
 
   useEffect(() => {
-    setUpPanorama();
+    setTimeout(() => setUpPanorama(), 800);
   }, []);
 
   return (

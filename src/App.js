@@ -42,6 +42,7 @@ const theme = {
   grayLight: "#E7E7E7",
   gray: "#B4BAC1",
   white: "#FFFFFF",
+  gold: "#BB8A47",
   sansSerifThin: "HelveticaNeueLTStd-UltLt",
   sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
   sansSerifLight: "HelveticaNeueLTStd-Lt",
