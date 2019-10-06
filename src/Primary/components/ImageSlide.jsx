@@ -22,7 +22,6 @@ const ImageSlide = ({
   nextPath,
   previousPath,
   toggleExpand,
-  closeExpand,
   location
 }) => {
   const context = useContext(Context);

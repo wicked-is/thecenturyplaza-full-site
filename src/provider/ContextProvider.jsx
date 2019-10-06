@@ -6,10 +6,11 @@ const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [fixedFooter, setfixedFooter] = useState(false);
 
   const scrollCooldown = () => {
     setPauseScroll(true);
-    setTimeout(() => setPauseScroll(false), 600);
+    setTimeout(() => setPauseScroll(false), 800);
   };
 
   const toggleMenu = () => {
@@ -18,6 +19,14 @@ const ContextProvider = props => {
 
   const markPlayed = () => {
     setHasPlayed(true);
+  };
+
+  const applyFixedFooter = () => {
+    setfixedFooter(true);
+  };
+
+  const removeFixedFooter = () => {
+    setfixedFooter(false);
   };
 
   return (
@@ -29,7 +38,11 @@ const ContextProvider = props => {
         pauseScroll,
         scrollCooldown,
         hasPlayed,
-        markPlayed
+        markPlayed,
+        fixedFooter,
+        setfixedFooter,
+        applyFixedFooter,
+        removeFixedFooter
       }}
     >
       {props.children}

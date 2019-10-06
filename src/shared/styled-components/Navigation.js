@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 import { Wrapper, Container } from "shared/styled-components/Layouts.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const MenuWrapper = css`
   ${Wrapper}
@@ -55,6 +55,7 @@ export const FooterWrapper = css`
   bottom: 30px;
   right: 40px;
   z-index: 10000;
+
   ul {
     list-style: none;
     margin: 0;

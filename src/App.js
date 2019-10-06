@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Redirect } from "@reach/router";
+import { Router, Redirect, Match } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
 
 import ContextProvider from "./provider/ContextProvider";
@@ -89,10 +89,6 @@ class App extends Component {
     this.setState(state => ({ isExpanded: !state.isExpanded }));
   };
 
-  closeExpand = () => {
-    this.setState(state => ({ isExpanded: false }));
-  };
-
   render() {
     return (
       <ContextProvider>
@@ -119,7 +115,6 @@ class App extends Component {
                     primaryData={primaryData}
                     isExpanded={this.state.isExpanded}
                     toggleExpand={this.toggleExpand}
-                    closeExpand={this.closeExpand}
                     setPageColor={this.setPageColor}
                     scrollPath={this.state.scrollPath}
                   />
@@ -135,7 +130,6 @@ class App extends Component {
                   path="team/*"
                   isExpanded={this.state.isExpanded}
                   toggleExpand={this.toggleExpand}
-                  closeExpand={this.closeExpand}
                   setPageColor={this.setPageColor}
                 />
                 <Redirect from="team" to={"team/" + teamData[0].slug} noThrow />
@@ -170,7 +164,10 @@ class App extends Component {
               pageColor={this.state.pageColor}
               isExpanded={this.state.isExpanded}
             >
-              <Footer isExpanded={this.state.isExpanded} />
+              <Footer
+                pageColor={this.state.pageColor}
+                isExpanded={this.state.isExpanded}
+              />
             </AppFooter>
           </AppBody>
         </ThemeProvider>

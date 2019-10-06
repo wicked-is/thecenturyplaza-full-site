@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import Select from 'react-select';
-import { Link } from '@reach/router';
+import React, { useState, useEffect, useContext } from "react";
+import Context from "config/Context";
+import styled from "styled-components";
+import Select from "react-select";
+import { Link } from "@reach/router";
 
-import { states } from './states';
-import { Wrapper } from 'shared/styled-components/Layouts.js';
-import { ContainerStyled } from 'Contact/style.js';
-import { mediaMin } from 'shared/styled-components/MediaQueries';
+import { states } from "./states";
+import { Wrapper } from "shared/styled-components/Layouts.js";
+import { ContainerStyled } from "Contact/style.js";
+import { mediaMin } from "shared/styled-components/MediaQueries";
 
 const LegalWrapper = styled.div`
   ${Wrapper};
@@ -48,8 +49,8 @@ const RightCol = styled.div`
 `;
 
 const ContactForm = styled.form`
-  opacity: ${props => (props.formVisible ? '1' : '0')};
-  visibility: ${props => (props.formVisible ? 'visible' : 'hidden')};
+  opacity: ${props => (props.formVisible ? "1" : "0")};
+  visibility: ${props => (props.formVisible ? "visible" : "hidden")};
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
@@ -60,8 +61,8 @@ const ContactForm = styled.form`
 `;
 
 const ContactSuccess = styled.form`
-  opacity: ${props => (props.confirmationVisible ? '1' : '0')};
-  visibility: ${props => (props.confirmationVisible ? 'visible' : 'hidden')};
+  opacity: ${props => (props.confirmationVisible ? "1" : "0")};
+  visibility: ${props => (props.confirmationVisible ? "visible" : "hidden")};
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
@@ -102,13 +103,13 @@ const FormRow = styled.div`
 const TextInput = styled.input`
   background-color: #0c1218;
   color: ${props => props.theme.gray};
-  border: ${props => (props.error ? '1px solid red' : '1px solid transparent')};
+  border: ${props => (props.error ? "1px solid red" : "1px solid transparent")};
   padding: 8px;
   box-sizing: border-box;
   width: ${props => {
-    if (props.halfWidth) return '50%';
-    if (props.quarterWidth) return '25%';
-    return '100%';
+    if (props.halfWidth) return "50%";
+    if (props.quarterWidth) return "25%";
+    return "100%";
   }};
   margin: 0 12px;
   &:first-child {
@@ -153,10 +154,10 @@ const RadioInput = styled.label`
       &::before {
         color: ${props => props.theme.gray};
         position: absolute;
-        font: 13px/1 'Open Sans', sans-serif;
+        font: 13px/1 "Open Sans", sans-serif;
         left: 11px;
         top: 7px;
-        content: '\\02143';
+        content: "\\02143";
         transform: rotate(40deg);
       }
     }
@@ -178,24 +179,26 @@ const SubmitButton = styled.button`
 `;
 
 const Contact = ({ setPageColor }) => {
+  const context = useContext(Context);
+  const { removeFixedFooter } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [confirmationMounted, setConfirmationMounted] = useState(false);
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
     agent: false,
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    agencyName: '',
-    agencyPhone: '',
-    agencyAddress: ''
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    agencyName: "",
+    agencyPhone: "",
+    agencyAddress: ""
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -239,7 +242,7 @@ const Contact = ({ setPageColor }) => {
     e.preventDefault();
     showSuccess();
     if (!checkForErrors()) {
-      console.log('submitted');
+      console.log("submitted");
     }
   };
 
@@ -255,8 +258,9 @@ const Contact = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    setPageColor('#101820');
-  }, []);
+    removeFixedFooter();
+    setPageColor("#101820");
+  }, [removeFixedFooter]);
 
   return (
     <LegalWrapper>

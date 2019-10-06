@@ -6,7 +6,7 @@ import Footer from "shared/components/Footer.jsx";
 const MainMenuContainer = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
   visibility: ${props => (props.navActive ? "visible" : "hidden")};
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
   display: flex;
   position: absolute;
   top: 0;

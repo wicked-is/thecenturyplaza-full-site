@@ -16,13 +16,7 @@ const SlideContainer = styled.div`
 //   ${TextMaskStyled};
 // `;
 
-const TextSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  toggleExpand,
-  closeExpand
-}) => {
+const TextSlide = ({ slide, nextPath, previousPath }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown } = context;
 

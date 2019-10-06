@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   SectionStyled,
@@ -30,11 +30,6 @@ const GalleryMedia = styled.div`
 const videoElement = isExpanded => ({
   width: "100%",
   height: "100%",
-  // position: 'absolute',
-  // // transition: 'all 0.5s ease-in-out',
-  // // transitionDelay: '0.05s',
-  // top: isExpanded ? '0' : '-80px',
-  // left: isExpanded ? '0' : '-40px',
   background: "transparent"
 });
 

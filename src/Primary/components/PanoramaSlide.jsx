@@ -1,14 +1,15 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
+import { fadeIn } from "shared/styled-components/Transitions.js";
 import PhotoSphereViewer from "photo-sphere-viewer";
 import parse from "html-react-parser";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import { navigate } from "@reach/router";
-
 import Context from "../../config/Context";
 import { SlideContainerStyled, PanoFullStyled } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
@@ -18,31 +19,77 @@ const ImageFull = styled.div`
 `;
 
 const PanoViewer = styled.div`
-  height: 100%;
-  width: 100%;
+  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   overflow: hidden;
+  z-index: 0;
+
+  ${mediaMin.tabletLandscape`
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.desktopMargin) * 2}px);
+  `}
+
   .psv-container {
-    height: 100%;
-    width: 100%;
+    position: relative;
+    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+    height: calc(
+      100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    );
     overflow: hidden;
     position: relative;
+
+    ${mediaMin.tabletLandscape`
+      width: calc(100vw - ${props =>
+        parseFloat(props.theme.desktopMargin) * 2}px);
+    `}
+
     .psv-hud {
-      height: 100%;
-      width: 100%;
+      width: calc(
+        100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
+      );
+      height: calc(
+        100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+      );
       overflow: hidden;
       position: absolute;
+
+      ${mediaMin.tabletLandscape`
+        width: calc(100vw - ${props =>
+          parseFloat(props.theme.desktopMargin) * 2}px);
+      `}
     }
   }
+
   .psv-loader-container {
-    height: 100%;
-    width: 100%;
+    position: relative;
+    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+    height: calc(
+      100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    );
     overflow: hidden;
+
+    ${mediaMin.tabletLandscape`
+      width: calc(100vw - ${props =>
+        parseFloat(props.theme.desktopMargin) * 2}px);
+    `}
+
     .psv-loader {
-      height: 100%;
-      width: 100%;
+      width: calc(
+        100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
+      );
+      height: calc(
+        100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+      );
       display: flex;
       flex-direction: column;
       justify-content: center;
+      overflow: hidden;
+
+      ${mediaMin.tabletLandscape`
+        width: calc(100vw - ${props =>
+          parseFloat(props.theme.desktopMargin) * 2}px);
+      `}
+
       img {
         margin: 0 auto;
       }
@@ -65,13 +112,7 @@ const PanoViewer = styled.div`
   }
 `;
 
-const PanoramaSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  closeExpand,
-  location
-}) => {
+const PanoramaSlide = ({ slide, nextPath, previousPath, location }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown } = context;
 

@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 import { Wrapper, Container } from "shared/styled-components/Layouts.js";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
 
 export const WrapperStyled = css`
@@ -22,18 +22,6 @@ export const HeaderStyled = css`
     width: 100%;
     height: calc(100vh - 160px);
   `}
-
-  ${"" /* h1 {
-    position: absolute;
-    display: inline-block;
-    width: 100%;
-    font-size: 2em;
-    text-align: center;
-    top: 20vh;
-    left: 0;
-    margin: 0 0 0;
-    z-index: 500;
-  } */}
 
   img {
     width: 100%;

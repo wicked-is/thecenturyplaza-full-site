@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Router, Link } from "@reach/router";
 import * as api from "./api";
+import Context from "config/Context";
 import Listings from "./components/Listings";
 import Filter from "./components/Filter";
 
 const Availability = props => {
+  const context = useContext(Context);
+  const { removeFixedFooter } = context;
+
   const { setPageColor } = props;
 
   useEffect(() => {
+    removeFixedFooter();
     setPageColor(props => props.theme.white);
-  }, [setPageColor]);
+  }, [setPageColor, removeFixedFooter]);
 
   const [hotelListings, setHotelListings] = useState([]);
   const [towerListings, setTowerListings] = useState([]);

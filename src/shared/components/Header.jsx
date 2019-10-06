@@ -20,16 +20,9 @@ import logoGraySVG from "icons/logo-gray.svg";
 
 const HeaderContainer = styled.header`
   display: inline-block;
-  position: fixed;
-  transition: all 0.5s linear;
-  top: 0;
+  position: relative;
   width: 100%;
-  height: ${props => props.theme.headerHeight}px;
-  background: ${props => props.pageColor};
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
-  will-change: opacity;
-  z-index: 10000;
+  height: 100%;
 `;
 
 const NavRow = styled.div`
@@ -55,7 +48,6 @@ const Logo = styled.div`
         props.navActive || props.isLight ? logoGraySVG : logoBlackSVG})
       no-repeat center center,
     none;
-  transition: all 0.5s ease-in-out;
 `;
 
 const Hamburger = styled.button`
@@ -90,13 +82,13 @@ const Hamburger = styled.button`
 
 const Header = ({ primaryData, pageColor }) => {
   const context = useContext(Context);
-  const { navActive, toggleMenu } = context;
+  const { navActive, toggleMenu, isExpanded } = context;
 
   return (
     <Location>
       {({ location }) => {
         return (
-          <HeaderContainer pageColor={pageColor}>
+          <HeaderContainer isExpanded={isExpanded} pageColor={pageColor}>
             <NavRow>
               <Link to="/">
                 <Logo

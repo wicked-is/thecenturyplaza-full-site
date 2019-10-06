@@ -34,11 +34,8 @@ const videoElement = isExpanded => ({
   width: "100%",
   height: "100%",
   position: "absolute",
-  transition: "all 0.5s linear",
-  // transition: isExpanded ? "0" : "top 0.5s linear, left 0.5s linear",
-  top: isExpanded ? "0" : "-80px",
-  left: isExpanded ? "0" : "-40px",
-  background: "transparent"
+  background: "transparent",
+  zIndex: "500"
 });
 
 const VideoSlide = ({
@@ -48,8 +45,7 @@ const VideoSlide = ({
   isExpanded,
   isFirstSection,
   isFirstSlide,
-  toggleExpand,
-  closeExpand
+  toggleExpand
 }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown, hasPlayed, markPlayed } = context;
@@ -57,19 +53,19 @@ const VideoSlide = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   const removePlaceholder = () => {
-    startTimer();
+    // startTimer();
     setTimeout(() => {
       setIsPlaying(true);
     }, 100);
   };
 
-  const startTimer = () => {
-    slide.delay.length > 0 &&
-      hasPlayed &&
-      setTimeout(() => {
-        toggleExpand();
-      }, slide.delay);
-  };
+  // const startTimer = () => {
+  //   slide.delay.length > 0 &&
+  //     hasPlayed &&
+  //     setTimeout(() => {
+  //       toggleExpand();
+  //     }, slide.delay);
+  // };
 
   useEffect(() => {
     if (isFirstSection && isFirstSlide && !hasPlayed) {
@@ -105,21 +101,12 @@ const VideoSlide = ({
     >
       <SlideContainer isExpanded={isExpanded}>
         {/* <ToggleFullScreen onClick={toggleExpand} isExpanded={isExpanded} /> */}
-        <SlideBackward
-          previousPath={previousPath}
-          isExpanded={isExpanded}
-          closeExpand={closeExpand}
-        />
-        <SlideForward
-          nextPath={nextPath}
-          isExpanded={isExpanded}
-          closeExpand={closeExpand}
-        />
+        <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
+        <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
         <InnerScrollController
           nextPath={nextPath}
           previousPath={previousPath}
           isExpanded={isExpanded}
-          closeExpand={closeExpand}
           isFirstSection={isFirstSection}
           isFirstSlide={isFirstSlide}
           toggleExpand={toggleExpand}
@@ -131,8 +118,9 @@ const VideoSlide = ({
             </PlaceHolder>
             <ReactPlayer
               url={slide.source[0]}
-              playing
+              playing={false}
               muted
+              playing
               playsinline
               loop
               width="100vw"

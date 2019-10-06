@@ -13,8 +13,7 @@ const Section = ({
   isExpanded,
   isFirstSection,
   scrollPath,
-  toggleExpand,
-  closeExpand
+  toggleExpand
 }) => {
   const getActiveSlide = (slide, index) => {
     let previousPath;
@@ -47,7 +46,6 @@ const Section = ({
           default={index === 0 && true}
           isExpanded={isExpanded}
           toggleExpand={toggleExpand}
-          closeExpand={closeExpand}
           key={index}
           slide={slide}
           path={slide.slug}
@@ -62,9 +60,6 @@ const Section = ({
           isFirstSection={isFirstSection}
           isFirstSlide={index === 0 && true}
           default={index === 0 && true}
-          isExpanded={isExpanded}
-          toggleExpand={toggleExpand}
-          closeExpand={closeExpand}
           key={index}
           slide={slide}
           path={slide.slug}
@@ -79,9 +74,6 @@ const Section = ({
           isFirstSection={isFirstSection}
           isFirstSlide={index === 0 && true}
           default={index === 0 && true}
-          isExpanded={isExpanded}
-          toggleExpand={toggleExpand}
-          closeExpand={closeExpand}
           key={index}
           slide={slide}
           path={slide.slug}
@@ -96,9 +88,6 @@ const Section = ({
           isFirstSection={isFirstSection}
           isFirstSlide={index === 0 && true}
           default={index === 0 && true}
-          isExpanded={isExpanded}
-          toggleExpand={toggleExpand}
-          closeExpand={closeExpand}
           key={index}
           slide={slide}
           path={slide.slug}
@@ -113,9 +102,6 @@ const Section = ({
           isFirstSection={isFirstSection}
           isFirstSlide={index === 0 && true}
           default={index === 0 && true}
-          isExpanded={isExpanded}
-          toggleExpand={toggleExpand}
-          closeExpand={closeExpand}
           key={index}
           slide={slide}
           path={slide.slug}

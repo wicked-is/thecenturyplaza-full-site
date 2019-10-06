@@ -1,37 +1,61 @@
 import styled, { css } from "styled-components";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { fadeIn } from "shared/styled-components/Transitions.js";
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
   color: ${props => props.theme.black};
   font-size: 14px;
   letter-spacing: 0.6px;
-  transition: background 0.25s ease-in-out;
+  transition: background 0.5s ease-in-out;
   background: ${props => props.pageColor};
   min-height: 100vh;
   position: relative;
 
   a {
-    ${"" /* color: ${props => props.theme.black}; */}
     text-decoration: none;
   }
 `;
 
 export const PageHeader = css`
-  display: ${props => (props.isExpanded ? "none" : "block")};
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: ${props => props.theme.headerHeight}px;
+  background: ${props => props.pageColor};
+  z-index: 1000;
+  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+  transform: translateY(
+    ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
+  );
 
   header {
-    transition: background 0.25s ease-in-out;
-    background: ${props => props.pageColor};
+    opacity: 0;
+    animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+    will-change: opacity;
   }
 `;
 
 export const PageFooter = css`
-  display: ${props => (props.isExpanded ? "none" : "block")};
-  position: relative;
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  z-index: 900;
   width: 100%;
-  height: 80px;
-  z-index: 10000;
+  height: ${props => props.theme.headerHeight}px;
+  background: ${props => props.pageColor};
+  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+  transform: translateY(
+    ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
+  );
+
+  footer {
+    opacity: 0;
+    animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+    will-change: opacity;
+  }
 `;
 
 export const PageTitle = css`
@@ -42,6 +66,4 @@ export const PageTitle = css`
   letter-spacing: 0.3em;
   text-align: center;
   text-transform: uppercase;
-  ${"" /* font-size: 22px;
-  letter-spacing: 6.11px; */}
 `;

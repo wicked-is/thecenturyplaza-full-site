@@ -32,13 +32,7 @@ const ImageSlideShow = styled.div`
 `;
 // const ImageMask = styled.div`${ImageMaskStyled};`;
 
-const SplitSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  toggleExpand,
-  closeExpand
-}) => {
+const SplitSlide = ({ slide, nextPath, previousPath }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown } = context;
 

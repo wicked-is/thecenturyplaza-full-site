@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import { Location } from "@reach/router";
-
 import Context from "../../config/Context";
 import { FooterWrapper } from "shared/styled-components/Navigation.js";
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   ${FooterWrapper};
 `;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 // import rightArrowBlackPNG from "icons/right-arrow-black.png";
 // import rightArrowBlackSVG from "icons/right-arrow-black.svg";
@@ -10,16 +10,24 @@ import { fadeIn } from "shared/styled-components/Transitions.js";
 
 const SlideForwardContainer = styled.span`
   position: absolute;
-  right: 0px;
-  top: 80px;
+  right: 0;
+  top: 0;
   display: inline-block;
-  width: 40px;
-  height: calc(100vh - 160px);
+  width: ${props => props.theme.mobileMargin + "px"};
+  height: 100vh;
   margin: 0;
   z-index: 600;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
-  will-change: opacity;
+  background: ${props => props.theme.white};
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(
+    ${props => (props.isExpanded ? props.theme.mobileMargin + "px" : "0")}
+  );
+
+  ${mediaMin.tabletLandscape` 
+    width: ${props => props.theme.desktopMargin + "px"};
+    transform: translateX(${props =>
+      props.isExpanded ? props.theme.desktopMargin + "px" : "0"})
+  `}
 
   a {
     display: inline-block;
@@ -27,28 +35,15 @@ const SlideForwardContainer = styled.span`
     text-decoration: none;
     width: 100%;
     height: 100%;
-    ${"" /* background: url(${rightArrowGrayPNG}) no-repeat center center;
-    background: url(${rightArrowGraySVG}) no-repeat center center, none; */}
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    ${"" /* opacity: ${props => props.isExpanded ? "0" : "1"};  */}
-
-    &:hover {
-      opacity: 1;
-      ${"" /* background: url(${rightArrowBlackPNG}) no-repeat center center;
-      background: url(${rightArrowBlackSVG}) no-repeat center center, none;       */}
-    }
   }
 `;
 
 const SlideForward = props => {
-  const { nextPath, isExpanded, closeExpand } = props;
+  const { nextPath, isExpanded } = props;
 
   return (
     <SlideForwardContainer isExpanded={isExpanded}>
-      <Link to={nextPath} onClick={closeExpand}>
-        &rarr;
-      </Link>
+      <Link to={nextPath}>&rarr;</Link>
     </SlideForwardContainer>
   );
 };

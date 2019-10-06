@@ -13,7 +13,7 @@ const ActiveMenuContainer = styled.ul`
     top: 15px;
     position: absolute;
     padding: 0;
-    transition: all 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     opacity: ${props => (props.isExpanded ? "0" : "1")};
 
     li {
