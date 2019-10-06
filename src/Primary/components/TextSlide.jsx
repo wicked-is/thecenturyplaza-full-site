@@ -74,7 +74,7 @@ const TextSlide = ({
       }}
       downHandler={() => {
         triggerExit(nextPath);
-        scrollCooldown();
+        // scrollCooldown();
       }}
     >
       <SlideMask isExisting={isExisting}>
