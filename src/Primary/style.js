@@ -1,15 +1,49 @@
 import { css } from "styled-components";
 import { Container } from "shared/styled-components/Layouts.js";
-import { fadeIn, pushUp } from "shared/styled-components/Transitions.js";
+import {
+  fadeIn,
+  pushUp,
+  enterOnRight,
+  exitOnLeft
+} from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
+export const SlideMaskStyled = css`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: ${props => (props.isExisting ? "0vw" : "100vw")};
+  height: 100vh;
+  overflow: hidden;
+  transition: width 0.5s cubic-bezier(0, 0.7, 0.3, 1);
+
+  &::after {
+    position: absolute;
+    width: 25vw;
+    height: 100vh;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    background: linear-gradient(
+      -90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    content: "";
+    z-index: 300;
+  }
+`;
+
 export const SlideContainerStyled = css`
-  ${Container}
+  ${"" /* ${Container} */}
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+  z-index: 200;
+  position: relative;
+  background: white;
   }
 
   h2 {
@@ -26,7 +60,7 @@ export const SlideContainerStyled = css`
     overflow: hidden;
     opacity: 0;
     transform: translate3d(0, 3em, 0);
-    animation: ${pushUp} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
+    animation: ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
       ${fadeIn} 1s 0.25s forwards;
     will-change: opacity, transform;
 
@@ -121,9 +155,9 @@ export const PlayerContainerStyled = css`
   height: 100vh;
   overflow: hidden;
   position: relative;
-  opacity: 0;
+  ${"" /* opacity: 0;
   animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
-  will-change: opacity;
+  will-change: opacity; */}
 `;
 
 export const FullScreenStyled = css`
@@ -243,4 +277,43 @@ export const ImageContainerStyled = css`
   animation: ${pushUp} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.5s forwards,
     ${fadeIn} 1s 0.5s forwards;
   will-change: opacity, transform;
+`;
+
+export const NextSlideContainerStyled = css`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+
+  ${"" /* img {
+    transform: translate3d(50vw, 0, 0);
+  } */}
+`;
+
+export const NextLeftEdgeStyled = css`
+  display: inline-block;
+  background: white;
+  width: 40px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 400;
+`;
+
+export const NextRightEdgeStyled = css`
+  display: inline-block;
+  background: white;
+  width: 40px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 400;
 `;

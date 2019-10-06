@@ -11,14 +11,14 @@ const PrimaryWrapper = styled.div`
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor, scrollPath } = props;
 
-  const getPreviousSection = index =>
+  const getPreviousSectionPath = index =>
     index !== 0
       ? primaryData[index - 1].slug +
         "/" +
         primaryData[index - 1].slides[primaryData[index - 1].slides.length - 1]
           .slug
       : null;
-  const getNextSection = index =>
+  const getNextSectionPath = index =>
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
@@ -36,8 +36,12 @@ const Primary = props => {
             isExpanded={isExpanded}
             toggleExpand={props.toggleExpand}
             section={section}
-            previousSection={getPreviousSection(index)}
-            nextSection={getNextSection(index)}
+            previousSection={
+              primaryData[index - 1] ? primaryData[index - 1] : null
+            }
+            nextSection={primaryData[index + 1] ? primaryData[index + 1] : null}
+            previousSectionPath={getPreviousSectionPath(index)}
+            nextSectionPath={getNextSectionPath(index)}
             scrollPath={scrollPath}
           />
         ))}

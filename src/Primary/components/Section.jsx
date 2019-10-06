@@ -10,6 +10,8 @@ const Section = ({
   section,
   previousSection,
   nextSection,
+  previousSectionPath,
+  nextSectionPath,
   isExpanded,
   isFirstSection,
   scrollPath,
@@ -20,10 +22,10 @@ const Section = ({
     if (index !== 0) {
       previousPath = "/" + section.slug + "/" + section.slides[index - 1].slug;
     } else {
-      if (previousSection === null) {
+      if (previousSectionPath === null) {
         previousPath = "/" + section.slug; // First Slide
       } else {
-        previousPath = "/" + previousSection;
+        previousPath = "/" + previousSectionPath;
       }
     }
 
@@ -31,10 +33,32 @@ const Section = ({
     if (index !== section.slides.length - 1) {
       nextPath = "/" + section.slug + "/" + section.slides[index + 1].slug;
     } else {
-      if (nextSection === null) {
+      if (nextSectionPath === null) {
         nextPath = "/continue"; // Last Slide
       } else {
-        nextPath = "/" + nextSection;
+        nextPath = "/" + nextSectionPath;
+      }
+    }
+
+    let previousSlide;
+    if (index !== 0) {
+      previousSlide = section.slides[index - 1];
+    } else {
+      if (previousSection === null) {
+        previousSlide = null; // First Slide
+      } else {
+        previousSlide = previousSection.slides.length - 1;
+      }
+    }
+
+    let nextSlide;
+    if (index !== section.slides.length - 1) {
+      nextSlide = section.slides[index + 1];
+    } else {
+      if (nextSection === null) {
+        nextSlide = null; // Last Slide
+      } else {
+        nextSlide = nextSection.slides[0];
       }
     }
 
@@ -48,6 +72,8 @@ const Section = ({
           toggleExpand={toggleExpand}
           key={index}
           slide={slide}
+          previousSlide={previousSlide}
+          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -62,6 +88,8 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
+          previousSlide={previousSlide}
+          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -76,6 +104,8 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
+          previousSlide={previousSlide}
+          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -90,6 +120,8 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
+          previousSlide={previousSlide}
+          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -104,6 +136,8 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
+          previousSlide={previousSlide}
+          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
