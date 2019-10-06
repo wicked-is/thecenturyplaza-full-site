@@ -1,10 +1,6 @@
 import { css } from "styled-components";
 import { Container } from "shared/styled-components/Layouts.js";
-import {
-  fadeIn,
-  pushUp,
-  pushDown
-} from "shared/styled-components/Transitions.js";
+import { fadeIn, pushUp } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const SlideContainerStyled = css`

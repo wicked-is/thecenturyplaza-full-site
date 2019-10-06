@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react";
-import Context from "config/Context";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { PageTitle } from "shared/styled-components/Typography.js";
 import { Wrapper } from "shared/styled-components/Layouts.js";
@@ -16,15 +15,11 @@ const AccessibilityTitle = styled.h1`
 `;
 
 const Accessibility = props => {
-  const context = useContext(Context);
-  const { removeFixedFooter } = context;
-
   const { setPageColor } = props;
 
   useEffect(() => {
-    removeFixedFooter();
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor, removeFixedFooter]);
+  }, [setPageColor]);
 
   return (
     <AccessibilityWrapper>

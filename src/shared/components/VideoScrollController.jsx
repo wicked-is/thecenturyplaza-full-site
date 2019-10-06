@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
-import { navigate, Location } from "@reach/router";
+import { navigate } from "@reach/router";
 import Context from "config/Context";
-import { fadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const InnerScrollContainer = styled.span`

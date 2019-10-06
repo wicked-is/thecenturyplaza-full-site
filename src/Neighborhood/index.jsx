@@ -1,7 +1,5 @@
-import React, { useEffect, useContext } from "react";
-import Context from "config/Context";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { PageTitle } from "shared/styled-components/Typography.js";
 import {
   WrapperStyled,
   HeaderStyled,
@@ -25,9 +23,7 @@ const NeighborhoodContainer = styled.div`
 const NeighborhoodHeader = styled.header`
   ${HeaderStyled};
 `;
-const NeighborhoodTitle = styled.h1`
-  ${PageTitle};
-`;
+
 const NeighborhoodItem = styled.div`
   ${ItemStyled};
 `;
@@ -48,14 +44,11 @@ const NeighborhoodItemCTA = styled.p`
 `;
 
 const Neighborhood = props => {
-  const context = useContext(Context);
-  const { removeFixedFooter } = context;
   const { neighborhoodData, setPageColor } = props;
 
   useEffect(() => {
-    removeFixedFooter();
     setPageColor(props => props.theme.white);
-  }, [setPageColor, removeFixedFooter]);
+  }, [setPageColor]);
 
   return (
     <NeighborhoodWrapper>

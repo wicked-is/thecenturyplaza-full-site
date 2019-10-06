@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AsideStyled, ItemStyled } from "Team/style.js";
+import { AsideStyled, ItemsStyled } from "Team/style.js";
 import Grid from "styled-components-grid";
 import parse from "html-react-parser";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
@@ -9,8 +9,8 @@ import TeamMenu from "Team/components/TeamMenu.jsx";
 const TeamAside = styled.aside`
   ${AsideStyled};
 `;
-const MemberItem = styled.div`
-  ${ItemStyled}
+const MemberItems = styled.div`
+  ${ItemsStyled}
 `;
 
 const Member = props => {
@@ -34,11 +34,11 @@ const Member = props => {
                 tabletLandscape: image.span[1] / 6
               }}
             >
-              <MemberItem>
+              <MemberItems>
                 {image.source.length > 0 && (
                   <ResponsiveImage key={index} srcPath={image.source} />
                 )}
-              </MemberItem>
+              </MemberItems>
             </Grid.Unit>
           ))}
         </Grid>

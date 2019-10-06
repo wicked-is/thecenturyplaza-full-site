@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { Router } from "@reach/router";
-import Context from "config/Context";
 import styled from "styled-components";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Team/style.js";
@@ -14,14 +13,11 @@ const TeamContainer = styled.div`
 `;
 
 const Team = props => {
-  const context = useContext(Context);
-  const { removeFixedFooter } = context;
   const { isExpanded, teamData, setPageColor } = props;
 
   useEffect(() => {
-    removeFixedFooter();
     setPageColor(props => props.theme.white);
-  }, [setPageColor, removeFixedFooter]);
+  }, [setPageColor]);
 
   return (
     <TeamWrapper isExpanded={isExpanded}>

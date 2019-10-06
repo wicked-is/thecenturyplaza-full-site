@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
 import PhotoSphereViewer from "photo-sphere-viewer";
 import parse from "html-react-parser";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";

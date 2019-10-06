@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { Router } from "@reach/router";
-import Context from "config/Context";
 import styled from "styled-components";
 import { ViewportWrapper } from "shared/styled-components/Layouts.js";
 import Section from "Primary/components/Section.jsx";
@@ -10,9 +9,6 @@ const PrimaryWrapper = styled.div`
 `;
 
 const Primary = props => {
-  const context = useContext(Context);
-  const { applyFixedFooter } = context;
-
   const { isExpanded, primaryData, setPageColor, scrollPath } = props;
 
   const getPreviousSection = index =>
@@ -26,7 +22,6 @@ const Primary = props => {
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
-    applyFixedFooter();
     setPageColor(props => props.theme.white);
   }, [setPageColor]);
 

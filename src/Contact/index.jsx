@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import Context from "config/Context";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { Link } from "@reach/router";
@@ -179,8 +178,6 @@ const SubmitButton = styled.button`
 `;
 
 const Contact = ({ setPageColor }) => {
-  const context = useContext(Context);
-  const { removeFixedFooter } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -258,9 +255,8 @@ const Contact = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    removeFixedFooter();
-    setPageColor("#101820");
-  }, [removeFixedFooter]);
+    setPageColor(props => props.theme.white);
+  }, [setPageColor]);
 
   return (
     <LegalWrapper>

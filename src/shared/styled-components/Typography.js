@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
 

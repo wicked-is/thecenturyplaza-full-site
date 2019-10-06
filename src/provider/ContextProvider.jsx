@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Context from "../config/Context";
 
 const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
-  const [fixedFooter, setfixedFooter] = useState(false);
+  // const [fixedFooter, setfixedFooter] = useState(false);
 
   const scrollCooldown = () => {
     setPauseScroll(true);
@@ -21,13 +21,13 @@ const ContextProvider = props => {
     setHasPlayed(true);
   };
 
-  const applyFixedFooter = () => {
-    setfixedFooter(true);
-  };
+  // const applyFixedFooter = () => {
+  //   setfixedFooter(true);
+  // };
 
-  const removeFixedFooter = () => {
-    setfixedFooter(false);
-  };
+  // const removeFixedFooter = () => {
+  //   setfixedFooter(false);
+  // };
 
   return (
     <Context.Provider
@@ -38,11 +38,11 @@ const ContextProvider = props => {
         pauseScroll,
         scrollCooldown,
         hasPlayed,
-        markPlayed,
-        fixedFooter,
-        setfixedFooter,
-        applyFixedFooter,
-        removeFixedFooter
+        markPlayed
+        // fixedFooter,
+        // setfixedFooter,
+        // applyFixedFooter,
+        // removeFixedFooter
       }}
     >
       {props.children}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Redirect, Match } from "@reach/router";
+import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
 
 import ContextProvider from "./provider/ContextProvider";

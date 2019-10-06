@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { navigate, Location } from "@reach/router";
+import { navigate } from "@reach/router";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -72,7 +72,7 @@ const VideoSlide = ({
       toggleExpand();
       markPlayed();
     }
-  }, [isFirstSection, isFirstSlide, toggleExpand, hasPlayed]);
+  }, [isFirstSection, isFirstSlide, toggleExpand, hasPlayed, markPlayed]);
 
   return (
     <ReactScrollWheelHandler
@@ -118,7 +118,6 @@ const VideoSlide = ({
             </PlaceHolder>
             <ReactPlayer
               url={slide.source[0]}
-              playing={false}
               muted
               playing
               playsinline
