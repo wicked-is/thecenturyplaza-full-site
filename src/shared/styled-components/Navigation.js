@@ -50,13 +50,13 @@ export const MenuContainer = css`
 `;
 
 export const FooterWrapper = css`
-  display: inline-block;
-  position: absolute;
-  bottom: 30px;
-  right: 40px;
   z-index: 10000;
 
   ul {
+    display: inline-block;
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
     list-style: none;
     margin: 0;
     padding: 0;

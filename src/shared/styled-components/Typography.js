@@ -67,3 +67,18 @@ export const PageTitle = css`
   text-align: center;
   text-transform: uppercase;
 `;
+
+export const Caption = css`
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  margin: 0;
+  max-width: calc(100vw - 80px - 400px);
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.35em;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+`;
