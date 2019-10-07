@@ -26,9 +26,17 @@ const Footer = props => {
           navActive={navActive}
           isLight={location.pathname === "/contact"}
         >
-          <SlideCaption>
-            {parse(primaryData[isSection].slides[isSlide].caption)}
-          </SlideCaption>
+          {location.pathname !== "/contact/*" ||
+          location.pathname !== "/team/*" ||
+          location.pathname !== "/gallery" ||
+          location.pathname !== "/neighborhood/*" ||
+          location.pathname !== "/team/*" ||
+          location.pathname !== "/accessibility/*" ||
+          location.pathname !== "/legal/*" ? (
+            <SlideCaption>
+              {parse(primaryData[isSection].slides[isSlide].caption)}
+            </SlideCaption>
+          ) : null}
           <ul>
             <li>
               <Link to="/contact">Contact</Link>
