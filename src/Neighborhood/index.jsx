@@ -1,5 +1,9 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import Grid from 'styled-components-grid';
+import Fade from 'react-reveal/Fade';
+import LazyLoad from 'react-lazyload';
+
 import {
   WrapperStyled,
   HeaderStyled,
@@ -10,9 +14,8 @@ import {
   ItemHeadlineStyled,
   ItemCopyStyled,
   ItemCTAStyled
-} from "Neighborhood/style.js";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import Grid from "styled-components-grid";
+} from 'Neighborhood/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
 
 const NeighborhoodWrapper = styled.div`
   ${WrapperStyled};
@@ -54,7 +57,11 @@ const Neighborhood = props => {
     <NeighborhoodWrapper>
       <NeighborhoodHeader>
         {/* <NeighborhoodTitle>In The Heart of Los Angeles</NeighborhoodTitle> */}
-        <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
+        <LazyLoad once>
+          <Fade>
+            <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
+          </Fade>
+        </LazyLoad>
       </NeighborhoodHeader>
       <NeighborhoodContainer>
         <Grid halign="justify">
@@ -67,32 +74,56 @@ const Neighborhood = props => {
               }}
             >
               <NeighborhoodItem valign={item.valign}>
-                {item.source.length === 1 && item.source != "" && (
-                  <ResponsiveImage srcPath={item.source[0]} />
+                {item.source.length === 1 && item.source != '' && (
+                  <LazyLoad once>
+                    <Fade bottom>
+                      <ResponsiveImage srcPath={item.source[0]} />
+                    </Fade>
+                  </LazyLoad>
                 )}
                 {item.source.length > 1 && (
-                  <NeighborhoodItemPaired>
-                    <ResponsiveImage srcPath={item.source[0]} />
-                    <ResponsiveImage srcPath={item.source[1]} />
-                  </NeighborhoodItemPaired>
+                  <LazyLoad once>
+                    <Fade bottom>
+                      <NeighborhoodItemPaired>
+                        <ResponsiveImage srcPath={item.source[0]} />
+                        <ResponsiveImage srcPath={item.source[1]} />
+                      </NeighborhoodItemPaired>
+                    </Fade>
+                  </LazyLoad>
                 )}
                 {item.caption.length > 0 && (
-                  <NeighborhoodItemCaption>
-                    {item.caption}
-                  </NeighborhoodItemCaption>
+                  <LazyLoad once>
+                    <Fade>
+                      <NeighborhoodItemCaption>
+                        {item.caption}
+                      </NeighborhoodItemCaption>
+                    </Fade>
+                  </LazyLoad>
                 )}
                 {item.headline.length > 0 && (
-                  <NeighborhoodItemHeadline>
-                    {item.headline}
-                  </NeighborhoodItemHeadline>
+                  <LazyLoad once>
+                    <Fade>
+                      <NeighborhoodItemHeadline>
+                        {item.headline}
+                      </NeighborhoodItemHeadline>
+                    </Fade>
+                  </LazyLoad>
                 )}
                 {item.copy.length > 0 && (
-                  <NeighborhoodItemCopy>{item.copy}</NeighborhoodItemCopy>
+                  <LazyLoad once>
+                    <Fade>
+                      <NeighborhoodItemCopy>{item.copy}</NeighborhoodItemCopy>
+                    </Fade>
+                  </LazyLoad>
                 )}
                 {item.cta.length > 0 && (
-                  <NeighborhoodItemCTA>
-                    <a href={item.url}>{item.cta}</a>
-                  </NeighborhoodItemCTA>
+                  <LazyLoad once>
+                    <Fade>
+                      <NeighborhoodItemCTA>
+                        <a href={item.url}>{item.cta}</a>
+                      </NeighborhoodItemCTA>
+                    </Fade>
+                  </LazyLoad>
                 )}
               </NeighborhoodItem>
             </Grid.Unit>
