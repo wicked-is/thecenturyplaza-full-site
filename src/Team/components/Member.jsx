@@ -28,23 +28,25 @@ const Member = ({ member, isExpanded, teamData }) => {
       <Grid.Unit size={{ phone: 1, tabletLandscape: 6 / 8 }}>
         <Grid>
           {member.images.map((image, index) => (
-            <LazyLoad once offset={400}>
-              <Fade>
-                <Grid.Unit
-                  key={index}
-                  size={{
-                    phone: image.span[0] / 10,
-                    tabletLandscape: image.span[1] / 6
-                  }}
-                >
-                  <MemberItems>
-                    {image.source.length > 0 && (
-                      <ResponsiveImage key={index} srcPath={image.source} />
-                    )}
-                  </MemberItems>
-                </Grid.Unit>
-              </Fade>
-            </LazyLoad>
+            <Grid.Unit
+              key={index}
+              size={{
+                phone: image.span[0] / 10,
+                tabletLandscape: image.span[1] / 6
+              }}
+            >
+              <MemberItems>
+                {image.source.length > 0 && (
+                  <Fade
+                    onReveal={() => {
+                      console.log('reveal');
+                    }}
+                  >
+                    <ResponsiveImage key={index} srcPath={image.source} />
+                  </Fade>
+                )}
+              </MemberItems>
+            </Grid.Unit>
           ))}
         </Grid>
       </Grid.Unit>

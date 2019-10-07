@@ -1,15 +1,12 @@
-import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { css } from 'styled-components';
+import { Container } from 'shared/styled-components/Layouts.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import { fadeIn } from 'shared/styled-components/Transitions.js';
 
 export const ContainerStyled = css`
   ${Container}
   width: ${props => parseFloat(props.theme.mobileColumn) * 10}vw;
   margin: 20px 0 0;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
-  will-change: opacity;
 
   ${mediaMin.tabletLandscape` 
     margin: 40px 0 0;
@@ -73,7 +70,4 @@ export const MenuStyled = css`
 
 export const ItemsStyled = css`
   margin: 0 0 3.5vw;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
-  will-change: opacity;
 `;
