@@ -46,6 +46,7 @@ const VideoSlide = ({
   isFirstSection,
   isFirstSlide,
   toggleExpand,
+  closeExpand,
   firstSectionSlide
 }) => {
   const context = useContext(Context);
@@ -53,24 +54,22 @@ const VideoSlide = ({
 
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const startTimer = () => {
+    toggleExpand();
+    setTimeout(() => {
+      closeExpand();
+    }, slide.delay);
+  };
+
   const removePlaceholder = () => {
-    // startTimer();
     setTimeout(() => {
       setIsPlaying(true);
     }, 100);
   };
 
-  // const startTimer = () => {
-  //   slide.delay.length > 0 &&
-  //     hasPlayed &&
-  //     setTimeout(() => {
-  //       toggleExpand();
-  //     }, slide.delay);
-  // };
-
   useEffect(() => {
     if (isFirstSection && isFirstSlide && !hasPlayed) {
-      toggleExpand();
+      startTimer();
       markPlayed();
     }
   }, [isFirstSection, isFirstSlide, toggleExpand, hasPlayed, markPlayed]);

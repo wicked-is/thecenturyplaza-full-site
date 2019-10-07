@@ -15,7 +15,8 @@ const Section = ({
   isExpanded,
   isFirstSection,
   scrollPath,
-  toggleExpand
+  toggleExpand,
+  closeExpand
 }) => {
   const getActiveSlide = (slide, index) => {
     let previousPath;
@@ -37,28 +38,6 @@ const Section = ({
         nextPath = "/continue"; // Last Slide
       } else {
         nextPath = "/" + nextSectionPath;
-      }
-    }
-
-    let previousSlide;
-    if (index !== 0) {
-      previousSlide = section.slides[index - 1];
-    } else {
-      if (previousSection === null) {
-        previousSlide = null; // First Slide
-      } else {
-        previousSlide = previousSection.slides.length - 1;
-      }
-    }
-
-    let nextSlide;
-    if (index !== section.slides.length - 1) {
-      nextSlide = section.slides[index + 1];
-    } else {
-      if (nextSection === null) {
-        nextSlide = null; // Last Slide
-      } else {
-        nextSlide = nextSection.slides[0];
       }
     }
 
@@ -115,10 +94,9 @@ const Section = ({
           default={index === 0 && true}
           isExpanded={isExpanded}
           toggleExpand={toggleExpand}
+          closeExpand={closeExpand}
           key={index}
           slide={slide}
-          previousSlide={previousSlide}
-          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -139,8 +117,6 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
-          previousSlide={previousSlide}
-          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -161,8 +137,6 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
-          previousSlide={previousSlide}
-          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -183,8 +157,6 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
-          previousSlide={previousSlide}
-          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
@@ -205,8 +177,6 @@ const Section = ({
           default={index === 0 && true}
           key={index}
           slide={slide}
-          previousSlide={previousSlide}
-          nextSlide={nextSlide}
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}

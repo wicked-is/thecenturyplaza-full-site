@@ -29,7 +29,7 @@ const ContextProvider = props => {
       scrollCooldown();
       setIsExisting(false);
       navigate(path);
-    }, 750);
+    }, 250);
   };
 
   // const applyFixedFooter = () => {

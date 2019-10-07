@@ -90,6 +90,10 @@ class App extends Component {
     this.setState(state => ({ isExpanded: !state.isExpanded }));
   };
 
+  closeExpand = () => {
+    this.setState(state => ({ isExpanded: false }));
+  };
+
   render() {
     return (
       <ContextProvider>
@@ -116,6 +120,7 @@ class App extends Component {
                     primaryData={primaryData}
                     isExpanded={this.state.isExpanded}
                     toggleExpand={this.toggleExpand}
+                    closeExpand={this.closeExpand}
                     setPageColor={this.setPageColor}
                     scrollPath={this.state.scrollPath}
                   />

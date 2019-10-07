@@ -15,6 +15,17 @@ export const pushUp = keyframes`
   100% { transform: translate3d(0, 0, 0);}
 `;
 
+export const fromCenter = keyframes`
+  0% { opacity: 0; transform: scale(.8);}
+  70% { opacity: 1;}
+  100% { opacity: 1; transform: scale(1);}
+`;
+
+export const enterFromCenter = props =>
+  css`
+    ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) forwards;
+  `;
+
 export const fromNothing = keyframes`
   0% { opacity: 0;}
   100% { opacity: 1;}
@@ -22,7 +33,7 @@ export const fromNothing = keyframes`
 
 export const enterFromNothing = props =>
   css`
-    ${fromNothing} .5s cubic-bezier(0, 0.7, 0.3, 1)  forwards;
+    ${fromNothing} 1.25s cubic-bezier(0, 0.7, 0.3, 1)  forwards;
   `;
 
 export const fromBottom = keyframes`
@@ -33,7 +44,7 @@ export const fromBottom = keyframes`
 
 export const enterFromBottom = props =>
   css`
-    ${fromBottom} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
+    ${fromBottom} 1.25s cubic-bezier(0, 0.7, 0.3, 1) forwards;
   `;
 
 export const fromTop = keyframes`
