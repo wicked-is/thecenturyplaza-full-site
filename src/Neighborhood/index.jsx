@@ -57,11 +57,9 @@ const Neighborhood = props => {
     <NeighborhoodWrapper>
       <NeighborhoodHeader>
         {/* <NeighborhoodTitle>In The Heart of Los Angeles</NeighborhoodTitle> */}
-        <LazyLoad once>
-          <Fade>
-            <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
-          </Fade>
-        </LazyLoad>
+        <Fade>
+          <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
+        </Fade>
       </NeighborhoodHeader>
       <NeighborhoodContainer>
         <Grid halign="justify">
@@ -75,14 +73,14 @@ const Neighborhood = props => {
             >
               <NeighborhoodItem valign={item.valign}>
                 {item.source.length === 1 && item.source != '' && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade bottom>
                       <ResponsiveImage srcPath={item.source[0]} />
                     </Fade>
                   </LazyLoad>
                 )}
                 {item.source.length > 1 && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade bottom>
                       <NeighborhoodItemPaired>
                         <ResponsiveImage srcPath={item.source[0]} />
@@ -92,7 +90,7 @@ const Neighborhood = props => {
                   </LazyLoad>
                 )}
                 {item.caption.length > 0 && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade>
                       <NeighborhoodItemCaption>
                         {item.caption}
@@ -101,7 +99,7 @@ const Neighborhood = props => {
                   </LazyLoad>
                 )}
                 {item.headline.length > 0 && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade>
                       <NeighborhoodItemHeadline>
                         {item.headline}
@@ -110,14 +108,14 @@ const Neighborhood = props => {
                   </LazyLoad>
                 )}
                 {item.copy.length > 0 && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade>
                       <NeighborhoodItemCopy>{item.copy}</NeighborhoodItemCopy>
                     </Fade>
                   </LazyLoad>
                 )}
                 {item.cta.length > 0 && (
-                  <LazyLoad once>
+                  <LazyLoad once offset={400}>
                     <Fade>
                       <NeighborhoodItemCTA>
                         <a href={item.url}>{item.cta}</a>

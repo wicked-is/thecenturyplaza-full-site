@@ -28,7 +28,7 @@ const Member = ({ member, isExpanded, teamData }) => {
       <Grid.Unit size={{ phone: 1, tabletLandscape: 6 / 8 }}>
         <Grid>
           {member.images.map((image, index) => (
-            <LazyLoad once>
+            <LazyLoad once offset={400}>
               <Fade bottom>
                 <Grid.Unit
                   key={index}
