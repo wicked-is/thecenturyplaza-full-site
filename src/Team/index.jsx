@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { Router } from '@reach/router';
-import styled from 'styled-components';
-
-import { Wrapper } from 'shared/styled-components/Layouts.js';
-import { ContainerStyled } from 'Team/style.js';
-import Member from 'Team/components/Member.jsx';
+import React, { useEffect, useContext } from "react";
+import { Router } from "@reach/router";
+import styled from "styled-components";
+import Context from "config/Context";
+import { Wrapper } from "shared/styled-components/Layouts.js";
+import { ContainerStyled } from "Team/style.js";
+import Member from "Team/components/Member.jsx";
 
 const TeamWrapper = styled.div`
   ${Wrapper};
@@ -14,9 +14,13 @@ const TeamContainer = styled.div`
 `;
 
 const Team = ({ isExpanded, teamData, setPageColor, toggleExpand }) => {
+  const context = useContext(Context);
+  const { setHasCaptions } = context;
+
   useEffect(() => {
+    setHasCaptions(false);
     setPageColor(props => props.theme.white);
-  }, [setPageColor]);
+  }, [setPageColor, setHasCaptions]);
 
   return (
     <TeamWrapper isExpanded={isExpanded}>

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Router } from "@reach/router";
 import styled from "styled-components";
 import { ViewportWrapper } from "shared/styled-components/Layouts.js";
 import Section from "Primary/components/Section.jsx";
+import Context from "config/Context";
 
 const PrimaryWrapper = styled.div`
   ${ViewportWrapper};
@@ -10,6 +11,8 @@ const PrimaryWrapper = styled.div`
 
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor, scrollPath } = props;
+  const context = useContext(Context);
+  const { setHasCaptions } = context;
 
   const getPreviousSectionPath = index =>
     index !== 0
@@ -22,8 +25,9 @@ const Primary = props => {
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
+    setHasCaptions(true);
     setPageColor(props => props.theme.white);
-  }, [setPageColor]);
+  }, [setPageColor, setHasCaptions]);
 
   return (
     <PrimaryWrapper isExpanded={isExpanded}>

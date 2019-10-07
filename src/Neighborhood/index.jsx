@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import Grid from 'styled-components-grid';
-import Fade from 'react-reveal/Fade';
-import LazyLoad from 'react-lazyload';
+import React, { useEffect, useContext } from "react";
+import styled from "styled-components";
+import Grid from "styled-components-grid";
+import Fade from "react-reveal/Fade";
+import LazyLoad from "react-lazyload";
+import Context from "config/Context";
 
 import {
   WrapperStyled,
@@ -14,8 +15,8 @@ import {
   ItemHeadlineStyled,
   ItemCopyStyled,
   ItemCTAStyled
-} from 'Neighborhood/style.js';
-import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+} from "Neighborhood/style.js";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
 const NeighborhoodWrapper = styled.div`
   ${WrapperStyled};
@@ -48,10 +49,13 @@ const NeighborhoodItemCTA = styled.p`
 
 const Neighborhood = props => {
   const { neighborhoodData, setPageColor } = props;
+  const context = useContext(Context);
+  const { setHasCaptions } = context;
 
   useEffect(() => {
+    setHasCaptions(false);
     setPageColor(props => props.theme.white);
-  }, [setPageColor]);
+  }, [setPageColor, setHasCaptions]);
 
   return (
     <NeighborhoodWrapper>
@@ -72,7 +76,7 @@ const Neighborhood = props => {
               }}
             >
               <NeighborhoodItem valign={item.valign}>
-                {item.source.length === 1 && item.source != '' && (
+                {item.source.length === 1 && item.source != "" && (
                   <LazyLoad once offset={400}>
                     <Fade>
                       <ResponsiveImage srcPath={item.source[0]} />

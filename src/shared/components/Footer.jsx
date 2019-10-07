@@ -18,7 +18,7 @@ const SlideCaption = styled.p`
 const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive, isSection, isSlide } = context;
+  const { navActive, isSection, isSlide, hasCaptions } = context;
   return (
     <Location>
       {({ location }) => (
@@ -26,17 +26,12 @@ const Footer = props => {
           navActive={navActive}
           isLight={location.pathname === "/contact"}
         >
-          {location.pathname !== "/contact/*" ||
-          location.pathname !== "/team/*" ||
-          location.pathname !== "/gallery" ||
-          location.pathname !== "/neighborhood/*" ||
-          location.pathname !== "/team/*" ||
-          location.pathname !== "/accessibility/*" ||
-          location.pathname !== "/legal/*" ? (
+          {hasCaptions && (
             <SlideCaption>
               {parse(primaryData[isSection].slides[isSlide].caption)}
             </SlideCaption>
-          ) : null}
+          )}
+
           <ul>
             <li>
               <Link to="/contact">Contact</Link>

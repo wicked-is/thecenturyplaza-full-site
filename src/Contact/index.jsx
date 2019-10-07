@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { Link } from "@reach/router";
@@ -7,6 +7,7 @@ import { states } from "./states";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Contact/style.js";
 import { mediaMin } from "shared/styled-components/MediaQueries";
+import Context from "config/Context";
 
 const LegalWrapper = styled.div`
   ${Wrapper};
@@ -178,6 +179,8 @@ const SubmitButton = styled.button`
 `;
 
 const Contact = ({ setPageColor }) => {
+  const context = useContext(Context);
+  const { setHasCaptions } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -255,8 +258,9 @@ const Contact = ({ setPageColor }) => {
   };
 
   useEffect(() => {
+    setHasCaptions(false);
     setPageColor(props => props.theme.black);
-  }, [setPageColor]);
+  }, [setPageColor, setHasCaptions]);
 
   return (
     <LegalWrapper>

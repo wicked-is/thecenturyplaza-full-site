@@ -1,15 +1,15 @@
-import React, { useEffect, useContext } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useContext } from "react";
+import styled from "styled-components";
 
-import Context from 'config/Context';
-import { PageTitle } from 'shared/styled-components/Typography.js';
-import { Wrapper } from 'shared/styled-components/Layouts.js';
+import Context from "config/Context";
+import { PageTitle } from "shared/styled-components/Typography.js";
+import { Wrapper } from "shared/styled-components/Layouts.js";
 import {
   ContainerStyled,
   EntryStyled,
   PubDateStyled,
   PubInfoStyled
-} from 'Press/style.js';
+} from "Press/style.js";
 
 const PressWrapper = styled.div`
   ${Wrapper};
@@ -32,7 +32,7 @@ const PressPubInfo = styled.div`
 
 const Press = ({ setPageColor }) => {
   const context = useContext(Context);
-  const { fetchPress, pressItems } = context;
+  const { fetchPress, pressItems, setHasCaptions } = context;
 
   const generatePress = () => {
     return pressItems.map(entry => {
@@ -43,9 +43,9 @@ const Press = ({ setPageColor }) => {
             <h2>
               <a
                 href={
-                  entry['source-url']
-                    ? entry['source-url']
-                    : entry['source-pdf']
+                  entry["source-url"]
+                    ? entry["source-url"]
+                    : entry["source-pdf"]
                 }
                 target="_blank"
                 rel="noopener noreferrer"
@@ -67,8 +67,9 @@ const Press = ({ setPageColor }) => {
   }, []);
 
   useEffect(() => {
+    setHasCaptions(false);
     setPageColor(props => props.theme.white);
-  }, [setPageColor]);
+  }, [setPageColor, setHasCaptions]);
 
   return (
     <PressWrapper>
