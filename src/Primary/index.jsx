@@ -35,6 +35,7 @@ const Primary = props => {
             isFirstSection={index === 0 && true}
             isExpanded={isExpanded}
             toggleExpand={props.toggleExpand}
+            closeExpand={props.closeExpand}
             section={section}
             previousSection={
               primaryData[index - 1] ? primaryData[index - 1] : null

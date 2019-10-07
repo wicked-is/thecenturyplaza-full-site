@@ -8,13 +8,7 @@ import Context from "../../config/Context";
 import {
   SlideMaskStyled,
   SlideContainerStyled,
-  ImageFullStyled,
-  NextSlideContainerStyled,
-  NextLeftEdgeStyled,
-  NextRightEdgeStyled,
-  PlayerContainerStyled,
-  FullScreenStyled,
-  PlaceHolderStyled
+  ImageFullStyled
 } from "Primary/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
@@ -29,34 +23,9 @@ const SlideContainer = styled.div`
 const ImageFull = styled.div`
   ${ImageFullStyled};
 `;
-const NextSlideContainer = styled.div`
-  ${NextSlideContainerStyled};
-`;
-
-const NextLeftEdge = styled.div`
-  ${NextLeftEdgeStyled};
-`;
-
-const NextRightEdge = styled.div`
-  ${NextRightEdgeStyled};
-`;
-
-const PlayerContainer = styled.div`
-  ${PlayerContainerStyled};
-`;
-
-const FullScreen = styled.div`
-  ${FullScreenStyled};
-`;
-
-const PlaceHolder = styled.div`
-  ${PlaceHolderStyled};
-`;
 
 const ImageSlide = ({
   slide,
-  nextSlide,
-  previousSlide,
   nextPath,
   previousPath,
   firstSlide,
@@ -101,19 +70,6 @@ const ImageSlide = ({
           <p>{parse(slide.caption)}</p>
         </SlideContainer>
       </SlideMask>
-      {nextSlide && lastSectionSlide && !lastSlide && (
-        <NextSlideContainer isExisting={isExisting}>
-          <NextLeftEdge />
-          <PlayerContainer>
-            <FullScreen>
-              <PlaceHolder>
-                <ResponsiveImage srcPath={nextSlide.placeholder} />
-              </PlaceHolder>
-            </FullScreen>
-          </PlayerContainer>
-          <NextRightEdge />
-        </NextSlideContainer>
-      )}
     </ReactScrollWheelHandler>
   );
 };

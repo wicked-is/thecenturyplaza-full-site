@@ -7,7 +7,8 @@ import {
   exitFromTop,
   enterFromRight,
   exitFromLeft,
-  enterFromNothing
+  enterFromNothing,
+  enterFromCenter
 } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
@@ -16,35 +17,9 @@ export const SlideMaskStyled = css`
   top: 0;
   left: 0;
   width: 100vw;
-  opacity: ${props =>
-    props.isExisting &&
-    !props.nextSlideImage &&
-    !props.lastSectionSlide &&
-    !props.lastSlide
-      ? "0"
-      : "1"};
-  width: ${props =>
-    props.isExisting && props.lastSectionSlide && !props.lastSlide
-      ? "0vw"
-      : "100vw"};
+  opacity: ${props => (props.isExisting && !props.nextSlideImage ? "0" : "1")};
   overflow: hidden;
-  transition: width 1s cubic-bezier(0, 0.7, 0.3, 1), opacity 0.5s;
-
-  ${"" /* &::after {
-    position: absolute;
-    width: 100px;
-    height: 100vh;
-    display: inline-block;
-    right: 0;
-    top: 0;
-    background: linear-gradient(
-      -90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    content: "";
-    z-index: 300;
-  } */}
+  transition: opacity 0.25s;
 `;
 
 export const SlideContainerStyled = css`
@@ -166,13 +141,12 @@ export const PlayerContainerStyled = css`
   height: 100vh;
   overflow: hidden;
   position: relative;
-  opacity: ${props => (!props.firstSectionSlide ? "0" : "1")};
-  animation: ${props => !props.firstSectionSlide && enterFromNothing};
-  will-change: ${props => !props.firstSectionSlide && "opacity"};
-
-  ${"" /* opacity: 0;
-  animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
-  will-change: opacity; */}
+  opacity: 0;
+  transform: ${props => props.firstSectionSlide && "scale(.8)"};
+  animation: ${props =>
+    !props.firstSectionSlide ? enterFromNothing : enterFromCenter};
+  will-change: ${props =>
+    !props.firstSectionSlide ? "opacity" : "opacity, transform"};
 `;
 
 export const FullScreenStyled = css`
@@ -185,43 +159,43 @@ export const FullScreenStyled = css`
   position: relative;
 
   @media (max-aspect-ratio: 375/812) {
-    transform: scale(3);
+    transform: scale(${props => (props.isExpanded ? "3.25" : "3")});
   }
 
   @media (min-aspect-ratio: 376/812) and (max-aspect-ratio: 550/812) {
-    transform: scale(2.5);
+    transform: scale(${props => (props.isExpanded ? "2.75" : "2.5")});
   }
 
   @media (min-aspect-ratio: 551/812) and (max-aspect-ratio: 750/812) {
-    transform: scale(2);
+    transform: scale(${props => (props.isExpanded ? "2.25" : "2")});
   }
 
   @media (min-aspect-ratio: 751/812) and (max-aspect-ratio: 100/100) {
-    transform: scale(1.5);
+    transform: scale(${props => (props.isExpanded ? "1.75" : "1.5")});
   }
 
   @media (min-aspect-ratio: 101/100) and (max-aspect-ratio: 16/13) {
-    transform: scale(1.35);
+    transform: scale(${props => (props.isExpanded ? "1.60" : "1.35")});
   }
 
   @media (min-aspect-ratio: 16/12) and (max-aspect-ratio: 16/11) {
-    transform: scale(1.25);
+    transform: scale(${props => (props.isExpanded ? "1.5" : "1.25")});
   }
 
   @media (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
-    transform: scale(1);
+    transform: scale(${props => (props.isExpanded ? "1.25" : "1")});
   }
 
   @media (min-aspect-ratio: 16/8) and (max-aspect-ratio: 16/7) {
-    transform: scale(1.25);
+    transform: scale(${props => (props.isExpanded ? "1.75" : "1.5")});
   }
 
   @media (min-aspect-ratio: 16/6) and (max-aspect-ratio: 16/5) {
-    transform: scale(2.5);
+    transform: scale(${props => (props.isExpanded ? "2.75" : "2.5")});
   }
 
   @media (min-aspect-ratio: 16/4) {
-    transform: scale(3.5);
+    transform: scale(${props => (props.isExpanded ? "3.75" : "3.5")});
   }
 `;
 
@@ -294,45 +268,4 @@ export const ImageContainerStyled = css`
   transform: translate3d(0, 3em, 0);
   animation: ${enterFromBottom};
   will-change: opacity, transform;
-`;
-
-export const NextSlideContainerStyled = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  opacity: ${props => (props.isExisting ? "1" : "0")};
-  background: white;
-  overflow: hidden;
-  transform: scale(0.75);
-  transform: scale(${props => (props.isExisting ? "1" : ".75")});
-  transition: opacity 0.75s, transform 1s cubic-bezier(0, 0.7, 0.3, 1);
-  filter: blur(${props => (props.isExisting ? "0" : "10px")});
-`;
-
-export const NextLeftEdgeStyled = css`
-  display: inline-block;
-  background: white;
-  width: 40px;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 400;
-`;
-
-export const NextRightEdgeStyled = css`
-  display: inline-block;
-  background: white;
-  width: 40px;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 400;
 `;
