@@ -54,7 +54,12 @@ export const SectionMediaStyled = css`
   justify-content: center;
   align-items: stretch;
   align-content: center;
+  .react-reveal {
+    width: 100%;
+    height: 100%;
+  }
 `;
+
 export const MediaStyled = css`
   margin: 0 10px 20px 10px;
   width: calc(33.333% - 20px);

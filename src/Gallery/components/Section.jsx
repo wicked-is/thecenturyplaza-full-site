@@ -36,9 +36,7 @@ const videoElement = isExpanded => ({
   background: 'transparent'
 });
 
-const Section = props => {
-  const { section } = props;
-
+const Section = ({ section }) => {
   return (
     <GallerySection>
       <Grid>
@@ -51,27 +49,21 @@ const Section = props => {
           <GallerySectionMedia>
             {section.media.map((media, index) => (
               <GalleryMedia key={index}>
-                {media.type === 'video' ? (
-                  <LazyLoad once offset={400}>
-                    <Fade>
-                      <ReactPlayer
-                        url={media.source}
-                        playsinline
-                        controls
-                        preload="true"
-                        width="100%"
-                        height="100%"
-                        style={videoElement()}
-                      />
-                    </Fade>
-                  </LazyLoad>
-                ) : (
-                  <LazyLoad once offset={400}>
-                    <Fade bottom>
-                      <ResponsiveImage srcPath={media.source} />
-                    </Fade>
-                  </LazyLoad>
-                )}
+                <Fade>
+                  {media.type === 'video' ? (
+                    <ReactPlayer
+                      url={media.source}
+                      playsinline
+                      controls
+                      preload="true"
+                      width="100%"
+                      height="100%"
+                      style={videoElement()}
+                    />
+                  ) : (
+                    <ResponsiveImage srcPath={media.source} />
+                  )}
+                </Fade>
               </GalleryMedia>
             ))}
           </GallerySectionMedia>
