@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
-import Context from '../config/Context';
-import { navigate } from '@reach/router';
+import React, { useState } from "react";
+import Context from "../config/Context";
+import { navigate } from "@reach/router";
 
 const parsePress = pressData => {
   return pressData
@@ -20,6 +20,8 @@ const ContextProvider = props => {
   const [hasPlayed, setHasPlayed] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [pressItems, setPressItems] = useState([]);
+  const [isSection, setIsSection] = useState(false);
+  const [isSlide, setIsSlide] = useState(false);
   // const [fixedFooter, setfixedFooter] = useState(false);
 
   const scrollCooldown = () => {
@@ -44,6 +46,14 @@ const ContextProvider = props => {
     }, 250);
   };
 
+  const currentSectionIndex = currentIndex => {
+    setIsSection(currentIndex);
+  };
+
+  const currentSlideIndex = currentIndex => {
+    setIsSlide(currentIndex);
+  };
+
   // const applyFixedFooter = () => {
   //   setfixedFooter(true);
   // };
@@ -53,10 +63,10 @@ const ContextProvider = props => {
   // };
 
   const fetchPress = async () => {
-    console.log('Fetching Press');
+    console.log("Fetching Press");
     try {
       const pressData = await fetch(
-        'https://cms.dbox.com/wp-json/wp/v2/cp_press?per_page=100'
+        "https://cms.dbox.com/wp-json/wp/v2/cp_press?per_page=100"
       );
       const pressItems = await pressData.json();
       console.log(parsePress(pressItems));
@@ -80,7 +90,11 @@ const ContextProvider = props => {
         setIsExisting,
         triggerExit,
         pressItems,
-        fetchPress
+        fetchPress,
+        isSection,
+        isSlide,
+        currentSectionIndex,
+        currentSlideIndex
         // fixedFooter,
         // setfixedFooter,
         // applyFixedFooter,
