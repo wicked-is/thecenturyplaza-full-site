@@ -13,7 +13,7 @@ const TeamContainer = styled.div`
   ${ContainerStyled};
 `;
 
-const Team = ({ isExpanded, teamData, setPageColor }) => {
+const Team = ({ isExpanded, teamData, setPageColor, toggleExpand }) => {
   useEffect(() => {
     setPageColor(props => props.theme.white);
   }, [setPageColor]);
@@ -27,7 +27,7 @@ const Team = ({ isExpanded, teamData, setPageColor }) => {
               teamData={teamData}
               default={index === 0 && true}
               isExpanded={isExpanded}
-              toggleExpand={props.toggleExpand}
+              toggleExpand={toggleExpand}
               key={index}
               path={member.slug}
               member={member}
