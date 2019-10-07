@@ -29,7 +29,7 @@ const Member = ({ member, isExpanded, teamData }) => {
         <Grid>
           {member.images.map((image, index) => (
             <LazyLoad once offset={400}>
-              <Fade bottom>
+              <Fade>
                 <Grid.Unit
                   key={index}
                   size={{
