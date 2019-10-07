@@ -3,9 +3,11 @@ import { Container } from "shared/styled-components/Layouts.js";
 import {
   fadeIn,
   fadeOut,
-  pushUp,
-  enterOnRight,
-  exitOnLeft
+  enterFromBottom,
+  exitFromTop,
+  enterFromRight,
+  exitFromLeft,
+  enterFromNothing
 } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
@@ -13,14 +15,24 @@ export const SlideMaskStyled = css`
   position: absolute;
   top: 0;
   left: 0;
-  width: ${props => (props.isExisting ? "0vw" : "100vw")};
-  height: 100vh;
+  width: 100vw;
+  opacity: ${props =>
+    props.isExisting &&
+    !props.nextSlideImage &&
+    !props.lastSectionSlide &&
+    !props.lastSlide
+      ? "0"
+      : "1"};
+  width: ${props =>
+    props.isExisting && props.lastSectionSlide && !props.lastSlide
+      ? "0vw"
+      : "100vw"};
   overflow: hidden;
-  transition: width 1s cubic-bezier(0, 0.7, 0.3, 1);
+  transition: width 1s cubic-bezier(0, 0.7, 0.3, 1), opacity 0.5s;
 
-  &::after {
+  ${"" /* &::after {
     position: absolute;
-    width: 25vw;
+    width: 100px;
     height: 100vh;
     display: inline-block;
     right: 0;
@@ -28,11 +40,11 @@ export const SlideMaskStyled = css`
     background: linear-gradient(
       -90deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0) 80%
+      rgba(255, 255, 255, 0) 100%
     );
     content: "";
     z-index: 300;
-  }
+  } */}
 `;
 
 export const SlideContainerStyled = css`
@@ -59,17 +71,9 @@ export const SlideContainerStyled = css`
     text-align: center;
     position: relative;
     overflow: hidden;
-    opacity: ${props => (props.isExisting ? "0" : "1")};
-    transform: ${props =>
-      props.isExisting ? "translate3d(-2em, 0, 0)" : "translate3d(0, 0, 0)"};
-    animation: ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1),
-      ${fadeIn} 1s;
-    transition: transform 1.25s cubic-bezier(0, 0.7, 0.3, 1), opacity 1s;
-    
-    ${
-      "" /* ${enterOnRight} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
-      ${fadeIn} 1s 0.25s forwards; */
-    }
+    opacity: 0;
+    transform: translate3d(0, 3em, 0);
+    animation: ${enterFromBottom};
     will-change: opacity, transform;
   
     em {
@@ -126,8 +130,7 @@ export const SplitSlideContainerStyled = css`
     overflow: hidden;
     opacity: 0;
     transform: translate3d(0, 3em, 0);
-    animation: ${pushUp} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
-      ${fadeIn} 1s 0.25s forwards;
+    animation: ${enterFromBottom};
     will-change: opacity, transform;
 
     em {
@@ -163,6 +166,10 @@ export const PlayerContainerStyled = css`
   height: 100vh;
   overflow: hidden;
   position: relative;
+  opacity: ${props => (!props.firstSectionSlide ? "0" : "1")};
+  animation: ${props => !props.firstSectionSlide && enterFromNothing};
+  will-change: ${props => !props.firstSectionSlide && "opacity"};
+
   ${"" /* opacity: 0;
   animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   will-change: opacity; */}
@@ -245,17 +252,20 @@ export const ImageFullStyled = css`
   max-width: calc(
     70vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
   );
-  opacity: 0;
-  transform: translate3d(0, 3em, 0);
-  animation: ${pushUp} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards,
-    ${fadeIn} 1s 0.25s forwards;
-  will-change: opacity, transform;
+  transform: translate3d(
+    0,
+    ${props => (!props.previousSlideImage ? "3em" : "0")},
+    0
+  );
+  opacity: ${props => (!props.previousSlideImage ? "0" : "1")};
+  animation: ${props => !props.previousSlideImage && enterFromBottom};
+  will-change: ${props => !props.previousSlideImage && "opacity, transform"};
 
   ${mediaMin.tabletLandscape`
     max-width: calc(
       70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
-  `}
+  `};
 `;
 
 export const PanoFullStyled = css`
@@ -282,8 +292,7 @@ export const ImageContainerStyled = css`
   margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
   opacity: 0;
   transform: translate3d(0, 3em, 0);
-  animation: ${pushUp} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.5s forwards,
-    ${fadeIn} 1s 0.5s forwards;
+  animation: ${enterFromBottom};
   will-change: opacity, transform;
 `;
 
@@ -300,8 +309,10 @@ export const NextSlideContainerStyled = css`
   opacity: ${props => (props.isExisting ? "1" : "0")};
   background: white;
   overflow: hidden;
-  transition: opacity 1s, filter 1s cubic-bezier(0, 0.7, 0.3, 1);
-  filter: blur(${props => (props.isExisting ? "0" : "5px")});
+  transform: scale(0.75);
+  transform: scale(${props => (props.isExisting ? "1" : ".75")});
+  transition: opacity 0.75s, transform 1s cubic-bezier(0, 0.7, 0.3, 1);
+  filter: blur(${props => (props.isExisting ? "0" : "10px")});
 `;
 
 export const NextLeftEdgeStyled = css`

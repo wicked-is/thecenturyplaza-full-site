@@ -45,7 +45,8 @@ const VideoSlide = ({
   isExpanded,
   isFirstSection,
   isFirstSlide,
-  toggleExpand
+  toggleExpand,
+  firstSectionSlide
 }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown, hasPlayed, markPlayed } = context;
@@ -111,7 +112,10 @@ const VideoSlide = ({
           isFirstSlide={isFirstSlide}
           toggleExpand={toggleExpand}
         />
-        <PlayerContainer isExpanded={isExpanded}>
+        <PlayerContainer
+          isExpanded={isExpanded}
+          firstSectionSlide={firstSectionSlide}
+        >
           <FullScreen isExpanded={isExpanded}>
             <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
               <ResponsiveImage srcPath={slide.placeholder} />

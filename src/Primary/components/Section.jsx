@@ -62,6 +62,51 @@ const Section = ({
       }
     }
 
+    let firstSectionSlide;
+    if (index === 0) {
+      firstSectionSlide = true;
+    } else {
+      firstSectionSlide = false;
+    }
+
+    let firstSlide;
+    if (index === 0 && previousSection === null) {
+      firstSlide = true;
+    } else {
+      firstSlide = false;
+    }
+
+    let lastSectionSlide;
+    if (index === section.slides.length - 1) {
+      lastSectionSlide = true;
+    } else {
+      lastSectionSlide = false;
+    }
+
+    let lastSlide;
+    if (index === section.slides.length - 1 && nextSection === null) {
+      lastSlide = true;
+    } else {
+      lastSlide = false;
+    }
+
+    let previousSlideImage;
+    if (index !== 0 && section.slides[index - 1].type === "image") {
+      previousSlideImage = true;
+    } else {
+      previousSlideImage = false;
+    }
+
+    let nextSlideImage;
+    if (
+      index !== section.slides.length - 1 &&
+      section.slides[index + 1].type === "image"
+    ) {
+      nextSlideImage = true;
+    } else {
+      nextSlideImage = false;
+    }
+
     if (slide.type === "video") {
       return (
         <VideoSlide
@@ -78,6 +123,12 @@ const Section = ({
           nextPath={nextPath}
           previousPath={previousPath}
           scrollPath={scrollPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
+          previousSlideImage={previousSlideImage}
+          nextSlideImage={nextSlideImage}
         />
       );
     } else if (slide.type === "image") {
@@ -94,6 +145,12 @@ const Section = ({
           nextPath={nextPath}
           previousPath={previousPath}
           scrollPath={scrollPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
+          previousSlideImage={previousSlideImage}
+          nextSlideImage={nextSlideImage}
         />
       );
     } else if (slide.type === "split") {
@@ -110,6 +167,12 @@ const Section = ({
           nextPath={nextPath}
           previousPath={previousPath}
           scrollPath={scrollPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
+          previousSlideImage={previousSlideImage}
+          nextSlideImage={nextSlideImage}
         />
       );
     } else if (slide.type === "text") {
@@ -126,6 +189,12 @@ const Section = ({
           nextPath={nextPath}
           previousPath={previousPath}
           scrollPath={scrollPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
+          previousSlideImage={previousSlideImage}
+          nextSlideImage={nextSlideImage}
         />
       );
     } else if (slide.type === "panorama") {
@@ -142,6 +211,12 @@ const Section = ({
           nextPath={nextPath}
           previousPath={previousPath}
           scrollPath={scrollPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
+          previousSlideImage={previousSlideImage}
+          nextSlideImage={nextSlideImage}
         />
       );
     }

@@ -112,6 +112,17 @@
         "delay": "",
         "inverted": "",
         "appendix": ""
+      },
+      {
+        "type": "image",
+        "slug": "junior-ballroom",
+        "headline": "",
+        "caption": "Lorem Ipsum dolor spenum more vetius poldas",
+        "source": ["junior-ballroom"],
+        "placeholder": "",
+        "delay": "",
+        "inverted": "",
+        "appendix": ""
       }
     ]
   },
