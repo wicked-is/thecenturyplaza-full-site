@@ -52,8 +52,8 @@ const Section = props => {
             {section.media.map((media, index) => (
               <GalleryMedia key={index}>
                 {media.type === 'video' ? (
-                  <Fade bottom>
-                    <LazyLoad once offset={400}>
+                  <LazyLoad once offset={400}>
+                    <Fade>
                       <ReactPlayer
                         url={media.source}
                         playsinline
@@ -63,8 +63,8 @@ const Section = props => {
                         height="100%"
                         style={videoElement()}
                       />
-                    </LazyLoad>
-                  </Fade>
+                    </Fade>
+                  </LazyLoad>
                 ) : (
                   <LazyLoad once offset={400}>
                     <Fade bottom>

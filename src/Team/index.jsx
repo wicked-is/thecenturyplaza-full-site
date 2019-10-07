@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { Router } from "@reach/router";
-import styled from "styled-components";
-import { Wrapper } from "shared/styled-components/Layouts.js";
-import { ContainerStyled } from "Team/style.js";
-import Member from "Team/components/Member.jsx";
+import React, { useEffect } from 'react';
+import { Router } from '@reach/router';
+import styled from 'styled-components';
+
+import { Wrapper } from 'shared/styled-components/Layouts.js';
+import { ContainerStyled } from 'Team/style.js';
+import Member from 'Team/components/Member.jsx';
 
 const TeamWrapper = styled.div`
   ${Wrapper};
@@ -12,9 +13,7 @@ const TeamContainer = styled.div`
   ${ContainerStyled};
 `;
 
-const Team = props => {
-  const { isExpanded, teamData, setPageColor } = props;
-
+const Team = ({ isExpanded, teamData, setPageColor }) => {
   useEffect(() => {
     setPageColor(props => props.theme.white);
   }, [setPageColor]);

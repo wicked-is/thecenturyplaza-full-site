@@ -74,14 +74,14 @@ const Neighborhood = props => {
               <NeighborhoodItem valign={item.valign}>
                 {item.source.length === 1 && item.source != '' && (
                   <LazyLoad once offset={400}>
-                    <Fade bottom>
+                    <Fade>
                       <ResponsiveImage srcPath={item.source[0]} />
                     </Fade>
                   </LazyLoad>
                 )}
                 {item.source.length > 1 && (
                   <LazyLoad once offset={400}>
-                    <Fade bottom>
+                    <Fade>
                       <NeighborhoodItemPaired>
                         <ResponsiveImage srcPath={item.source[0]} />
                         <ResponsiveImage srcPath={item.source[1]} />
