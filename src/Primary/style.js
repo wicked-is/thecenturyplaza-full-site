@@ -300,11 +300,8 @@ export const NextSlideContainerStyled = css`
   opacity: ${props => (props.isExisting ? "1" : "0")};
   background: white;
   overflow: hidden;
-  transition: translate 1s cubic-bezier(0, 0.7, 0.3, 1), opacity 1s;
-
-  ${"" /* img {
-    transform: translate3d(50vw, 0, 0);
-  } */}
+  transition: opacity 1s, filter 1s cubic-bezier(0, 0.7, 0.3, 1);
+  filter: blur(${props => (props.isExisting ? "0" : "5px")});
 `;
 
 export const NextLeftEdgeStyled = css`
