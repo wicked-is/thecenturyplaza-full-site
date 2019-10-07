@@ -16,7 +16,7 @@ export const ContainerStyled = css`
     text-align: left;
     font-size: 1.25em;
     ${mediaMin.tabletLandscape`
-    font-size: 2em;
+      font-size: 2em;
       text-align: center;
     `}
     margin: 0 0 3em; 
