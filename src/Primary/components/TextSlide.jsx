@@ -60,7 +60,11 @@ const TextSlide = ({
   nextSlide,
   previousSlide,
   nextPath,
-  previousPath
+  previousPath,
+  firstSlide,
+  firstSectionSlide,
+  lastSlide,
+  lastSectionSlide
 }) => {
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown, isExisting, triggerExit } = context;
@@ -77,7 +81,11 @@ const TextSlide = ({
         // scrollCooldown();
       }}
     >
-      <SlideMask isExisting={isExisting}>
+      <SlideMask
+        isExisting={isExisting}
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+      >
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
@@ -90,7 +98,7 @@ const TextSlide = ({
           {slide.caption.length > 0 && <p>{parse(slide.caption)}</p>}
         </SlideContainer>
       </SlideMask>
-      {nextSlide.slug === "arrival" && (
+      {nextSlide && lastSectionSlide && !lastSlide && (
         <NextSlideContainer isExisting={isExisting}>
           <NextLeftEdge />
           <PlayerContainer>
