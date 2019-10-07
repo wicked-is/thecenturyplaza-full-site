@@ -91,7 +91,7 @@ const TextSlide = ({
         </SlideContainer>
       </SlideMask>
       {nextSlide.slug === "arrival" && (
-        <NextSlideContainer>
+        <NextSlideContainer isExisting={isExisting}>
           <NextLeftEdge />
           <PlayerContainer>
             <FullScreen>
