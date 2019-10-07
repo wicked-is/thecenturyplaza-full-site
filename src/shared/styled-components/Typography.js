@@ -81,4 +81,7 @@ export const Caption = css`
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  will-change: opacity;
 `;

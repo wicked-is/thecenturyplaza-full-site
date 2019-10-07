@@ -3,7 +3,6 @@ import styled from "styled-components";
 import parse from "html-react-parser";
 import { navigate } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-
 import Context from "../../config/Context";
 import { SlideShow } from "shared/styled-components/SlideShow.js";
 import {
@@ -32,14 +31,30 @@ const ImageSlideShow = styled.div`
 `;
 // const ImageMask = styled.div`${ImageMaskStyled};`;
 
-const SplitSlide = ({ slide, nextPath, previousPath }) => {
+const SplitSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  sectionIndex,
+  slideIndex
+}) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown } = context;
+  const {
+    pauseScroll,
+    scrollCooldown,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
   // useEffect(() => {
   //   setTimeout(() => {
   //   }, 500);
   // }, []);
+
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
   return (
     <ReactScrollWheelHandler
@@ -73,7 +88,6 @@ const SplitSlide = ({ slide, nextPath, previousPath }) => {
           {/* <TextMask /> */}
           {parse(slide.headline)}
         </h2>
-        {slide.caption.length > 0 && <p>{parse(slide.caption)}</p>}
       </SlideContainer>
     </ReactScrollWheelHandler>
   );

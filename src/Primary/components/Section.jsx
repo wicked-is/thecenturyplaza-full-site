@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Router } from "@reach/router";
 import VideoSlide from "Primary/components/VideoSlide.jsx";
 import SplitSlide from "Primary/components/SplitSlide.jsx";
 import ImageSlide from "Primary/components/ImageSlide.jsx";
 import TextSlide from "Primary/components/TextSlide.jsx";
 import PanoramaSlide from "Primary/components/PanoramaSlide.jsx";
-import Context from "config/Context";
 
 const Section = ({
   section,
@@ -17,10 +16,9 @@ const Section = ({
   isFirstSection,
   scrollPath,
   toggleExpand,
-  closeExpand
+  closeExpand,
+  sectionIndex
 }) => {
-  const context = useContext(Context);
-  const { currentSlideIndex } = context;
   const getActiveSlide = (slide, index) => {
     let previousPath;
     if (index !== 0) {
@@ -110,7 +108,8 @@ const Section = ({
           lastSectionSlide={lastSectionSlide}
           previousSlideImage={previousSlideImage}
           nextSlideImage={nextSlideImage}
-          currentSlideIndex={currentSlideIndex(index)}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
         />
       );
     } else if (slide.type === "image") {
@@ -131,7 +130,8 @@ const Section = ({
           lastSectionSlide={lastSectionSlide}
           previousSlideImage={previousSlideImage}
           nextSlideImage={nextSlideImage}
-          currentSlideIndex={currentSlideIndex(index)}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
         />
       );
     } else if (slide.type === "split") {
@@ -152,7 +152,8 @@ const Section = ({
           lastSectionSlide={lastSectionSlide}
           previousSlideImage={previousSlideImage}
           nextSlideImage={nextSlideImage}
-          currentSlideIndex={currentSlideIndex(index)}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
         />
       );
     } else if (slide.type === "text") {
@@ -173,7 +174,8 @@ const Section = ({
           lastSectionSlide={lastSectionSlide}
           previousSlideImage={previousSlideImage}
           nextSlideImage={nextSlideImage}
-          currentSlideIndex={currentSlideIndex(index)}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
         />
       );
     } else if (slide.type === "panorama") {
@@ -194,7 +196,8 @@ const Section = ({
           lastSectionSlide={lastSectionSlide}
           previousSlideImage={previousSlideImage}
           nextSlideImage={nextSlideImage}
-          currentSlideIndex={currentSlideIndex(index)}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
         />
       );
     }

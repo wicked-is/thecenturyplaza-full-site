@@ -55,25 +55,6 @@ export const SlideContainerStyled = css`
       font-family: ${props => props.theme.serifMediumItalic};
     }
   }
-
-  p {
-    display: ${props => (props.isExpanded ? "none" : "inline-block")};
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-    max-width: calc(100vw - 80px - 400px);
-    opacity: 0;
-    animation: ${fadeIn} 1s 0.25s forwards;
-    will-change: opacity;
-    font-family: ${props => props.theme.sansSerifLight}, sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 1.35em;
-    letter-spacing: 0.05em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: antialiased;
-  }
 `;
 
 export const SplitSlideContainerStyled = css`
@@ -111,24 +92,6 @@ export const SplitSlideContainerStyled = css`
     em {
       font-family: ${props => props.theme.serifMediumItalic};
     }
-  }
-
-  p {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-    max-width: calc(100vw - 80px - 400px);
-    opacity: 0;
-    animation: ${fadeIn} 1s 0.75s forwards;
-    will-change: opacity;
-    font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 1.35em;
-    letter-spacing: 0.05em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: antialiased;
   }
 `;
 

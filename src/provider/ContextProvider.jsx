@@ -20,8 +20,8 @@ const ContextProvider = props => {
   const [hasPlayed, setHasPlayed] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [pressItems, setPressItems] = useState([]);
-  const [isSection, setIsSection] = useState(false);
-  const [isSlide, setIsSlide] = useState(false);
+  const [isSection, setSection] = useState(0);
+  const [isSlide, setSlide] = useState(0);
   // const [fixedFooter, setfixedFooter] = useState(false);
 
   const scrollCooldown = () => {
@@ -46,12 +46,12 @@ const ContextProvider = props => {
     }, 250);
   };
 
-  const currentSectionIndex = currentIndex => {
-    setIsSection(currentIndex);
+  const currentSectionIndex = index => {
+    setSection(index);
   };
 
-  const currentSlideIndex = currentIndex => {
-    setIsSlide(currentIndex);
+  const currentSlideIndex = index => {
+    setSlide(index);
   };
 
   // const applyFixedFooter = () => {

@@ -3,8 +3,6 @@ import { navigate } from "@reach/router";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import parse from "html-react-parser";
-
 import Context from "config/Context";
 import {
   SlideContainerStyled,
@@ -47,10 +45,19 @@ const VideoSlide = ({
   isFirstSlide,
   toggleExpand,
   closeExpand,
-  firstSectionSlide
+  firstSectionSlide,
+  sectionIndex,
+  slideIndex
 }) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown, hasPlayed, markPlayed } = context;
+  const {
+    pauseScroll,
+    scrollCooldown,
+    hasPlayed,
+    markPlayed,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -72,7 +79,12 @@ const VideoSlide = ({
       startTimer();
       markPlayed();
     }
-  }, [isFirstSection, isFirstSlide, toggleExpand, hasPlayed, markPlayed]);
+  }, [isFirstSection, isFirstSlide, hasPlayed, markPlayed]);
+
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
   return (
     <ReactScrollWheelHandler
@@ -133,7 +145,6 @@ const VideoSlide = ({
             />
           </FullScreen>
         </PlayerContainer>
-        <p>{parse(slide.caption)}</p>
       </SlideContainer>
     </ReactScrollWheelHandler>
   );

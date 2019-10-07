@@ -27,9 +27,7 @@ const Footer = props => {
           isLight={location.pathname === "/contact"}
         >
           <SlideCaption>
-            {/* {primaryData[{ isSection }].slides[{ isSlide }].caption > 0 && (
-              <p>{parse(primaryData[isSection].slides[isSlide].caption)}</p>
-            )} */}
+            {parse(primaryData[isSection].slides[isSlide].caption)}
           </SlideCaption>
           <ul>
             <li>
