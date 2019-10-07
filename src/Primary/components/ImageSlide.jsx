@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import { navigate } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-
 import Context from "../../config/Context";
 import {
   SlideMaskStyled,
@@ -33,10 +32,24 @@ const ImageSlide = ({
   lastSlide,
   lastSectionSlide,
   previousSlideImage,
-  nextSlideImage
+  nextSlideImage,
+  sectionIndex,
+  slideIndex
 }) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown, isExisting, triggerExit } = context;
+  const {
+    pauseScroll,
+    scrollCooldown,
+    isExisting,
+    triggerExit,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
+
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
   return (
     <ReactScrollWheelHandler
@@ -67,7 +80,6 @@ const ImageSlide = ({
           >
             <ResponsiveImage srcPath={slide.source[0]} />
           </ImageFull>
-          <p>{parse(slide.caption)}</p>
         </SlideContainer>
       </SlideMask>
     </ReactScrollWheelHandler>

@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import { Router, Redirect } from '@reach/router';
-import styled, { ThemeProvider } from 'styled-components';
+import React, { Component } from "react";
+import { Router, Redirect } from "@reach/router";
+import styled, { ThemeProvider } from "styled-components";
 
-import ContextProvider from './provider/ContextProvider';
+import ContextProvider from "./provider/ContextProvider";
 import {
   PageBody,
   PageHeader,
   PageFooter
-} from 'shared/styled-components/Typography.js';
-import Header from 'shared/components/Header.jsx';
-import Footer from 'shared/components/Footer.jsx';
-import Primary from 'Primary';
-import primaryData from 'Primary/primaryData.json';
-import SecondaryMenu from 'shared/components/SecondaryMenu.jsx';
-import Neighborhood from 'Neighborhood';
-import neighborhoodData from 'Neighborhood/neighborhoodData.json';
-import Team from 'Team';
-import teamData from 'Team/teamData.json';
-import Availability from 'Availability';
-import Press from 'Press';
-import Gallery from 'Gallery';
-import galleryData from 'Gallery/galleryData.json';
-import Contact from 'Contact';
-import Legal from 'Legal';
-import Accessibility from 'Accessibility';
+} from "shared/styled-components/Typography.js";
+import Header from "shared/components/Header.jsx";
+import Footer from "shared/components/Footer.jsx";
+import Primary from "Primary";
+import primaryData from "Primary/primaryData.json";
+import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
+import Neighborhood from "Neighborhood";
+import neighborhoodData from "Neighborhood/neighborhoodData.json";
+import Team from "Team";
+import teamData from "Team/teamData.json";
+import Availability from "Availability";
+import Press from "Press";
+import Gallery from "Gallery";
+import galleryData from "Gallery/galleryData.json";
+import Contact from "Contact";
+import Legal from "Legal";
+import Accessibility from "Accessibility";
 
 const theme = {
   breakpoints: {
@@ -37,29 +37,29 @@ const theme = {
     desktopLarge: 1920,
     desktopXLarge: 2048
   },
-  black: '#101820',
-  grayLight: '#E7E7E7',
-  gray: '#B4BAC1',
-  white: '#FFFFFF',
-  gold: '#BB8A47',
-  sansSerifThin: 'HelveticaNeueLTStd-UltLt',
-  sansSerifThinItalic: 'HelveticaNeueLTStd-UltLt',
-  sansSerifLight: 'HelveticaNeueLTStd-Lt',
-  sansSerifLightItalic: 'HelveticaNeueLTStd-LtIt',
-  sansSerifRegular: 'HelveticaNeueLTStd-Roman',
-  sansSerifItalic: 'HelveticaNeueLTStd-It',
-  sansSerifMedium: 'HelveticaNeueLTStd-Md',
-  sansSerifMediumItalic: 'HelveticaNeueLTStd-MdIt',
-  serifRoman: 'Austin-Roman',
-  serifMedium: 'Austin-Medium',
-  serifMediumItalic: 'Austin-Medium-Italic',
-  headerHeight: '80',
-  mobileMargin: '25',
-  mobileColumn: '7.2822%',
-  mobileGutter: '20',
-  desktopMargin: '40',
-  desktopColumn: '8.3125%',
-  desktopGutter: '20'
+  black: "#101820",
+  grayLight: "#E7E7E7",
+  gray: "#B4BAC1",
+  white: "#FFFFFF",
+  gold: "#BB8A47",
+  sansSerifThin: "HelveticaNeueLTStd-UltLt",
+  sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
+  sansSerifLight: "HelveticaNeueLTStd-Lt",
+  sansSerifLightItalic: "HelveticaNeueLTStd-LtIt",
+  sansSerifRegular: "HelveticaNeueLTStd-Roman",
+  sansSerifItalic: "HelveticaNeueLTStd-It",
+  sansSerifMedium: "HelveticaNeueLTStd-Md",
+  sansSerifMediumItalic: "HelveticaNeueLTStd-MdIt",
+  serifRoman: "Austin-Roman",
+  serifMedium: "Austin-Medium",
+  serifMediumItalic: "Austin-Medium-Italic",
+  headerHeight: "80",
+  mobileMargin: "25",
+  mobileColumn: "7.2822%",
+  mobileGutter: "20",
+  desktopMargin: "40",
+  desktopColumn: "8.3125%",
+  desktopGutter: "20"
 };
 
 const AppBody = styled.div`
@@ -115,7 +115,7 @@ class App extends Component {
                   <Primary
                     key={index}
                     default
-                    path={section.slug + '/*'}
+                    path={section.slug + "/*"}
                     primaryData={primaryData}
                     isExpanded={this.state.isExpanded}
                     toggleExpand={this.toggleExpand}
@@ -137,7 +137,7 @@ class App extends Component {
                   toggleExpand={this.toggleExpand}
                   setPageColor={this.setPageColor}
                 />
-                <Redirect from="team" to={'team/' + teamData[0].slug} noThrow />
+                <Redirect from="team" to={"team/" + teamData[0].slug} noThrow />
                 <Availability
                   path="availability/*"
                   setPageColor={this.setPageColor}
@@ -168,6 +168,7 @@ class App extends Component {
               <Footer
                 pageColor={this.state.pageColor}
                 isExpanded={this.state.isExpanded}
+                primaryData={primaryData}
               />
             </AppFooter>
           </AppBody>

@@ -3,15 +3,22 @@ import { Link } from "@reach/router";
 import styled from "styled-components";
 import { Location } from "@reach/router";
 import Context from "../../config/Context";
+import { Caption } from "shared/styled-components/Typography.js";
 import { FooterWrapper } from "shared/styled-components/Navigation.js";
+import parse from "html-react-parser";
 
 const FooterContainer = styled.footer`
   ${FooterWrapper};
 `;
 
+const SlideCaption = styled.p`
+  ${Caption};
+`;
+
 const Footer = props => {
+  const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive } = context;
+  const { navActive, isSection, isSlide } = context;
   return (
     <Location>
       {({ location }) => (
@@ -19,6 +26,9 @@ const Footer = props => {
           navActive={navActive}
           isLight={location.pathname === "/contact"}
         >
+          <SlideCaption>
+            {parse(primaryData[isSection].slides[isSlide].caption)}
+          </SlideCaption>
           <ul>
             <li>
               <Link to="/contact">Contact</Link>

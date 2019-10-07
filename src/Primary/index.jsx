@@ -44,6 +44,7 @@ const Primary = props => {
             previousSectionPath={getPreviousSectionPath(index)}
             nextSectionPath={getNextSectionPath(index)}
             scrollPath={scrollPath}
+            sectionIndex={index}
           />
         ))}
       </Router>

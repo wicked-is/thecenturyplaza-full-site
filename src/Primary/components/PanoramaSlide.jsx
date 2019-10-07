@@ -107,9 +107,20 @@ const PanoViewer = styled.div`
   }
 `;
 
-const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
+const PanoramaSlide = ({
+  slide,
+  nextPath,
+  previousPath,
+  sectionIndex,
+  slideIndex
+}) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown } = context;
+  const {
+    pauseScroll,
+    scrollCooldown,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
   const setUpPanorama = () => {
     new PhotoSphereViewer({
@@ -130,6 +141,11 @@ const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
     setTimeout(() => setUpPanorama(), 800);
   }, []);
 
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
@@ -148,7 +164,6 @@ const PanoramaSlide = ({ slide, nextPath, previousPath }) => {
         <ImageFull>
           <PanoViewer id="panorama" />
         </ImageFull>
-        <p>{parse(slide.caption)}</p>
       </SlideContainer>
     </ReactScrollWheelHandler>
   );
