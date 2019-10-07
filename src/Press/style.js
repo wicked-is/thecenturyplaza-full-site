@@ -1,6 +1,6 @@
-import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { css } from 'styled-components';
+import { Container } from 'shared/styled-components/Layouts.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries.js';
 
 export const ContainerStyled = css`
   ${Container}
@@ -40,6 +40,10 @@ export const PubDateStyled = css`
 
 export const PubInfoStyled = css`
   display: inline-block;
+  margin-left: 24px;
+  ${mediaMin.tabletLandscape`
+    margin-left: 0;
+  `}
 
   h2 {
     margin: 0;
