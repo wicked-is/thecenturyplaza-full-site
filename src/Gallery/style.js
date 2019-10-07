@@ -1,7 +1,7 @@
-import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { css } from 'styled-components';
+import { Container } from 'shared/styled-components/Layouts.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import { fadeIn } from 'shared/styled-components/Transitions.js';
 
 export const ContainerStyled = css`
   ${Container}
@@ -62,8 +62,11 @@ export const MediaStyled = css`
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
-
   ${mediaMin.tabletLandscape` 
     margin: 0 0 20px 20px;
   `}
+  .react-reveal {
+    height: 100%;
+    width: 100%;
+  }
 `;

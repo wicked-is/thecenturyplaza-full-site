@@ -1,10 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { AsideStyled, ItemsStyled } from "Team/style.js";
-import Grid from "styled-components-grid";
-import parse from "html-react-parser";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import TeamMenu from "Team/components/TeamMenu.jsx";
+import React from 'react';
+import styled from 'styled-components';
+import Grid from 'styled-components-grid';
+import parse from 'html-react-parser';
+import Fade from 'react-reveal/Fade';
+import LazyLoad from 'react-lazyload';
+
+import { AsideStyled, ItemsStyled } from 'Team/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import TeamMenu from 'Team/components/TeamMenu.jsx';
 
 const TeamAside = styled.aside`
   ${AsideStyled};
@@ -13,9 +16,7 @@ const MemberItems = styled.div`
   ${ItemsStyled}
 `;
 
-const Member = props => {
-  const { member, isExpanded, teamData } = props;
-
+const Member = ({ member, isExpanded, teamData }) => {
   return (
     <Grid>
       <Grid.Unit size={{ phone: 1, tabletLandscape: 2 / 8 }}>
@@ -36,7 +37,11 @@ const Member = props => {
             >
               <MemberItems>
                 {image.source.length > 0 && (
-                  <ResponsiveImage key={index} srcPath={image.source} />
+                  <LazyLoad once>
+                    <Fade>
+                      <ResponsiveImage key={index} srcPath={image.source} />
+                    </Fade>
+                  </LazyLoad>
                 )}
               </MemberItems>
             </Grid.Unit>

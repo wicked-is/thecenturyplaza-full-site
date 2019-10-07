@@ -1,15 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import ReactPlayer from 'react-player';
+import Grid from 'styled-components-grid';
+import Fade from 'react-reveal/Fade';
+import LazyLoad from 'react-lazyload';
+
 import {
   SectionStyled,
   SectionTitlesStyled,
   SectionTitleStyled,
   SectionMediaStyled,
   MediaStyled
-} from "Gallery/style.js";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import ReactPlayer from "react-player";
-import Grid from "styled-components-grid";
+} from 'Gallery/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
 
 const GallerySection = styled.section`
   ${SectionStyled};
@@ -28,9 +31,9 @@ const GalleryMedia = styled.div`
 `;
 
 const videoElement = isExpanded => ({
-  width: "100%",
-  height: "100%",
-  background: "transparent"
+  width: '100%',
+  height: '100%',
+  background: 'transparent'
 });
 
 const Section = props => {
@@ -48,18 +51,26 @@ const Section = props => {
           <GallerySectionMedia>
             {section.media.map((media, index) => (
               <GalleryMedia key={index}>
-                {media.type === "video" ? (
-                  <ReactPlayer
-                    url={media.source}
-                    playsinline
-                    controls
-                    preload="true"
-                    width="100%"
-                    height="100%"
-                    style={videoElement()}
-                  />
+                {media.type === 'video' ? (
+                  <LazyLoad once>
+                    <Fade>
+                      <ReactPlayer
+                        url={media.source}
+                        playsinline
+                        controls
+                        preload="true"
+                        width="100%"
+                        height="100%"
+                        style={videoElement()}
+                      />
+                    </Fade>
+                  </LazyLoad>
                 ) : (
-                  <ResponsiveImage srcPath={media.source} />
+                  <LazyLoad once>
+                    <Fade>
+                      <ResponsiveImage srcPath={media.source} />
+                    </Fade>
+                  </LazyLoad>
                 )}
               </GalleryMedia>
             ))}
