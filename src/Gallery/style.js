@@ -1,7 +1,7 @@
-import { css } from 'styled-components';
-import { Container } from 'shared/styled-components/Layouts.js';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
-import { fadeIn } from 'shared/styled-components/Transitions.js';
+import { css } from "styled-components";
+import { Container } from "shared/styled-components/Layouts.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { fadeIn } from "shared/styled-components/Transitions.js";
 
 export const ContainerStyled = css`
   ${Container}
@@ -74,4 +74,8 @@ export const MediaStyled = css`
     height: 100%;
     width: 100%;
   }
+`;
+
+export const SlideshowContainerStyled = css`
+  width: calc(100vw - 160px);
 `;

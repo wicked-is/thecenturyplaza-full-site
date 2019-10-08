@@ -1,210 +1,172 @@
 [
   {
     "title": "Century Plaza",
+    "slug": "century-plaza",
     "media": [
       {
         "type": "video",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
+        "slug": "gallery-demo1-1",
+        "caption": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.",
         "source": "https://vimeo.com/362866671/0408c356f7",
-        "placeholder": "0408c356f7",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "placeholder": "0408c356f7"
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo1-2",
+        "caption": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+        "source": "gallery-demo1-2",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo1-3",
+        "caption": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "source": "gallery-demo1-3",
+        "placeholder": ""
       }
     ]
   },
   {
     "title": "Fairmont Hotel",
+    "slug": "fairmont-hotel",
     "media": [
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-1",
+        "caption": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+        "source": "gallery-demo2-1",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-2",
+        "caption": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+        "source": "gallery-demo2-2",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-3",
+        "caption": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus.",
+        "source": "gallery-demo2-3",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-4",
+        "caption": "Maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+        "source": "gallery-demo2-4",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-5",
+        "caption": "Ate non provident, similique sunt in culpa qui officia deserunt mollitia animi.",
+        "source": "gallery-demo2-5",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo2-6",
+        "caption": "Et harum quidem rerum facilis est et expedita distinctio.",
+        "source": "gallery-demo2-6",
+        "placeholder": ""
       }
     ]
   },
   {
     "title": "Fairmont Residences",
+    "slug": "fairmont-residences",
     "media": [
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-1",
+        "caption": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+        "source": "gallery-demo3-1",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-2",
+        "caption": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "source": "gallery-demo3-2",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-3",
+        "caption": "Et harum quidem rerum facilis est et expedita distinctio.",
+        "source": "gallery-demo3-3",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-4",
+        "caption": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+        "source": "gallery-demo3-4",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-5",
+        "caption": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+        "source": "gallery-demo3-5",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo3-6",
+        "caption": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus.",
+        "source": "gallery-demo3-6",
+        "placeholder": ""
       }
     ]
   },
   {
     "title": "Tower Residences",
+    "slug": "tower-residences",
     "media": [
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-1",
+        "caption": "Et harum quidem rerum facilis est et expedita distinctio.",
+        "source": "gallery-demo4-1",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-2",
+        "caption": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+        "source": "gallery-demo4-2",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-3",
+        "caption": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
+        "source": "gallery-demo4-3",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-4",
+        "caption": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus.",
+        "source": "gallery-demo4-4",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-5",
+        "caption": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+        "source": "gallery-demo4-5",
+        "placeholder": ""
       },
       {
         "type": "image",
-        "caption": "The hotel is fully valet with lobby level and underground access, making your arrival and departure effortless.",
-        "source": "ballroom-arrival",
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "appendix": ""
+        "slug": "gallery-demo4-6",
+        "caption": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "source": "gallery-demo4-6",
+        "placeholder": ""
       }
     ]
   }
