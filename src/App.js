@@ -126,6 +126,10 @@ class App extends Component {
                     scrollPath={this.state.scrollPath}
                   />
                 ))}
+                <SecondaryMenu
+                  setPageColor={this.setPageColor}
+                  path="continue"
+                />
                 <Redirect from="fairmont" to="fairmont/hotel" noThrow />
                 <Neighborhood
                   neighborhoodData={neighborhoodData}
@@ -151,10 +155,7 @@ class App extends Component {
                   path="gallery"
                   setPageColor={this.setPageColor}
                 />
-                <SecondaryMenu
-                  setPageColor={this.setPageColor}
-                  path="continue"
-                />
+
                 <Legal path="legal" setPageColor={this.setPageColor} />
                 <Contact path="contact" setPageColor={this.setPageColor} />
                 <Accessibility

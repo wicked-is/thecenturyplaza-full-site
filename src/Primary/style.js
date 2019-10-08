@@ -70,7 +70,7 @@ export const SlideContainerStyled = css`
     transform: translate3d(0, 3em, 0);
     animation: ${enterFromBottom};
     will-change: opacity, transform;
-    
+
     &:hover {
       opacity: 0.5;
     }
@@ -234,7 +234,7 @@ export const PanoFullStyled = css`
   opacity: 0;
   animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   will-change: opacity;
-  background: ${props => props.theme.gray};
+  background: ${props => props.theme.white};
   overflow: hidden;
 `;
 

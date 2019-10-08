@@ -1,15 +1,15 @@
-import React, { useEffect, useContext } from 'react';
-import styled from 'styled-components';
-import PhotoSphereViewer from 'photo-sphere-viewer';
-import parse from 'html-react-parser';
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-import { navigate } from '@reach/router';
+import React, { useEffect, useContext } from "react";
+import styled from "styled-components";
+import PhotoSphereViewer from "photo-sphere-viewer";
+import parse from "html-react-parser";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import { navigate } from "@reach/router";
 
-import Context from '../../config/Context';
-import { SlideContainerStyled, PanoFullStyled } from 'Primary/style.js';
-import SlideForward from 'shared/components/SlideForward.jsx';
-import SlideBackward from 'shared/components/SlideBackward.jsx';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import Context from "../../config/Context";
+import { SlideContainerStyled, PanoFullStyled } from "Primary/style.js";
+import SlideForward from "shared/components/SlideForward.jsx";
+import SlideBackward from "shared/components/SlideBackward.jsx";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
@@ -23,6 +23,7 @@ const PanoViewer = styled.div`
   height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   overflow: hidden;
   z-index: 0;
+  background: transparent;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
@@ -35,6 +36,7 @@ const PanoViewer = styled.div`
     height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
     overflow: hidden;
     position: relative;
+    background: transparent;
 
     ${mediaMin.tabletLandscape`
       width: calc(100vw - ${props =>
@@ -63,6 +65,7 @@ const PanoViewer = styled.div`
     width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
     height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
     overflow: hidden;
+    background: transparent;
 
     ${mediaMin.tabletLandscape`
       width: calc(100vw - ${props =>
@@ -94,11 +97,10 @@ const PanoViewer = styled.div`
         text-align: center;
         max-width: 100% !important;
         width: 100%;
-        color: ${props => props.theme.white};
+        color: ${props => props.theme.black};
         font-family: ${props => props.theme.sansSerifThin};
         font-size: 40px;
         letter-spacing: 1.5px;
-        color: ${props => props.theme.white};
       }
 
       .psv-loader-canvas {
@@ -125,16 +127,16 @@ const PanoramaSlide = ({
 
   const setUpPanorama = () => {
     new PhotoSphereViewer({
-      container: 'panorama',
-      panorama: require('../../imgs/panorama/pano_10000.jpg'),
+      container: "panorama",
+      panorama: require("../../imgs/panorama/pano_10000.jpg"),
       navbar: false,
-      anim_speed: '1rpm',
+      anim_speed: "0rpm",
       default_lat: 0,
       latitude_range: [0.3, -0.3],
       default_long: 0.3,
       max_fov: 38,
       mousewheel: false,
-      loading_txt: '360° Pano'
+      loading_txt: "360° Pano loading ..."
     });
   };
 
