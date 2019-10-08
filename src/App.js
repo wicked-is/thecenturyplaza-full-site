@@ -20,6 +20,7 @@ import teamData from "Team/teamData.json";
 import Availability from "Availability";
 import Press from "Press";
 import Gallery from "Gallery";
+import SlideshowSection from "Gallery/components/SlideshowSection.jsx";
 import galleryData from "Gallery/galleryData.json";
 import Contact from "Contact";
 import Legal from "Legal";
@@ -155,7 +156,14 @@ class App extends Component {
                   path="gallery"
                   setPageColor={this.setPageColor}
                 />
-
+                {galleryData.map((section, index) => (
+                  <SlideshowSection
+                    key={index}
+                    path={"gallery/" + section.slug + "/*"}
+                    section={section}
+                    galleryData={galleryData}
+                  />
+                ))}
                 <Legal path="legal" setPageColor={this.setPageColor} />
                 <Contact path="contact" setPageColor={this.setPageColor} />
                 <Accessibility
