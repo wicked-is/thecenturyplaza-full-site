@@ -59,7 +59,7 @@ export const PageFooter = css`
 `;
 
 export const PagePreTitle = css`
-  margin: 0 0 10px;
+  margin: 0 0 0;
   font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
   font-weight: 300;
   font-size: 14px;
@@ -76,6 +76,7 @@ export const PageTitle = css`
   font-size: 24px;
   line-height: 1.1em;
   letter-spacing: 0.3em;
+  margin: 10px 0;
   text-align: center;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;

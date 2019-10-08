@@ -122,7 +122,13 @@ const Neighborhood = props => {
                   <LazyLoad once offset={400}>
                     <Fade>
                       <NeighborhoodItemCTA>
-                        <a href={item.url}>{item.cta}</a>
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.cta}
+                        </a>
                       </NeighborhoodItemCTA>
                     </Fade>
                   </LazyLoad>

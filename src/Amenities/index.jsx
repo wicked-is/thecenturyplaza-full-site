@@ -15,7 +15,7 @@ const Amenities = props => {
 
   useEffect(() => {
     setHasCaptions(false);
-    setPageColor(props => props.theme.gray);
+    setPageColor(props => props.theme.grayLight);
   }, [setPageColor, setHasCaptions]);
 
   return (

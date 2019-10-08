@@ -12,6 +12,7 @@ import {
   SectionStyled,
   SectionTitleStyled,
   ListStyled,
+  ListSubLineStyled,
   ListTitleStyled,
   LinksStyled,
   DisclaimerStyled
@@ -50,6 +51,10 @@ const ListTitle = styled.h3`
   ${ListTitleStyled};
 `;
 
+const ListSubLine = styled.h4`
+  ${ListSubLineStyled};
+`;
+
 const Links = styled.a`
   ${LinksStyled};
 `;
@@ -75,11 +80,16 @@ const Building = props => {
       <Content>
         {building.sections.map((section, index) => (
           <React.Fragment key={index}>
-            <SectionTitle>{section.title}</SectionTitle>
+            {section.title.length > 0 && (
+              <SectionTitle>{section.title}</SectionTitle>
+            )}
             <Section>
               {section.lists.map((list, index) => (
                 <List key={index}>
                   {list.title.length > 0 && <ListTitle>{list.title}</ListTitle>}
+                  {list.subline.length > 0 && (
+                    <ListSubLine>{list.subline}</ListSubLine>
+                  )}
                   <ul>
                     {list.items.map((item, index) => (
                       <li key={index}>{item}</li>

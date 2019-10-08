@@ -9,6 +9,7 @@
         "lists": [
           {
             "title": "Interiors by Yabu Pushelberg",
+            "subline": "",
             "items": [
               "Oak or Walnut wood wall paneling in foyer",
               "7 1/2” plank Oak flooring with painted wood base",
@@ -18,6 +19,7 @@
           },
           {
             "title": "Chef’s Kitchens",
+            "subline": "",
             "items": [
               "Professional appliances include Miele cooktop, stainless steel Miele oven, paneled Miele dishwasher, stainless steel Miele microwave drawer, paneled Sub-Zero refrigerator, Kallista faucet and Kohler sink",
               "7 1/2” plank Oak flooring",
@@ -28,6 +30,7 @@
           },
           {
             "title": "Spa-Inspired Master Baths",
+            "subline": "",
             "items": [
               "Marble featured in flooring, walls, shower, and vanity",
               "Oak or Walnut accent wood wall paneling",
@@ -37,6 +40,7 @@
           },
           {
             "title": "Secondary Baths",
+            "subline": "",
             "items": [
               "Marble featured in flooring, walls, shower, and vanity",
               "Kallista bath fixtures, Kohler sink, and Toto toilet",
@@ -45,6 +49,7 @@
           },
           {
             "title": "Powder Rooms",
+            "subline": "",
             "items": [
               "Kallista faucet, Kohler sink and Toto toilet",
               "Marble flooring, vanity counter and backsplash",
@@ -58,6 +63,7 @@
         "lists": [
           {
             "title": "",
+            "subline": "",
             "items": [
               "24/7 Guard Gate, Valet, Doorperson, and Concierge",
               "Wine Room",
@@ -105,6 +111,7 @@
         "lists": [
           {
             "title": "Foyer",
+            "subline": "",
             "items": [
               "Stained oak veneer walls and door",
               "7.5” wide oak flooring"
@@ -112,10 +119,12 @@
           },
           {
             "title": "Interiors",
+            "subline": "",
             "items": ["7.5” wide oak flooring", "Miele Washer/Dryer"]
           },
           {
             "title": "Kitchen",
+            "subline": "",
             "items": [
               "7.5” wide oak flooring",
               "Quartzite or granite",
@@ -125,6 +134,7 @@
           },
           {
             "title": "Master Bathroom",
+            "subline": "",
             "items": [
               "marble featured in floors and walls",
               "Custom designed mirror",
@@ -135,10 +145,11 @@
         ]
       },
       {
-        "title": "RESIDENCE SERVICES",
+        "title": "",
         "lists": [
           {
-            "title": "Included in HOA dues",
+            "title": "RESIDENCE SERVICES",
+            "subline": "Included in HOA dues",
             "items": [
               "Dedicated Residences Director",
               "24-hour Concierge, Guard Gate, and valet parking",
@@ -151,10 +162,11 @@
         ]
       },
       {
-        "title": "A LA CARTE SERVICES",
+        "title": "",
         "lists": [
           {
-            "title": "Not included in HOA dues",
+            "title": "A LA CARTE SERVICES",
+            "subline": "Not included in HOA dues",
             "items": [
               "Access to In-room dining, catering, housekeeping, laundry/dry Cleaning, and in-home maintenance",
               "While You’re Away” Maintenance Program"
@@ -163,10 +175,11 @@
         ]
       },
       {
-        "title": "LE CLUB ACCORHOTELS",
+        "title": "",
         "lists": [
           {
-            "title": "Residence Benefits",
+            "title": "LE CLUB ACCORHOTELS",
+            "subline": "Residence Benefits",
             "items": [
               "Platinum status in Le Club AccorHotels offered as long as residential ownership is maintained and owners are included in the Owner Benefits Program.",
               "Discount on Spa treatments, hotel restaurant, etc"

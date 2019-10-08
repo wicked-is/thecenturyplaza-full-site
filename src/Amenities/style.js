@@ -6,7 +6,7 @@ export const ContainerStyled = css`
   ${Container}
   width: ${props => parseFloat(props.theme.mobileColumn) * 10}vw;
   margin: 20px 0 0;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.black};
   
   ${mediaMin.tabletLandscape` 
     width: ${props => parseFloat(props.theme.desktopColumn) * 5}vw;
@@ -20,7 +20,6 @@ export const ContentStyled = css`
   columns: 250px 2;
   column-fill: balance;
   column-gap: 20px;
-  min-height: 500px;
 `;
 
 export const SectionTitleStyled = css`
@@ -58,10 +57,32 @@ export const SectionStyled = css`
 export const ListStyled = css`
   break-inside: avoid;
   margin: 0 0 30px;
+
+  h3 + ul,
+  h4 + ul {
+    margin: 20px 0 0;
+  }
+
+  > ul {
+    margin: 0;
+  }
 `;
 
 export const ListTitleStyled = css`
-  margin: 0 0 20px;
+  margin: 0 0 5px;
+  padding: 0;
+  font-family: ${props => props.theme.sansSerifLightItalic}, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.35em;
+  letter-spacing: 0.05em;
+  font-style: Italic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+`;
+
+export const ListSubLineStyled = css`
+  margin: 0 0 5px;
   padding: 0;
   font-family: ${props => props.theme.sansSerifLightItalic}, sans-serif;
   font-weight: 300;
@@ -81,7 +102,7 @@ export const LinksStyled = css`
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.black};
   text-align: center;
   display: block;
   margin: 0.5em 0;

@@ -12,7 +12,8 @@
         "placeholder": "0408c356f7",
         "delay": "16000",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "split",
@@ -23,7 +24,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": true,
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "video",
@@ -34,7 +36,8 @@
         "placeholder": "6e78197afc",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "text",
@@ -45,7 +48,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       }
     ]
   },
@@ -62,7 +66,8 @@
         "placeholder": "e562c25475",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "split",
@@ -78,7 +83,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "video",
@@ -89,7 +95,8 @@
         "placeholder": "d4b236dfaf",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "image",
@@ -100,7 +107,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "image",
@@ -111,7 +119,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "image",
@@ -122,7 +131,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       }
     ]
   },
@@ -139,7 +149,8 @@
         "placeholder": "ed783c5836",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "text",
@@ -150,7 +161,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": "View Hotel Residence Features & Amenities"
+        "path": "/amenities/hotel",
+        "cta": "View Hotel Residence Features & Amenities"
       },
       {
         "type": "video",
@@ -161,7 +173,8 @@
         "placeholder": "3ef23a0758",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "image",
@@ -172,7 +185,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       }
     ]
   },
@@ -189,7 +203,8 @@
         "placeholder": "2b2bda4bf0",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "text",
@@ -200,7 +215,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": "View Tower Residence Features & Amenities"
+        "path": "/amenities/tower",
+        "cta": "View Tower Residence Features & Amenities"
       },
       {
         "type": "video",
@@ -211,7 +227,8 @@
         "placeholder": "a1228218f1",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "text",
@@ -222,7 +239,8 @@
         "placeholder": "",
         "delay": "",
         "inverted": "",
-        "appendix": "View Tower Residence Features & Amenities"
+        "path": "/amenities/tower",
+        "cta": "View Tower Residence Features & Amenities"
       },
       {
         "type": "video",
@@ -233,7 +251,8 @@
         "placeholder": "d31c9f5698",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       },
       {
         "type": "panorama",
@@ -244,7 +263,8 @@
         "placeholder": "d31c9f5698",
         "delay": "",
         "inverted": "",
-        "appendix": ""
+        "path": "",
+        "cta": ""
       }
     ]
   }
