@@ -103,13 +103,13 @@ const Filter = props => {
       <Category>
         <Label>Beds</Label>
         <List>
-          {bedOptions.map((opt, i) => renderFilterOption(opt, "beds", i))}
+          {bedOptions.sort().map((opt, i) => renderFilterOption(opt, "beds", i))}
         </List>
       </Category>
       <Category>
         <Label>Views</Label>
         <List>
-          {viewOptions.map((opt, i) => renderFilterOption(opt, "views", i))}
+          {viewOptions.sort().map((opt, i) => renderFilterOption(opt, "views", i))}
         </List>
       </Category>
     </Container>
