@@ -58,6 +58,18 @@ export const PageFooter = css`
   }
 `;
 
+export const PagePreTitle = css`
+  margin: 0 0 10px;
+  font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.35em;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-align: center;
+`;
+
 export const PageTitle = css`
   font-family: ${props => props.theme.serifRoman}, serif;
   font-weight: 300;
@@ -66,6 +78,8 @@ export const PageTitle = css`
   letter-spacing: 0.3em;
   text-align: center;
   text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
 `;
 
 export const Caption = css`
