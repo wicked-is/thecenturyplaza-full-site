@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
 import Context from "../../config/Context";
 import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -66,6 +66,10 @@ const TextSlide = ({
               {/* <TextMask /> */}
               {parse(slide.headline)}
             </h2>
+          )}
+
+          {slide.path.length > 0 && slide.cta.length > 0 && (
+            <Link to={slide.path}>{slide.cta}</Link>
           )}
         </SlideContainer>
       </SlideMask>
