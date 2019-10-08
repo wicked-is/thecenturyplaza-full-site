@@ -24,6 +24,8 @@ import galleryData from "Gallery/galleryData.json";
 import Contact from "Contact";
 import Legal from "Legal";
 import Accessibility from "Accessibility";
+import Amenities from "Amenities";
+import amenitiesData from "Amenities/amenitiesData.json";
 
 const theme = {
   breakpoints: {
@@ -157,6 +159,11 @@ class App extends Component {
                 <Contact path="contact" setPageColor={this.setPageColor} />
                 <Accessibility
                   path="accessibility"
+                  setPageColor={this.setPageColor}
+                />
+                <Amenities
+                  amenitiesData={amenitiesData}
+                  path="amenities/*"
                   setPageColor={this.setPageColor}
                 />
               </Router>

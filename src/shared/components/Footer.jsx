@@ -37,9 +37,6 @@ const Footer = props => {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="#">Instagram</Link>
-            </li>
-            <li>
               <Link to="#">Broker Portal</Link>
             </li>
             <li>
