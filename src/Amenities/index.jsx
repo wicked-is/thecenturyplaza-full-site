@@ -26,6 +26,7 @@ const Amenities = props => {
             key="index"
             path={building.slug}
             building={building}
+            default={index === 0 && true}
           />
         ))}
       </Router>

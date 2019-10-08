@@ -8,34 +8,54 @@ import {
 } from "shared/styled-components/Typography.js";
 import {
   ContainerStyled,
+  ContentStyled,
   SectionStyled,
   SectionTitleStyled,
-  ListTitleStyled
+  ListStyled,
+  ListTitleStyled,
+  LinksStyled,
+  DisclaimerStyled
 } from "Amenities/style.js";
 // import Context from "config/Context";
 
-const BuildingContainer = styled.div`
+const Container = styled.div`
   ${ContainerStyled};
 `;
 
-const BuildingPreTitle = styled.p`
+const PreTitle = styled.p`
   ${PagePreTitle};
 `;
 
-const BuildingTitle = styled.h1`
+const Title = styled.h1`
   ${PageTitle};
 `;
 
-const SectionGroup = styled.section`
-  ${SectionStyled};
+const Content = styled.div`
+  ${ContentStyled};
 `;
 
 const SectionTitle = styled.h2`
   ${SectionTitleStyled};
 `;
 
+const Section = styled.div`
+  ${SectionStyled};
+`;
+
+const List = styled.div`
+  ${ListStyled};
+`;
+
 const ListTitle = styled.h3`
   ${ListTitleStyled};
+`;
+
+const Links = styled.a`
+  ${LinksStyled};
+`;
+
+const Disclaimer = styled.p`
+  ${DisclaimerStyled};
 `;
 
 const Building = props => {
@@ -49,37 +69,45 @@ const Building = props => {
   // }, [setPageColor, setHasCaptions]);
 
   return (
-    <BuildingContainer>
-      <BuildingPreTitle>{building.pretitle}</BuildingPreTitle>
-      <BuildingTitle>{building.title}</BuildingTitle>
-      {building.sections.map((section, index) => (
-        <div key={index}>
-          <SectionTitle>{section.title}</SectionTitle>
-          {section.lists.map((list, index) => (
-            <SectionGroup key={index}>
-              <ListTitle>{list.title}</ListTitle>
-              <ul>
-                {list.items.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </SectionGroup>
-          ))}
-        </div>
-      ))}
-      {building.links.map((link, index) => (
-        <a
-          key={index}
-          href={
-            link.path.length > 0 ? link.path : process.env.PUBLIC_URL + link.url
-          }
-          target={link.path.length > 0 ? "_self" : "_blank"}
-        >
-          {link.cta}
-        </a>
-      ))}
-      <p>{building.disclaimer}</p>
-    </BuildingContainer>
+    <Container>
+      <PreTitle>{building.pretitle}</PreTitle>
+      <Title>{building.title}</Title>
+      <Content>
+        {building.sections.map((section, index) => (
+          <React.Fragment key={index}>
+            <SectionTitle>{section.title}</SectionTitle>
+            <Section>
+              {section.lists.map((list, index) => (
+                <List key={index}>
+                  {list.title.length > 0 && <ListTitle>{list.title}</ListTitle>}
+                  <ul>
+                    {list.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </List>
+              ))}
+            </Section>
+          </React.Fragment>
+        ))}
+      </Content>
+      <div>
+        {building.links.map((link, index) => (
+          <Links
+            key={index}
+            href={
+              link.path.length > 0
+                ? link.path
+                : process.env.PUBLIC_URL + link.url
+            }
+            target={link.path.length > 0 ? "_self" : "_blank"}
+          >
+            {link.cta}
+          </Links>
+        ))}
+        <Disclaimer>{building.disclaimer}</Disclaimer>
+      </div>
+    </Container>
   );
 };
 
