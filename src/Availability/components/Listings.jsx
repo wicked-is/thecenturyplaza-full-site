@@ -21,7 +21,8 @@ const SortDescending = styled.span`
 `;
 
 const Listings = props => {
-  const { listings, filters } = props;
+  const { listings, filters, path } = props;
+  const headersObj = headers(path);
   let filteredListings = listings;
 
   const [sortColumnIndex, setSortColumnnIndex] = useState(0);
@@ -51,8 +52,8 @@ const Listings = props => {
   };
 
   const sortListings = items => {
-    const sortKey = Object.keys(headers)[sortColumnIndex];
-    const keys = headers[sortKey];
+    const sortKey = Object.keys(headersObj)[sortColumnIndex];
+    const keys = headersObj[sortKey];
     const compare = (a, b) => {
       if (a === b) return 0;
       return a[keys[0]][keys[1]] < b[keys[0]][keys[1]] ? 1 : -1;
@@ -90,14 +91,14 @@ const Listings = props => {
     <AvailabilityTable>
       <thead>
         <tr>
-          {Object.keys(headers).map((header, index) =>
+          {Object.keys(headersObj).map((header, index) =>
             renderHeaderCell(header, index)
           )}
         </tr>
       </thead>
       <tbody>
         {filteredListings.map(listing => (
-          <Listing listing={listing} key={listing.id} />
+          <Listing listing={listing} path={path} key={listing.id} />
         ))}
       </tbody>
     </AvailabilityTable>
