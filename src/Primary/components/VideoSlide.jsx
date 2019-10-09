@@ -28,7 +28,7 @@ const PlaceHolder = styled.div`
   ${PlaceHolderStyled};
 `;
 
-const videoElement = isExpanded => ({
+const videoElement = () => ({
   width: "100%",
   height: "100%",
   position: "absolute",
@@ -112,7 +112,6 @@ const VideoSlide = ({
       }}
     >
       <SlideContainer isExpanded={isExpanded}>
-        {/* <ToggleFullScreen onClick={toggleExpand} isExpanded={isExpanded} /> */}
         <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
         <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
         <InnerScrollController
