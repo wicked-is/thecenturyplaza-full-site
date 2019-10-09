@@ -15,6 +15,11 @@ export const PageBody = css`
   a {
     text-decoration: none;
   }
+
+  *::selection {
+    color: ${props => props.theme.white};
+    background: ${props => props.theme.black};
+  }
 `;
 
 export const PageHeader = css`
