@@ -25,7 +25,7 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [updateHeader, setUpdateHeader] = useState({
     position: "fixed",
-    backgroundColor: props => props.theme.white
+    backgroundColor: props => props.theme.white,
     textColor: props => props.theme.black
   });
   const [updateFooter, setUpdateFooter] = useState({
