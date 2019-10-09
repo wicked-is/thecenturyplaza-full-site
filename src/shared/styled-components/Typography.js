@@ -16,10 +16,10 @@ export const PageBody = css`
     text-decoration: none;
   }
 
-  *::selection {
+  ${"" /* *::selection {
     color: ${props => props.theme.white};
     background: ${props => props.theme.black};
-  }
+  } */}
 `;
 
 export const PageHeader = css`

@@ -88,16 +88,24 @@ const InfoCluster = styled.div`
   p {
     font-family: ${props => props.theme.sansSerifLight};
     line-height: 1.4em;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
     margin: 0 0 20px;
 
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 400;
       font-weight: normal;
     }
 
     a {
       color: ${props => props.theme.gray};
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 
