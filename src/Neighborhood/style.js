@@ -57,13 +57,23 @@ export const PairedStyled = css`
   display: flex;
 
   img {
-    width: calc(50% - ${props => props.theme.mobileGutter}px);
+    width: calc(50% - ${props => props.theme.mobileGutter / 2}px);
     float: left;
-    margin-right: ${props => props.theme.mobileGutter}px;
+    margin-right: ${props => props.theme.mobileGutter / 2}px;
 
     ${mediaMin.tabletLandscape` 
-      margin-right: ${props => props.theme.desktopGutter}px;
+      margin-right: ${props => props.theme.desktopGutter / 2}px;
     `}
+
+    + img {
+      margin-left: ${props => props.theme.mobileGutter / 2}px;
+      margin-right: 0;
+
+      ${mediaMin.tabletLandscape` 
+        margin-left: ${props => props.theme.desktopGutter / 2}px;
+        margin-right: 0;
+      `}
+    }
   }
 `;
 
