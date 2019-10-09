@@ -62,6 +62,7 @@ export const FooterWrapper = css`
     li {
       display: inline-block;
       margin: 0 0 0 20px;
+
       a {
         font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
         font-weight: 300;

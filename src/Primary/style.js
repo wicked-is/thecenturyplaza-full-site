@@ -33,7 +33,6 @@ export const SlideContainerStyled = css`
   height: 100vh;
   z-index: 200;
   position: relative;
-  background: white;
   flex-wrap: wrap;
   }
 

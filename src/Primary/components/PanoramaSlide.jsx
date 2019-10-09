@@ -83,6 +83,7 @@ const PanoViewer = styled.div`
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
+      background: transparent;
 
       ${mediaMin.tabletLandscape`
         width: calc(100vw - ${props =>
