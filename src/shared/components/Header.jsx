@@ -9,14 +9,16 @@ import ActiveMenu from "shared/components/ActiveMenu.jsx";
 import MainMenu from "shared/components/MainMenu.jsx";
 import logoBlackPNG from "icons/logo-black.png";
 import logoBlackSVG from "icons/logo-black.svg";
+import logoGrayPNG from "icons/logo-gray.png";
+import logoGraySVG from "icons/logo-gray.svg";
 import hamburgerBlackPNG from "icons/hamburger-black.png";
 import hamburgerBlackSVG from "icons/hamburger-black.svg";
 import hamburgerGrayPNG from "icons/hamburger-gray.png";
 import hamburgerGraySVG from "icons/hamburger-gray.svg";
 import closeGrayPNG from "icons/close-gray.png";
 import closeGraySVG from "icons/close-gray.svg";
-import logoGrayPNG from "icons/logo-gray.png";
-import logoGraySVG from "icons/logo-gray.svg";
+import closeBlackPNG from "icons/close-black.png";
+import closeBlackSVG from "icons/close-black.svg";
 
 const HeaderContainer = styled.header`
   display: inline-block;
@@ -44,8 +46,7 @@ const Logo = styled.div`
   width: 250px;
   height: 17px;
   z-index: 10000;
-  background: url(${props =>
-        props.navActive || props.isLight ? logoGraySVG : logoBlackSVG})
+  background: url(${props => (props.navActive ? logoGraySVG : logoBlackSVG)})
       no-repeat center center,
     none;
 `;
@@ -60,7 +61,7 @@ const Hamburger = styled.button`
 
   background: url(${props => {
         if (props.navActive) return closeGraySVG;
-        if (props.isLight) return hamburgerGraySVG;
+        if (props.isLight) return hamburgerBlackSVG;
         return hamburgerBlackSVG;
       }})
       no-repeat center center,
@@ -70,7 +71,7 @@ const Hamburger = styled.button`
   z-index: 10000;
   &:hover {
     background: url(${props =>
-          props.navActive ? closeGraySVG : hamburgerGraySVG})
+          props.navActive ? closeGraySVG : hamburgerBlackSVG})
         no-repeat center center,
       none;
   }
@@ -94,6 +95,7 @@ const Header = ({ primaryData, pageColor }) => {
                 <Logo
                   navActive={navActive}
                   isLight={location.pathname === "/contact"}
+                  onClick={navActive && toggleMenu}
                 />
               </Link>
               <Hamburger

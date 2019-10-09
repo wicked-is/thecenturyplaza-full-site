@@ -1,7 +1,5 @@
 import { css } from "styled-components";
-import { Wrapper, Container } from "shared/styled-components/Layouts.js";
-import { fadeIn } from "shared/styled-components/Transitions.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { Wrapper } from "shared/styled-components/Layouts.js";
 
 export const MenuWrapper = css`
   ${Wrapper}
@@ -75,9 +73,9 @@ export const FooterWrapper = css`
 
         color: ${props =>
           props.navActive || props.isLight
-            ? props.theme.grayLight
+            ? props.theme.black
             : props.theme.gray};
-        d &:hover {
+        &:hover {
           opacity: 0.5;
         }
       }

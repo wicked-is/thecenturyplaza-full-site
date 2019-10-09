@@ -6,17 +6,17 @@ import styled from "styled-components";
 const MainMenuContainer = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
   visibility: ${props => (props.navActive ? "visible" : "hidden")};
-  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 1000;
   background: ${props => props.theme.black};
   text-indent: 0;
   color: ${props => props.theme.gray};
+
   a:hover {
     opacity: 0.5;
   }
