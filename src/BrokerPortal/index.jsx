@@ -135,9 +135,7 @@ const BrokerPortal = ({ setPageColor }) => {
   };
 
   const responseHandler = response => {
-    console.log(response);
     var trimResponse = response.replace(/['"]+/g, '');
-    console.log(trimResponse);
     if (trimResponse === 'Authentication Failed') {
       clearForm();
       setAuthenticationStatus(false);
@@ -154,8 +152,6 @@ const BrokerPortal = ({ setPageColor }) => {
     if (!formData.username) newErrors.username = true;
     if (!formData.password) newErrors.password = true;
     setFormErrors(newErrors);
-    console.log(newErrors);
-    console.log(Object.values(newErrors).some(el => el));
     return Object.values(newErrors).some(el => el);
   };
 
