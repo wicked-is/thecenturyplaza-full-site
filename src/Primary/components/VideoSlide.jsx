@@ -29,9 +29,14 @@ const PlaceHolder = styled.div`
 `;
 
 const videoElement = () => ({
-  width: "100%",
-  height: "100%",
+  width: "100vw",
+  height: "56.25vw",
+  minHeight: "100vh",
+  minWidth: "177.77vh",
   position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   background: "transparent",
   zIndex: "500"
 });
@@ -137,10 +142,10 @@ const VideoSlide = ({
               playsinline
               loop
               width="100vw"
-              height="100vh"
+              height="56.25vw"
               onStart={removePlaceholder}
               style={videoElement(isExpanded)}
-              preload="true"
+              // preload="true"
             />
           </FullScreen>
         </PlayerContainer>
