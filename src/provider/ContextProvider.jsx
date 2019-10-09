@@ -23,7 +23,16 @@ const ContextProvider = props => {
   const [isSection, setSection] = useState(0);
   const [isSlide, setSlide] = useState(0);
   const [hasCaptions, setHasCaptions] = useState(false);
-  // const [fixedFooter, setfixedFooter] = useState(false);
+  const [updateHeader, setUpdateHeader] = useState({
+    position: "fixed",
+    backgroundColor: props => props.theme.white
+    textColor: props => props.theme.black
+  });
+  const [updateFooter, setUpdateFooter] = useState({
+    position: "relative",
+    backgroundColor: "transparent",
+    textColor: props => props.theme.black
+  });
 
   const scrollCooldown = () => {
     setPauseScroll(true);
@@ -54,22 +63,6 @@ const ContextProvider = props => {
   const currentSlideIndex = index => {
     setSlide(index);
   };
-
-  const hideCaptions = () => {
-    setHasCaptions(false);
-  };
-
-  const showCaptions = () => {
-    setHasCaptions(true);
-  };
-
-  // const applyFixedFooter = () => {
-  //   setfixedFooter(true);
-  // };
-
-  // const removeFixedFooter = () => {
-  //   setfixedFooter(false);
-  // };
 
   const fetchPress = async () => {
     console.log("Fetching Press");
@@ -106,12 +99,10 @@ const ContextProvider = props => {
         currentSlideIndex,
         hasCaptions,
         setHasCaptions,
-        showCaptions,
-        hideCaptions
-        // fixedFooter,
-        // setfixedFooter,
-        // applyFixedFooter,
-        // removeFixedFooter
+        updateHeader,
+        setUpdateHeader,
+        updateFooter,
+        setUpdateFooter
       }}
     >
       {props.children}

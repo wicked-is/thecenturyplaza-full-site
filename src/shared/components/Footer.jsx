@@ -19,6 +19,7 @@ const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
   const { navActive, isSection, isSlide, hasCaptions } = context;
+
   return (
     <Location>
       {({ location }) => (
