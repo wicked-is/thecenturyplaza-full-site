@@ -135,12 +135,25 @@ export const FullScreenStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  width: 100%;
+  transition: 0;
   position: relative;
 
-  @media (max-aspect-ratio: 375/812) {
+  .iframe,
+  iframe {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0;
+  }
+
+  ${"" /* @media (max-aspect-ratio: 375/812) {
     transform: scale(${props => (props.isExpanded ? "3.25" : "3")});
   }
 
@@ -178,12 +191,19 @@ export const FullScreenStyled = css`
 
   @media (min-aspect-ratio: 16/4) {
     transform: scale(${props => (props.isExpanded ? "3.75" : "3.5")});
-  }
+  } */}
 `;
 
 export const PlaceHolderStyled = css`
-  height: 100vh;
   width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0;
   display: ${props => (props.isPlaying ? "none" : "flex")};
   align-items: center;
   justify-content: center;
@@ -191,10 +211,20 @@ export const PlaceHolderStyled = css`
   z-index: 300;
 
   img {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0;
     display: ${props => (props.isPlaying ? "none" : "block")};
     position: relative;
     width: auto;
     height: auto;
+    object-fit: cover;
   }
 `;
 
