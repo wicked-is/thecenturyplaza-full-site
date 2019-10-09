@@ -8,15 +8,15 @@ const SlideshowWrapper = styled.div`
   ${ViewportWrapper};
 `;
 
-const SlideshowSection = ({ galleryData, section }) => {
+const SlideshowSection = ({ section }) => {
   return (
     <SlideshowWrapper>
       <Router>
-        {section.media.map((item, index) => (
+        {section.media.map((media, index) => (
           <SlideshowMedia
             key={index}
-            path={item.slug}
-            item={item}
+            path={media.slug}
+            media={media}
             default={index === 0 && true}
           />
         ))}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="162px" height="162px" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>play-btn</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="1680x950---Gallery-1" transform="translate(-769.000000, -351.000000)" fill="#FEFEFE">
+            <path d="M850,513 C805.336163,513 769,476.663285 769,432.000356 C769,387.336715 805.336163,351 850,351 C894.663837,351 931,387.336715 931,432.000356 C931,476.663285 894.663837,513 850,513 L850,513 Z M849.5,354 C806.766209,354 772,388.766049 772,431.500356 C772,474.233951 806.766209,509 849.5,509 C892.233791,509 927,474.233951 927,431.500356 C927,388.766049 892.233791,354 849.5,354 L849.5,354 Z M829,395 L829,468 L893,431.5 L829,395 Z" id="play-btn"></path>
+        </g>
+    </g>
+</svg>

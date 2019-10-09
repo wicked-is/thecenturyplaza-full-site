@@ -1,7 +1,6 @@
-import { css } from 'styled-components';
-import { Container } from 'shared/styled-components/Layouts.js';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
-import { fadeIn } from 'shared/styled-components/Transitions.js';
+import { css } from "styled-components";
+import { Container } from "shared/styled-components/Layouts.js";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const ContainerStyled = css`
   ${Container}
@@ -9,7 +8,7 @@ export const ContainerStyled = css`
   margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
-    margin: 40px 0 0;
+    margin: ${props => props.desktopMargin}px 0 0;
     width: ${props => parseFloat(props.theme.desktopColumn) * 8}vw;
   `}
 `;
@@ -51,12 +50,19 @@ export const MenuStyled = css`
     display: inline-block;
     width: 100%;
     height: auto;
-    margin: 0 0 20px;
+    margin: 0;
+
+    ::selection {
+      color: ${props => props.theme.white};
+      background: ${props => props.theme.black};
+    }
 
     a {
+      display: inline-block;
+      width: 100%;
       color: ${props => props.theme.gray};
       text-decoration: none;
-      padding: 0 0 5px;
+      padding: 0 0 20px;
       font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
       font-weight: 300;
       font-size: 14px;
@@ -64,10 +70,35 @@ export const MenuStyled = css`
       letter-spacing: 0.06em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: antialiased;
+
+      ::selection {
+        color: ${props => props.theme.white};
+        background: ${props => props.theme.black};
+      }
     }
   }
 `;
 
 export const ItemsStyled = css`
-  margin: 0 0 3.5vw;
+  margin: 0;
+
+  ${mediaMin.phoneXL`
+    margin: ${props =>
+      parseFloat(props.theme.mobileColumn) * parseFloat(props.mobileLift)}vw
+      0 3.5vw;
+  `}
+
+  ${mediaMin.tabletLandscape` 
+    margin: ${props =>
+      parseFloat(props.theme.desktopColumn) * parseFloat(props.desktopLift)}vw
+      0 3.5vw;
+  `}
+
+  img {
+    margin: 0 0 ${props => props.theme.mobileMargin}px;
+
+    ${mediaMin.phoneXL`
+      margin: 0;
+    `}
+  }
 `;

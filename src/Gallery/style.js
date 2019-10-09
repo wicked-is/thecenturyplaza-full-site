@@ -2,6 +2,8 @@ import { css } from "styled-components";
 import { Container } from "shared/styled-components/Layouts.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
+import playBtnPNG from "icons/play-btn.png";
+import playBtnSVG from "icons/play-btn.svg";
 
 export const ContainerStyled = css`
   ${Container}
@@ -60,22 +62,84 @@ export const SectionMediaStyled = css`
   }
 `;
 
+export const PlaceholderStyled = css`
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12vw;
+    height: 12vw;
+    margin: -6vw 0 0 -6vw;
+    background: url(${playBtnPNG}) no-repeat center center;
+    background: url(${playBtnSVG}) no-repeat center center, none;
+    background-size: contain;
+  }
+`;
+
 export const MediaStyled = css`
+  positions: relative;
   margin: 0 10px 20px 10px;
-  width: calc(33.333% - 20px);
+  width: ${props =>
+    props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
   float: left;
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
+  position: relative;
+
   ${mediaMin.tabletLandscape` 
     margin: 0 0 20px 20px;
   `}
+
   .react-reveal {
     height: 100%;
+    width: 100%;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    object-fit: cover;
+    height: 18vw;
     width: 100%;
   }
 `;
 
 export const SlideshowContainerStyled = css`
   width: calc(100vw - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SlideshowImageStyled = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SlideshowVideoStyled = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export const SlideshowCaptionStyled = css`
+  display: inline-block;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
 `;

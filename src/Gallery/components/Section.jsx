@@ -11,7 +11,8 @@ import {
   SectionTitlesStyled,
   SectionTitleStyled,
   SectionMediaStyled,
-  MediaStyled
+  MediaStyled,
+  PlaceholderStyled
 } from "Gallery/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
@@ -30,11 +31,14 @@ const GallerySectionMedia = styled.div`
 const GalleryMedia = styled.div`
   ${MediaStyled};
 `;
+const Placeholder = styled.div`
+  ${PlaceholderStyled};
+`;
 
-const videoElement = isExpanded => ({
+const videoElement = () => ({
   width: "100%",
   height: "100%",
-  background: "transparent"
+  display: "none"
 });
 
 const Section = ({ section }) => {
@@ -49,19 +53,21 @@ const Section = ({ section }) => {
         <Grid.Unit size={{ phone: 1, tabletLandscape: 10 / 12 }}>
           <GallerySectionMedia>
             {section.media.map((media, index) => (
-              <GalleryMedia key={index}>
+              <GalleryMedia key={index} type={media.type}>
                 <Fade>
                   <Link to={"/gallery/" + section.slug + "/" + media.slug}>
                     {media.type === "video" ? (
-                      <ReactPlayer
-                        url={media.source}
-                        playsinline
-                        controls
-                        preload="true"
-                        width="100%"
-                        height="100%"
-                        style={videoElement()}
-                      />
+                      <React.Fragment>
+                        <Placeholder>
+                          <ResponsiveImage srcPath={media.placeholder} />
+                        </Placeholder>
+                        <ReactPlayer
+                          url={media.source}
+                          width="100%"
+                          height="100%"
+                          style={videoElement()}
+                        />
+                      </React.Fragment>
                     ) : (
                       <ResponsiveImage srcPath={media.source} />
                     )}

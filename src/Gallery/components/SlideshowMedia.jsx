@@ -1,40 +1,53 @@
 import React from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
-// import Grid from "styled-components-grid";
-// import Fade from "react-reveal/Fade";
-// import LazyLoad from "react-lazyload";
-
 import {
-  SlideshowContainerStyled
-  // SectionTitlesStyled,
-  // SectionTitleStyled,
-  // SectionMediaStyled,
-  // MediaStyled
+  SlideshowContainerStyled,
+  SlideshowImageStyled,
+  SlideshowVideoStyled,
+  SlideshowCaptionStyled
 } from "Gallery/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
 const SlideshowContainer = styled.section`
   ${SlideshowContainerStyled};
 `;
-// const GallerySectionTitles = styled.div`
-//   ${SectionTitlesStyled};
-// `;
-// const GallerySectionTitle = styled.h2`
-//   ${SectionTitleStyled};
-// `;
-// const GallerySectionMedia = styled.div`
-//   ${SectionMediaStyled};
-// `;
-// const GalleryMedia = styled.div`
-//   ${MediaStyled};
-// `;
+const SlideshowImage = styled.div`
+  ${SlideshowImageStyled};
+`;
+const SlideshowVideo = styled.h2`
+  ${SlideshowVideoStyled};
+`;
+const SlideshowCaption = styled.div`
+  ${SlideshowCaptionStyled};
+`;
 
-const SlideshowMedia = ({ item }) => {
+const videoElement = () => ({
+  width: "100%",
+  height: "100%",
+  maxHeight: "calc(100vh - 160px)"
+});
+
+const SlideshowMedia = ({ media }) => {
   return (
     <SlideshowContainer>
-      {item.type === "image" && <ResponsiveImage srcPath={item.source} />}
-      <p>{item.caption}</p>
+      {media.type === "image" ? (
+        <SlideshowImage>
+          <ResponsiveImage srcPath={media.source} />
+        </SlideshowImage>
+      ) : (
+        <SlideshowVideo>
+          <ReactPlayer
+            url={media.source}
+            controls
+            playsinline
+            width="100%"
+            height="56.25vw"
+            style={videoElement()}
+          />
+        </SlideshowVideo>
+      )}
+      <SlideshowCaption>{media.caption}</SlideshowCaption>
     </SlideshowContainer>
   );
 };
