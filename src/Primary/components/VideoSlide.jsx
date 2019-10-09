@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
-import { navigate } from "@reach/router";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Context from "config/Context";
 import {
+  SlideMaskStyled,
   SlideContainerStyled,
   PlayerContainerStyled,
   FullScreenStyled,
@@ -15,15 +15,22 @@ import SlideBackward from "shared/components/SlideBackward.jsx";
 import InnerScrollController from "shared/components/VideoScrollController.jsx";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
+
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
+
 const PlayerContainer = styled.div`
   ${PlayerContainerStyled};
 `;
+
 const FullScreen = styled.div`
   ${FullScreenStyled};
 `;
+
 const PlaceHolder = styled.div`
   ${PlaceHolderStyled};
 `;
@@ -41,23 +48,32 @@ const videoElement = () => ({
   zIndex: "500"
 });
 
+// Will be refactoring props to Context as needed
+// Comments only temporary
+
 const VideoSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  isExpanded,
-  isFirstSection,
-  isFirstSlide,
-  toggleExpand,
-  closeExpand,
-  firstSectionSlide,
-  sectionIndex,
-  slideIndex
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  firstSlide, // Refactor
+  firstSectionSlide, //Refactor
+  lastSlide, //Refactor
+  lastSectionSlide, //Refactor
+  isFirstSection, //Refactor
+  isFirstSlide, //Refactor
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  previousSlideImage, //Back to Back Images
+  nextSlideImage, // Back to Back Images
+  sectionIndex, //Refactor
+  slideIndex //Refactor
 }) => {
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
+    isExisting,
+    triggerExit,
     hasPlayed,
     markPlayed,
     currentSlideIndex,
@@ -100,56 +116,61 @@ const VideoSlide = ({
         !isExpanded &&
           !isFirstSection &&
           !isFirstSlide &&
-          navigate(previousPath);
+          triggerExit(previousPath);
         !isExpanded &&
           !isFirstSection &&
           isFirstSlide &&
-          navigate(previousPath);
+          triggerExit(previousPath);
         !isExpanded &&
           isFirstSection &&
           !isFirstSlide &&
-          navigate(previousPath);
-        scrollCooldown();
+          triggerExit(previousPath);
       }}
       downHandler={() => {
-        isExpanded ? toggleExpand() : navigate(nextPath);
-        scrollCooldown();
+        isExpanded ? toggleExpand() : triggerExit(nextPath);
       }}
     >
-      <SlideContainer isExpanded={isExpanded}>
-        <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
-        <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
-        <InnerScrollController
-          nextPath={nextPath}
-          previousPath={previousPath}
-          isExpanded={isExpanded}
-          isFirstSection={isFirstSection}
-          isFirstSlide={isFirstSlide}
-          toggleExpand={toggleExpand}
-        />
-        <PlayerContainer
-          isExpanded={isExpanded}
-          firstSectionSlide={firstSectionSlide}
-        >
-          <FullScreen isExpanded={isExpanded}>
-            <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
-              <ResponsiveImage srcPath={slide.placeholder} />
-            </PlaceHolder>
-            <ReactPlayer
-              url={slide.source[0]}
-              muted
-              playing
-              playsinline
-              loop
-              width="100vw"
-              height="56.25vw"
-              onStart={removePlaceholder}
-              style={videoElement(isExpanded)}
-              // preload="true"
-            />
-          </FullScreen>
-        </PlayerContainer>
-      </SlideContainer>
+      <SlideMask
+        isExisting={isExisting}
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        nextSlideImage={nextSlideImage}
+      >
+        <SlideContainer isExpanded={isExpanded}>
+          <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
+          <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
+          <InnerScrollController
+            nextPath={nextPath}
+            previousPath={previousPath}
+            isExpanded={isExpanded}
+            isFirstSection={isFirstSection}
+            isFirstSlide={isFirstSlide}
+            toggleExpand={toggleExpand}
+          />
+          <PlayerContainer
+            isExpanded={isExpanded}
+            firstSectionSlide={firstSectionSlide}
+          >
+            <FullScreen isExpanded={isExpanded}>
+              <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
+                <ResponsiveImage srcPath={slide.placeholder} />
+              </PlaceHolder>
+              <ReactPlayer
+                url={slide.source[0]}
+                muted
+                playing
+                playsinline
+                loop
+                width="100vw"
+                height="56.25vw"
+                onStart={removePlaceholder}
+                style={videoElement(isExpanded)}
+                // preload="true"
+              />
+            </FullScreen>
+          </PlayerContainer>
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };

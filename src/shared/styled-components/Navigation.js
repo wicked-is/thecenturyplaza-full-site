@@ -1,5 +1,9 @@
 import { css } from "styled-components";
 import { Wrapper } from "shared/styled-components/Layouts.js";
+import {
+  enterFromBottomText,
+  enterFadeIn
+} from "shared/styled-components/Transitions.js";
 
 export const MenuWrapper = css`
   ${Wrapper}
@@ -7,7 +11,7 @@ export const MenuWrapper = css`
   align-items: center;
 `;
 
-export const MenuContainer = css`
+export const SecondaryMenuMenuContainerStyled = css`
   display: inline-block;
   position: relative;
   width: auto;
@@ -19,6 +23,10 @@ export const MenuContainer = css`
     margin: 0 0 80px;
     padding: 0;
     height: auto;
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+    animation: ${enterFromBottomText};
+    will-change: opacity, transform;
 
     li {
       margin: 0 0 20px;
@@ -36,9 +44,12 @@ export const MenuContainer = css`
     }
   }
 
-  > a {
+  span > a {
     font-family: ${props => props.theme.sansSerifLight};
     color: ${props => props.theme.black};
+    opacity: 0;
+    animation: ${enterFadeIn};
+    will-change: opacity;
 
     &:hover {
       opacity: 0.5;

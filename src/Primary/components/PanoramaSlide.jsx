@@ -1,19 +1,25 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import PhotoSphereViewer from "photo-sphere-viewer";
-import parse from "html-react-parser";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import { navigate } from "@reach/router";
-
 import Context from "../../config/Context";
-import { SlideContainerStyled, PanoFullStyled } from "Primary/style.js";
+import {
+  SlideMaskStyled,
+  SlideContainerStyled,
+  PanoFullStyled
+} from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
+
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
+
 const ImageFull = styled.div`
   ${PanoFullStyled};
 `;
@@ -100,7 +106,7 @@ const PanoViewer = styled.div`
         width: 100%;
         color: ${props => props.theme.black};
         font-family: ${props => props.theme.sansSerifThin};
-        font-size: 40px;
+        font-size: 30px;
         letter-spacing: 1.5px;
       }
 
@@ -111,17 +117,32 @@ const PanoViewer = styled.div`
   }
 `;
 
+// Will be refactoring props to Context as needed
+// Comments only temporary
+
 const PanoramaSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  sectionIndex,
-  slideIndex
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  firstSlide, // Refactor
+  firstSectionSlide, //Refactor
+  lastSlide, //Refactor
+  lastSectionSlide, //Refactor
+  isFirstSection, //Refactor
+  isFirstSlide, //Refactor
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  previousSlideImage, //Back to Back Images
+  nextSlideImage, // Back to Back Images
+  sectionIndex, //Refactor
+  slideIndex //Refactor
 }) => {
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
+    isExisting,
+    triggerExit,
     currentSlideIndex,
     currentSectionIndex
   } = context;
@@ -154,21 +175,26 @@ const PanoramaSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        navigate(previousPath);
-        scrollCooldown();
+        triggerExit(previousPath);
       }}
       downHandler={() => {
-        navigate(nextPath);
-        scrollCooldown();
+        triggerExit(nextPath);
       }}
     >
-      <SlideContainer>
-        {/* <SlideBackward previousPath={previousPath} />
+      <SlideMask
+        isExisting={isExisting}
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        nextSlideImage={nextSlideImage}
+      >
+        <SlideContainer>
+          {/* <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} /> */}
-        <ImageFull>
-          <PanoViewer id="panorama" />
-        </ImageFull>
-      </SlideContainer>
+          <ImageFull>
+            <PanoViewer id="panorama" />
+          </ImageFull>
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };

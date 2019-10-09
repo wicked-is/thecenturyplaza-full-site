@@ -1,13 +1,8 @@
 import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
 import {
-  fadeIn,
-  fadeOut,
-  enterFromBottom,
-  exitFromTop,
-  enterFromRight,
-  exitFromLeft,
-  enterFromNothing,
+  enterFadeIn,
+  enterFromBottomText,
+  enterFromBottomImage,
   enterFromCenter
 } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
@@ -19,22 +14,20 @@ export const SlideMaskStyled = css`
   width: 100vw;
   opacity: ${props => (props.isExisting && !props.nextSlideImage ? "0" : "1")};
   overflow: hidden;
-  transition: opacity 0.25s;
+  transition: ${props =>
+    props.isExisting && !props.nextSlideImage ? "opacity 0.5s ease-in" : "0"};
 `;
 
 export const SlideContainerStyled = css`
-  ${"" /* ${Container} */}
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-
   width: 100vw;
   height: 100vh;
   z-index: 200;
   position: relative;
   flex-wrap: wrap;
-  }
 
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
@@ -49,10 +42,10 @@ export const SlideContainerStyled = css`
     position: relative;
     overflow: hidden;
     opacity: 0;
-    transform: translate3d(0, 3em, 0);
-    animation: ${enterFromBottom};
+    transform: translate3d(0, 0, 0);
+    animation: ${enterFromBottomText};
     will-change: opacity, transform;
-  
+
     em {
       font-family: ${props => props.theme.serifMediumItalic};
     }
@@ -67,49 +60,11 @@ export const SlideContainerStyled = css`
     color: ${props => props.theme.gray};
     opacity: 0;
     transform: translate3d(0, 3em, 0);
-    animation: ${enterFromBottom};
+    animation: ${enterFromBottomText};
     will-change: opacity, transform;
 
     &:hover {
       opacity: 0.5;
-    }
-  }
-`;
-
-export const SplitSlideContainerStyled = css`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
-  justify-content: space-evenly;
-
-  ${mediaMin.tabletLandscape` 
-    width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px);
- `}
-
-  h2 {
-    font-family: ${props => props.theme.serifMedium}, serif;
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 1.1em;
-    letter-spacing: 0.01em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: antialiased;
-    width: 30vw;
-    text-align: center;
-    margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translate3d(0, 3em, 0);
-    animation: ${enterFromBottom};
-    will-change: opacity, transform;
-
-    em {
-      font-family: ${props => props.theme.serifMediumItalic};
     }
   }
 `;
@@ -126,7 +81,7 @@ export const PlayerContainerStyled = css`
   opacity: 0;
   transform: ${props => props.firstSectionSlide && "scale(.8)"};
   animation: ${props =>
-    !props.firstSectionSlide ? enterFromNothing : enterFromCenter};
+    !props.firstSectionSlide ? enterFadeIn : enterFromCenter};
   will-change: ${props =>
     !props.firstSectionSlide ? "opacity" : "opacity, transform"};
 `;
@@ -152,46 +107,6 @@ export const FullScreenStyled = css`
     transform: translate(-50%, -50%);
     transition: 0;
   }
-
-  ${"" /* @media (max-aspect-ratio: 375/812) {
-    transform: scale(${props => (props.isExpanded ? "3.25" : "3")});
-  }
-
-  @media (min-aspect-ratio: 376/812) and (max-aspect-ratio: 550/812) {
-    transform: scale(${props => (props.isExpanded ? "2.75" : "2.5")});
-  }
-
-  @media (min-aspect-ratio: 551/812) and (max-aspect-ratio: 750/812) {
-    transform: scale(${props => (props.isExpanded ? "2.25" : "2")});
-  }
-
-  @media (min-aspect-ratio: 751/812) and (max-aspect-ratio: 100/100) {
-    transform: scale(${props => (props.isExpanded ? "1.75" : "1.5")});
-  }
-
-  @media (min-aspect-ratio: 101/100) and (max-aspect-ratio: 16/13) {
-    transform: scale(${props => (props.isExpanded ? "1.60" : "1.35")});
-  }
-
-  @media (min-aspect-ratio: 16/12) and (max-aspect-ratio: 16/11) {
-    transform: scale(${props => (props.isExpanded ? "1.5" : "1.25")});
-  }
-
-  @media (min-aspect-ratio: 16/10) and (max-aspect-ratio: 16/9) {
-    transform: scale(${props => (props.isExpanded ? "1.25" : "1")});
-  }
-
-  @media (min-aspect-ratio: 16/8) and (max-aspect-ratio: 16/7) {
-    transform: scale(${props => (props.isExpanded ? "1.75" : "1.5")});
-  }
-
-  @media (min-aspect-ratio: 16/6) and (max-aspect-ratio: 16/5) {
-    transform: scale(${props => (props.isExpanded ? "2.75" : "2.5")});
-  }
-
-  @media (min-aspect-ratio: 16/4) {
-    transform: scale(${props => (props.isExpanded ? "3.75" : "3.5")});
-  } */}
 `;
 
 export const PlaceHolderStyled = css`
@@ -236,15 +151,15 @@ export const ImageFullStyled = css`
     80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
   );
   max-width: calc(
-    70vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
+    70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
   );
   transform: translate3d(
     0,
-    ${props => (!props.previousSlideImage ? "3em" : "0")},
+    ${props => (!props.previousSlideImage ? "5em" : "0")},
     0
   );
   opacity: ${props => (!props.previousSlideImage ? "0" : "1")};
-  animation: ${props => !props.previousSlideImage && enterFromBottom};
+  animation: ${props => !props.previousSlideImage && enterFromBottomImage};
   will-change: ${props => !props.previousSlideImage && "opacity, transform"};
 
   ${mediaMin.tabletLandscape`
@@ -254,17 +169,53 @@ export const ImageFullStyled = css`
   `};
 `;
 
-export const PanoFullStyled = css`
+export const SplitSlideContainerStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  position: relative;
+  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
+  justify-content: space-evenly;
+
+  ${"" /* display: flex;
+  justify-content: center;
+  align-items: center;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  opacity: 0;
-  animation: ${fadeIn} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
-  will-change: opacity;
-  background: ${props => props.theme.white};
-  overflow: hidden;
+  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
+  justify-content: space-evenly;
+
+  ${mediaMin.tabletLandscape` 
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.desktopMargin) * 2}px);
+ `} */}
+
+  h2 {
+    font-family: ${props => props.theme.serifMedium}, serif;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 1.1em;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    width: 30vw;
+    text-align: center;
+    margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate3d(0, 3em, 0);
+    animation: ${enterFromBottomText};
+    will-change: opacity, transform;
+
+    em {
+      font-family: ${props => props.theme.serifMediumItalic};
+    }
+  }
 `;
 
 export const ImageContainerStyled = css`
@@ -277,7 +228,19 @@ export const ImageContainerStyled = css`
   max-width: 30vw;
   margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
   opacity: 0;
-  transform: translate3d(0, 3em, 0);
-  animation: ${enterFromBottom};
-  will-change: opacity, transform;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+`;
+
+export const PanoFullStyled = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${props => props.theme.white};
+  overflow: hidden;
+  width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
+  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 `;
