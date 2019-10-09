@@ -3,11 +3,6 @@ import { Link } from "@reach/router";
 import styled from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
-// import rightArrowBlackPNG from "icons/right-arrow-black.png";
-// import rightArrowBlackSVG from "icons/right-arrow-black.svg";
-// import rightArrowGrayPNG from "icons/right-arrow-gray.png";
-// import rightArrowGraySVG from "icons/right-arrow-gray.svg";
-
 const SlideForwardContainer = styled.span`
   position: absolute;
   right: 0;

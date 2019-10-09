@@ -14,7 +14,6 @@ const Section = ({
   nextSectionPath,
   isExpanded,
   isFirstSection,
-  scrollPath,
   toggleExpand,
   closeExpand,
   sectionIndex
@@ -101,7 +100,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          scrollPath={scrollPath}
           firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
@@ -123,7 +121,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          scrollPath={scrollPath}
           firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
@@ -145,7 +142,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          scrollPath={scrollPath}
           firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
@@ -167,7 +163,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          scrollPath={scrollPath}
           firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
@@ -189,7 +184,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          scrollPath={scrollPath}
           firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}

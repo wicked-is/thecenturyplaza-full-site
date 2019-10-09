@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
 import { fadeIn } from "shared/styled-components/Transitions.js";
 
 export const PageBody = css`
@@ -15,11 +14,6 @@ export const PageBody = css`
   a {
     text-decoration: none;
   }
-
-  ${"" /* *::selection {
-    color: ${props => props.theme.white};
-    background: ${props => props.theme.black};
-  } */}
 `;
 
 export const PageHeader = css`

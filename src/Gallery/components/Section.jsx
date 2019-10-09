@@ -1,10 +1,9 @@
 import React from "react";
-import { Router, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
-import LazyLoad from "react-lazyload";
 
 import {
   SectionStyled,

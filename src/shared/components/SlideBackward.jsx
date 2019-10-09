@@ -3,11 +3,6 @@ import { Link } from "@reach/router";
 import styled from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
-// import leftArrowBlackPNG from "icons/left-arrow-black.png";
-// import leftArrowBlackSVG from "icons/left-arrow-black.svg";
-// import leftArrowGrayPNG from "icons/left-arrow-gray.png";
-// import leftArrowGraySVG from "icons/left-arrow-gray.svg";
-
 const SlideBackwardContainer = styled.span`
   position: absolute;
   left: 0;

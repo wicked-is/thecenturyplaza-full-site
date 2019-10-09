@@ -1,6 +1,4 @@
 import React from "react";
-// import React, { useEffect, useContext } from "react";
-import { Link } from "@reach/router";
 import styled from "styled-components";
 import {
   PageTitle,
@@ -17,7 +15,6 @@ import {
   LinksStyled,
   DisclaimerStyled
 } from "Amenities/style.js";
-// import Context from "config/Context";
 
 const Container = styled.div`
   ${ContainerStyled};
@@ -65,13 +62,6 @@ const Disclaimer = styled.p`
 
 const Building = props => {
   const { building } = props;
-  // const context = useContext(Context);
-  // const { setHasCaptions } = context;
-
-  // useEffect(() => {
-  //   setHasCaptions(false);
-  //   setPageColor(props => props.theme.grayLight);
-  // }, [setPageColor, setHasCaptions]);
 
   return (
     <Container>

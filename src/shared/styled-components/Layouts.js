@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const Wrapper = css`
