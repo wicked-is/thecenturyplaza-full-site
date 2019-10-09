@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from "react";
-import { Router } from "@reach/router";
-import styled from "styled-components";
-import { ViewportWrapper } from "shared/styled-components/Layouts.js";
-import Section from "Primary/components/Section.jsx";
-import Context from "config/Context";
+import React, { useEffect, useContext } from 'react';
+import { Router } from '@reach/router';
+import styled from 'styled-components';
+import { ViewportWrapper } from 'shared/styled-components/Layouts.js';
+import Section from 'Primary/components/Section.jsx';
+import Context from 'config/Context';
 
 const PrimaryWrapper = styled.div`
   ${ViewportWrapper};
@@ -17,7 +17,7 @@ const Primary = props => {
   const getPreviousSectionPath = index =>
     index !== 0
       ? primaryData[index - 1].slug +
-        "/" +
+        '/' +
         primaryData[index - 1].slides[primaryData[index - 1].slides.length - 1]
           .slug
       : null;
@@ -27,7 +27,10 @@ const Primary = props => {
   useEffect(() => {
     setHasCaptions(true);
     setPageColor(props => props.theme.white);
-  }, [setPageColor, setHasCaptions]);
+    return () => {
+      setHasCaptions(false);
+    };
+  }, []);
 
   return (
     <PrimaryWrapper isExpanded={isExpanded}>
@@ -35,7 +38,7 @@ const Primary = props => {
         {primaryData.map((section, index) => (
           <Section
             key={index}
-            path={section.slug + "/*"}
+            path={section.slug + '/*'}
             isFirstSection={index === 0 && true}
             isExpanded={isExpanded}
             toggleExpand={props.toggleExpand}
