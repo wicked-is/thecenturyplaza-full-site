@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from "react";
-import { Link } from "@reach/router";
-import styled from "styled-components";
-import { Location } from "@reach/router";
-import Context from "../../config/Context";
-import ActiveMenu from "shared/components/ActiveMenu.jsx";
-import MainMenu from "shared/components/MainMenu.jsx";
-import logoBlackSVG from "icons/logo-black.svg";
-import logoGraySVG from "icons/logo-gray.svg";
-import hamburgerBlackSVG from "icons/hamburger-black.svg";
-import closeGraySVG from "icons/close-gray.svg";
+import React, { useContext, useEffect } from 'react';
+import { Link } from '@reach/router';
+import styled from 'styled-components';
+import { Location } from '@reach/router';
+import Context from '../../config/Context';
+import ActiveMenu from 'shared/components/ActiveMenu.jsx';
+import MainMenu from 'shared/components/MainMenu.jsx';
+import logoBlackSVG from 'icons/logo-black.svg';
+import logoGraySVG from 'icons/logo-gray.svg';
+import hamburgerBlackSVG from 'icons/hamburger-black.svg';
+import closeGraySVG from 'icons/close-gray.svg';
 
 const HeaderContainer = styled.header`
   display: inline-block;
@@ -84,12 +84,18 @@ const Header = ({ primaryData, pageColor }) => {
               <Link to="/">
                 <Logo
                   navActive={navActive}
-                  isLight={location.pathname === "/contact"}
+                  isLight={
+                    location.pathname === '/contact' ||
+                    location.pathname === 'broker-portal'
+                  }
                   onClick={navActive ? toggleMenu : undefined}
                 />
               </Link>
               <Hamburger
-                isLight={location.pathname === "/contact"}
+                isLight={
+                  location.pathname === '/contact' ||
+                  location.pathname === 'broker-portal'
+                }
                 navActive={navActive}
                 onClick={toggleMenu}
               />

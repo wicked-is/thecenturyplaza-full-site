@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { Link } from "@reach/router";
-import styled from "styled-components";
-import { Location } from "@reach/router";
-import Context from "../../config/Context";
-import { Caption } from "shared/styled-components/Typography.js";
-import { FooterWrapper } from "shared/styled-components/Navigation.js";
-import parse from "html-react-parser";
+import React, { useContext } from 'react';
+import { Link } from '@reach/router';
+import styled from 'styled-components';
+import { Location } from '@reach/router';
+import Context from '../../config/Context';
+import { Caption } from 'shared/styled-components/Typography.js';
+import { FooterWrapper } from 'shared/styled-components/Navigation.js';
+import parse from 'html-react-parser';
 
 const FooterContainer = styled.footer`
   ${FooterWrapper};
@@ -25,7 +25,10 @@ const Footer = props => {
       {({ location }) => (
         <FooterContainer
           navActive={navActive}
-          isLight={location.pathname === "/contact"}
+          isLight={
+            location.pathname === '/contact' ||
+            location.pathname === '/broker-portal'
+          }
         >
           {hasCaptions && (
             <SlideCaption>
@@ -38,7 +41,7 @@ const Footer = props => {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="#">Broker Portal</Link>
+              <Link to="/broker-portal">Broker Portal</Link>
             </li>
             <li>
               <Link to="/legal">Legal</Link>
