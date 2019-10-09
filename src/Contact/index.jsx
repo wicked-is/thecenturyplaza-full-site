@@ -9,11 +9,13 @@ import { ContainerStyled } from "Contact/style.js";
 import { mediaMin } from "shared/styled-components/MediaQueries";
 import Context from "config/Context";
 
-const LegalWrapper = styled.div`
+const ContactWrapper = styled.div`
   ${Wrapper};
 `;
-const LegalContainer = styled.div`
+const ContactContainer = styled.div`
   ${ContainerStyled};
+
+  margin: 0 !important;
 `;
 
 const LeftCol = styled.div`
@@ -22,7 +24,8 @@ const LeftCol = styled.div`
     display: flex;
   `}
   flex-direction: column;
-  width: 30%;
+  width: calc(30vw - 40px);
+
   section {
     display: flex;
     flex-direction: column;
@@ -38,12 +41,16 @@ const LeftCol = styled.div`
 
 const RightCol = styled.div`
   width: 100%;
+
   ${mediaMin.tabletLandscape`
     width: 70%;
   `}
+
   display: flex;
   flex-direction: column;
+
   h3 {
+    color: ${props => props.theme.black};
     margin: 0 0 40px 0;
   }
 `;
@@ -54,7 +61,9 @@ const ContactForm = styled.form`
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  ${"" /* width: 70vw;
+  margin: 80px 0 0 30vw; */}
+
   ${mediaMin.tabletLandscape`
     width: 50%;
   `}
@@ -71,9 +80,9 @@ const ContactSuccess = styled.form`
     width: 50%;
   `}
   a {
-    color: ${props => props.theme.gray};
+    color: ${props => props.theme.black};
     &:visited {
-      color: ${props => props.theme.gray};
+      color: ${props => props.theme.black};
     }
   }
 `;
@@ -91,19 +100,20 @@ const FormRow = styled.div`
     .react-select__control,
     react-select__menu,
     .react-select__menu-list {
-      z-index: 1000000;
+      z-index: 100;
       border-radius: 0;
       border: none;
       background-color: #0c1218;
-      color: ${props => props.theme.gray};
+      color: ${props => props.theme.black};
     }
   }
 `;
 
 const TextInput = styled.input`
-  background-color: #0c1218;
-  color: ${props => props.theme.gray};
-  border: ${props => (props.error ? "1px solid red" : "1px solid transparent")};
+  background-color: ${props => props.theme.gray};
+  color: ${props => props.theme.black};
+  border: ${props =>
+    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
   padding: 8px;
   box-sizing: border-box;
   width: ${props => {
@@ -118,6 +128,10 @@ const TextInput = styled.input`
   &:last-child {
     margin-right: 0;
   }
+
+  :placeholder {
+    colors: ${props => props.theme.white};
+  }
 `;
 
 const RadioInput = styled.label`
@@ -128,7 +142,7 @@ const RadioInput = styled.label`
   box-sizing: border-box;
   margin: 0 12px;
   width: 50%;
-  color: ${props => props.theme.gray};
+  color: ${props => props.theme.black};
   &:first-child {
     margin-left: 0;
   }
@@ -152,7 +166,7 @@ const RadioInput = styled.label`
     &:checked {
       background-color: #0c1218;
       &::before {
-        color: ${props => props.theme.gray};
+        color: ${props => props.theme.black};
         position: absolute;
         font: 13px/1 "Open Sans", sans-serif;
         left: 11px;
@@ -167,15 +181,36 @@ const RadioInput = styled.label`
 const SubmitButton = styled.button`
   background: none;
   background-color: #0c1218;
-  color: ${props => props.theme.gray};
-  border: ${props => `1px solid ${props.theme.gray}`};
-  padding: 16px;
+  color: ${props => props.theme.blacky};
+  border: ${props => `1px solid ${props.theme.gblack}`};
+  padding: 10px 14px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  text-align: center;
+
   ${mediaMin.tabletLandscape`
-    width: 20%;
+    width: 30%;
   `}
+`;
+
+const InfoCluster = styled.div`
+  p {
+    font-family: ${props => props.theme.sansSerifLight};
+    line-height: 1.4em;
+    margin: 0 0 20px;
+    color: ${props => props.theme.black};
+
+    strong {
+      display: block;
+      font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: normal;
+    }
+
+    a {
+      color: ${props => props.theme.black};
+    }
+  }
 `;
 
 const Contact = ({ setPageColor }) => {
@@ -259,27 +294,38 @@ const Contact = ({ setPageColor }) => {
 
   useEffect(() => {
     setHasCaptions(false);
-    setPageColor(props => props.theme.black);
+    setPageColor(props => props.theme.gray);
   }, [setPageColor, setHasCaptions]);
 
   return (
-    <LegalWrapper>
-      <LegalContainer>
+    <ContactWrapper>
+      <ContactContainer>
         <LeftCol>
-          <section>
-            <span>
+          <InfoCluster>
+            <p>
               <strong>Sales Gallery</strong>
-            </span>
-            <span>10250 Constellation Boulsevard</span>
-            <span>Los Angeles, California 90067</span>
-          </section>
-          <section>
-            <span>
+              <a
+                href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                10250 Consteallation Boulevard
+                <br />
+                Los Angeles, California 90067
+              </a>
+            </p>
+            <p>
               <strong>Schedule an Appointment</strong>
-            </span>
-            <span>+1 310 246 4777</span>
-            <span>info@thecenturyplaza.com</span>
-          </section>
+              +1 310 246 4777
+              <br />
+              <a
+                href="mailto:info@thecenturyplaza.com"
+                rel="noopener noreferrer"
+              >
+                info@thecenturyplaza.com
+              </a>
+            </p>
+          </InfoCluster>
         </LeftCol>
         <RightCol>
           {formMounted && (
@@ -434,8 +480,8 @@ const Contact = ({ setPageColor }) => {
             </ContactSuccess>
           )}
         </RightCol>
-      </LegalContainer>
-    </LegalWrapper>
+      </ContactContainer>
+    </ContactWrapper>
   );
 };
 
