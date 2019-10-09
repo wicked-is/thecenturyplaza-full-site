@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {
   FilterContainer,
   FilterCategory,
-  FilterLabel,
+  FilterCategoryLabel,
   FilterList
 } from "Availability/style.js";
 
@@ -16,8 +16,8 @@ const Category = styled.div`
   ${FilterCategory};
 `;
 
-const Label = styled.span`
-  ${FilterLabel};
+const CategoryLabel = styled.span`
+  ${FilterCategoryLabel};
 `;
 
 const List = styled.ul`
@@ -101,15 +101,19 @@ const Filter = props => {
   return (
     <Container>
       <Category>
-        <Label>Beds</Label>
+        <CategoryLabel>Beds</CategoryLabel>
         <List>
-          {bedOptions.sort().map((opt, i) => renderFilterOption(opt, "beds", i))}
+          {bedOptions
+            .sort()
+            .map((opt, i) => renderFilterOption(opt, "beds", i))}
         </List>
       </Category>
       <Category>
-        <Label>Views</Label>
+        <CategoryLabel>Views</CategoryLabel>
         <List>
-          {viewOptions.sort().map((opt, i) => renderFilterOption(opt, "views", i))}
+          {viewOptions
+            .sort()
+            .map((opt, i) => renderFilterOption(opt, "views", i))}
         </List>
       </Category>
     </Container>

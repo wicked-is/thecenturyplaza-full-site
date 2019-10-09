@@ -109,7 +109,7 @@ const Availability = props => {
             <ActiveListingLink to="/availability/tower">
               Two Eleven Elm
             </ActiveListingLink>
-            <AvailabilityFilter onClick={handleFilter}>
+            <AvailabilityFilter onClick={handleFilter} active={showFilter}>
               Filter
             </AvailabilityFilter>
             {showFilter && (
