@@ -1,13 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import Grid from "styled-components-grid";
-import parse from "html-react-parser";
-import Fade from "react-reveal/Fade";
-import LazyLoad from "react-lazyload";
+import React from 'react';
+import styled from 'styled-components';
+import Grid from 'styled-components-grid';
+import parse from 'html-react-parser';
+import Fade from 'react-reveal/Fade';
+import { Waypoint } from 'react-waypoint';
+import LazyLoad from 'react-lazyload';
 
-import { AsideStyled, ItemsStyled } from "Team/style.js";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import TeamMenu from "Team/components/TeamMenu.jsx";
+import { AsideStyled, ItemsStyled } from 'Team/style.js';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import TeamMenu from 'Team/components/TeamMenu.jsx';
 
 const TeamAside = styled.aside`
   ${AsideStyled};
@@ -41,13 +42,7 @@ const Member = ({ member, isExpanded, teamData }) => {
                 desktopLift={image.lift[1]}
               >
                 {image.source.length > 0 && (
-                  <Fade
-                    onReveal={() => {
-                      console.log("reveal");
-                    }}
-                  >
-                    <ResponsiveImage key={index} srcPath={image.source} />
-                  </Fade>
+                  <ResponsiveImage key={index} srcPath={image.source} reveal />
                 )}
               </MemberItems>
             </Grid.Unit>
