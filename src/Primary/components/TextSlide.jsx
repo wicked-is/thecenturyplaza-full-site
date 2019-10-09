@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
-import { navigate, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import Context from "../../config/Context";
 import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
@@ -16,21 +16,30 @@ const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
 
+// Will be refactoring props to Context as needed
+// Comments only temporary
+
 const TextSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  firstSlide,
-  firstSectionSlide,
-  lastSlide,
-  lastSectionSlide,
-  sectionIndex,
-  slideIndex
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  firstSlide, // Refactor
+  firstSectionSlide, //Refactor
+  lastSlide, //Refactor
+  lastSectionSlide, //Refactor
+  isFirstSection, //Refactor
+  isFirstSlide, //Refactor
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  previousSlideImage, //Back to Back Images
+  nextSlideImage, // Back to Back Images
+  sectionIndex, //Refactor
+  slideIndex //Refactor
 }) => {
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
     isExisting,
     triggerExit,
     currentSlideIndex,
@@ -46,8 +55,7 @@ const TextSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        navigate(previousPath);
-        scrollCooldown();
+        triggerExit(previousPath);
       }}
       downHandler={() => {
         triggerExit(nextPath);
@@ -57,17 +65,12 @@ const TextSlide = ({
         isExisting={isExisting}
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
+        nextSlideImage={nextSlideImage}
       >
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
-          {slide.headline.length > 0 && (
-            <h2>
-              {/* <TextMask /> */}
-              {parse(slide.headline)}
-            </h2>
-          )}
-
+          {slide.headline.length > 0 && <h2>{parse(slide.headline)}</h2>}
           {slide.path.length > 0 && slide.cta.length > 0 && (
             <Link to={slide.path}>{slide.cta}</Link>
           )}

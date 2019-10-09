@@ -4,15 +4,16 @@ import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
 import {
   MenuWrapper,
-  MenuContainer
+  SecondaryMenuMenuContainerStyled
 } from "shared/styled-components/Navigation.js";
 import Context from "config/Context";
 
 const SecondaryMenuWrapper = styled.div`
   ${MenuWrapper};
 `;
+
 const SecondaryMenuContainer = styled.nav`
-  ${MenuContainer};
+  ${SecondaryMenuMenuContainerStyled};
 `;
 
 const SecondaryMenu = props => {
@@ -52,7 +53,9 @@ const SecondaryMenu = props => {
               <Link to="/gallery">Visit the Sales Gallery</Link>
             </li>
           </ul>
-          <Link to="/">Return Home</Link>
+          <span>
+            <Link to="/">Return Home</Link>
+          </span>
         </SecondaryMenuContainer>
       </SecondaryMenuWrapper>
     </ReactScrollWheelHandler>

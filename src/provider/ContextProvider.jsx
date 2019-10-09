@@ -49,11 +49,13 @@ const ContextProvider = props => {
 
   const triggerExit = path => {
     setIsExisting(true);
+    console.log("existing started");
     setTimeout(() => {
       scrollCooldown();
       setIsExisting(false);
+      console.log("existing finished");
       navigate(path);
-    }, 250);
+    }, 500);
   };
 
   const currentSectionIndex = index => {

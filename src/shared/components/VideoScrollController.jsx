@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
-import { navigate } from "@reach/router";
 import Context from "config/Context";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
@@ -41,7 +40,7 @@ const ScrollController = ({
   toggleExpand
 }) => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown } = context;
+  const { pauseScroll, triggerExit } = context;
 
   return (
     <InnerScrollContainer isExpanded={isExpanded}>
@@ -53,20 +52,18 @@ const ScrollController = ({
           !isExpanded &&
             !isFirstSection &&
             !isFirstSlide &&
-            navigate(previousPath);
+            triggerExit(previousPath);
           !isExpanded &&
             !isFirstSection &&
             isFirstSlide &&
-            navigate(previousPath);
+            triggerExit(previousPath);
           !isExpanded &&
             isFirstSection &&
             !isFirstSlide &&
-            navigate(previousPath);
-          scrollCooldown();
+            triggerExit(previousPath);
         }}
         downHandler={() => {
-          isExpanded ? toggleExpand() : navigate(nextPath);
-          scrollCooldown();
+          isExpanded ? toggleExpand() : triggerExit(nextPath);
         }}
       ></ReactScrollWheelHandler>
     </InnerScrollContainer>

@@ -1,71 +1,47 @@
-import styled, { css, keyframes } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 export const fadeIn = keyframes`
   0% { opacity: 0;}
   100% { opacity: 1;}
 `;
 
-export const fadeOut = keyframes`
-  0% { opacity: 1;}
-  100% { opacity: 0;}
-`;
-
-export const pushUp = keyframes`
-  0% { transform: translate3d(0, 3em, 0);}
-  100% { transform: translate3d(0, 0, 0);}
-`;
+export const enterFadeIn = props =>
+  css`
+    ${fadeIn} 0.5s ease-out 0.25s forwards;
+  `;
 
 export const fromCenter = keyframes`
   0% { opacity: 0; transform: scale(.8);}
-  70% { opacity: 1;}
+  75% { opacity: 1;}
   100% { opacity: 1; transform: scale(1);}
 `;
 
 export const enterFromCenter = props =>
   css`
-    ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) forwards;
+    ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   `;
 
-export const fromNothing = keyframes`
-  0% { opacity: 0;}
-  100% { opacity: 1;}
-`;
-
-export const enterFromNothing = props =>
-  css`
-    ${fromNothing} 1.25s cubic-bezier(0, 0.7, 0.3, 1)  forwards;
-  `;
-
-export const fromBottom = keyframes`
+export const fromBottomText = keyframes`
   0% { opacity: 0; transform: translate3d(0, 3em, 0);}
-  70% { opacity: 1;}
+  75% { opacity: 1;}
   100% { opacity: 1; transform: translate3d(0, 0, 0);}
 `;
 
-export const enterFromBottom = props =>
+export const enterFromBottomText = props =>
   css`
-    ${fromBottom} 1.25s cubic-bezier(0, 0.7, 0.3, 1) forwards;
+    ${fromBottomText} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   `;
 
-export const fromTop = keyframes`
-  0% { opacity: 0; transform: translate3d(0, 0, 0);}
-  70% { opacity: 1;}
-  100% { opacity: 1; transform: translate3d(0, 3em, 0);}
+export const fromBottomImage = keyframes`
+  0% { opacity: 0; transform: translate3d(0, 5em, 0);}
+  75% { opacity: 1;}
+  100% { opacity: 1; transform: translate3d(0, 0, 0);}
 `;
 
-export const exitFromTop = props =>
+export const enterFromBottomImage = props =>
   css`
-    ${fromTop} 1.25s cubic-bezier(0, 0.7, 0.3, 1) forwards;
+    ${fromBottomImage} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.25s forwards;
   `;
-
-export const enterFromRight = keyframes`
-  0% { transform: translate3d(2em, 0, 0);}
-  100% { transform: translate3d(0, 0, 0);}
-`;
-export const exitFromLeft = keyframes`
-  0% { transform: translate3d(0, 0, 0);}
-  100% { transform: translate3d(-2em, 0, 0);}
-`;
 
 // Transition Archive
 // export const cascadeText = keyframes`

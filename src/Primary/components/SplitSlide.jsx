@@ -1,55 +1,63 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import parse from "html-react-parser";
-import { navigate } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Context from "../../config/Context";
 import { SlideShow } from "shared/styled-components/SlideShow.js";
 import {
+  SlideMaskStyled,
   SplitSlideContainerStyled,
-  TextMaskStyled,
-  ImageContainerStyled,
-  ImageMaskStyled
+  ImageContainerStyled
 } from "Primary/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-// import SimpleSlider from "shared/components/SlickSlider.jsx";
+
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
 
 const SlideContainer = styled.div`
   ${SplitSlideContainerStyled};
 `;
-// const TextMask = styled.div`
-//   ${TextMaskStyled};
-// `;
 
 const ImageContainer = styled.div`
   ${ImageContainerStyled};
 `;
+
 const ImageSlideShow = styled.div`
   ${SlideShow};
 `;
-// const ImageMask = styled.div`${ImageMaskStyled};`;
+
+// Will be refactoring props to Context as needed
+// Comments only temporary
 
 const SplitSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  sectionIndex,
-  slideIndex
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  firstSlide, // Refactor
+  firstSectionSlide, //Refactor
+  lastSlide, //Refactor
+  lastSectionSlide, //Refactor
+  isFirstSection, //Refactor
+  isFirstSlide, //Refactor
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  previousSlideImage, //Back to Back Images
+  nextSlideImage, // Back to Back Images
+  sectionIndex, //Refactor
+  slideIndex //Refactor
 }) => {
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
+    isExisting,
+    triggerExit,
     currentSlideIndex,
     currentSectionIndex
   } = context;
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //   }, 500);
-  // }, []);
 
   useEffect(() => {
     currentSectionIndex(sectionIndex);
@@ -60,35 +68,36 @@ const SplitSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        navigate(previousPath);
-        scrollCooldown();
+        triggerExit(previousPath);
       }}
       downHandler={() => {
-        navigate(nextPath);
-        scrollCooldown();
+        triggerExit(nextPath);
       }}
     >
-      <SlideContainer isInverted={slide.inverted}>
-        <SlideBackward previousPath={previousPath} />
-        <SlideForward nextPath={nextPath} />
-        <ImageContainer>
-          {/* <ImageMask isInverted={slide.inverted} /> */}
-          {slide.source.length > 1 ? (
-            <ImageSlideShow>
-              {" "}
-              {slide.source.map((source, index) => (
-                <ResponsiveImage key={index} srcPath={source} />
-              ))}{" "}
-            </ImageSlideShow>
-          ) : (
-            <ResponsiveImage srcPath={slide.source[0]} />
-          )}
-        </ImageContainer>
-        <h2>
-          {/* <TextMask /> */}
-          {parse(slide.headline)}
-        </h2>
-      </SlideContainer>
+      <SlideMask
+        isExisting={isExisting}
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        nextSlideImage={nextSlideImage}
+      >
+        <SlideContainer isInverted={slide.inverted}>
+          <SlideBackward previousPath={previousPath} />
+          <SlideForward nextPath={nextPath} />
+          <ImageContainer isInverted={slide.inverted}>
+            {slide.source.length > 1 ? (
+              <ImageSlideShow>
+                {" "}
+                {slide.source.map((source, index) => (
+                  <ResponsiveImage key={index} srcPath={source} />
+                ))}{" "}
+              </ImageSlideShow>
+            ) : (
+              <ResponsiveImage srcPath={slide.source[0]} />
+            )}
+          </ImageContainer>
+          <h2>{parse(slide.headline)}</h2>
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };

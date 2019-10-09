@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import parse from "html-react-parser";
-import { navigate } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Context from "../../config/Context";
 import {
@@ -23,23 +21,30 @@ const ImageFull = styled.div`
   ${ImageFullStyled};
 `;
 
+// Will be refactoring props to Context as needed
+// Comments only temporary
+
 const ImageSlide = ({
-  slide,
-  nextPath,
-  previousPath,
-  firstSlide,
-  firstSectionSlide,
-  lastSlide,
-  lastSectionSlide,
-  previousSlideImage,
-  nextSlideImage,
-  sectionIndex,
-  slideIndex
+  slide, // Object
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  firstSlide, // Refactor
+  firstSectionSlide, //Refactor
+  lastSlide, //Refactor
+  lastSectionSlide, //Refactor
+  isFirstSection, //Refactor
+  isFirstSlide, //Refactor
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  previousSlideImage, //Back to Back Images
+  nextSlideImage, // Back to Back Images
+  sectionIndex, //Refactor
+  slideIndex //Refactor
 }) => {
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
     isExisting,
     triggerExit,
     currentSlideIndex,
@@ -55,8 +60,7 @@ const ImageSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        navigate(previousPath);
-        scrollCooldown();
+        triggerExit(previousPath);
       }}
       downHandler={() => {
         triggerExit(nextPath);
