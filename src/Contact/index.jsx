@@ -14,7 +14,6 @@ const ContactWrapper = styled.div`
 `;
 const ContactContainer = styled.div`
   ${ContainerStyled};
-
   margin: 0 !important;
 `;
 
@@ -61,28 +60,49 @@ const ContactForm = styled.form`
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
-  ${"" /* width: 70vw;
-  margin: 80px 0 0 30vw; */}
 
   ${mediaMin.tabletLandscape`
     width: 50%;
   `}
+
+  font-family: ${props => props.theme.sansSerifThin};
+  line-height: 1.4em;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+
+  h3 {
+    font-family: ${props => props.theme.sansSerifRegular};
+    font-weight: 400;
+    margin: 0 0 20px;
+  }
+
 `;
 
 const ContactSuccess = styled.form`
   opacity: ${props => (props.confirmationVisible ? "1" : "0")};
   visibility: ${props => (props.confirmationVisible ? "visible" : "hidden")};
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
   display: flex;
   flex-direction: column;
   width: 100%;
   ${mediaMin.tabletLandscape`
     width: 50%;
   `}
+
+  p {
+    font-family: ${props => props.theme.sansSerifLight};
+    line-height: 1.4em;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    margin: 0 0 20px;
+    color: ${props => props.theme.black};
+  }
+
   a {
     color: ${props => props.theme.black};
-    &:visited {
-      color: ${props => props.theme.black};
+
+    &:hover {
+      opacity: 0.5;
     }
   }
 `;
@@ -98,29 +118,45 @@ const FormRow = styled.div`
       display: none;
     }
     .react-select__control,
-    react-select__menu,
+    .react-select__menu,
     .react-select__menu-list {
       z-index: 100;
       border-radius: 0;
       border: none;
-      background-color: #0c1218;
+      background-color: ${props => props.theme.gray};
       color: ${props => props.theme.black};
+      border: 1px solid ${props => props.theme.black};
+      box-shadow: 0 0 0 transparent;
+    }
+
+    .react-select__menu-list {
+      border: 0;
+    }
+
+    .react-select__indicator {
+      svg {
+        fill: ${props => props.theme.black};
+        stroke: ${props => props.theme.black};
+      }
     }
   }
 `;
 
 const TextInput = styled.input`
-  background-color: ${props => props.theme.gray};
+  background-color: transparent;
   color: ${props => props.theme.black};
   border: ${props =>
     props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
   padding: 8px;
   box-sizing: border-box;
+  letter-spacing: 0.1em;
+
   width: ${props => {
     if (props.halfWidth) return "50%";
     if (props.quarterWidth) return "25%";
     return "100%";
   }};
+
   margin: 0 12px;
   &:first-child {
     margin-left: 0;
@@ -129,8 +165,16 @@ const TextInput = styled.input`
     margin-right: 0;
   }
 
-  :placeholder {
+  &:placeholder {
+    colors: ${props => props.theme.black};
+  }
+
+  &:focus {
+    outline: none;
     colors: ${props => props.theme.white};
+    border: ${props =>
+      props.error ? "1px solid red" : "1px solid " + props.theme.white + ""};
+    background-color: transparent;
   }
 `;
 
@@ -138,11 +182,13 @@ const RadioInput = styled.label`
   display: flex;
   align-items: center;
   border: 0;
-  padding: 8px;
   box-sizing: border-box;
-  margin: 0 12px;
+  margin: 0 10px;
   width: 50%;
   color: ${props => props.theme.black};
+  letter-spacing: 0.1em;
+  cursor: pointer;
+
   &:first-child {
     margin-left: 0;
   }
@@ -150,27 +196,30 @@ const RadioInput = styled.label`
     margin-right: 0;
   }
   input {
-    margin-right: 24px;
+    margin-right: 20px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     display: inline-block;
     position: relative;
-    background-color: #0c1218;
-    color: #666;
-    height: 30px;
-    width: 30px;
+    background-color: transparent;
+    color: ${props => props.theme.black};
+    height: 24px;
+    width: 24px;
     border: 0;
     cursor: pointer;
     outline: none;
+    border: 1px solid ${props => props.theme.black};
+
     &:checked {
-      background-color: #0c1218;
+      background-color: transparent;
       &::before {
         color: ${props => props.theme.black};
+        ${"" /* border: 1px solid ${props => props.theme.black}; */}
         position: absolute;
         font: 13px/1 "Open Sans", sans-serif;
-        left: 11px;
-        top: 7px;
+        left: 7px;
+        top: 3px;
         content: "\\02143";
         transform: rotate(40deg);
       }
@@ -180,14 +229,18 @@ const RadioInput = styled.label`
 
 const SubmitButton = styled.button`
   background: none;
-  background-color: #0c1218;
-  color: ${props => props.theme.blacky};
-  border: ${props => `1px solid ${props.theme.gblack}`};
-  padding: 10px 14px;
+  background-color: transparent;
+  color: ${props => props.theme.black};
+  border: ${props => `1px solid ${props.theme.black}`};
+  padding: 10px 8px 8px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   text-align: center;
+  font-family: ${props => props.theme.sansSerifLight};
+  line-height: 1.2em;
+  letter-spacing: 0.2em;
+  font-weight: 300;
 
   ${mediaMin.tabletLandscape`
     width: 30%;
@@ -198,17 +251,23 @@ const InfoCluster = styled.div`
   p {
     font-family: ${props => props.theme.sansSerifLight};
     line-height: 1.4em;
+    letter-spacing: 0.05em;
+    font-weight: 300;
     margin: 0 0 20px;
     color: ${props => props.theme.black};
 
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 400;
       font-weight: normal;
     }
 
     a {
       color: ${props => props.theme.black};
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 `;

@@ -8,21 +8,9 @@ export const ContainerStyled = css`
   margin: 20px 0 0;
   display: flex;
   flex-direction: column;
+
   ${mediaMin.tabletLandscape` 
   flex-direction: row;
     margin: 40px 0 0;
   `}
-  color: ${props => props.theme.grayLight};
-  h1 {
-    margin: 0 0 3em; 
-  }
-
-  p {
-    font-family: ${props => props.theme.sansSerifLight};
-  }
-
-  h4 {
-    margin: 40px 0 0;
-    font-family: ${props => props.theme.sansSerifLight};
-  }
 `;

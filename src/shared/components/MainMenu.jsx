@@ -6,17 +6,17 @@ import styled from "styled-components";
 const MainMenuContainer = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
   visibility: ${props => (props.navActive ? "visible" : "hidden")};
-  transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out;
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 1000;
   background: ${props => props.theme.black};
   text-indent: 0;
   color: ${props => props.theme.gray};
+
   a:hover {
     opacity: 0.5;
   }
@@ -88,16 +88,24 @@ const InfoCluster = styled.div`
   p {
     font-family: ${props => props.theme.sansSerifLight};
     line-height: 1.4em;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
     margin: 0 0 20px;
 
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 400;
       font-weight: normal;
     }
 
     a {
       color: ${props => props.theme.gray};
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 
