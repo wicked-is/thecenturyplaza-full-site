@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
-import Select from "react-select";
-import { Link } from "@reach/router";
+import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
+import Select from 'react-select';
+import { Link } from '@reach/router';
+import $ from 'jquery';
 
-import { states } from "./states";
-import { Wrapper } from "shared/styled-components/Layouts.js";
-import { ContainerStyled } from "Contact/style.js";
-import { mediaMin } from "shared/styled-components/MediaQueries";
-import Context from "config/Context";
+import { states } from './states';
+import { Wrapper } from 'shared/styled-components/Layouts.js';
+import { ContainerStyled } from 'Contact/style.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries';
+import Context from 'config/Context';
 
 const ContactWrapper = styled.div`
   ${Wrapper};
@@ -55,8 +56,8 @@ const RightCol = styled.div`
 `;
 
 const ContactForm = styled.form`
-  opacity: ${props => (props.formVisible ? "1" : "0")};
-  visibility: ${props => (props.formVisible ? "visible" : "hidden")};
+  opacity: ${props => (props.formVisible ? '1' : '0')};
+  visibility: ${props => (props.formVisible ? 'visible' : 'hidden')};
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
@@ -79,8 +80,8 @@ const ContactForm = styled.form`
 `;
 
 const ContactSuccess = styled.form`
-  opacity: ${props => (props.confirmationVisible ? "1" : "0")};
-  visibility: ${props => (props.confirmationVisible ? "visible" : "hidden")};
+  opacity: ${props => (props.confirmationVisible ? '1' : '0')};
+  visibility: ${props => (props.confirmationVisible ? 'visible' : 'hidden')};
   transition: opacity 0.25s ease, visibility 0.25s ease;
   display: flex;
   flex-direction: column;
@@ -146,15 +147,15 @@ const TextInput = styled.input`
   background-color: transparent;
   color: ${props => props.theme.black};
   border: ${props =>
-    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
+    props.error ? '1px solid red' : '1px solid ' + props.theme.black + ''};
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
 
   width: ${props => {
-    if (props.halfWidth) return "50%";
-    if (props.quarterWidth) return "25%";
-    return "100%";
+    if (props.halfWidth) return '50%';
+    if (props.quarterWidth) return '25%';
+    return '100%';
   }};
 
   margin: 0 12px;
@@ -173,7 +174,7 @@ const TextInput = styled.input`
     outline: none;
     colors: ${props => props.theme.white};
     border: ${props =>
-      props.error ? "1px solid red" : "1px solid " + props.theme.white + ""};
+      props.error ? '1px solid red' : '1px solid ' + props.theme.white + ''};
     background-color: transparent;
   }
 `;
@@ -215,12 +216,12 @@ const RadioInput = styled.label`
       background-color: transparent;
       &::before {
         color: ${props => props.theme.black};
-        ${"" /* border: 1px solid ${props => props.theme.black}; */}
+        ${'' /* border: 1px solid ${props => props.theme.black}; */}
         position: absolute;
-        font: 13px/1 "Open Sans", sans-serif;
+        font: 13px/1 'Open Sans', sans-serif;
         left: 7px;
         top: 3px;
-        content: "\\02143";
+        content: '\\02143';
         transform: rotate(40deg);
       }
     }
@@ -281,18 +282,18 @@ const Contact = ({ setPageColor }) => {
   const [confirmationMounted, setConfirmationMounted] = useState(false);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
     agent: false,
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    agencyName: "",
-    agencyPhone: "",
-    agencyAddress: ""
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    agencyName: '',
+    agencyPhone: '',
+    agencyAddress: ''
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -332,11 +333,46 @@ const Contact = ({ setPageColor }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const parseFormData = () => {
+    return {
+      projectname: 'thecenturyplaza',
+      data: {
+        FollowupCode: 'E',
+        Source: 'Website',
+        FirstName: formData.firstName,
+        LastName: formData.lastName,
+        Email: formData.email,
+        Phone: formData.phone,
+        Phone: formData.phone,
+        StreetAddress: formData.address,
+        City: formData.city,
+        State: formData.state,
+        Zip: formData.zip,
+        WorkStreetAddress: formData.agencyAddress,
+        WorkCity: formData.agencyCity,
+        WorkState: formData.agencyState,
+        WorkZip: formData.zip
+      }
+    };
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    showSuccess();
     if (!checkForErrors()) {
-      console.log("submitted");
+      $.ajax({
+        url: 'http://form.api.dbxd.com/post-buildercms-form/',
+        type: 'POST',
+        dataType: 'json',
+        data: parseFormData(),
+        crossDomain: true,
+        success: (/* res  textStatus, jqXHR */) => {
+          console.log('success - form submitted');
+          showSuccess();
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+          console.log('http request failed', errorThrown);
+        }
+      });
     }
   };
 
