@@ -2,23 +2,13 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import { Location } from "@reach/router";
-
 import Context from "../../config/Context";
-import { fadeIn } from "shared/styled-components/Transitions.js";
 import ActiveMenu from "shared/components/ActiveMenu.jsx";
 import MainMenu from "shared/components/MainMenu.jsx";
-import logoBlackPNG from "icons/logo-black.png";
 import logoBlackSVG from "icons/logo-black.svg";
-import logoGrayPNG from "icons/logo-gray.png";
 import logoGraySVG from "icons/logo-gray.svg";
-import hamburgerBlackPNG from "icons/hamburger-black.png";
 import hamburgerBlackSVG from "icons/hamburger-black.svg";
-import hamburgerGrayPNG from "icons/hamburger-gray.png";
-import hamburgerGraySVG from "icons/hamburger-gray.svg";
-import closeGrayPNG from "icons/close-gray.png";
 import closeGraySVG from "icons/close-gray.svg";
-import closeBlackPNG from "icons/close-black.png";
-import closeBlackSVG from "icons/close-black.svg";
 
 const HeaderContainer = styled.header`
   display: inline-block;
@@ -95,7 +85,7 @@ const Header = ({ primaryData, pageColor }) => {
                 <Logo
                   navActive={navActive}
                   isLight={location.pathname === "/contact"}
-                  onClick={navActive && toggleMenu}
+                  onClick={navActive ? toggleMenu : undefined}
                 />
               </Link>
               <Hamburger
