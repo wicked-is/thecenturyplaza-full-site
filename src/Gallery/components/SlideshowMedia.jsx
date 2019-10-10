@@ -58,7 +58,7 @@ const SlideshowMedia = ({ media }) => {
           />
         </SlideshowVideo>
       )}
-      <SlideshowCaption>test {media.caption}</SlideshowCaption>
+      <SlideshowCaption>{media.caption}</SlideshowCaption>
     </SlideshowContainer>
   );
 };
