@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import Context from "config/Context";
+import Context from "../../config/Context";
 import {
   SlideMaskStyled,
   SlideContainerStyled,
@@ -70,13 +70,11 @@ const VideoSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
-    isExisting,
     triggerExit,
     hasPlayed,
     markPlayed,
     currentSlideIndex,
-    currentSectionIndex,
-    scrollCooldown
+    currentSectionIndex
   } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -99,7 +97,7 @@ const VideoSlide = ({
       startTimer();
       markPlayed();
     }
-  }, [isFirstSection, isFirstSlide, hasPlayed, markPlayed]);
+  }, [markPlayed]);
 
   useEffect(() => {
     currentSectionIndex(sectionIndex);
@@ -129,11 +127,7 @@ const VideoSlide = ({
         isExpanded ? toggleExpand() : triggerExit(nextPath);
       }}
     >
-      <SlideMask
-        isExisting={isExisting}
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
-      >
+      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
           <SlideForward nextPath={nextPath} isExpanded={isExpanded} />

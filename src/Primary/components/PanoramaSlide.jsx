@@ -137,11 +137,9 @@ const PanoramaSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
-    isExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex,
-    scrollCooldown
+    currentSectionIndex
   } = context;
 
   const setUpPanorama = () => {
@@ -178,11 +176,7 @@ const PanoramaSlide = ({
         triggerExit(nextPath);
       }}
     >
-      <SlideMask
-        isExisting={isExisting}
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
-      >
+      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
         <SlideContainer>
           {/* <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} /> */}

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
-import Context from "config/Context";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import Context from "../../config/Context";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const InnerScrollContainer = styled.span`
   position: absolute;
@@ -37,8 +37,7 @@ const ScrollController = ({
   isExpanded,
   isFirstSection,
   isFirstSlide,
-  toggleExpand,
-  scrollCooldown
+  toggleExpand
 }) => {
   const context = useContext(Context);
   const { pauseScroll, triggerExit } = context;

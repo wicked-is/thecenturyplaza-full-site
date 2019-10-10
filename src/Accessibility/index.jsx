@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import { PageTitle } from "shared/styled-components/Typography.js";
-import { Wrapper } from "shared/styled-components/Layouts.js";
+import { PageTitle } from "../shared/styled-components/Typography.js";
+import { Wrapper } from "../shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Accessibility/style.js";
-import Context from "config/Context";
+import Context from "../config/Context";
 
 const AccessibilityWrapper = styled.div`
   ${Wrapper};

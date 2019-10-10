@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PageTitle } from "shared/styled-components/Typography.js";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Legal/style.js";
-import Context from "config/Context";
+import Context from "../config/Context";
 
 const LegalWrapper = styled.div`
   ${Wrapper};
