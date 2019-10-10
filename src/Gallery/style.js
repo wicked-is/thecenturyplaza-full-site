@@ -127,6 +127,8 @@ export const SlideshowImageStyled = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: calc(100vh - 160px);
+  overflow: hidden;
 `;
 
 export const SlideshowVideoStyled = css`
