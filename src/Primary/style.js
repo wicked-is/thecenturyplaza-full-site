@@ -12,10 +12,61 @@ export const SlideMaskStyled = css`
   top: 0;
   left: 0;
   width: 100vw;
-  opacity: ${props => (props.isExisting && !props.nextSlideImage ? "0" : "1")};
+  ${
+    "" /* opacity: ${props => {
+    if (
+      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingUp
+    )
+      return "0"; // First CrossFade & Existing Top
+    if (
+      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingDown
+    )
+      return "1"; // First CrossFade & Existing Down
+    if (
+      props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingUp
+    )
+      return "1"; // Middle CrossFade & Existing Top
+    if (
+      props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingDown
+    )
+      return "1"; // Middle CrossFade & Existing TDown
+    if (
+      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingUp
+    )
+      return "1"; // Last CrossFade & Existing Top
+    if (
+      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      props.isExisting &&
+      props.isCrossFadingDown
+    )
+      return "0"; // Last CrossFade & Existing Down
+
+    if (
+      !props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      !props.isExisting
+    )
+      return "1"; // Not CrossFade & Not Existing
+    if (
+      !props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      props.isExisting
+    )
+      return "0"; // Not CrossFade & Exist
+  }}; */
+  }
+
+  opacity: ${props => (props.isExisting ? "0" : "1")};
   overflow: hidden;
-  transition: ${props =>
-    props.isExisting && !props.nextSlideImage ? "opacity 0.5s ease-in" : "0"};
+  transition: ${props => (props.isExisting ? "opacity 0.5s ease-in;" : "0")};
 `;
 
 export const SlideContainerStyled = css`
@@ -143,7 +194,7 @@ export const PlaceHolderStyled = css`
   }
 `;
 
-export const ImageFullStyled = css`
+export const ImageSoloStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,20 +204,111 @@ export const ImageFullStyled = css`
   max-width: calc(
     70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
   );
-  transform: translate3d(
-    0,
-    ${props => (!props.previousSlideImage ? "5em" : "0")},
-    0
-  );
-  opacity: ${props => (!props.previousSlideImage ? "0" : "1")};
-  animation: ${props => !props.previousSlideImage && enterFromBottomImage};
-  will-change: ${props => !props.previousSlideImage && "opacity, transform"};
+  transform: translate3d(0, 5em, 0);
+  opacity: 0;
+  animation: ${enterFromBottomImage};
+  will-change: opacity, transform;
 
   ${mediaMin.tabletLandscape`
     max-width: calc(
       70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
   `};
+`;
+
+export const CrossFadeStyled = css`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: calc(
+    80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+  );
+  max-width: calc(
+    70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+  );
+
+  ${"" /* opacity: ${props => {
+    if (
+      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return "0"; // First CrossFade & Entering from Previous
+    if (
+      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return "0"; // Last CrossFade & Entering from Previous
+  }}; */}
+
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+
+  ${"" /* animation: ${props => {
+    if (
+      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return enterFromBottomImage; // First CrossFade & Entering from Previous
+    if (
+      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return enterFromBottomImage; // Last CrossFade & Entering from Previous
+  }};
+
+  will-change: ${props => {
+    if (
+      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return "transform, opacity"; // First CrossFade & Entering from Previous
+    if (
+      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
+      !props.isExisting &&
+      !props.isCrossFadingUp &&
+      !props.isCrossFadingDown
+    )
+      return "transform, opacity"; // Last CrossFade & Entering from Previous
+  }}; */}
+
+  ${mediaMin.tabletLandscape`
+    max-width: calc(
+      70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    );
+  `};
+`;
+
+export const CrossFadeCurrentStyled = css`
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  z-index: 300;
+`;
+
+export const CrossFadePreviousStyled = css`
+  position: absolute;
+  display: none;
+  opacity: 0;
+  z-index: 100;
+`;
+
+export const CrossFadeNextStyled = css`
+  position: absolute;
+  display: none;
+  opacity: 0;
+  z-index: 200;
 `;
 
 export const SplitSlideContainerStyled = css`
@@ -180,19 +322,6 @@ export const SplitSlideContainerStyled = css`
   position: relative;
   flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
   justify-content: space-evenly;
-
-  ${"" /* display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
-  justify-content: space-evenly;
-
-  ${mediaMin.tabletLandscape` 
-    width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px);
- `} */}
 
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
@@ -232,7 +361,7 @@ export const ImageContainerStyled = css`
   will-change: opacity;
 `;
 
-export const PanoFullStyled = css`
+export const PanoImageStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;

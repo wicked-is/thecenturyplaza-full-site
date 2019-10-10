@@ -19,6 +19,8 @@ const Section = ({
   sectionIndex
 }) => {
   const getActiveSlide = (slide, index) => {
+    // Used in triggerExit on Scroll Listeners
+
     let previousPath;
     if (index !== 0) {
       previousPath = "/" + section.slug + "/" + section.slides[index - 1].slug;
@@ -40,6 +42,8 @@ const Section = ({
         nextPath = "/" + nextSectionPath;
       }
     }
+
+    // Largely unsed but valuable
 
     let firstSectionSlide;
     if (index === 0) {
@@ -69,21 +73,23 @@ const Section = ({
       lastSlide = false;
     }
 
-    let previousSlideImage;
+    // True/False for when a Crossfide should occur Enterimng/Exiting an Image Slide
+
+    let scrollUpCrossFade;
     if (index !== 0 && section.slides[index - 1].type === "image") {
-      previousSlideImage = true;
+      scrollUpCrossFade = true;
     } else {
-      previousSlideImage = false;
+      scrollUpCrossFade = false;
     }
 
-    let nextSlideImage;
+    let scrollDownCrossFade;
     if (
       index !== section.slides.length - 1 &&
       section.slides[index + 1].type === "image"
     ) {
-      nextSlideImage = true;
+      scrollDownCrossFade = true;
     } else {
-      nextSlideImage = false;
+      scrollDownCrossFade = false;
     }
 
     if (slide.type === "video") {
@@ -104,8 +110,8 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          previousSlideImage={previousSlideImage}
-          nextSlideImage={nextSlideImage}
+          scrollUpCrossFade={scrollUpCrossFade}
+          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -125,8 +131,8 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          previousSlideImage={previousSlideImage}
-          nextSlideImage={nextSlideImage}
+          scrollUpCrossFade={scrollUpCrossFade}
+          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -146,8 +152,8 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          previousSlideImage={previousSlideImage}
-          nextSlideImage={nextSlideImage}
+          scrollUpCrossFade={scrollUpCrossFade}
+          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -167,8 +173,8 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          previousSlideImage={previousSlideImage}
-          nextSlideImage={nextSlideImage}
+          scrollUpCrossFade={scrollUpCrossFade}
+          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -188,8 +194,8 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          previousSlideImage={previousSlideImage}
-          nextSlideImage={nextSlideImage}
+          scrollUpCrossFade={scrollUpCrossFade}
+          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />

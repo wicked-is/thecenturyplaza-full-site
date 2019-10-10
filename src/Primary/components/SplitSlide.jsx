@@ -36,17 +36,12 @@ const SplitSlide = ({
   slide, // Oobject
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  isExpanded, //Check for Expansion
   firstSlide, // Refactor
   firstSectionSlide, //Refactor
   lastSlide, //Refactor
   lastSectionSlide, //Refactor
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
-  toggleExpand, //Toggle Expansion
-  closeExpand, //Force Close Expansion
-  previousSlideImage, //Back to Back Images
-  nextSlideImage, // Back to Back Images
   sectionIndex, //Refactor
   slideIndex //Refactor
 }) => {
@@ -56,7 +51,8 @@ const SplitSlide = ({
     isExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    scrollCooldown
   } = context;
 
   useEffect(() => {
@@ -78,7 +74,6 @@ const SplitSlide = ({
         isExisting={isExisting}
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
-        nextSlideImage={nextSlideImage}
       >
         <SlideContainer isInverted={slide.inverted}>
           <SlideBackward previousPath={previousPath} />

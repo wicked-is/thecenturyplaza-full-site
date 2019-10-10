@@ -5,11 +5,16 @@ import Context from "../../config/Context";
 import {
   SlideMaskStyled,
   SlideContainerStyled,
-  ImageFullStyled
+  ImageSoloStyled,
+  CrossFadeStyled,
+  CrossFadeCurrentStyled,
+  CrossFadePreviousStyled,
+  CrossFadeNextStyled
 } from "Primary/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
+import primaryData from "Primary/primaryData.json";
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};
@@ -17,8 +22,24 @@ const SlideMask = styled.div`
 const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
-const ImageFull = styled.div`
-  ${ImageFullStyled};
+const ImageSolo = styled.div`
+  ${ImageSoloStyled};
+`;
+
+const CrossFade = styled.div`
+  ${CrossFadeStyled};
+`;
+
+const CrossFadeCurrent = styled.div`
+  ${CrossFadeCurrentStyled};
+`;
+
+const CrossFadePrevious = styled.div`
+  ${CrossFadePreviousStyled};
+`;
+
+const CrossFadeNext = styled.div`
+  ${CrossFadeNextStyled};
 `;
 
 // Will be refactoring props to Context as needed
@@ -37,8 +58,8 @@ const ImageSlide = ({
   isFirstSlide, //Refactor
   toggleExpand, //Toggle Expansion
   closeExpand, //Force Close Expansion
-  previousSlideImage, //Back to Back Images
-  nextSlideImage, // Back to Back Images
+  scrollUpCrossFade, //Back to Back Images
+  scrollDownCrossFade, // Back to Back Images
   sectionIndex, //Refactor
   slideIndex //Refactor
 }) => {
@@ -47,8 +68,13 @@ const ImageSlide = ({
     pauseScroll,
     isExisting,
     triggerExit,
+    isCrossFadingUp,
+    isCrossFadingDown,
+    triggerCrossFadeUp,
+    triggerCrossFadeDown,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    scrollCooldown
   } = context;
 
   useEffect(() => {
@@ -57,40 +83,86 @@ const ImageSlide = ({
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
   return (
-    <React.Fragment>
-      <ReactScrollWheelHandler
-        pauseListeners={pauseScroll}
-        upHandler={() => {
-          triggerExit(previousPath);
-        }}
-        downHandler={() => {
-          triggerExit(nextPath);
-        }}
+    <ReactScrollWheelHandler
+      pauseListeners={pauseScroll}
+      upHandler={() => {
+        triggerExit(previousPath);
+        // scrollUpCrossFade || scrollDownCrossFade
+        //   ? triggerCrossFadeUp(previousPath)
+        //   : triggerExit(previousPath);
+      }}
+      downHandler={() => {
+        triggerExit(nextPath);
+        // scrollUpCrossFade || scrollDownCrossFade
+        //   ? triggerCrossFadeUp(nextPath)
+        //   : triggerExit(nextPath);
+      }}
+    >
+      <SlideMask
+        isExisting={isExisting}
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        scrollDownCrossFade={scrollDownCrossFade}
+        scrollUpCrossFade={scrollUpCrossFade}
+        isCrossFadingUp={isCrossFadingUp}
+        isCrossFadingDown={isCrossFadingDown}
       >
-        <SlideMask
-          isExisting={isExisting}
-          lastSectionSlide={lastSectionSlide}
-          lastSlide={lastSlide}
-          nextSlideImage={nextSlideImage}
-        >
-          <SlideContainer
-            previousSlideImage={previousSlideImage}
-            nextSlideImage={nextSlideImage}
-          >
-            <SlideBackward previousPath={previousPath} />
-            <SlideForward nextPath={nextPath} />
-            <ImageFull
-              previousSlideImage={previousSlideImage}
-              nextSlideImage={nextSlideImage}
-            >
+        <SlideContainer>
+          <SlideBackward previousPath={previousPath} />
+          <SlideForward nextPath={nextPath} />
+          {!scrollUpCrossFade && !scrollDownCrossFade && (
+            <ImageSolo>
               <ResponsiveImage srcPath={slide.source[0]} />
-            </ImageFull>
-          </SlideContainer>
-        </SlideMask>
-      </ReactScrollWheelHandler>
-      {/* <Previous></Previous>
-      <NextImage></NextImage> */}
-    </React.Fragment>
+            </ImageSolo>
+          )}
+          {(scrollUpCrossFade || scrollDownCrossFade) && (
+            <CrossFade
+              scrollDownCrossFade={scrollDownCrossFade}
+              scrollUpCrossFade={scrollUpCrossFade}
+              isCrossFadingUp={isCrossFadingUp}
+              isCrossFadingDown={isCrossFadingDown}
+            >
+              <CrossFadeCurrent
+                scrollUpCrossFade={scrollUpCrossFade}
+                scrollDownCrossFade={scrollDownCrossFade}
+                isCrossFadingUp={isCrossFadingUp}
+                isCrossFadingDown={isCrossFadingDown}
+              >
+                <ResponsiveImage srcPath={slide.source[0]} />
+              </CrossFadeCurrent>
+              {scrollUpCrossFade && (
+                <CrossFadePrevious
+                  scrollUpCrossFade={scrollUpCrossFade}
+                  scrollDownCrossFade={scrollDownCrossFade}
+                  isCrossFadingUp={isCrossFadingUp}
+                  isCrossFadingDown={isCrossFadingDown}
+                >
+                  <ResponsiveImage
+                    srcPath={
+                      primaryData[sectionIndex].slides[slideIndex - 1].source[0]
+                    }
+                  />
+                </CrossFadePrevious>
+              )}
+              {scrollDownCrossFade && (
+                <CrossFadeNext
+                  scrollUpCrossFade={scrollUpCrossFade}
+                  scrollDownCrossFade={scrollDownCrossFade}
+                  isCrossFadingUp={isCrossFadingUp}
+                  isCrossFadingDown={isCrossFadingDown}
+                >
+                  <ResponsiveImage
+                    srcPath={
+                      primaryData[sectionIndex].slides[slideIndex + 1].source[0]
+                    }
+                  />
+                </CrossFadeNext>
+              )}
+            </CrossFade>
+          )}
+        </SlideContainer>
+      </SlideMask>
+    </ReactScrollWheelHandler>
   );
 };
 export default ImageSlide;

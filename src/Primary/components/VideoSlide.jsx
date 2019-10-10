@@ -64,8 +64,6 @@ const VideoSlide = ({
   isFirstSlide, //Refactor
   toggleExpand, //Toggle Expansion
   closeExpand, //Force Close Expansion
-  previousSlideImage, //Back to Back Images
-  nextSlideImage, // Back to Back Images
   sectionIndex, //Refactor
   slideIndex //Refactor
 }) => {
@@ -77,7 +75,8 @@ const VideoSlide = ({
     hasPlayed,
     markPlayed,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    scrollCooldown
   } = context;
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -134,7 +133,6 @@ const VideoSlide = ({
         isExisting={isExisting}
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
-        nextSlideImage={nextSlideImage}
       >
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />

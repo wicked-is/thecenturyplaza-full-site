@@ -23,17 +23,12 @@ const TextSlide = ({
   slide, // Oobject
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  isExpanded, //Check for Expansion
   firstSlide, // Refactor
   firstSectionSlide, //Refactor
   lastSlide, //Refactor
   lastSectionSlide, //Refactor
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
-  toggleExpand, //Toggle Expansion
-  closeExpand, //Force Close Expansion
-  previousSlideImage, //Back to Back Images
-  nextSlideImage, // Back to Back Images
   sectionIndex, //Refactor
   slideIndex //Refactor
 }) => {
@@ -43,7 +38,8 @@ const TextSlide = ({
     isExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    scrollCooldown
   } = context;
 
   useEffect(() => {
@@ -65,7 +61,6 @@ const TextSlide = ({
         isExisting={isExisting}
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
-        nextSlideImage={nextSlideImage}
       >
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
