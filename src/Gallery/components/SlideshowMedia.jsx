@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import {
@@ -8,6 +8,7 @@ import {
   SlideshowCaptionStyled
 } from "Gallery/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
+import Context from "../../config/Context";
 
 const SlideshowContainer = styled.section`
   ${SlideshowContainerStyled};
@@ -29,6 +30,16 @@ const videoElement = () => ({
 });
 
 const SlideshowMedia = ({ media }) => {
+  const context = useContext(Context);
+  const { setHideFooter } = context;
+
+  useEffect(() => {
+    setHideFooter(true);
+    return () => {
+      setHideFooter(false);
+    };
+  }, []);
+
   return (
     <SlideshowContainer>
       {media.type === "image" ? (
@@ -47,7 +58,7 @@ const SlideshowMedia = ({ media }) => {
           />
         </SlideshowVideo>
       )}
-      <SlideshowCaption>{media.caption}</SlideshowCaption>
+      <SlideshowCaption>test {media.caption}</SlideshowCaption>
     </SlideshowContainer>
   );
 };
