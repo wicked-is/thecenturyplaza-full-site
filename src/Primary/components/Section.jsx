@@ -73,7 +73,8 @@ const Section = ({
       lastSlide = false;
     }
 
-    // True/False for when a Crossfide should occur Enterimng/Exiting an Image Slide
+    // True or False for when a Crossfire should occur directionally
+    // doesnt work for image slides that are first or last of their section without checking for null section values
 
     let scrollUpCrossFade;
     if (index !== 0 && section.slides[index - 1].type === "image") {

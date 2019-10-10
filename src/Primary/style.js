@@ -66,7 +66,7 @@ export const SlideMaskStyled = css`
 
   opacity: ${props => (props.isExisting ? "0" : "1")};
   overflow: hidden;
-  transition: ${props => (props.isExisting ? "opacity 0.5s ease-in;" : "0")};
+  transition: opacity 0.5s ease-in;
 `;
 
 export const SlideContainerStyled = css`
@@ -130,7 +130,7 @@ export const PlayerContainerStyled = css`
   overflow: hidden;
   position: relative;
   opacity: 0;
-  transform: ${props => props.firstSectionSlide && "scale(.8)"};
+  transform: ${props => props.firstSectionSlide && "scale(.9)"};
   animation: ${props =>
     !props.firstSectionSlide ? enterFadeIn : enterFromCenter};
   will-change: ${props =>
