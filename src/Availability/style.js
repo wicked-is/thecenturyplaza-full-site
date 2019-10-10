@@ -12,7 +12,7 @@ import checkedIconSVG from "icons/checked-icon.svg";
 
 export const ContainerStyled = css`
   ${Container}
-  width: ${props => parseFloat(props.theme.mobileColumn) * 10}vw;
+  width: ${props => parseFloat(props.theme.mobileColumn) * 12}vw;
   margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
