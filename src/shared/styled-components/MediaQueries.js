@@ -1,11 +1,11 @@
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 const sizes = {
   phone: 375,
   phoneLarge: 414,
   phoneXL: 550,
   tablet: 768,
-  tabletLandscape: 1025,
+  tabletLandscape: 1024,
   desktopSmall: 1250,
   desktop: 1440,
   desktopLarge: 1920,

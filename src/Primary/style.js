@@ -83,12 +83,12 @@ export const SlideContainerStyled = css`
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
     font-weight: 400;
-    font-size: 34px;
+    font-size: 22px;
     line-height: 1.1em;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    width: 55vw;
+    width: 70vw;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -97,6 +97,11 @@ export const SlideContainerStyled = css`
     animation: ${enterFromBottomText};
     will-change: opacity, transform;
 
+    ${mediaMin.tablet`
+      width: 55vw;
+      font-size: 34px;
+    `}
+
     em {
       font-family: ${props => props.theme.serifMediumItalic};
     }
@@ -104,7 +109,7 @@ export const SlideContainerStyled = css`
 
   a {
     position: absolute;
-    bottom: 150px;
+    bottom: 20vh;
     left: 0;
     width: 100%;
     text-align: center;
@@ -202,18 +207,27 @@ export const ImageSoloStyled = css`
     80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
   );
   max-width: calc(
-    70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
   );
   transform: translate3d(0, 5em, 0);
   opacity: 0;
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
 
+  ${mediaMin.tablet`
+    max-width: calc(
+      90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    );
+  `}
+
   ${mediaMin.tabletLandscape`
+    max-height: calc(
+      80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    );
     max-width: calc(
       70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
-  `};
+  `}
 `;
 
 export const CrossFadeStyled = css`
@@ -225,10 +239,30 @@ export const CrossFadeStyled = css`
     80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
   );
   max-width: calc(
-    70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
   );
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 
-  ${"" /* opacity: ${props => {
+
+  ${mediaMin.tablet`
+    max-width: calc(
+      90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    );
+  `}
+
+  ${mediaMin.tabletLandscape`
+    max-height: calc(
+      80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    );
+    max-width: calc(
+      70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    );
+  `}
+
+  ${
+    "" /* opacity: ${props => {
     if (
       !props.scrollUpCrossFade & props.scrollDownCrossFade &&
       !props.isExisting &&
@@ -243,13 +277,12 @@ export const CrossFadeStyled = css`
       !props.isCrossFadingDown
     )
       return "0"; // Last CrossFade & Entering from Previous
-  }}; */}
+  }}; */
+  }
 
-  opacity: 0;
-  animation: ${enterFadeIn};
-  will-change: opacity;
 
-  ${"" /* animation: ${props => {
+  ${
+    "" /* animation: ${props => {
     if (
       !props.scrollUpCrossFade & props.scrollDownCrossFade &&
       !props.isExisting &&
@@ -281,13 +314,8 @@ export const CrossFadeStyled = css`
       !props.isCrossFadingDown
     )
       return "transform, opacity"; // Last CrossFade & Entering from Previous
-  }}; */}
-
-  ${mediaMin.tabletLandscape`
-    max-width: calc(
-      70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
-    );
-  `};
+  }}; */
+  }
 `;
 
 export const CrossFadeCurrentStyled = css`
@@ -320,20 +348,36 @@ export const SplitSlideContainerStyled = css`
   height: 100vh;
   z-index: 200;
   position: relative;
-  flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+
+  ${mediaMin.phoneXL`
+    justify-content: space-evenly;
+    flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
+  `}
+
+  ${mediaMin.tablet`
+    flex-direction: column;
+    justify-content: center;
+  `}
+
+  ${mediaMin.tabletLandscape`
+    justify-content: space-evenly;
+    flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
+  `}
+
 
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
     font-weight: 400;
-    font-size: 34px;
+    font-size: 20px;
     line-height: 1.1em;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    width: 30vw;
+    width: 70vw;
     text-align: center;
-    margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+    margin: 7vh 0 0;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -341,24 +385,65 @@ export const SplitSlideContainerStyled = css`
     animation: ${enterFromBottomText};
     will-change: opacity, transform;
 
+    ${mediaMin.phoneXL`
+      width: 30vw;
+      margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+    `}
+
+    ${mediaMin.tablet`
+      width: 70vw;
+      margin: 7vh 0 0;
+      font-size: 30px;
+      flex-direction: column;
+      justify-content: center;
+    `}
+
+    ${mediaMin.tabletLandscape`
+      width: 30vw;
+      font-size: 34px;
+      margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+    `}
+
     em {
       font-family: ${props => props.theme.serifMediumItalic};
     }
   }
 `;
 
-export const ImageContainerStyled = css`
+export const SplitImageContainerStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
-  width: 30vw;
-  max-width: 30vw;
-  margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
+  width: 66vw;
+  max-width: 66vw;
+  height: calc(50vh - ${props => props.headerHeight}px);
+  margin: 0;
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  ${mediaMin.phoneXL`
+    height: auto;
+    margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
+    width: 30vw;
+    max-width: 30vw;
+  `}
+
+  ${mediaMin.tablet`
+    height: auto;
+    margin: 0;
+    width: 60vw;
+    max-width: 60vw;
+  `}
+
+  ${mediaMin.tabletLandscape`
+    height: auto;
+    margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
+    width: 30vw;
+    max-width: 30vw;
+  `}
 `;
 
 export const PanoImageStyled = css`
