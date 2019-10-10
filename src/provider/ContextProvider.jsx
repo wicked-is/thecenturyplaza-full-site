@@ -26,6 +26,7 @@ const ContextProvider = props => {
   const [isSlide, setSlide] = useState(0);
   const [hasCaptions, setHasCaptions] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(false);
+  const [hideFooter, setHideFooter] = useState(false);
   // const [updateHeader, setUpdateHeader] = useState({
   //   position: "fixed",
   //   backgroundColor: props => props.theme.white,
@@ -132,7 +133,9 @@ const ContextProvider = props => {
         hasCaptions,
         setHasCaptions,
         fixedFooter,
-        setFixedFooter
+        setFixedFooter,
+        hideFooter,
+        setHideFooter
         // updateHeader,
         // setUpdateHeader,
         // updateFooter,

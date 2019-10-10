@@ -38,8 +38,8 @@ export const PageHeader = css`
 `;
 
 export const PageFooter = css`
-  display: inline-block;
-  position: fixed;
+  display: ${props => (props.hideFooter ? "none" : "inline-block")};
+  position: ${props => (props.fixedFooter ? "fixed" : "absolute")};
   bottom: 0;
   z-index: 900;
   width: 100%;

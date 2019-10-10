@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
 import ContextProvider from "./provider/ContextProvider";
-import {
-  PageBody,
-  PageHeader,
-  PageFooter
-} from "shared/styled-components/Typography.js";
+import { PageBody, PageHeader } from "shared/styled-components/Typography.js";
 import Header from "shared/components/Header.jsx";
-import Footer from "shared/components/Footer.jsx";
+import AppFooter from "shared/components/AppFooter.jsx";
 import Primary from "Primary";
 import BrokerPortal from "BrokerPortal";
 import primaryData from "Primary/primaryData.json";
@@ -71,9 +67,9 @@ const AppBody = styled.div`
 const AppHeader = styled.div`
   ${PageHeader};
 `;
-const AppFooter = styled.div`
-  ${PageFooter};
-`;
+// const AppFooter = styled.div`
+//   ${PageFooter};
+// `;
 
 class App extends Component {
   state = {
@@ -180,13 +176,8 @@ class App extends Component {
             <AppFooter
               pageColor={this.state.pageColor}
               isExpanded={this.state.isExpanded}
-            >
-              <Footer
-                pageColor={this.state.pageColor}
-                isExpanded={this.state.isExpanded}
-                primaryData={primaryData}
-              />
-            </AppFooter>
+              primaryData={primaryData}
+            />
           </AppBody>
         </ThemeProvider>
       </ContextProvider>

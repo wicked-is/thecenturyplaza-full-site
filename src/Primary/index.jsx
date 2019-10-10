@@ -12,7 +12,7 @@ const PrimaryWrapper = styled.div`
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor } = props;
   const context = useContext(Context);
-  const { setHasCaptions } = context;
+  const { setHasCaptions, setFixedFooter } = context;
 
   const getPreviousSectionPath = index =>
     index !== 0
@@ -25,9 +25,11 @@ const Primary = props => {
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
+    setFixedFooter(true);
     setHasCaptions(true);
     setPageColor(props => props.theme.white);
     return () => {
+      setFixedFooter(false);
       setHasCaptions(false);
     };
   }, []);
