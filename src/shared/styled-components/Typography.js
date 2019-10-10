@@ -1,5 +1,6 @@
 import { css } from "styled-components";
 import { fadeIn } from "shared/styled-components/Transitions.js";
+import { mediaMin } from "./MediaQueries.js";
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
@@ -83,7 +84,7 @@ export const PageTitle = css`
 `;
 
 export const Caption = css`
-  display: inline-block;
+  display: none;
   position: absolute;
   bottom: 30px;
   left: 40px;
@@ -98,4 +99,8 @@ export const Caption = css`
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
+
+  ${mediaMin.tabletLandscape`
+    display: inline-block;
+  `}
 `;

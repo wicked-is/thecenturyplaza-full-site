@@ -7,7 +7,7 @@ import { SlideShow } from "shared/styled-components/SlideShow.js";
 import {
   SlideMaskStyled,
   SplitSlideContainerStyled,
-  ImageContainerStyled
+  SplitImageContainerStyled
 } from "Primary/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
@@ -22,7 +22,7 @@ const SlideContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  ${ImageContainerStyled};
+  ${SplitImageContainerStyled};
 `;
 
 const ImageSlideShow = styled.div`
