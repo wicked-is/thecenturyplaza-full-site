@@ -59,27 +59,27 @@ const ContextProvider = props => {
     }, 500);
   };
 
-  const triggerCrossFadeUp = path => {
-    setIsExisting(true);
-    setIsCrossFadingUp(true);
-    setTimeout(() => {
-      scrollCooldown();
-      setIsExisting(false);
-      setIsCrossFadingUp(false);
-      navigate(path);
-    }, 500);
-  };
+  // const triggerCrossFadeUp = path => {
+  //   setIsExisting(true);
+  //   setIsCrossFadingUp(true);
+  //   setTimeout(() => {
+  //     scrollCooldown();
+  //     setIsExisting(false);
+  //     setIsCrossFadingUp(false);
+  //     navigate(path);
+  //   }, 500);
+  // };
 
-  const triggerCrossFadeDown = path => {
-    setIsExisting(true);
-    setIsCrossFadingDown(true);
-    setTimeout(() => {
-      scrollCooldown();
-      setIsExisting(false);
-      setIsCrossFadingDown(false);
-      navigate(path);
-    }, 500);
-  };
+  // const triggerCrossFadeDown = path => {
+  //   setIsExisting(true);
+  //   setIsCrossFadingDown(true);
+  //   setTimeout(() => {
+  //     scrollCooldown();
+  //     setIsExisting(false);
+  //     setIsCrossFadingDown(false);
+  //     navigate(path);
+  //   }, 500);
+  // };
 
   const currentSectionIndex = index => {
     setSection(index);
@@ -120,8 +120,8 @@ const ContextProvider = props => {
         setIsCrossFadingUp,
         isCrossFadingDown,
         setIsCrossFadingDown,
-        triggerCrossFadeUp,
-        triggerCrossFadeDown,
+        // triggerCrossFadeUp,
+        // triggerCrossFadeDown,
         pressItems,
         fetchPress,
         isSection,

@@ -1,7 +1,7 @@
 import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { Container } from "../shared/styled-components/Layouts.js";
+import { mediaMin } from "../shared/styled-components/MediaQueries.js";
+import { fadeIn } from "../shared/styled-components/Transitions.js";
 import playBtnPNG from "icons/play-btn.png";
 import playBtnSVG from "icons/play-btn.svg";
 

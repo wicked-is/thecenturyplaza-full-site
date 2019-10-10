@@ -4,8 +4,8 @@ import {
   enterFromBottomText,
   enterFromBottomImage,
   enterFromCenter
-} from "shared/styled-components/Transitions.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+} from "../shared/styled-components/Transitions.js";
+import { mediaMin } from "../shared/styled-components/MediaQueries.js";
 
 export const SlideMaskStyled = css`
   position: absolute;

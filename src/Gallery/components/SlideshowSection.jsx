@@ -2,7 +2,7 @@ import React from "react";
 import { Router } from "@reach/router";
 import styled from "styled-components";
 import SlideshowMedia from "Gallery/components/SlideshowMedia.jsx";
-import { ViewportWrapper } from "shared/styled-components/Layouts.js";
+import { ViewportWrapper } from "../../shared/styled-components/Layouts.js";
 
 const SlideshowWrapper = styled.div`
   ${ViewportWrapper};

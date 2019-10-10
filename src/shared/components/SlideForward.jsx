@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const SlideForwardContainer = styled.span`
   position: absolute;

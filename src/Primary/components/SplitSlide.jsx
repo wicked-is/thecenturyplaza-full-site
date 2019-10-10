@@ -48,11 +48,9 @@ const SplitSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
-    isExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex,
-    scrollCooldown
+    currentSectionIndex
   } = context;
 
   useEffect(() => {
@@ -70,11 +68,7 @@ const SplitSlide = ({
         triggerExit(nextPath);
       }}
     >
-      <SlideMask
-        isExisting={isExisting}
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
-      >
+      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
         <SlideContainer isInverted={slide.inverted}>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />

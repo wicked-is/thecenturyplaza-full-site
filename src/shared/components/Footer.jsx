@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { Link } from '@reach/router';
-import styled from 'styled-components';
-import { Location } from '@reach/router';
-import Context from '../../config/Context';
-import { Caption } from 'shared/styled-components/Typography.js';
-import { FooterWrapper } from 'shared/styled-components/Navigation.js';
-import parse from 'html-react-parser';
+import React, { useContext } from "react";
+import { Link } from "@reach/router";
+import styled from "styled-components";
+import { Location } from "@reach/router";
+import Context from "../../config/Context";
+import { Caption } from "../styled-components/Typography.js";
+import { FooterWrapper } from "shared/styled-components/Navigation.js";
+import parse from "html-react-parser";
 
 const FooterContainer = styled.footer`
   ${FooterWrapper};
@@ -26,8 +26,8 @@ const Footer = props => {
         <FooterContainer
           navActive={navActive}
           isLight={
-            location.pathname === '/contact' ||
-            location.pathname === '/broker-portal'
+            location.pathname === "/contact" ||
+            location.pathname === "/broker-portal"
           }
         >
           {hasCaptions && (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
-import { MenuStyled } from "Team/style.js";
+import { MenuStyled } from "../style.js";
 
 const TeamMembers = styled.ul`
   ${MenuStyled};

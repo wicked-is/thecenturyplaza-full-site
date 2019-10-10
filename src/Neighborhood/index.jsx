@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
 import LazyLoad from "react-lazyload";
-import Context from "config/Context";
+import Context from "../config/Context";
 
 import {
   WrapperStyled,

@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { Wrapper } from "shared/styled-components/Layouts.js";
+import { Wrapper } from "../styled-components/Layouts.js";
 import {
   enterFromBottomText,
   enterFadeIn

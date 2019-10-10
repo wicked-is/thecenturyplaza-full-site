@@ -66,15 +66,11 @@ const ImageSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
-    isExisting,
     triggerExit,
-    isCrossFadingUp,
-    isCrossFadingDown,
-    triggerCrossFadeUp,
-    triggerCrossFadeDown,
+    // triggerCrossFadeUp,
+    // triggerCrossFadeDown,
     currentSlideIndex,
-    currentSectionIndex,
-    scrollCooldown
+    currentSectionIndex
   } = context;
 
   useEffect(() => {
@@ -94,19 +90,11 @@ const ImageSlide = ({
       downHandler={() => {
         triggerExit(nextPath);
         // scrollUpCrossFade || scrollDownCrossFade
-        //   ? triggerCrossFadeUp(nextPath)
+        //   ? triggerCrossFadeDown(nextPath)
         //   : triggerExit(nextPath);
       }}
     >
-      <SlideMask
-        isExisting={isExisting}
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
-        scrollDownCrossFade={scrollDownCrossFade}
-        scrollUpCrossFade={scrollUpCrossFade}
-        isCrossFadingUp={isCrossFadingUp}
-        isCrossFadingDown={isCrossFadingDown}
-      >
+      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
@@ -116,27 +104,12 @@ const ImageSlide = ({
             </ImageSolo>
           )}
           {(scrollUpCrossFade || scrollDownCrossFade) && (
-            <CrossFade
-              scrollDownCrossFade={scrollDownCrossFade}
-              scrollUpCrossFade={scrollUpCrossFade}
-              isCrossFadingUp={isCrossFadingUp}
-              isCrossFadingDown={isCrossFadingDown}
-            >
-              <CrossFadeCurrent
-                scrollUpCrossFade={scrollUpCrossFade}
-                scrollDownCrossFade={scrollDownCrossFade}
-                isCrossFadingUp={isCrossFadingUp}
-                isCrossFadingDown={isCrossFadingDown}
-              >
+            <CrossFade>
+              <CrossFadeCurrent>
                 <ResponsiveImage srcPath={slide.source[0]} />
               </CrossFadeCurrent>
               {scrollUpCrossFade && (
-                <CrossFadePrevious
-                  scrollUpCrossFade={scrollUpCrossFade}
-                  scrollDownCrossFade={scrollDownCrossFade}
-                  isCrossFadingUp={isCrossFadingUp}
-                  isCrossFadingDown={isCrossFadingDown}
-                >
+                <CrossFadePrevious>
                   <ResponsiveImage
                     srcPath={
                       primaryData[sectionIndex].slides[slideIndex - 1].source[0]
@@ -145,12 +118,7 @@ const ImageSlide = ({
                 </CrossFadePrevious>
               )}
               {scrollDownCrossFade && (
-                <CrossFadeNext
-                  scrollUpCrossFade={scrollUpCrossFade}
-                  scrollDownCrossFade={scrollDownCrossFade}
-                  isCrossFadingUp={isCrossFadingUp}
-                  isCrossFadingDown={isCrossFadingDown}
-                >
+                <CrossFadeNext>
                   <ResponsiveImage
                     srcPath={
                       primaryData[sectionIndex].slides[slideIndex + 1].source[0]

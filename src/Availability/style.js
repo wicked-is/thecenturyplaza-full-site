@@ -1,6 +1,6 @@
 import { css } from "styled-components";
-import { Container } from "shared/styled-components/Layouts.js";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { Container } from "../shared/styled-components/Layouts.js";
+import { mediaMin } from "../shared/styled-components/MediaQueries.js";
 import sortAscendingPNG from "icons/sort-ascending.png";
 import sortAscendingSVG from "icons/sort-ascending.svg";
 import sortDescendingPNG from "icons/sort-descending.png";

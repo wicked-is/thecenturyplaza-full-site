@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { Router } from "@reach/router";
 import styled from "styled-components";
-import { Wrapper } from "shared/styled-components/Layouts.js";
-import Context from "config/Context";
+import { Wrapper } from "../shared/styled-components/Layouts.js";
+import Context from "../config/Context.js";
 import BuidlingContainer from "./components/Building.jsx";
 
 const AmenitiesWrapper = styled.div`

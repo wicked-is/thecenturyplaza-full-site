@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import Context from "config/Context";
-import { PageTitle } from "shared/styled-components/Typography.js";
-import { Wrapper } from "shared/styled-components/Layouts.js";
+import Context from "../config/Context";
+import { PageTitle } from "../shared/styled-components/Typography.js";
+import { Wrapper } from "../shared/styled-components/Layouts.js";
 import {
   ContainerStyled,
   EntryStyled,

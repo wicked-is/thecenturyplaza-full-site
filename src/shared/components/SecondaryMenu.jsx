@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
-import { navigate, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
+import Context from "../../config/Context";
 import {
   MenuWrapper,
   SecondaryMenuMenuContainerStyled
 } from "shared/styled-components/Navigation.js";
-import Context from "config/Context";
 
 const SecondaryMenuWrapper = styled.div`
   ${MenuWrapper};
@@ -18,7 +18,7 @@ const SecondaryMenuContainer = styled.nav`
 
 const SecondaryMenu = props => {
   const context = useContext(Context);
-  const { pauseScroll, scrollCooldown, setHasCaptions } = context;
+  const { pauseScroll, triggerExit, setHasCaptions } = context;
   const { setPageColor } = props;
 
   useEffect(() => {
@@ -30,8 +30,7 @@ const SecondaryMenu = props => {
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        navigate("tower/residences/views");
-        scrollCooldown();
+        triggerExit("tower/residences/views");
       }}
     >
       <SecondaryMenuWrapper>

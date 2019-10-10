@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Match } from "@reach/router";
 import styled from "styled-components";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const ActiveMenuContainer = styled.ul`
   display: none;
