@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const MainMenuContainer = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
@@ -10,11 +11,15 @@ const MainMenuContainer = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   z-index: 1000;
   background: ${props => props.theme.black};
   text-indent: 0;
   color: ${props => props.theme.gray};
+
+  ${mediaMin.tabletLandscape`
+    height: 100vh;
+  `}
 
   a:hover {
     opacity: 0.5;
@@ -23,12 +28,19 @@ const MainMenuContainer = styled.div`
 
 const LinksContainer = styled.nav`
   position: relative;
-  width: 70vw;
-  margin: 80px 0 0 30vw;
+  width: 100%;
+  margin: ${props => props.theme.headerHeight}px
+    ${props => props.theme.mobileMargin}px 0;
+  height: auto;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
+
+  ${mediaMin.tabletLandscape`
+    width: 70vw;
+    margin: 80px 0 0 30vw;
+    height: calc(100vh - 80px);
+  `}
 `;
 
 const PrimaryLinks = styled.ul`
@@ -80,9 +92,11 @@ const SecondaryLinks = styled.ul`
 `;
 
 const InfoCluster = styled.div`
-  position: absolute;
-  left: calc(-30vw + 40px);
-  top: 0;
+  ${mediaMin.tabletLandscape`
+    position: absolute;
+    left: calc(-30vw + 40px);
+    top: 0;
+ `}
 
   p {
     font-family: ${props => props.theme.sansSerifLight};

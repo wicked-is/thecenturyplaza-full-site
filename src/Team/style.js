@@ -4,23 +4,35 @@ import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 export const ContainerStyled = css`
   ${Container}
-  width: ${props => parseFloat(props.theme.mobileColumn) * 12}vw;
-  margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
+    margin: 20px 0 0;
     margin: ${props => props.desktopMargin}px 0 0;
     width: ${props => parseFloat(props.theme.desktopColumn) * 8}vw;
   `}
 `;
 
 export const AsideStyled = css`
+  position: fixed;
+  top: ${props => props.theme.headerHeight}px;
+  left: ${props => props.theme.mobileMargin}px;
+  background: ${props => props.theme.white};
+  z-index: 1000;
+  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+
   ${mediaMin.tabletLandscape` 
-    position: fixed;
     max-width: 15%;
+    left: auto;
+    margin: 20px 0 0;
   `}
 
   ul {
+    height: 1em;
     margin: 0 0 10px;
+
+    ${mediaMin.tabletLandscape` 
+        height: auto;
+    `}
   }
 
   p {
@@ -51,6 +63,14 @@ export const MenuStyled = css`
     width: 100%;
     height: auto;
     margin: 0;
+
+    &.inactive {
+      display: ${props => (props.isOpen ? "inline-block" : "none")};
+
+      ${mediaMin.tabletLandscape` 
+        display: inline-block;
+      `}
+    }
 
     ::selection {
       color: ${props => props.theme.white};

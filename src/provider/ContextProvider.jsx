@@ -40,7 +40,7 @@ const ContextProvider = props => {
 
   const scrollCooldown = () => {
     setPauseScroll(true);
-    setTimeout(() => setPauseScroll(false), 1000);
+    setTimeout(() => setPauseScroll(false), 1500);
   };
 
   const toggleMenu = () => {
@@ -53,10 +53,8 @@ const ContextProvider = props => {
 
   const triggerExit = path => {
     setIsExisting(true);
-
+    scrollCooldown();
     setTimeout(() => {
-      scrollCooldown();
-      setIsExisting(false);
       navigate(path);
     }, 500);
   };
