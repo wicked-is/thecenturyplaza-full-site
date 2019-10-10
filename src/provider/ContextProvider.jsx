@@ -25,16 +25,17 @@ const ContextProvider = props => {
   const [isSection, setSection] = useState(0);
   const [isSlide, setSlide] = useState(0);
   const [hasCaptions, setHasCaptions] = useState(false);
-  const [updateHeader, setUpdateHeader] = useState({
-    position: "fixed",
-    backgroundColor: props => props.theme.white,
-    textColor: props => props.theme.black
-  });
-  const [updateFooter, setUpdateFooter] = useState({
-    position: "relative",
-    backgroundColor: "transparent",
-    textColor: props => props.theme.black
-  });
+  const [fixedFooter, setFixedFooter] = useState(false);
+  // const [updateHeader, setUpdateHeader] = useState({
+  //   position: "fixed",
+  //   backgroundColor: props => props.theme.white,
+  //   textColor: props => props.theme.black
+  // });
+  // const [updateFooter, setUpdateFooter] = useState({
+  //   position: "relative",
+  //   backgroundColor: "transparent",
+  //   textColor: props => props.theme.black
+  // });
 
   const scrollCooldown = () => {
     setPauseScroll(true);
@@ -130,10 +131,12 @@ const ContextProvider = props => {
         currentSlideIndex,
         hasCaptions,
         setHasCaptions,
-        updateHeader,
-        setUpdateHeader,
-        updateFooter,
-        setUpdateFooter
+        fixedFooter,
+        setFixedFooter
+        // updateHeader,
+        // setUpdateHeader,
+        // updateFooter,
+        // setUpdateFooter
       }}
     >
       {props.children}

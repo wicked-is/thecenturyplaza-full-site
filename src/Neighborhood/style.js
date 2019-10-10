@@ -32,7 +32,7 @@ export const HeaderStyled = css`
 
 export const ContainerStyled = css`
   ${Container}
-  width: ${props => parseFloat(props.theme.mobileColumn) * 10}vw;
+  width: ${props => parseFloat(props.theme.mobileColumn) * 12}vw;
   margin: 0;
 
   ${mediaMin.tabletLandscape` 
