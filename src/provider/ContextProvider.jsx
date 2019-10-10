@@ -19,6 +19,8 @@ const ContextProvider = props => {
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
+  const [isCrossFadingUp, setIsCrossFadingUp] = useState(false);
+  const [isCrossFadingDown, setIsCrossFadingDown] = useState(false);
   const [pressItems, setPressItems] = useState([]);
   const [isSection, setSection] = useState(0);
   const [isSlide, setSlide] = useState(0);
@@ -36,7 +38,7 @@ const ContextProvider = props => {
 
   const scrollCooldown = () => {
     setPauseScroll(true);
-    setTimeout(() => setPauseScroll(false), 800);
+    setTimeout(() => setPauseScroll(false), 1000);
   };
 
   const toggleMenu = () => {
@@ -49,11 +51,32 @@ const ContextProvider = props => {
 
   const triggerExit = path => {
     setIsExisting(true);
-    console.log("existing started");
+
     setTimeout(() => {
       scrollCooldown();
       setIsExisting(false);
-      console.log("existing finished");
+      navigate(path);
+    }, 500);
+  };
+
+  const triggerCrossFadeUp = path => {
+    setIsExisting(true);
+    setIsCrossFadingUp(true);
+    setTimeout(() => {
+      scrollCooldown();
+      setIsExisting(false);
+      setIsCrossFadingUp(false);
+      navigate(path);
+    }, 500);
+  };
+
+  const triggerCrossFadeDown = path => {
+    setIsExisting(true);
+    setIsCrossFadingDown(true);
+    setTimeout(() => {
+      scrollCooldown();
+      setIsExisting(false);
+      setIsCrossFadingDown(false);
       navigate(path);
     }, 500);
   };
@@ -93,6 +116,12 @@ const ContextProvider = props => {
         isExisting,
         setIsExisting,
         triggerExit,
+        isCrossFadingUp,
+        setIsCrossFadingUp,
+        isCrossFadingDown,
+        setIsCrossFadingDown,
+        triggerCrossFadeUp,
+        triggerCrossFadeDown,
         pressItems,
         fetchPress,
         isSection,

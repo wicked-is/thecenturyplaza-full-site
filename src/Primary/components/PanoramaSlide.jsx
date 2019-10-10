@@ -6,7 +6,7 @@ import Context from "../../config/Context";
 import {
   SlideMaskStyled,
   SlideContainerStyled,
-  PanoFullStyled
+  PanoImageStyled
 } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
@@ -20,8 +20,8 @@ const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
 
-const ImageFull = styled.div`
-  ${PanoFullStyled};
+const PanoImage = styled.div`
+  ${PanoImageStyled};
 `;
 
 const PanoViewer = styled.div`
@@ -131,10 +131,6 @@ const PanoramaSlide = ({
   lastSectionSlide, //Refactor
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
-  toggleExpand, //Toggle Expansion
-  closeExpand, //Force Close Expansion
-  previousSlideImage, //Back to Back Images
-  nextSlideImage, // Back to Back Images
   sectionIndex, //Refactor
   slideIndex //Refactor
 }) => {
@@ -144,7 +140,8 @@ const PanoramaSlide = ({
     isExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    scrollCooldown
   } = context;
 
   const setUpPanorama = () => {
@@ -185,14 +182,13 @@ const PanoramaSlide = ({
         isExisting={isExisting}
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
-        nextSlideImage={nextSlideImage}
       >
         <SlideContainer>
           {/* <SlideBackward previousPath={previousPath} />
         <SlideForward nextPath={nextPath} /> */}
-          <ImageFull>
+          <PanoImage>
             <PanoViewer id="panorama" />
-          </ImageFull>
+          </PanoImage>
         </SlideContainer>
       </SlideMask>
     </ReactScrollWheelHandler>

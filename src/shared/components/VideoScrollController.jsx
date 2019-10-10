@@ -37,7 +37,8 @@ const ScrollController = ({
   isExpanded,
   isFirstSection,
   isFirstSlide,
-  toggleExpand
+  toggleExpand,
+  scrollCooldown
 }) => {
   const context = useContext(Context);
   const { pauseScroll, triggerExit } = context;
