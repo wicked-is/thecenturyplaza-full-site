@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react";
-import { Router } from "@reach/router";
 import styled from "styled-components";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Gallery/style.js";

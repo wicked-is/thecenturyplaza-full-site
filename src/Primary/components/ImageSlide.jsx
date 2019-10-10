@@ -57,36 +57,40 @@ const ImageSlide = ({
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
   return (
-    <ReactScrollWheelHandler
-      pauseListeners={pauseScroll}
-      upHandler={() => {
-        triggerExit(previousPath);
-      }}
-      downHandler={() => {
-        triggerExit(nextPath);
-      }}
-    >
-      <SlideMask
-        isExisting={isExisting}
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
-        nextSlideImage={nextSlideImage}
+    <React.Fragment>
+      <ReactScrollWheelHandler
+        pauseListeners={pauseScroll}
+        upHandler={() => {
+          triggerExit(previousPath);
+        }}
+        downHandler={() => {
+          triggerExit(nextPath);
+        }}
       >
-        <SlideContainer
-          previousSlideImage={previousSlideImage}
+        <SlideMask
+          isExisting={isExisting}
+          lastSectionSlide={lastSectionSlide}
+          lastSlide={lastSlide}
           nextSlideImage={nextSlideImage}
         >
-          <SlideBackward previousPath={previousPath} />
-          <SlideForward nextPath={nextPath} />
-          <ImageFull
+          <SlideContainer
             previousSlideImage={previousSlideImage}
             nextSlideImage={nextSlideImage}
           >
-            <ResponsiveImage srcPath={slide.source[0]} />
-          </ImageFull>
-        </SlideContainer>
-      </SlideMask>
-    </ReactScrollWheelHandler>
+            <SlideBackward previousPath={previousPath} />
+            <SlideForward nextPath={nextPath} />
+            <ImageFull
+              previousSlideImage={previousSlideImage}
+              nextSlideImage={nextSlideImage}
+            >
+              <ResponsiveImage srcPath={slide.source[0]} />
+            </ImageFull>
+          </SlideContainer>
+        </SlideMask>
+      </ReactScrollWheelHandler>
+      {/* <Previous></Previous>
+      <NextImage></NextImage> */}
+    </React.Fragment>
   );
 };
 export default ImageSlide;
