@@ -17,6 +17,7 @@ export const HeaderStyled = css`
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
+  overflow: hidden;
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
@@ -25,8 +26,13 @@ export const HeaderStyled = css`
 
   img {
     width: 100%;
-    height: calc(100vh - 160px);
+    height: 40vh;
     object-fit: cover;
+
+    ${mediaMin.tabletLandscape` 
+      width: 100%;
+      height: calc(100vh - 160px);
+    `}
   }
 `;
 

@@ -49,6 +49,7 @@ const SplitSlide = ({
   const {
     pauseScroll,
     isExisting,
+    setIsExisting,
     triggerExit,
     currentSlideIndex,
     currentSectionIndex
@@ -58,6 +59,12 @@ const SplitSlide = ({
     currentSectionIndex(sectionIndex);
     currentSlideIndex(slideIndex);
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, []);
 
   return (
     <ReactScrollWheelHandler

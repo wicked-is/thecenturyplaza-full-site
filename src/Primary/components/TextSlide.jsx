@@ -36,6 +36,7 @@ const TextSlide = ({
   const {
     pauseScroll,
     isExisting,
+    setIsExisting,
     triggerExit,
     currentSlideIndex,
     currentSectionIndex
@@ -45,6 +46,12 @@ const TextSlide = ({
     currentSectionIndex(sectionIndex);
     currentSlideIndex(slideIndex);
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, []);
 
   return (
     <ReactScrollWheelHandler

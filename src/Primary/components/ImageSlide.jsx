@@ -68,6 +68,7 @@ const ImageSlide = ({
     pauseScroll,
     isExisting,
     triggerExit,
+    setIsExisting,
     // triggerCrossFadeUp,
     // triggerCrossFadeDown,
     currentSlideIndex,
@@ -78,6 +79,12 @@ const ImageSlide = ({
     currentSectionIndex(sectionIndex);
     currentSlideIndex(slideIndex);
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, []);
 
   return (
     <ReactScrollWheelHandler

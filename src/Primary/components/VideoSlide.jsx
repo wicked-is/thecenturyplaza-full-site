@@ -71,6 +71,7 @@ const VideoSlide = ({
   const {
     pauseScroll,
     isExisting,
+    setIsExisting,
     triggerExit,
     hasPlayed,
     markPlayed,
@@ -104,6 +105,12 @@ const VideoSlide = ({
     currentSectionIndex(sectionIndex);
     currentSlideIndex(slideIndex);
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, []);
 
   return (
     <ReactScrollWheelHandler

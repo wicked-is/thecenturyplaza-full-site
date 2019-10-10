@@ -60,7 +60,6 @@ const Neighborhood = props => {
   return (
     <NeighborhoodWrapper>
       <NeighborhoodHeader>
-        {/* <NeighborhoodTitle>In The Heart of Los Angeles</NeighborhoodTitle> */}
         <Fade>
           <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
         </Fade>

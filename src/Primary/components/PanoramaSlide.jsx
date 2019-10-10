@@ -138,6 +138,7 @@ const PanoramaSlide = ({
   const {
     pauseScroll,
     isExisting,
+    setIsExisting,
     triggerExit,
     currentSlideIndex,
     currentSectionIndex
@@ -166,6 +167,12 @@ const PanoramaSlide = ({
     currentSectionIndex(sectionIndex);
     currentSlideIndex(slideIndex);
   }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
+
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, []);
 
   return (
     <ReactScrollWheelHandler
