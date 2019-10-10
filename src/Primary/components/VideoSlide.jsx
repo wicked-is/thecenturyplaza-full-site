@@ -70,6 +70,7 @@ const VideoSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
+    isExisting,
     triggerExit,
     hasPlayed,
     markPlayed,
@@ -127,7 +128,11 @@ const VideoSlide = ({
         isExpanded ? toggleExpand() : triggerExit(nextPath);
       }}
     >
-      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
+      <SlideMask
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        isExisting={isExisting}
+      >
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
           <SlideForward nextPath={nextPath} isExpanded={isExpanded} />

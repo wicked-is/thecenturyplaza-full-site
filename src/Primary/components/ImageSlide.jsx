@@ -66,6 +66,7 @@ const ImageSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
+    isExisting,
     triggerExit,
     // triggerCrossFadeUp,
     // triggerCrossFadeDown,
@@ -94,7 +95,11 @@ const ImageSlide = ({
         //   : triggerExit(nextPath);
       }}
     >
-      <SlideMask lastSectionSlide={lastSectionSlide} lastSlide={lastSlide}>
+      <SlideMask
+        lastSectionSlide={lastSectionSlide}
+        lastSlide={lastSlide}
+        isExisting={isExisting}
+      >
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
