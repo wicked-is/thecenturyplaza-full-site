@@ -11,7 +11,7 @@ export const enterFadeIn = props =>
   `;
 
 export const fromCenter = keyframes`
-  0% { opacity: 0; transform: scale(.8);}
+  0% { opacity: 0; transform: scale(.9);}
   75% { opacity: 1;}
   100% { opacity: 1; transform: scale(1);}
 `;
