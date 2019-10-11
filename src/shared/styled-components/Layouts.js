@@ -1,5 +1,6 @@
 import { css } from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import { enterFadeIn } from "shared/styled-components/Transitions.js";
 
 export const Wrapper = css`
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
@@ -11,9 +12,9 @@ export const Wrapper = css`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  ${"" /* opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
-  will-change: opacity; */}
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
@@ -24,27 +25,25 @@ export const Wrapper = css`
 
 export const ViewportWrapper = css`
   ${Wrapper}
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   align-items: center;
-  width: ${props =>
-    props.isExpanded
-      ? "100vw"
-      : "calc(100vw - " + props.theme.mobileMargin * 2 + "px)"};
+  width: 100vw;
   height: ${props =>
     props.isExpanded
       ? "100vh"
       : "calc(100vh - " + props.theme.headerHeight * 2 + "px)"};
-  margin: ${props =>
-    props.isExpanded ? "0" : "0 " + props.theme.mobileMargin + "px"};
+  margin: 0;
   padding: ${props =>
     props.isExpanded ? "0" : props.theme.headerHeight + "px 0"};
 
   ${mediaMin.tabletLandscape`
-    width: ${props =>
-      props.isExpanded
-        ? "100vw"
-        : "calc(100vw - " + props.theme.desktopMargin * 2 + "px)"};
-    margin: ${props =>
-      props.isExpanded ? "0" : "0 " + props.theme.desktopMargin + "px"};  
+    width: 100vw;
+    margin: 0;
   `}
 `;
 

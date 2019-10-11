@@ -7,7 +7,7 @@ import {
 
 export const MenuWrapper = css`
   ${Wrapper}
-  height: calc(100vh - 160px);
+  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   align-items: center;
 `;
 

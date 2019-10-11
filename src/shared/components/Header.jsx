@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
+import { Link, Location } from "@reach/router";
 import styled from "styled-components";
-import { Location } from "@reach/router";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 import Context from "../../config/Context";
 import ActiveMenu from "shared/components/ActiveMenu.jsx";
 import MainMenu from "shared/components/MainMenu.jsx";
@@ -21,9 +21,14 @@ const NavRow = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 24px 40px 0 40px;
+  padding: 30px ${props => props.theme.mobileMargin}px 0;
   box-sizing: border-box;
   z-index: 10000;
+
+  ${mediaMin.tabletLandscape`
+  padding: 30px ${props => props.theme.desktopMargin}px 0;
+  `}
+
   a {
     z-index: 10000;
   }
