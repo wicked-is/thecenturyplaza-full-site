@@ -12,11 +12,7 @@ export const headers = type => ({
   "Interior SF / SM": ["acf", "interior_square_ft"],
   Views: ["acf", "views"],
   HOA: ["acf", "hoa_fees"],
-  [type === "tower" ? "Building" : "Interior Palette"]: [
-    "acf",
-    type === "tower" ? "building" : "interior_palette"
-  ],
-  // "Interior Palette": ["acf", "interior_palette"],
+  "Interior Palette": ["acf", "interior_palette"],
   "Floor Plan": ["acf", "floor_plan"]
 });
 
