@@ -19,7 +19,7 @@ const Team = ({ isExpanded, teamData, setPageColor, toggleExpand }) => {
 
   useEffect(() => {
     setHasCaptions(false);
-    setPageColor(props => props.theme.white);
+    setPageColor("white");
   }, [setPageColor, setHasCaptions]);
 
   return (

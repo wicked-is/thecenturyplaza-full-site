@@ -12,7 +12,7 @@ const SlideForwardContainer = styled.span`
   height: 100vh;
   margin: 0;
   z-index: 600;
-  background: ${props => props.theme.white};
+  background: white;
   transition: transform 0.5s ease-in-out;
   transform: translateX(
     ${props => (props.isExpanded ? props.theme.mobileMargin + "px" : "0")}

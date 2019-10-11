@@ -59,9 +59,9 @@ const ImageSlide = ({
   toggleExpand, //Toggle Expansion
   closeExpand, //Force Close Expansion
   scrollUpCrossFade, //Back to Back Images
-  scrollDownCrossFade, // Back to Back Images
-  sectionIndex, //Refactor
-  slideIndex //Refactor
+  scrollDownCrossFade, //Back to Back Images
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
 }) => {
   const context = useContext(Context);
   const {

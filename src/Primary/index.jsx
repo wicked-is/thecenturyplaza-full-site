@@ -27,7 +27,7 @@ const Primary = props => {
   useEffect(() => {
     setFixedFooter(true);
     setHasCaptions(true);
-    setPageColor(props => props.theme.white);
+    setPageColor("white");
     return () => {
       setFixedFooter(false);
       setHasCaptions(false);

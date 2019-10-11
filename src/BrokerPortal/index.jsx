@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import { Wrapper } from 'shared/styled-components/Layouts.js';
-import { ContainerStyled } from 'BrokerPortal/style.js';
-import { mediaMin } from 'shared/styled-components/MediaQueries';
+import { Wrapper } from "shared/styled-components/Layouts.js";
+import { ContainerStyled } from "BrokerPortal/style.js";
+import { mediaMin } from "shared/styled-components/MediaQueries";
 
 const PortalWrapper = styled.div`
   ${Wrapper};
@@ -48,15 +48,15 @@ const TextInput = styled.input`
   background-color: transparent;
   color: ${props => props.theme.black};
   border: ${props =>
-    props.error ? '1px solid red' : '1px solid ' + props.theme.black + ''};
+    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
 
   width: ${props => {
-    if (props.halfWidth) return '50%';
-    if (props.quarterWidth) return '25%';
-    return '100%';
+    if (props.halfWidth) return "50%";
+    if (props.quarterWidth) return "25%";
+    return "100%";
   }};
 
   margin: 0 12px;
@@ -73,9 +73,8 @@ const TextInput = styled.input`
 
   &:focus {
     outline: none;
-    colors: ${props => props.theme.white};
-    border: ${props =>
-      props.error ? '1px solid red' : '1px solid ' + props.theme.white + ''};
+    colors: white;
+    border: ${props => (props.error ? "1px solid red" : "1px solid white")};
     background-color: transparent;
   }
 `;
@@ -100,15 +99,15 @@ const SubmitButton = styled.button`
 const Error = styled.p`
   text-align: center;
   color: red;
-  opacity: ${props => (!props.active ? '1' : '0')};
-  visibility: ${props => (!props.active ? 'visible' : 'hidden')};
+  opacity: ${props => (!props.active ? "1" : "0")};
+  visibility: ${props => (!props.active ? "visible" : "hidden")};
   transition: opacity 0.25s ease, visibility 0.25s ease;
 `;
 
 const BrokerPortal = ({ setPageColor }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: ""
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -120,8 +119,8 @@ const BrokerPortal = ({ setPageColor }) => {
 
   const clearForm = () => {
     setFormData({
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     });
     setFormErrors({
       username: false,
@@ -135,8 +134,8 @@ const BrokerPortal = ({ setPageColor }) => {
   };
 
   const responseHandler = response => {
-    var trimResponse = response.replace(/['"]+/g, '');
-    if (trimResponse === 'Authentication Failed') {
+    var trimResponse = response.replace(/['"]+/g, "");
+    if (trimResponse === "Authentication Failed") {
       clearForm();
       setAuthenticationStatus(false);
     } else {
@@ -166,11 +165,11 @@ const BrokerPortal = ({ setPageColor }) => {
         }
       };
       xhttp.open(
-        'POST',
-        'https://85k7ayvqz1.execute-api.us-east-1.amazonaws.com/prod/',
+        "POST",
+        "https://85k7ayvqz1.execute-api.us-east-1.amazonaws.com/prod/",
         true
       );
-      xhttp.setRequestHeader('Content-type', 'application/json');
+      xhttp.setRequestHeader("Content-type", "application/json");
       const data = JSON.stringify(formData);
       xhttp.send(data);
     }

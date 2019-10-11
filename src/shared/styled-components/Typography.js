@@ -1,6 +1,7 @@
 import { css } from "styled-components";
 import { fadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "./MediaQueries.js";
+import plusCloseSVG from "icons/plus-icon.svg";
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
@@ -52,9 +53,24 @@ export const PageFooter = css`
   );
 
   footer {
+    position: relative;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
     will-change: opacity;
+
+    ${mediaMin.tabletLandscape`
+      display: flex;
+    `}
+
+    ul {
+      display: none;
+
+      ${mediaMin.tabletLandscape`
+        display: inline-block;
+      `}
+    }
   }
 `;
 
@@ -84,23 +100,85 @@ export const PageTitle = css`
 `;
 
 export const Caption = css`
-  display: none;
+  display: inline-block;
   position: absolute;
-  bottom: 30px;
-  left: 40px;
-  margin: 0;
-  max-width: calc(100vw - 80px - 400px);
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 1.35em;
-  letter-spacing: 0.05em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: antialiased;
+  height: auto;
+  top: 0;
+  left: 0;
+  margin: 0 0 ${props => props.theme.headerHeight}px;
+  padding: ${props => props.theme.mobileMargin}px
+    ${props => props.theme.mobileMargin}px 0;
+  background: white;
+  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
+  transition: all 0.25s ease-in-out;
+  transform: translateY(${props => (props.isOpen ? "-70%" : "10px")});
+
+  ${mediaMin.phoneXL`
+    transform: translateY(${props => (props.isOpen ? "-50%" : "10px")});
+  `}
 
   ${mediaMin.tabletLandscape`
-    display: inline-block;
+    display: flex;
+    left: ${props => props.theme.desktopMargin}px;
+    align-items: center;
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.desktopMargin) * 2}px - 300px);
+    height 80px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transform: translateY(0);
   `}
+
+  p {
+    display: inline-block;
+    opacity: ${props => (props.isOpen ? "1" : "0")};
+    font-weight: 300;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.35em;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    transition: all 0.25s ease-in-out;
+
+    ${mediaMin.tabletLandscape`
+      display: inline-block;
+      opacity: 1;
+      margin: 0;
+    `}
+  }
+
+  button {
+    display: inline-block;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    text-transform: uppercase;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::before {
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      content: "";
+      background: url(${plusCloseSVG}) no-repeat center center;
+      background-size: contain;
+      vertical-align: top;
+      margin: 0 0.75em 0 0;
+      transform: rotate(${props => (props.isOpen ? "45deg" : "0")});
+      transition: transform 0.25s ease-in-out;
+    }
+
+    ${mediaMin.tabletLandscape`
+      display: none;
+    `}
+  }
 `;

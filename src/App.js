@@ -39,7 +39,6 @@ const theme = {
   black: "#101820",
   grayLight: "#E7E7E7",
   gray: "#B4BAC1",
-  white: "#FFFFFF",
   gold: "#BB8A47",
   sansSerifThin: "HelveticaNeueLTStd-UltLt",
   sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
@@ -74,7 +73,7 @@ const AppHeader = styled.div`
 class App extends Component {
   state = {
     isExpanded: false,
-    pageColor: theme.white
+    pageColor: "white"
   };
 
   setPageColor = color => {

@@ -35,7 +35,7 @@ export const SecondaryMenuMenuContainerStyled = css`
         font-family: ${props => props.theme.sansSerifThin};
         font-size: 40px;
         letter-spacing: 1.5px;
-        color:${props => props.theme.white};
+        color:white;
 
         &:hover {
           opacity: 0.5;

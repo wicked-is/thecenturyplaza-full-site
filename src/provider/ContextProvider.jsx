@@ -29,7 +29,7 @@ const ContextProvider = props => {
   const [hideFooter, setHideFooter] = useState(false);
   // const [updateHeader, setUpdateHeader] = useState({
   //   position: "fixed",
-  //   backgroundColor: props => props.theme.white,
+  //   backgroundColor: white,
   //   textColor: props => props.theme.black
   // });
   // const [updateFooter, setUpdateFooter] = useState({

@@ -64,8 +64,8 @@ const VideoSlide = ({
   isFirstSlide, //Refactor
   toggleExpand, //Toggle Expansion
   closeExpand, //Force Close Expansion
-  sectionIndex, //Refactor
-  slideIndex //Refactor
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
 }) => {
   const context = useContext(Context);
   const {

@@ -67,7 +67,7 @@ const Press = ({ setPageColor }) => {
 
   useEffect(() => {
     setHasCaptions(false);
-    setPageColor(props => props.theme.white);
+    setPageColor("white");
   }, [setPageColor, setHasCaptions]);
 
   return (

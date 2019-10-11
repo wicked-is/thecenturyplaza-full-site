@@ -2,7 +2,6 @@ import { css } from "styled-components";
 import { Container } from "../shared/styled-components/Layouts.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries.js";
 import { fadeIn } from "../shared/styled-components/Transitions.js";
-import playBtnPNG from "icons/play-btn.png";
 import playBtnSVG from "icons/play-btn.svg";
 
 export const ContainerStyled = css`
@@ -77,8 +76,7 @@ export const PlaceholderStyled = css`
     width: 12vw;
     height: 12vw;
     margin: -6vw 0 0 -6vw;
-    background: url(${playBtnPNG}) no-repeat center center;
-    background: url(${playBtnSVG}) no-repeat center center, none;
+    background: url(${playBtnSVG}) no-repeat center center;
     background-size: contain;
   }
 `;

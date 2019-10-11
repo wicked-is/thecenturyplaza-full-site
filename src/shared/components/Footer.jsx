@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, Location } from "@reach/router";
 import styled from "styled-components";
 import Context from "../../config/Context";
@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
   ${FooterWrapper};
 `;
 
-const SlideCaption = styled.p`
+const SlideCaption = styled.div`
   ${Caption};
 `;
 
@@ -18,6 +18,11 @@ const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
   const { navActive, isSection, isSlide, hasCaptions } = context;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCaption = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <Location>
@@ -29,9 +34,12 @@ const Footer = props => {
             location.pathname === "/broker-portal"
           }
         >
-          {hasCaptions && (
-            <SlideCaption>
-              {parse(primaryData[isSection].slides[isSlide].caption)}
+          {hasCaptions && primaryData[isSection].slides[isSlide].caption && (
+            <SlideCaption isOpen={isOpen}>
+              <button onClick={toggleCaption}>
+                {isOpen ? "Close" : "Info"}
+              </button>
+              <p>{parse(primaryData[isSection].slides[isSlide].caption)}</p>
             </SlideCaption>
           )}
 

@@ -450,7 +450,7 @@ export const PanoImageStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${props => props.theme.white};
+  background: white;
   overflow: hidden;
   width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);

@@ -1,13 +1,9 @@
 import { css } from "styled-components";
 import { Container } from "../shared/styled-components/Layouts.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries.js";
-import sortAscendingPNG from "icons/sort-ascending.png";
 import sortAscendingSVG from "icons/sort-ascending.svg";
-import sortDescendingPNG from "icons/sort-descending.png";
 import sortDescendingSVG from "icons/sort-descending.svg";
-import checkboxIconPNG from "icons/checkbox-icon.png";
 import checkboxIconSVG from "icons/checkbox-icon.svg";
-import checkedIconPNG from "icons/checked-icon.png";
 import checkedIconSVG from "icons/checked-icon.svg";
 
 export const ContainerStyled = css`
@@ -143,8 +139,7 @@ export const AscendingStyled = css`
     height: 5px;
     display: inline-block;
     margin: 0 0 0.15em 0.65em;
-    background: url(${sortAscendingPNG}) no-repeat center center;
-    background: url(${sortAscendingSVG}) no-repeat center center, none;
+    background: url(${sortAscendingSVG}) no-repeat center center;
     background-size: contain;
     
   `}
@@ -158,8 +153,7 @@ export const DescendingStyled = css`
     height: 5px;
     display: inline-block;
     margin: 0 0 0.15em 0.65em;;
-    background: url(${sortDescendingPNG}) no-repeat center center;
-    background: url(${sortDescendingSVG}) no-repeat center center, none;
+    background: url(${sortDescendingSVG}) no-repeat center center;
     background-size: contain;
     
   `}
@@ -212,7 +206,7 @@ export const FilterButtonStyled = css`
   top: -2em;
   right: 0;
   border: 1px solid ${props => props.theme.gray};
-  background: ${props => props.theme.white};
+  background: white;
   padding: 0.65em 1.25em 0.5em;
   text-transform: uppercase;
   cursor: pointer;
@@ -231,7 +225,7 @@ export const FilterButtonStyled = css`
   }
 
   border-bottom: 1px solid
-    ${props => (props.active ? props.theme.white : props.theme.gray)};
+    ${props => (props.active ? "white" : props.theme.gray)};
 
   ${mediaMin.tabletLandscape` 
       top: 0;
@@ -248,7 +242,7 @@ export const FilterContainer = css`
   opacity: 1;
   z-index: 10;
   cursor: pointer;
-  background: ${props => props.theme.white};
+  background: white;
   border: 1px solid ${props => props.theme.gray};
 
   ${mediaMin.tabletLandscape` 
@@ -315,15 +309,13 @@ export const FilterList = css`
       width: 16px;
       margin: 0 1em 0 0;
       border: 0;
-      background: url(${checkboxIconPNG}) no-repeat center center;
-      background: url(${checkboxIconSVG}) no-repeat center center, none;
+      background: url(${checkboxIconSVG}) no-repeat center center;
     }
   }
 
   input[type="checkbox"]:checked + label {
     &::before {
-      background: url(${checkedIconPNG}) no-repeat center center;
-      background: url(${checkedIconSVG}) no-repeat center center, none;
+      background: url(${checkedIconSVG}) no-repeat center center;
     }
   }
 `;

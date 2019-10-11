@@ -172,9 +172,8 @@ const TextInput = styled.input`
 
   &:focus {
     outline: none;
-    colors: ${props => props.theme.white};
-    border: ${props =>
-      props.error ? "1px solid red" : "1px solid " + props.theme.white + ""};
+    colors: white;
+    border: ${props => (props.error ? "1px solid red" : "1px solid white")};
     background-color: transparent;
   }
 `;

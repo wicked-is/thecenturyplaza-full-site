@@ -18,12 +18,10 @@ const AccessibilityTitle = styled.h1`
 const Accessibility = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { setHasCaptions } = context;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <AccessibilityWrapper>
