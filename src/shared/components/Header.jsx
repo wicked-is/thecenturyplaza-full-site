@@ -48,6 +48,9 @@ const Logo = styled.div`
 `;
 
 const Hamburger = styled.button`
+  right: ${props => props.theme.mobileMargin}px;
+  top: 31px;
+  position: absolute;
   display: inline-block;
   width: 25px;
   height: 16px;
@@ -75,6 +78,10 @@ const Hamburger = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${mediaMin.tabletLandscape`
+    right: ${props => props.theme.desktopMargin}px;
+  `}
 `;
 
 const Header = ({ primaryData, pageColor }) => {
