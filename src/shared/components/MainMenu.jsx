@@ -11,14 +11,15 @@ const MainMenuContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  max-wdth: 100%vw;
-  height: auto;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100%;
   min-height: 100vh;
   z-index: 1000;
-  background: ${props => props.theme.black};
   text-indent: 0;
   color: ${props => props.theme.gray};
+  background: ${props => props.theme.black};
 
   a:hover {
     opacity: 0.5;
@@ -32,6 +33,7 @@ const LinksContainer = styled.nav`
     ${props => props.theme.mobileMargin}px
     ${props => props.theme.desktopMargin}px;
   height: auto;
+  min-height: 100vh;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
@@ -74,9 +76,13 @@ const SecondaryLinks = styled.ul`
   width: auto;
   height: auto;
   text-align: left;
-  margin: 0 0 60px;
+  margin: 0 0 30px;
   padding: 0;
-  z-index: 100000;
+
+  ${mediaMin.phoneXL`
+    margin: 0 0 60px;
+  `}
+
   li {
     display: block;
     margin: 0 0 15px;
@@ -124,22 +130,29 @@ const InfoCluster = styled.div`
 
   > a {
     display: inline-block;
-    margin: 30px 0 0;
+    margin: 10px 0 30px;
     font-family: ${props => props.theme.sansSerifRegular};
     color: ${props => props.theme.gray};
     text-decoration: none;
+
+    ${mediaMin.tabletLandscape`
+      margin: 30px 0 0;
+    `}
   }
 `;
 
 const DownloadsLinks = styled.ul`
-  position: absolute;
-  left: calc(-30vw + 40px);
-  bottom: 30px;
-  width: auto;
-  height: auto;
+  display: inline-block;
   text-align: left;
   margin: 0;
   padding: 0;
+
+  ${mediaMin.tabletLandscape`
+    position: absolute;
+    left: calc(-30vw + 40px);
+    bottom: 0;
+    transform: translateY(-120%);
+ `}
 
   li {
     font-family: ${props => props.theme.sansSerifRegular};
@@ -156,13 +169,6 @@ const DownloadsLinks = styled.ul`
       color: ${props => props.theme.gray};
       text-decoration: none;
     }
-  }
-
-  @media screen and (min-height: 700px) {
-    display: inline-block;
-    position: relative;
-    left: auto;
-    bottom: auto;
   }
 `;
 
