@@ -101,7 +101,7 @@ export const AsideStyled = css`
 
   ${mediaMin.phoneXL`
     position: fixed;
-    width: 28%;
+    width: 34%;
     left: auto;
     margin:0 0 20px;
     top: ${props => props.theme.headerHeight}px;

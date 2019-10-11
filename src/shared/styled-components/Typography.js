@@ -46,7 +46,7 @@ export const PageHeader = css`
 
 export const PageFooter = css`
   display: ${props => (props.hideFooter ? "none" : "inline-block")};
-  position: ${props => (props.fixedFooter ? "fixed" : "absolute")};
+  position: ${props => (props.fixedFooter ? "fixed" : "relative")};
   bottom: 0;
   z-index: 900;
   width: 100%;
@@ -56,6 +56,10 @@ export const PageFooter = css`
   transform: translateY(
     ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
   );
+
+  ${mediaMin.tabletLandscape`
+    position: ${props => (props.fixedFooter ? "fixed" : "absolute")};
+  `}
 
   footer {
     position: relative;
