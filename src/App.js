@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
 import ContextProvider from "./provider/ContextProvider";
-import { PageBody, PageHeader } from "shared/styled-components/Typography.js";
-import Header from "shared/components/Header.jsx";
+import { PageBody } from "shared/styled-components/Typography.js";
+import AppHeader from "shared/components/AppHeader.jsx";
 import AppFooter from "shared/components/AppFooter.jsx";
 import Primary from "Primary";
 import BrokerPortal from "BrokerPortal";
@@ -60,15 +60,11 @@ const theme = {
   desktopGutter: "20"
 };
 
+// Size varaibles listed above declared without units for computations
+
 const AppBody = styled.div`
   ${PageBody};
 `;
-const AppHeader = styled.div`
-  ${PageHeader};
-`;
-// const AppFooter = styled.div`
-//   ${PageFooter};
-// `;
 
 class App extends Component {
   state = {
@@ -96,13 +92,8 @@ class App extends Component {
             <AppHeader
               pageColor={this.state.pageColor}
               isExpanded={this.state.isExpanded}
-            >
-              <Header
-                primaryData={primaryData}
-                isExpanded={this.state.isExpanded}
-                pageColor={this.state.pageColor}
-              />
-            </AppHeader>
+              primaryData={primaryData}
+            />
             <main>
               <Router primary={false}>
                 <Redirect from="/" to="home" noThrow />

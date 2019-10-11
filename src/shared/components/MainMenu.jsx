@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../../config/Context";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
@@ -10,16 +11,14 @@ const MainMenuContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  max-wdth: 100%vw;
   height: auto;
+  min-height: 100vh;
   z-index: 1000;
   background: ${props => props.theme.black};
   text-indent: 0;
   color: ${props => props.theme.gray};
-
-  ${mediaMin.tabletLandscape`
-    height: 100vh;
-  `}
 
   a:hover {
     opacity: 0.5;
@@ -30,7 +29,8 @@ const LinksContainer = styled.nav`
   position: relative;
   width: 100%;
   margin: ${props => props.theme.headerHeight}px
-    ${props => props.theme.mobileMargin}px 0;
+    ${props => props.theme.mobileMargin}px
+    ${props => props.theme.desktopMargin}px;
   height: auto;
   align-self: flex-start;
   display: flex;
@@ -39,7 +39,7 @@ const LinksContainer = styled.nav`
   ${mediaMin.tabletLandscape`
     width: 70vw;
     margin: 80px 0 0 30vw;
-    height: calc(100vh - 80px);
+    height: auto;
   `}
 `;
 
@@ -167,7 +167,9 @@ const DownloadsLinks = styled.ul`
 `;
 
 const MainMenu = props => {
-  const { primaryData, navActive, toggleMenu } = props;
+  const { primaryData } = props;
+  const context = useContext(Context);
+  const { navActive, toggleMenu, isExpanded } = context;
 
   return (
     <>

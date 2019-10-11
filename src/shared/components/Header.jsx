@@ -26,7 +26,7 @@ const NavRow = styled.div`
   z-index: 10000;
 
   ${mediaMin.tabletLandscape`
-  padding: 30px ${props => props.theme.desktopMargin}px 0;
+    padding: 30px ${props => props.theme.desktopMargin}px 0;
   `}
 
   a {
@@ -84,7 +84,11 @@ const Header = ({ primaryData, pageColor }) => {
     <Location>
       {({ location }) => {
         return (
-          <HeaderContainer isExpanded={isExpanded} pageColor={pageColor}>
+          <HeaderContainer
+            isExpanded={isExpanded}
+            pageColor={pageColor}
+            navActive={navActive}
+          >
             <NavRow>
               <Link to="/">
                 <Logo

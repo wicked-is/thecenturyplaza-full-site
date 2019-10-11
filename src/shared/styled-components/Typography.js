@@ -10,7 +10,7 @@ export const PageBody = css`
   letter-spacing: 0.6px;
   transition: background 0.5s ease-in-out;
   background: ${props => props.pageColor};
-  min-height: 100vh;
+  min-height: ${props => (props.navActive ? "100vh" : "auto")};
   position: relative;
 
   a {
@@ -24,13 +24,18 @@ export const PageHeader = css`
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: ${props => props.theme.headerHeight}px;
+  height: ${props =>
+    props.navActive ? "100%" : props.theme.headerHeight + "px"};
+  min-height: % {
+    props=>props.navActive ? "100vh" : "80px";
+  }
   background: ${props => props.pageColor};
   z-index: 10000;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
   );
+  overflow-y: ${props => (props.navActive ? "scroll" : "hidden")};
 
   header {
     opacity: 0;
@@ -47,7 +52,7 @@ export const PageFooter = css`
   width: 100%;
   height: ${props => props.theme.headerHeight}px;
   background: ${props => props.pageColor};
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
   );
