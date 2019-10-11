@@ -75,8 +75,9 @@ export const SlideContainerStyled = css`
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: ${props => (props.isExpanded ? "100vh" : "calc(100vh - 60px)")};
   z-index: 200;
+  transition: height 0.25s ease-in-out;
   position: relative;
   flex-wrap: wrap;
 
