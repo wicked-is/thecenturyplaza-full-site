@@ -29,22 +29,22 @@ const NavRow = styled.div`
       parseFloat(props.theme.desktopMargin) * 2}px);
     padding: 30px ${props => props.theme.desktopMargin}px 0;
   `}
-
-  a {
-    z-index: 10000;
-  }
 `;
 
 const Logo = styled.div`
-  left: 40px;
-  top: 25px;
+  left: ${props => props.theme.mobileMargin}px;
+  top: 31px;
   display: inline-block;
   width: 250px;
   height: 17px;
-  z-index: 10000;
+  z-index: 11000;
+  position: absolute;
   background: url(${props => (props.navActive ? logoGraySVG : logoBlackSVG)})
       no-repeat center center,
     none;
+  ${mediaMin.tabletLandscape`
+    left: ${props => props.theme.desktopMargin}px;
+  `}
 `;
 
 const Hamburger = styled.button`
@@ -64,7 +64,7 @@ const Hamburger = styled.button`
     none;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
-  z-index: 10000;
+  z-index: 11000;
   &:hover {
     background: url(${props =>
           props.navActive ? closeGraySVG : hamburgerBlackSVG})
