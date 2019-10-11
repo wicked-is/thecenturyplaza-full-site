@@ -30,7 +30,7 @@ const LinksContainer = styled.nav`
   width: 100%;
   padding: ${props => props.theme.headerHeight}px
     ${props => props.theme.mobileMargin}px
-    ${props => props.theme.desktopMargin}px;
+    ${props => props.theme.headerHeight}px;
   height: auto;
   min-height: 100vh;
   align-self: flex-start;
