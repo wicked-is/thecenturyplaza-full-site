@@ -19,13 +19,14 @@ const HeaderContainer = styled.header`
 
 const NavRow = styled.div`
   display: flex;
-  width: 100%;
+  width: calc(100vw - ${props => parseFloat(props.theme.mobilepMargin) * 2}px);
   justify-content: space-between;
   padding: 30px ${props => props.theme.mobileMargin}px 0;
-  box-sizing: border-box;
   z-index: 10000;
 
   ${mediaMin.tabletLandscape`
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.desktopMargin) * 2}px);
     padding: 30px ${props => props.theme.desktopMargin}px 0;
   `}
 

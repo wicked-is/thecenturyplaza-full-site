@@ -40,7 +40,7 @@ export const PageHeader = css`
     opacity: 0;
     animation: ${enterFadeIn};
     will-change: opacity;
-    overflow: hidden;
+    ${"" /* overflow: hidden; */}
   }
 `;
 
