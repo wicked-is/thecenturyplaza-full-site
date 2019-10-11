@@ -23,7 +23,6 @@ const TeamMenu = props => {
     <Location>
       {({ location }) => (
         <li
-          isOpen={props.isOpen}
           className={props.to === location.pathname ? "active" : "inactive"}
           onClick={toggleOpen}
         >
@@ -45,7 +44,7 @@ const TeamMenu = props => {
   return (
     <div>
       <nav>
-        <TeamMembers isExpanded={isExpanded}>
+        <TeamMembers isExpanded={isExpanded} isOpen={isOpen}>
           {teamData.map((member, index) => (
             <TeamMember key={index} to={"/team/" + member.slug}>
               {member.title}

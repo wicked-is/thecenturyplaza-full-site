@@ -20,13 +20,29 @@ const MemberItems = styled.div`
 const Member = ({ member, isExpanded, teamData }) => {
   return (
     <Grid>
-      <Grid.Unit size={{ phone: 1, tabletLandscape: 2 / 8 }}>
+      <Grid.Unit
+        size={{
+          phone: 1,
+          phoneXL: 4 / 12,
+          tablet: 1,
+          tabletLandscape: 3 / 10,
+          desktopSmall: 2 / 8
+        }}
+      >
         <TeamAside>
           <TeamMenu isExpanded={isExpanded} teamData={teamData} />
           <p>{parse(member.bio)}</p>
         </TeamAside>
       </Grid.Unit>
-      <Grid.Unit size={{ phone: 1, tabletLandscape: 6 / 8 }}>
+      <Grid.Unit
+        size={{
+          phone: 1,
+          phoneXL: 8 / 12,
+          tablet: 1,
+          tabletLandscape: 7 / 10,
+          desktopSmall: 6 / 8
+        }}
+      >
         <Grid>
           {member.images.map((image, index) => (
             <Grid.Unit

@@ -26,7 +26,7 @@ export const PageHeader = css`
   width: 100%;
   height: ${props => props.theme.headerHeight}px;
   background: ${props => props.pageColor};
-  z-index: 1000;
+  z-index: 10000;
   transition: all 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
