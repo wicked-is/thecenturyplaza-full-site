@@ -28,9 +28,15 @@ const Primary = props => {
     setFixedFooter(true);
     setHasCaptions(true);
     setPageColor("white");
+    window.onresize = function(e) {
+      document.body.height = window.innerHeight;
+    };
+    window.onresize(); // called to initially set the height.
+
     return () => {
       setFixedFooter(false);
       setHasCaptions(false);
+      window.onresize = null;
     };
   }, []);
 
