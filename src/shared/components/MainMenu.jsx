@@ -16,7 +16,7 @@ const MainMenuContainer = styled.div`
   width: 100vw;
   height: calc(100% - ${props => props.theme.headerHeight}px);
   min-height: 100vh;
-  z-index: 1000;
+  z-index: 10000;
   text-indent: 0;
   color: ${props => props.theme.gray};
 
