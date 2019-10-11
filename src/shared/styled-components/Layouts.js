@@ -25,7 +25,9 @@ export const Wrapper = css`
 
 export const ViewportWrapper = css`
   ${Wrapper}
-
+  opacity: 1;
+  animation: none;
+  will-change: none;
   position: fixed;
   top: 0;
   left: 0;
