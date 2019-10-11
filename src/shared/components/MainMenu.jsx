@@ -14,12 +14,11 @@ const MainMenuContainer = styled.div`
   right: 0;
   bottom: 0;
   width: 100vw;
-  height: 100%;
+  height: calc(100% - ${props => props.theme.headerHeight}px);
   min-height: 100vh;
   z-index: 1000;
   text-indent: 0;
   color: ${props => props.theme.gray};
-  background: ${props => props.theme.black};
 
   a:hover {
     opacity: 0.5;
@@ -29,7 +28,7 @@ const MainMenuContainer = styled.div`
 const LinksContainer = styled.nav`
   position: relative;
   width: 100%;
-  margin: ${props => props.theme.headerHeight}px
+  padding: ${props => props.theme.headerHeight}px
     ${props => props.theme.mobileMargin}px
     ${props => props.theme.desktopMargin}px;
   height: auto;
@@ -37,10 +36,11 @@ const LinksContainer = styled.nav`
   align-self: flex-start;
   display: flex;
   flex-direction: column;
+  background: ${props => props.theme.black};
 
   ${mediaMin.tabletLandscape`
     width: 70vw;
-    margin: 80px 0 0 30vw;
+    padding: 80px 0 0 30vw;
     height: auto;
   `}
 `;
@@ -100,8 +100,8 @@ const SecondaryLinks = styled.ul`
 const InfoCluster = styled.div`
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: calc(-30vw + 40px);
-    top: 0;
+    left: ${props => props.theme.desktopMargin}px;
+    top: ${props => props.theme.headerHeight}px;
  `}
 
   p {
@@ -149,7 +149,7 @@ const DownloadsLinks = styled.ul`
 
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: calc(-30vw + 40px);
+    left: ${props => props.theme.desktopMargin}px;
     bottom: 0;
     transform: translateY(-120%);
  `}
