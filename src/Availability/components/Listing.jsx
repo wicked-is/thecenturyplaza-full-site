@@ -30,7 +30,12 @@ const Listing = props => {
       </td>
       <td>{formatDirections(listing.acf.views)}</td>
       <td>{formatCurrency(listing.acf.hoa_fees)}</td>
-      <td>{path === 'hotel' ? listing.acf.interior_palette : formatDirections(listing.acf.building)}</td>
+      {/* <td>{listing.acf.interior_palette}</td> */}
+      <td>
+        {path === "hotel"
+          ? listing.acf.interior_palette
+          : formatDirections(listing.acf.building)}
+      </td>
       <td>
         <a
           href={listing.acf.floor_plan}
