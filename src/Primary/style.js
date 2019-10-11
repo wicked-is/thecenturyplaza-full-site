@@ -75,10 +75,14 @@ export const SlideContainerStyled = css`
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   z-index: 200;
   position: relative;
   flex-wrap: wrap;
+
+  ${mediaMin.tablet`
+    height: 100vh;
+  `}
 
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
@@ -108,9 +112,9 @@ export const SlideContainerStyled = css`
   }
 
   a {
-    position: absolute;
-    bottom: 20vh;
-    left: 0;
+    position: relative;
+    ${"" /* bottom: 24vh;
+    left: 0; */}
     width: 100%;
     text-align: center;
     color: ${props => props.theme.gray};
@@ -118,6 +122,7 @@ export const SlideContainerStyled = css`
     transform: translate3d(0, 3em, 0);
     animation: ${enterFromBottomText};
     will-change: opacity, transform;
+    margin: 2em 0 0;
 
     &:hover {
       opacity: 0.5;
@@ -345,7 +350,7 @@ export const SplitSlideContainerStyled = css`
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   z-index: 200;
   position: relative;
   flex-direction: column;
@@ -359,6 +364,7 @@ export const SplitSlideContainerStyled = css`
   ${mediaMin.tablet`
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
   `}
 
   ${mediaMin.tabletLandscape`
