@@ -15,6 +15,7 @@ export const Wrapper = css`
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+  background: transparent;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>

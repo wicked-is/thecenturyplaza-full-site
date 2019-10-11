@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { enterFadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "./MediaQueries.js";
 import plusCloseSVG from "icons/plus-icon.svg";
 
@@ -26,21 +26,21 @@ export const PageHeader = css`
   width: 100%;
   height: ${props =>
     props.navActive ? "100%" : props.theme.headerHeight + "px"};
-  min-height: % {
-    props=>props.navActive ? "100vh" : "80px";
-  }
+  min-height: ${props => (props.navActive ? "100vh" : "80px")};
   background: ${props => props.pageColor};
   z-index: 10000;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
   );
   overflow-y: ${props => (props.navActive ? "scroll" : "hidden")};
+  overflow-x: hidden;
 
   header {
     opacity: 0;
-    animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+    animation: ${enterFadeIn};
     will-change: opacity;
+    overflow: hidden;
   }
 `;
 
@@ -50,9 +50,9 @@ export const PageFooter = css`
   bottom: 0;
   z-index: 900;
   width: 100%;
-  height: ${props => props.theme.headerHeight}px;
+  height: ${props => (props.navActive ? "0" : props.theme.headerHeight + "px")};
   background: ${props => props.pageColor};
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
   );
@@ -62,7 +62,7 @@ export const PageFooter = css`
     width: 100%;
     height: 100%;
     opacity: 0;
-    animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+    animation: ${enterFadeIn};
     will-change: opacity;
 
     ${mediaMin.tabletLandscape`
@@ -116,7 +116,7 @@ export const Caption = css`
   background: white;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  animation: ${enterFadeIn};
   will-change: opacity;
   transition: all 0.25s ease-in-out;
   transform: translateY(${props => (props.isOpen ? "-70%" : "10px")});
