@@ -23,7 +23,7 @@ const Member = ({ member, isExpanded, teamData }) => {
       <Grid.Unit
         size={{
           phone: 1,
-          phoneXL: 4 / 12,
+          phoneXL: 5 / 12,
           tablet: 1,
           tabletLandscape: 3 / 10,
           desktopSmall: 2 / 8
@@ -37,7 +37,7 @@ const Member = ({ member, isExpanded, teamData }) => {
       <Grid.Unit
         size={{
           phone: 1,
-          phoneXL: 8 / 12,
+          phoneXL: 7 / 12,
           tablet: 1,
           tabletLandscape: 7 / 10,
           desktopSmall: 6 / 8
