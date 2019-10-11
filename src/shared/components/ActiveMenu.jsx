@@ -5,9 +5,10 @@ import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const ActiveMenuContainer = styled.ul`
   display: none;
+
   ${mediaMin.tabletLandscape`
     display: inline-block;
-    width: 100%;
+    width: 121%;
     height: auto;
     text-align: center;
     top: 15px;
@@ -33,6 +34,10 @@ const ActiveMenuContainer = styled.ul`
         -moz-osx-font-smoothing: antialiased;
       }
     }
+  `}
+
+  ${mediaMin.desktopSmall`
+    width: 100%;
   `}
 `;
 

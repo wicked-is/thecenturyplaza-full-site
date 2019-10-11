@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
+import { PageTitle } from "../shared/styled-components/Typography.js";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "BrokerPortal/style.js";
 import { mediaMin } from "shared/styled-components/MediaQueries";
 
 const PortalWrapper = styled.div`
   ${Wrapper};
+  padding: 0;
 `;
 const PortalContainer = styled.div`
   ${ContainerStyled};
   margin: 0 !important;
   justify-content: center;
+  align-items: center;
+  height: calc(100vh - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
+  padding: 0;
 `;
 
 const PortalForm = styled.form`
@@ -28,11 +32,17 @@ const PortalForm = styled.form`
   font-weight: 300;
 
   h3 {
-    font-family: ${props => props.theme.serifMedium};
-    font-size: 1.5em;
-    font-weight: 400;
-    margin: 0 0 20px;
-    text-align: center;
+  width: 100%;
+  font-family: ${props => props.theme.serifRoman}, serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.1em;
+  letter-spacing: 0.3em;
+  margin: 0 0 1em;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
   }
 
 `;

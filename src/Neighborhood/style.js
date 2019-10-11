@@ -51,7 +51,7 @@ export const ItemStyled = css`
   display: flex;
   flex-wrap: wrap;
   margin: 0 0 9vw;
-  height: calc(100% - 9vw);
+  height: auto;
   align-items: ${props => props.valign};
   align-content: ${props => props.valign};
   opacity: 0;
