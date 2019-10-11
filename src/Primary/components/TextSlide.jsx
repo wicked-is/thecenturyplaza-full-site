@@ -29,8 +29,8 @@ const TextSlide = ({
   lastSectionSlide, //Refactor
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
-  sectionIndex, //Refactor
-  slideIndex //Refactor
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
 }) => {
   const context = useContext(Context);
   const {

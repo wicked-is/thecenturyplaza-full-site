@@ -39,7 +39,7 @@ const Availability = props => {
 
   useEffect(() => {
     setHasCaptions(false);
-    setPageColor(props => props.theme.white);
+    setPageColor("white");
   }, [setPageColor, setHasCaptions]);
 
   const [hotelListings, setHotelListings] = useState([]);

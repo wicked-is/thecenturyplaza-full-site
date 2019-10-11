@@ -16,7 +16,7 @@ export const AsideStyled = css`
   position: fixed;
   top: ${props => props.theme.headerHeight}px;
   left: ${props => props.theme.mobileMargin}px;
-  background: ${props => props.theme.white};
+  background: white;
   z-index: 1000;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
 
@@ -45,7 +45,7 @@ export const AsideStyled = css`
     -moz-osx-font-smoothing: antialiased;
 
     ::selection {
-      color: ${props => props.theme.white};
+      color: white;
       background: ${props => props.theme.black};
     }
   }
@@ -73,7 +73,7 @@ export const MenuStyled = css`
     }
 
     ::selection {
-      color: ${props => props.theme.white};
+      color: white;
       background: ${props => props.theme.black};
     }
 
@@ -92,7 +92,7 @@ export const MenuStyled = css`
       -moz-osx-font-smoothing: antialiased;
 
       ::selection {
-        color: ${props => props.theme.white};
+        color: white;
         background: ${props => props.theme.black};
       }
     }
