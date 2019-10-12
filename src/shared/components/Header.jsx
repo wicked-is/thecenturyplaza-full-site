@@ -9,6 +9,7 @@ import logoBlackSVG from "icons/logo-black.svg";
 import logoGraySVG from "icons/logo-gray.svg";
 import hamburgerBlackSVG from "icons/hamburger-black.svg";
 import closeGraySVG from "icons/close-gray.svg";
+import closeBlackSVG from "icons/close-black.svg";
 
 const HeaderContainer = styled.header`
   display: inline-block;
@@ -84,19 +85,44 @@ const Hamburger = styled.button`
   `}
 `;
 
+const Close = styled.span`
+  right: ${props => props.theme.mobileMargin}px;
+  top: 31px;
+  position: absolute;
+  display: inline-block;
+  width: 25px;
+  height: 16px;
+  overflow: hidden;
+  border: 0;
+  text-indent: -99999px;
+
+  background: url(${closeBlackSVG}) no-repeat center center, none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  z-index: 11000;
+
+  &:hover {
+    background: url(${closeBlackSVG}) no-repeat center center, none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  ${mediaMin.tabletLandscape`
+    right: ${props => props.theme.desktopMargin}px;
+  `}
+`;
+
 const Header = ({ primaryData, pageColor }) => {
   const context = useContext(Context);
-  const { navActive, toggleMenu, isExpanded } = context;
+  const { navActive, toggleMenu, headerConfig } = context;
 
   return (
     <Location>
       {({ location }) => {
         return (
-          <HeaderContainer
-            isExpanded={isExpanded}
-            pageColor={pageColor}
-            navActive={navActive}
-          >
+          <HeaderContainer>
             <NavRow>
               <Link to="/">
                 <Logo
@@ -108,14 +134,25 @@ const Header = ({ primaryData, pageColor }) => {
                   onClick={navActive ? toggleMenu : undefined}
                 />
               </Link>
-              <Hamburger
-                isLight={
-                  location.pathname === "/contact" ||
-                  location.pathname === "broker-portal"
-                }
-                navActive={navActive}
-                onClick={toggleMenu}
-              />
+              {headerConfig.returnPath === null ? (
+                <Hamburger
+                  isLight={
+                    location.pathname === "/contact" ||
+                    location.pathname === "broker-portal"
+                  }
+                  navActive={navActive}
+                  onClick={toggleMenu}
+                />
+              ) : (
+                <Link to={headerConfig.returnPath}>
+                  <Close
+                    isLight={
+                      location.pathname === "/contact" ||
+                      location.pathname === "broker-portal"
+                    }
+                  />
+                </Link>
+              )}
             </NavRow>
             <ActiveMenu primaryData={primaryData} />
             <MainMenu

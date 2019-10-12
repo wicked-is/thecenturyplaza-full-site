@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import Context from "../../config/Context";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import {
@@ -8,7 +9,6 @@ import {
   SlideshowCaptionStyled
 } from "Gallery/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import Context from "../../config/Context";
 
 const SlideshowContainer = styled.section`
   ${SlideshowContainerStyled};
@@ -29,14 +29,24 @@ const videoElement = () => ({
   maxHeight: "calc(100vh - 160px)"
 });
 
-const SlideshowMedia = ({ media }) => {
+const SlideshowMedia = ({ media, pageColor }) => {
   const context = useContext(Context);
-  const { setHideFooter } = context;
+  const { setHideFooter, headerConfig, setHeaderConfig } = context;
 
   useEffect(() => {
     setHideFooter(true);
     return () => {
       setHideFooter(false);
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      setHeaderConfig({
+        ...headerConfig,
+        backgroundColor: "white",
+        returnPath: null
+      });
     };
   }, []);
 

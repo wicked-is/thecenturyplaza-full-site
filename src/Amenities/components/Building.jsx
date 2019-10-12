@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import Context from "../../config/Context";
 import styled from "styled-components";
 import {
   PageTitle,
@@ -61,7 +62,19 @@ const Disclaimer = styled.p`
 `;
 
 const Building = props => {
-  const { building } = props;
+  const { building, pageColor } = props;
+  const context = useContext(Context);
+  const { headerConfig, setHeaderConfig } = context;
+
+  useEffect(() => {
+    return () => {
+      setHeaderConfig({
+        ...headerConfig,
+        backgroundColor: pageColor,
+        returnPath: null
+      });
+    };
+  }, []);
 
   return (
     <Container>
