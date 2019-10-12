@@ -146,6 +146,7 @@ class App extends Component {
                     path={"gallery/" + section.slug + "/*"}
                     section={section}
                     galleryData={galleryData}
+                    pageColor={this.state.pageColor}
                   />
                 ))}
                 <Legal path="legal" setPageColor={this.setPageColor} />
@@ -155,6 +156,7 @@ class App extends Component {
                   setPageColor={this.setPageColor}
                 />
                 <Amenities
+                  pageColor={this.state.pageColor}
                   amenitiesData={amenitiesData}
                   path="amenities/*"
                   setPageColor={this.setPageColor}

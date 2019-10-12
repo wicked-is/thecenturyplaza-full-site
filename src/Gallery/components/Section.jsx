@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
+import Context from "../../config/Context";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
 import Grid from "styled-components-grid";
@@ -40,7 +41,18 @@ const videoElement = () => ({
   display: "none"
 });
 
-const Section = ({ section }) => {
+const Section = ({ section, uri }) => {
+  const context = useContext(Context);
+  const { headerConfig, setHeaderConfig } = context;
+
+  const setReturnPath = () => {
+    setHeaderConfig({
+      ...headerConfig,
+      backgroundColor: "transparent",
+      returnPath: "/gallery"
+    });
+  };
+
   return (
     <GallerySection>
       <Grid>
@@ -54,7 +66,10 @@ const Section = ({ section }) => {
             {section.media.map((media, index) => (
               <GalleryMedia key={index} type={media.type}>
                 <Fade>
-                  <Link to={"/gallery/" + section.slug + "/" + media.slug}>
+                  <Link
+                    onClick={setReturnPath}
+                    to={"/gallery/" + section.slug + "/" + media.slug}
+                  >
                     {media.type === "video" ? (
                       <React.Fragment>
                         <Placeholder>

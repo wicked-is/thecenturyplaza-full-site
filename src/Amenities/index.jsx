@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { Router } from "@reach/router";
 import styled from "styled-components";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
-import Context from "../config/Context.js";
 import BuidlingContainer from "./components/Building.jsx";
 
 const AmenitiesWrapper = styled.div`
@@ -10,13 +9,10 @@ const AmenitiesWrapper = styled.div`
 `;
 const Amenities = props => {
   const { setPageColor, amenitiesData } = props;
-  const context = useContext(Context);
-  const { setHasCaptions } = context;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <AmenitiesWrapper amenitiesData={amenitiesData}>

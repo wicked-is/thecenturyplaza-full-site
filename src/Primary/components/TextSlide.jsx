@@ -30,10 +30,13 @@ const TextSlide = ({
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
   sectionIndex, //Used For FooterCaptions
-  slideIndex //Used For FooterCaptions
+  slideIndex, //Used For FooterCaptions
+  uri //Used For Return Path
 }) => {
   const context = useContext(Context);
   const {
+    headerConfig,
+    setHeaderConfig,
     pauseScroll,
     isExisting,
     setIsExisting,
@@ -41,6 +44,14 @@ const TextSlide = ({
     currentSlideIndex,
     currentSectionIndex
   } = context;
+
+  const setReturnPath = () => {
+    setHeaderConfig({
+      ...headerConfig,
+      backgroundColor: "transparent",
+      returnPath: uri
+    });
+  };
 
   useEffect(() => {
     currentSectionIndex(sectionIndex);
@@ -73,7 +84,9 @@ const TextSlide = ({
           <SlideForward nextPath={nextPath} />
           {slide.headline.length > 0 && <h2>{parse(slide.headline)}</h2>}
           {slide.path.length > 0 && slide.cta.length > 0 && (
-            <Link to={slide.path}>{slide.cta}</Link>
+            <Link onClick={setReturnPath} to={slide.path}>
+              {slide.cta}
+            </Link>
           )}
         </SlideContainer>
       </SlideMask>

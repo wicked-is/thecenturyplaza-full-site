@@ -27,11 +27,13 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(false);
   const [hideFooter, setHideFooter] = useState(false);
-  // const [updateHeader, setUpdateHeader] = useState({
-  //   position: "fixed",
-  //   backgroundColor: white,
-  //   textColor: props => props.theme.black
-  // });
+  const [headerConfig, setHeaderConfig] = useState({
+    position: "fixed",
+    backgroundColor: "white",
+    textColor: props => props.theme.black,
+    returnPath: null,
+    menuActive: false
+  });
   // const [updateFooter, setUpdateFooter] = useState({
   //   position: "relative",
   //   backgroundColor: "transparent",
@@ -133,9 +135,9 @@ const ContextProvider = props => {
         fixedFooter,
         setFixedFooter,
         hideFooter,
-        setHideFooter
-        // updateHeader,
-        // setUpdateHeader,
+        setHideFooter,
+        headerConfig,
+        setHeaderConfig
         // updateFooter,
         // setUpdateFooter
       }}
