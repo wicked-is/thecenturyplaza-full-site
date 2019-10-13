@@ -23,7 +23,6 @@ import Legal from "Legal";
 import Accessibility from "Accessibility";
 import Amenities from "Amenities";
 import amenitiesData from "Amenities/amenitiesData.json";
-import Div100vh from "react-div-100vh";
 
 const theme = {
   breakpoints: {

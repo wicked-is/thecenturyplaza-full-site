@@ -1,5 +1,15 @@
 import { css, keyframes } from "styled-components";
 
+export const activeLine = keyframes`
+  0% { width: 0; left: 50%;}
+  100% { width: 100%; left: 0;}
+`;
+
+export const enterActiveLink = props =>
+  css`
+    ${activeLine} 0.25s ease-out forwards;
+  `;
+
 export const fadeIn = keyframes`
   0% { opacity: 0;}
   100% { opacity: 1;}

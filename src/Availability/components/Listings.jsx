@@ -77,9 +77,10 @@ const Listings = props => {
 
   const renderHeaderCell = (title, index) => {
     return (
-      <th>
+      <th key={index}>
         <a href="#" onClick={() => handleSort(title, index)}>
           {title}
+          {title === "Interior" && <span className="units">SF / SM</span>}
           {sortColumnIndex === index &&
             (sortDirection === "asc" ? <SortAscending /> : <SortDescending />)}
         </a>
