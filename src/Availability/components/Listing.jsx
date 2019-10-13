@@ -19,18 +19,48 @@ const Listing = props => {
 
   return (
     <tr>
-      <td>{listing.acf.residence}</td>
-      <td>{formatCurrency(listing.acf.list_price)}</td>
       <td>
-        {listing.acf.beds} / {listing.acf.baths}
+        <span className="mobile-label">Residence</span>
+        {listing.acf.residence}
       </td>
       <td>
-        {listing.acf.interior_square_ft} /{" "}
+        <span className="mobile-label">Listing Price</span>
+        {formatCurrency(listing.acf.list_price)}
+      </td>
+      <td>
+        <span className="mobile-group">
+          {listing.acf.beds}
+          <span className="mobile-unit">
+            Bedroom{listing.acf.beds > 1 && "s"}
+          </span>
+        </span>
+        <span className="desktop-label"> / </span>
+        <span className="mobile-group">
+          {listing.acf.baths}
+          <span className="mobile-unit">
+            Bathroom{listing.acf.baths > 1 && "s"}
+          </span>
+        </span>
+      </td>
+      <td>
+        <span className="mobile-label">Interior</span>
+        {listing.acf.interior_square_ft}
+        <span className="mobile-unit">SF</span> /{" "}
         {getSqMetersFromSqFeet(listing.acf.interior_square_ft)}
+        <span className="mobile-unit">SM</span>
       </td>
-      <td>{formatDirections(listing.acf.views)}</td>
-      <td>{formatCurrency(listing.acf.hoa_fees)}</td>
-      <td>{listing.acf.interior_palette}</td>
+      <td>
+        <span className="mobile-label">Views</span>
+        {formatDirections(listing.acf.views)}
+      </td>
+      <td>
+        <span className="mobile-label">HOA</span>
+        {formatCurrency(listing.acf.hoa_fees)}
+      </td>
+      <td>
+        <span className="mobile-label">Palette</span>
+        {listing.acf.interior_palette}
+      </td>
       <td>
         <a
           href={listing.acf.floor_plan}

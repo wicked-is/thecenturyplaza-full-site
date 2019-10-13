@@ -1,9 +1,76 @@
 import { css } from "styled-components";
 import { Wrapper } from "../styled-components/Layouts.js";
 import {
+  enterActiveLink,
   enterFromBottomText,
   enterFadeIn
-} from "shared/styled-components/Transitions.js";
+} from "../styled-components/Transitions.js";
+import { mediaMin } from "../styled-components/MediaQueries.js";
+
+export const ActiveMenuContainerStyled = css`
+  display: none;
+
+  ${mediaMin.tabletLandscape`
+    display: inline-block;
+    width: 121%;
+    height: auto;
+    text-align: center;
+    top: 15px;
+    position: absolute;
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+    opacity: ${props => (props.isExpanded ? "0" : "1")};
+
+    li {
+      display: inline-block;
+      margin: 0 15px;
+
+      a {
+        position: relative;
+        color: ${props => props.theme.black};
+        text-decoration: none;
+        padding: 0 0 5px;
+        font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.35em;
+        letter-spacing: 0.056em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: antialiased;
+    
+
+        &::after {
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            right: 0;
+            display: inline-block;
+            content: "";
+            width: 0;
+            height: 1px;
+            background: ${props => props.theme.black};
+          }
+
+        &.active {
+          &::after {
+            width: 100%;
+            left: 0;
+          }
+        }
+
+        &:hover:not(.active)  {
+          &::after {
+            animation: ${enterActiveLink};
+          }
+        }
+      }
+    }
+  `}
+
+  ${mediaMin.desktopSmall`
+    width: 100%;
+  `}
+`;
 
 export const MenuWrapper = css`
   ${Wrapper}

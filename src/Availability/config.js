@@ -9,10 +9,10 @@ export const headers = type => ({
   Residence: ["acf", "residence"],
   "List Price": ["acf", "list_price"],
   "Bed / Bath": ["acf", "beds"],
-  "Interior SF / SM": ["acf", "interior_square_ft"],
+  Interior: ["acf", "interior_square_ft"],
   Views: ["acf", "views"],
   HOA: ["acf", "hoa_fees"],
-  "Interior Palette": ["acf", "interior_palette"],
+  Palette: ["acf", "interior_palette"],
   "Floor Plan": ["acf", "floor_plan"]
 });
 
