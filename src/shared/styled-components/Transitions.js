@@ -31,7 +31,7 @@ export const enterFromSwipe = props =>
   `;
 
 export const fromCenter = keyframes`
-  0% { opacity: 0; transform: scale(1.1);}
+  0% { opacity: 0; transform: scale(1.25);}
   100% { opacity: 1; transform: scale(1);}
 `;
 

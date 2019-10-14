@@ -32,7 +32,8 @@ export const SlideMaskStyled = css`
   }
 
 
-  &::before {
+  ${
+    "" /* &::before {
     display: ${props => {
       if (props.isFirstSlide && !props.isFirstSection) return "inline-block";
       if (props.isFirstSlide && props.isFirstSection && props.firstShouldSwipe)
@@ -53,6 +54,7 @@ export const SlideMaskStyled = css`
         return enterFromSwipe;
     }};
     will-change: right;
+  } */
   }
 `;
 
@@ -128,7 +130,7 @@ export const PlayerContainerStyled = css`
   overflow: hidden;
   position: relative;
   opacity: 0;
-  transform: ${props => props.firstSectionSlide && "scale(1.1)"};
+  transform: ${props => props.firstSectionSlide && "scale(1.25)"};
   animation: ${props =>
     !props.firstSectionSlide ? enterFadeIn : enterFromCenter};
   will-change: ${props =>
