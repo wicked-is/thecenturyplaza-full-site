@@ -20,9 +20,18 @@ export const enterFadeIn = props =>
     ${fadeIn} 0.5s ease-out 0.4s forwards;
   `;
 
+export const fromSwipe = keyframes`
+  0% { right: 0; }
+  100% { right: 100vw;}
+`;
+
+export const enterFromSwipe = props =>
+  css`
+    ${fromSwipe} 1s ease-out 0.4s forwards;
+  `;
+
 export const fromCenter = keyframes`
-  0% { opacity: 0; transform: scale(.9);}
-  75% { opacity: 1;}
+  0% { opacity: 0; transform: scale(1.1);}
   100% { opacity: 1; transform: scale(1);}
 `;
 
@@ -33,7 +42,6 @@ export const enterFromCenter = props =>
 
 export const fromBottomText = keyframes`
   0% { opacity: 0; transform: translate3d(0, 3em, 0);}
-  75% { opacity: 1;}
   100% { opacity: 1; transform: translate3d(0, 0, 0);}
 `;
 

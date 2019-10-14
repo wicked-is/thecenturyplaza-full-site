@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import VideoSlide from "Primary/components/VideoSlide.jsx";
 import SplitSlide from "Primary/components/SplitSlide.jsx";
 import ImageSlide from "Primary/components/ImageSlide.jsx";
+import CrossFadeSlide from "Primary/components/CrossFadeSlide.jsx";
 import TextSlide from "Primary/components/TextSlide.jsx";
 import PanoramaSlide from "Primary/components/PanoramaSlide.jsx";
 
@@ -76,22 +77,22 @@ const Section = ({
     // True or False for when a Crossfire should occur directionally
     // doesnt work for image slides that are first or last of their section without checking for null section values
 
-    let scrollUpCrossFade;
-    if (index !== 0 && section.slides[index - 1].type === "image") {
-      scrollUpCrossFade = true;
-    } else {
-      scrollUpCrossFade = false;
-    }
+    // let scrollUpCrossFade;
+    // if (index !== 0 && section.slides[index - 1].type === "image") {
+    //   scrollUpCrossFade = true;
+    // } else {
+    //   scrollUpCrossFade = false;
+    // }
 
-    let scrollDownCrossFade;
-    if (
-      index !== section.slides.length - 1 &&
-      section.slides[index + 1].type === "image"
-    ) {
-      scrollDownCrossFade = true;
-    } else {
-      scrollDownCrossFade = false;
-    }
+    // let scrollDownCrossFade;
+    // if (
+    //   index !== section.slides.length - 1 &&
+    //   section.slides[index + 1].type === "image"
+    // ) {
+    //   scrollDownCrossFade = true;
+    // } else {
+    //   scrollDownCrossFade = false;
+    // }
 
     if (slide.type === "video") {
       return (
@@ -111,8 +112,6 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          scrollUpCrossFade={scrollUpCrossFade}
-          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -132,8 +131,25 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          scrollUpCrossFade={scrollUpCrossFade}
-          scrollDownCrossFade={scrollDownCrossFade}
+          sectionIndex={sectionIndex}
+          slideIndex={index}
+        />
+      );
+    } else if (slide.type === "crossfade") {
+      return (
+        <CrossFadeSlide
+          isFirstSection={isFirstSection}
+          isFirstSlide={index === 0 && true}
+          default={index === 0 && true}
+          key={index}
+          slide={slide}
+          path={slide.slug}
+          nextPath={nextPath}
+          previousPath={previousPath}
+          firstSlide={firstSlide}
+          firstSectionSlide={firstSectionSlide}
+          lastSlide={lastSlide}
+          lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -153,8 +169,6 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          scrollUpCrossFade={scrollUpCrossFade}
-          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -174,8 +188,6 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          scrollUpCrossFade={scrollUpCrossFade}
-          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -195,8 +207,6 @@ const Section = ({
           firstSectionSlide={firstSectionSlide}
           lastSlide={lastSlide}
           lastSectionSlide={lastSectionSlide}
-          scrollUpCrossFade={scrollUpCrossFade}
-          scrollDownCrossFade={scrollDownCrossFade}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />

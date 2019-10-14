@@ -1,6 +1,7 @@
 import { css } from "styled-components";
 import {
   enterFadeIn,
+  enterFromSwipe,
   enterFromBottomText,
   enterFromBottomImage,
   enterFromCenter
@@ -11,65 +12,48 @@ export const SlideMaskStyled = css`
   position: absolute;
   top: 0;
   left: 0;
-  width: ${props => (props.isExisting && props.isFirstSlide ? "0" : "100vw")};
+  width: 100vw;
   ${
-    "" /* opacity: ${props => {
-    if (
-      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingUp
-    )
-      return "0"; // First CrossFade & Existing Top
-    if (
-      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingDown
-    )
-      return "1"; // First CrossFade & Existing Down
-    if (
-      props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingUp
-    )
-      return "1"; // Middle CrossFade & Existing Top
-    if (
-      props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingDown
-    )
-      return "1"; // Middle CrossFade & Existing TDown
-    if (
-      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingUp
-    )
-      return "1"; // Last CrossFade & Existing Top
-    if (
-      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      props.isExisting &&
-      props.isCrossFadingDown
-    )
-      return "0"; // Last CrossFade & Existing Down
-
-    if (
-      !props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      !props.isExisting
-    )
-      return "1"; // Not CrossFade & Not Existing
-    if (
-      !props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      props.isExisting
-    )
-      return "0"; // Not CrossFade & Exist
+    "" /* width: ${props => {
+    if (props.isFirstSlide && !props.isFirstSection) return "0";
+    if (props.isFirstSlide && props.isFirstSection && props.firstShouldSwipe)
+      return "0";
+    return "100vw";
   }}; */
   }
-
-  opacity: ${props => {
-    if (props.isExisting && !props.isFirstSlide) return "0";
-    return "1";
-  }};
+  opacity: ${props => (props.isExisting ? "0" : "1")};
   overflow: hidden;
-  transition: opacity 0.5s ease-in, width 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  ${
+    "" /* animation: ${props => {
+    if (props.isFirstSlide && !props.isFirstSection) return enterFromSwipe;
+    if (props.isFirstSlide && props.isFirstSection && props.firstShouldSwipe)
+      return enterFromSwipe; */
+  }
+
+
+  &::before {
+    display: ${props => {
+      if (props.isFirstSlide && !props.isFirstSection) return "inline-block";
+      if (props.isFirstSlide && props.isFirstSection && props.firstShouldSwipe)
+        return "inline-block";
+      return "none";
+    }};
+    content: "";
+    position: absolute;
+    width: 100vw;
+    z-index: 9999;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: white;
+    animation: ${props => {
+      if (props.isFirstSlide && !props.isFirstSection) return enterFromSwipe;
+      if (props.isFirstSlide && props.isFirstSection && props.firstShouldSwipe)
+        return enterFromSwipe;
+    }};
+    will-change: right;
+  }
 `;
 
 export const SlideContainerStyled = css`
@@ -254,7 +238,6 @@ export const CrossFadeStyled = css`
   animation: ${enterFadeIn};
   will-change: opacity;
 
-
   ${mediaMin.tablet`
     max-width: calc(
       90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
@@ -270,82 +253,28 @@ export const CrossFadeStyled = css`
     );
   `}
 
-  ${
-    "" /* opacity: ${props => {
-    if (
-      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return "0"; // First CrossFade & Entering from Previous
-    if (
-      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return "0"; // Last CrossFade & Entering from Previous
-  }}; */
+  > div {
+    &:nth-child(1) {
+      position: relative;
+      display: inline-block;
+      opacity: 1;
+      z-index: 300;
+    }
+
+    &:nth-child(2) {
+      position: absolute;
+      display: none;
+      opacity: 0;
+      z-index: 200;
+    }
+
+    &:nth-child(3) {
+      position: absolute;
+      display: none;
+      opacity: 0;
+      z-index: 100;
+    }
   }
-
-
-  ${
-    "" /* animation: ${props => {
-    if (
-      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return enterFromBottomImage; // First CrossFade & Entering from Previous
-    if (
-      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return enterFromBottomImage; // Last CrossFade & Entering from Previous
-  }};
-
-  will-change: ${props => {
-    if (
-      !props.scrollUpCrossFade & props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return "transform, opacity"; // First CrossFade & Entering from Previous
-    if (
-      props.scrollUpCrossFade & !props.scrollDownCrossFade &&
-      !props.isExisting &&
-      !props.isCrossFadingUp &&
-      !props.isCrossFadingDown
-    )
-      return "transform, opacity"; // Last CrossFade & Entering from Previous
-  }}; */
-  }
-`;
-
-export const CrossFadeCurrentStyled = css`
-  position: relative;
-  display: inline-block;
-  opacity: 1;
-  z-index: 300;
-`;
-
-export const CrossFadePreviousStyled = css`
-  position: absolute;
-  display: none;
-  opacity: 0;
-  z-index: 100;
-`;
-
-export const CrossFadeNextStyled = css`
-  position: absolute;
-  display: none;
-  opacity: 0;
-  z-index: 200;
 `;
 
 export const SplitSlideContainerStyled = css`

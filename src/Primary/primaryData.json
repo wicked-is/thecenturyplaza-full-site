@@ -7,7 +7,9 @@
         "type": "video",
         "slug": "intro",
         "headline": "",
-        "caption": "Century Plaza. Be at the center of it all. Hotel, Dining, Shopping, and Estate Residences.",
+        "caption": [
+          "Century Plaza. Be at the center of it all. Hotel, Dining, Shopping, and Estate Residences."
+        ],
         "source": ["https://vimeo.com/362866671/0408c356f7"],
         "placeholder": "0408c356f7",
         "delay": "16000",
@@ -19,7 +21,9 @@
         "type": "split",
         "slug": "project",
         "headline": "Century Plaza is the premier destination for shopping, dining, entertainment, hospitality and luxury living <em>in Los Angeles.</em>",
-        "caption": "Imagine living at Century Plaza where the heart of the city is at your beck and call.",
+        "caption": [
+          "Imagine living at Century Plaza where the heart of the city is at your beck and call."
+        ],
         "source": ["project"],
         "placeholder": "",
         "delay": "",
@@ -31,7 +35,9 @@
         "type": "video",
         "slug": "retail",
         "headline": "",
-        "caption": "Expansive plazas and gardens with an iconic sculpture by Jaume Plensa are surrounded by world-class shopping and dining.",
+        "caption": [
+          "Expansive plazas and gardens with an iconic sculpture by Jaume Plensa are surrounded by world-class shopping and dining."
+        ],
         "source": ["https://vimeo.com/362866711/6e78197afc"],
         "placeholder": "6e78197afc",
         "delay": "",
@@ -43,7 +49,7 @@
         "type": "text",
         "slug": "location",
         "headline": "For the first time in the city’s history, residents can live at the intersection of arts, entertainment and culture. Moments from Beverly Hills and Rodeo Drive, lush gardens weave together Century Plaza’s curated shops and restaurants seamlessly connecting it to Westfield Century City Mall. <em>Welcome to the new, modern, walkable Los Angeles.</em>",
-        "caption": "",
+        "caption": [""],
         "source": [""],
         "placeholder": "",
         "delay": "",
@@ -61,7 +67,9 @@
         "type": "video",
         "slug": "arrival",
         "headline": "",
-        "caption": "Since 1966, The Century Plaza Hotel has been hailed as an internationally preeminent destination known for its design and service.",
+        "caption": [
+          "Since 1966, The Century Plaza Hotel has been hailed as an internationally preeminent destination known for its design and service."
+        ],
         "source": ["https://vimeo.com/362866735/e562c25475"],
         "placeholder": "e562c25475",
         "delay": "",
@@ -73,7 +81,9 @@
         "type": "split",
         "slug": "history",
         "headline": "The Fairmont Century Plaza Hotel, with its storied past, has been reinvisioned for the 21st-century with <em>unrivaled services and amenities.</em>",
-        "caption": "Frequented by celebrities, foreign dignitaries and presidents, the Century Plaza Hotel remains a Hollywood icon.",
+        "caption": [
+          "Frequented by celebrities, foreign dignitaries and presidents, the Century Plaza Hotel remains a Hollywood icon."
+        ],
         "source": [
           "history-emmys",
           "history-john-lennon-and-mick-jagger-by-ron-galella",
@@ -90,7 +100,9 @@
         "type": "video",
         "slug": "lobby",
         "headline": "",
-        "caption": "The visionary open-air lobby will be Los Angeles' place to see and be seen for business, entertainment and leisure.",
+        "caption": [
+          "The visionary open-air lobby will be Los Angeles' place to see and be seen for business, entertainment and leisure."
+        ],
         "source": ["https://vimeo.com/362866754/d4b236dfaf"],
         "placeholder": "d4b236dfaf",
         "delay": "",
@@ -99,35 +111,15 @@
         "cta": ""
       },
       {
-        "type": "image",
-        "slug": "ballroom-arrival",
+        "type": "crossfade",
+        "slug": "events",
         "headline": "",
-        "caption": "The Fairmont Century Plaza hotel has full valet service at the lobby arrival and direct ballroom access making your stay or visit truly effortless.",
-        "source": ["ballroom-arrival"],
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "path": "",
-        "cta": ""
-      },
-      {
-        "type": "image",
-        "slug": "ballroom",
-        "headline": "",
-        "caption": "The state-of-the-art red-carpet-ready ballroom at Fairmont Century Plaza is the epitome of Hollywood glamour.",
-        "source": ["ballroom"],
-        "placeholder": "",
-        "delay": "",
-        "inverted": "",
-        "path": "",
-        "cta": ""
-      },
-      {
-        "type": "image",
-        "slug": "junior-ballroom",
-        "headline": "",
-        "caption": "This text is TBD until we get the square footage information for this and the main ballroom.",
-        "source": ["junior-ballroom"],
+        "caption": [
+          "The Fairmont Century Plaza hotel has full valet service at the lobby arrival and direct ballroom access making your stay or visit truly effortless.",
+          "The state-of-the-art red-carpet-ready ballroom at Fairmont Century Plaza is the epitome of Hollywood glamour.",
+          "This text is TBD until we get the square footage information for this and the main ballroom."
+        ],
+        "source": ["ballroom-arrival", "ballroom", "junior-ballroom"],
         "placeholder": "",
         "delay": "",
         "inverted": "",
@@ -144,7 +136,9 @@
         "type": "video",
         "slug": "interiors",
         "headline": "",
-        "caption": "The Fairmont Century Plaza Residences provide luxury full service living with access to all the amenities of a 5-star hotel.",
+        "caption": [
+          "The Fairmont Century Plaza Residences provide luxury full service living with access to all the amenities of a 5-star hotel."
+        ],
         "source": ["https://vimeo.com/362866782/ed783c5836"],
         "placeholder": "ed783c5836",
         "delay": "",
@@ -156,7 +150,7 @@
         "type": "text",
         "slug": "design",
         "headline": "The Fairmont Century Plaza Hotel Residences feature 63 single-story and townhouse homes designed by Yabu Pushelberg as well as <em>Fairmont concierge living with 24-hour valet and security.</em>",
-        "caption": "",
+        "caption": [""],
         "source": [""],
         "placeholder": "",
         "delay": "",
@@ -168,7 +162,9 @@
         "type": "video",
         "slug": "amenities",
         "headline": "",
-        "caption": "Fairmont residents will enjoy access to the hotel's rooftop pool, spa, and a complimentary AccorHotel Platinum Level membership.",
+        "caption": [
+          "Fairmont residents will enjoy access to the hotel's rooftop pool, spa, and a complimentary AccorHotel Platinum Level membership."
+        ],
         "source": ["https://vimeo.com/362866803/3ef23a0758"],
         "placeholder": "3ef23a0758",
         "delay": "",
@@ -180,7 +176,9 @@
         "type": "image",
         "slug": "benefits",
         "headline": "",
-        "caption": "Private amenities include a resident-only lobby, concierge floor and library lounge.",
+        "caption": [
+          "Private amenities include a resident-only lobby, concierge floor and library lounge."
+        ],
         "source": ["benefits"],
         "placeholder": "",
         "delay": "",
@@ -198,7 +196,9 @@
         "type": "video",
         "slug": "arrival",
         "headline": "",
-        "caption": "The Tower Residences at Century Plaza offer residents panoramic views stretching from the Hollywood hills to the Pacific Ocean.",
+        "caption": [
+          "The Tower Residences at Century Plaza offer residents panoramic views stretching from the Hollywood hills to the Pacific Ocean."
+        ],
         "source": ["https://vimeo.com/362866829/2b2bda4bf0"],
         "placeholder": "2b2bda4bf0",
         "delay": "",
@@ -210,7 +210,7 @@
         "type": "text",
         "slug": "building",
         "headline": "The Tower Residences at Century Plaza redefine luxury living in Los Angeles. An elegant gated estate arrival where valet and concierge staff welcome you at the grand lobby with <em>full-service valet and concierge staff to rival any world-class hotel.</em>",
-        "caption": "",
+        "caption": [""],
         "source": [""],
         "placeholder": "",
         "delay": "",
@@ -222,7 +222,9 @@
         "type": "video",
         "slug": "amenities",
         "headline": "",
-        "caption": "The tower amenities are abundant, with carefully considered spaces that cater to residents’ every need— both inside and outside.",
+        "caption": [
+          "The tower amenities are abundant, with carefully considered spaces that cater to residents’ every need— both inside and outside."
+        ],
         "source": ["https://vimeo.com/362866857/a1228218f1"],
         "placeholder": "a1228218f1",
         "delay": "",
@@ -234,7 +236,7 @@
         "type": "text",
         "slug": "design",
         "headline": "Internationally renowned architects Pei Cobb Freed & Partners bring masterfully designed residences to the LA Skyline. Rising 44-stories above the city, floor-to-ceiling windows, glass-lined terraces, and column-free interiors <em>afford residents panoramic views stretching to the shores of the Pacific.</em>",
-        "caption": "",
+        "caption": [""],
         "source": [""],
         "placeholder": "",
         "delay": "",
@@ -246,7 +248,9 @@
         "type": "video",
         "slug": "interiors",
         "headline": "",
-        "caption": "Gracious private residences feature the finest quality finishes, embracing sophisticated, elevated living.",
+        "caption": [
+          "Gracious private residences feature the finest quality finishes, embracing sophisticated, elevated living."
+        ],
         "source": ["https://vimeo.com/362866875/d31c9f5698"],
         "placeholder": "d31c9f5698",
         "delay": "",
@@ -258,7 +262,9 @@
         "type": "panorama",
         "slug": "views",
         "headline": "",
-        "caption": "Panoramic views from the Tower Residences at Century Plaza.",
+        "caption": [
+          "Panoramic views from the Tower Residences at Century Plaza."
+        ],
         "source": ["../../imgs/panorama/pano_10000.jpg"],
         "placeholder": "d31c9f5698",
         "delay": "",
