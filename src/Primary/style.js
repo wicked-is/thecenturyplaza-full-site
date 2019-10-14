@@ -128,7 +128,7 @@ export const PlayerContainerStyled = css`
   overflow: hidden;
   position: relative;
   opacity: 0;
-  transform: ${props => props.firstSectionSlide && "scale(.9)"};
+  transform: ${props => props.firstSectionSlide && "scale(1.1)"};
   animation: ${props =>
     !props.firstSectionSlide ? enterFadeIn : enterFromCenter};
   will-change: ${props =>
