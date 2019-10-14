@@ -110,7 +110,7 @@
     "url": ""
   },
   {
-    "span": [5, 0],
+    "span": [3, 0],
     "valign": "flex-start",
     "source": [""],
     "caption": "",
@@ -120,7 +120,7 @@
     "url": ""
   },
   {
-    "span": [5, 3],
+    "span": [7, 3],
     "valign": "flex-start",
     "source": ["the-row-melrose"],
     "caption": "The Row Boutique",
@@ -170,7 +170,7 @@
     "url": ""
   },
   {
-    "span": [5, 0],
+    "span": [3, 0],
     "valign": "flex-start",
     "source": [""],
     "caption": "",
@@ -180,7 +180,7 @@
     "url": ""
   },
   {
-    "span": [5, 3],
+    "span": [7, 3],
     "valign": "flex-start",
     "source": ["spago-beverly-hills-dish"],
     "caption": "Spago, Beverly Hills",
@@ -353,7 +353,7 @@
     "url": ""
   },
   {
-    "span": [5, 5],
+    "span": [7, 5],
     "valign": "flex-start",
     "source": ["westfield-century-city-mall-randys-donuts"],
     "caption": "",
@@ -373,7 +373,7 @@
     "url": ""
   },
   {
-    "span": [5, 3],
+    "span": [7, 3],
     "valign": "flex-start",
     "source": ["westfield-century-city-mall-macys"],
     "caption": "",

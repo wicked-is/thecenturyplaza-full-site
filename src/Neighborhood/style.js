@@ -6,12 +6,13 @@ import { fadeIn } from "../shared/styled-components/Transitions.js";
 export const WrapperStyled = css`
   ${Wrapper}
   flex-wrap: wrap;
+  padding-bottom: 0;
 `;
 
 export const HeaderStyled = css`
   ${Container}
   width: 100%;
-  height: 40vh;
+  height: 38vh;
   margin: 0 0 9vw;
   position: relative;
   opacity: 0;
@@ -26,8 +27,9 @@ export const HeaderStyled = css`
 
   img {
     width: 100%;
-    height: 40vh;
+    height: 38vh;
     object-fit: cover;
+    object-position: 100% 50%;
 
     ${mediaMin.tabletLandscape` 
       width: 100%;
@@ -61,10 +63,12 @@ export const ItemStyled = css`
 
 export const PairedStyled = css`
   display: flex;
+  align-items: flex-start;
 
   img {
     width: calc(50% - ${props => props.theme.mobileGutter / 2}px);
     float: left;
+    height: auto;
     margin-right: ${props => props.theme.mobileGutter / 2}px;
 
     ${mediaMin.tabletLandscape` 
@@ -99,7 +103,7 @@ export const ItemHeadlineStyled = css`
   text-transform: uppercase;
   font-family: ${props => props.theme.sansSerifMedium}, sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.32em;
   letter-spacing: 0.2em;
   -webkit-font-smoothing: antialiased;
@@ -109,13 +113,18 @@ export const ItemHeadlineStyled = css`
 export const ItemCopyStyled = css`
   font-family: ${props => props.theme.sansSerifLight}, sans-serif;
   font-weight: 300;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1.32em;
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
   margin: 0;
+
+  ${mediaMin.tablet` 
+    font-size: 22px;
+  `}
 `;
+
 export const ItemCTAStyled = css`
   margin: 40px 0 0 0;
 
