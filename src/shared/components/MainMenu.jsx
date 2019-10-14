@@ -175,7 +175,7 @@ const DownloadsLinks = styled.ul`
 const MainMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive, toggleMenu, isExpanded } = context;
+  const { navActive, toggleMenu } = context;
 
   return (
     <>

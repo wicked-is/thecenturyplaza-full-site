@@ -123,7 +123,6 @@ class App extends Component {
                 <Team
                   teamData={teamData}
                   path="team/*"
-                  isExpanded={this.state.isExpanded}
                   toggleExpand={this.toggleExpand}
                   setPageColor={this.setPageColor}
                 />

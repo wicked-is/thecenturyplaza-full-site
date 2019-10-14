@@ -27,18 +27,11 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(false);
   const [hideFooter, setHideFooter] = useState(false);
-  const [headerConfig, setHeaderConfig] = useState({
-    position: "fixed",
-    backgroundColor: "white",
-    textColor: props => props.theme.black,
+  const [globalConfig, setGlobalConfig] = useState({
+    firstLocation: window.location.pathname,
     returnPath: null,
-    menuActive: false
+    headerBackground: "white"
   });
-  // const [updateFooter, setUpdateFooter] = useState({
-  //   position: "relative",
-  //   backgroundColor: "transparent",
-  //   textColor: props => props.theme.black
-  // });
 
   const scrollCooldown = () => {
     setPauseScroll(true);
@@ -136,10 +129,8 @@ const ContextProvider = props => {
         setFixedFooter,
         hideFooter,
         setHideFooter,
-        headerConfig,
-        setHeaderConfig
-        // updateFooter,
-        // setUpdateFooter
+        globalConfig,
+        setGlobalConfig
       }}
     >
       {props.children}

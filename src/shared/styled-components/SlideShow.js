@@ -5,7 +5,6 @@ import {
   slideThree,
   slideFour
 } from "shared/styled-components/Transitions.js";
-import { mediaMin } from "./MediaQueries.js";
 
 export const SlideShow = css`
   display: flex;

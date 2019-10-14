@@ -17,7 +17,7 @@ export const fadeIn = keyframes`
 
 export const enterFadeIn = props =>
   css`
-    ${fadeIn} 0.5s ease-out 0.65s forwards;
+    ${fadeIn} 0.5s ease-out 0.4s forwards;
   `;
 
 export const fromCenter = keyframes`
@@ -28,7 +28,7 @@ export const fromCenter = keyframes`
 
 export const enterFromCenter = props =>
   css`
-    ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.65s forwards;
+    ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.4s forwards;
   `;
 
 export const fromBottomText = keyframes`
@@ -39,7 +39,7 @@ export const fromBottomText = keyframes`
 
 export const enterFromBottomText = props =>
   css`
-    ${fromBottomText} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.65s forwards;
+    ${fromBottomText} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.4s forwards;
   `;
 
 export const fromBottomImage = keyframes`
@@ -50,7 +50,7 @@ export const fromBottomImage = keyframes`
 
 export const enterFromBottomImage = props =>
   css`
-    ${fromBottomImage} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.65s forwards;
+    ${fromBottomImage} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.4s forwards;
   `;
 
 // Transition Archive

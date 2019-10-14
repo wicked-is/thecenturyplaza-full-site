@@ -35,8 +35,8 @@ const TextSlide = ({
 }) => {
   const context = useContext(Context);
   const {
-    headerConfig,
-    setHeaderConfig,
+    globalConfig,
+    setGlobalConfig,
     pauseScroll,
     isExisting,
     setIsExisting,
@@ -46,9 +46,9 @@ const TextSlide = ({
   } = context;
 
   const setReturnPath = () => {
-    setHeaderConfig({
-      ...headerConfig,
-      backgroundColor: "transparent",
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "transparent",
       returnPath: uri
     });
   };
@@ -62,7 +62,7 @@ const TextSlide = ({
     return () => {
       setIsExisting(false);
     };
-  }, []);
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler

@@ -18,8 +18,7 @@ export const ActiveMenuContainerStyled = css`
     top: 15px;
     position: absolute;
     padding: 0;
-    transition: opacity 0.5s ease-in-out;
-    opacity: ${props => (props.isExpanded ? "0" : "1")};
+    opacity: 1;
 
     li {
       display: inline-block;

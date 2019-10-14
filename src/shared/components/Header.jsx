@@ -116,7 +116,7 @@ const Close = styled.span`
 
 const Header = ({ primaryData, pageColor }) => {
   const context = useContext(Context);
-  const { navActive, toggleMenu, headerConfig } = context;
+  const { navActive, toggleMenu, globalConfig } = context;
 
   return (
     <Location>
@@ -134,7 +134,7 @@ const Header = ({ primaryData, pageColor }) => {
                   onClick={navActive ? toggleMenu : undefined}
                 />
               </Link>
-              {headerConfig.returnPath === null ? (
+              {globalConfig.returnPath === null ? (
                 <Hamburger
                   isLight={
                     location.pathname === "/contact" ||
@@ -144,7 +144,7 @@ const Header = ({ primaryData, pageColor }) => {
                   onClick={toggleMenu}
                 />
               ) : (
-                <Link to={headerConfig.returnPath}>
+                <Link to={globalConfig.returnPath}>
                   <Close
                     isLight={
                       location.pathname === "/contact" ||

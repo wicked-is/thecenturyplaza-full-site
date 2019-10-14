@@ -2,7 +2,7 @@ import React from "react";
 import { directions } from "../config";
 
 const Listing = props => {
-  const { listing, path } = props;
+  const { listing } = props;
 
   const getSqMetersFromSqFeet = sqFeet => Math.round(sqFeet / 10.764);
 

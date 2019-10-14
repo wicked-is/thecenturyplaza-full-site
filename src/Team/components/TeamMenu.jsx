@@ -12,7 +12,7 @@ const TeamMembers = styled.ul`
 // };
 
 const TeamMenu = props => {
-  const { isExpanded, teamData } = props;
+  const { teamData } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -44,7 +44,7 @@ const TeamMenu = props => {
   return (
     <div>
       <nav>
-        <TeamMembers isExpanded={isExpanded} isOpen={isOpen}>
+        <TeamMembers isOpen={isOpen}>
           {teamData.map((member, index) => (
             <TeamMember key={index} to={"/team/" + member.slug}>
               {member.title}

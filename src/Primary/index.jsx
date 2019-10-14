@@ -38,7 +38,7 @@ const Primary = props => {
       setHasCaptions(false);
       window.onresize = null;
     };
-  }, []);
+  }, [setFixedFooter, setHasCaptions, setPageColor]);
 
   return (
     <PrimaryWrapper isExpanded={isExpanded}>
