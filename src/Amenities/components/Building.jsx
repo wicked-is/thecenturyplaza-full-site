@@ -62,19 +62,18 @@ const Disclaimer = styled.p`
 `;
 
 const Building = props => {
-  const { building, pageColor } = props;
+  const { building } = props;
   const context = useContext(Context);
-  const { headerConfig, setHeaderConfig } = context;
+  const { globalConfig, setGlobalConfig } = context;
 
   useEffect(() => {
     return () => {
-      setHeaderConfig({
-        ...headerConfig,
-        backgroundColor: pageColor,
+      setGlobalConfig({
+        ...globalConfig,
         returnPath: null
       });
     };
-  }, []);
+  }, [globalConfig, setGlobalConfig]);
 
   return (
     <Container>

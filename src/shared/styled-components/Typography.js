@@ -28,9 +28,9 @@ export const PageHeader = css`
     props.navActive ? "100%" : props.theme.headerHeight + "px"};
   min-height: ${props => (props.navActive ? "100vh" : "80px")};
   background: ${props =>
-    props.headerConfig.returnPath === null
+    props.globalConfig.returnPath === null
       ? props.pageColor
-      : props.headerConfig.backgroundColor};
+      : props.globalConfig.headerBackground};
   z-index: 10000;
   transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
   transform: translateY(

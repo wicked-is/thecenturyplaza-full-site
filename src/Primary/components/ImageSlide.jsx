@@ -49,15 +49,12 @@ const ImageSlide = ({
   slide, // Object
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  isExpanded, //Check for Expansion
   firstSlide, // Refactor
   firstSectionSlide, //Refactor
   lastSlide, //Refactor
   lastSectionSlide, //Refactor
   isFirstSection, //Refactor
   isFirstSlide, //Refactor
-  toggleExpand, //Toggle Expansion
-  closeExpand, //Force Close Expansion
   scrollUpCrossFade, //Back to Back Images
   scrollDownCrossFade, //Back to Back Images
   sectionIndex, //Used For FooterCaptions
@@ -84,7 +81,7 @@ const ImageSlide = ({
     return () => {
       setIsExisting(false);
     };
-  }, []);
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler

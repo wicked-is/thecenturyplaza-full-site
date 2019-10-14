@@ -13,7 +13,7 @@ const TeamContainer = styled.div`
   ${ContainerStyled};
 `;
 
-const Team = ({ isExpanded, teamData, setPageColor, toggleExpand }) => {
+const Team = ({ teamData, setPageColor }) => {
   const context = useContext(Context);
   const { setHasCaptions } = context;
 
@@ -23,15 +23,13 @@ const Team = ({ isExpanded, teamData, setPageColor, toggleExpand }) => {
   }, [setPageColor, setHasCaptions]);
 
   return (
-    <TeamWrapper isExpanded={isExpanded}>
+    <TeamWrapper>
       <TeamContainer>
         <Router primary={false}>
           {teamData.map((member, index) => (
             <Member
               teamData={teamData}
               default={index === 0 && true}
-              isExpanded={isExpanded}
-              toggleExpand={toggleExpand}
               key={index}
               path={member.slug}
               member={member}

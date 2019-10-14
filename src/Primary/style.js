@@ -11,7 +11,7 @@ export const SlideMaskStyled = css`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: ${props => (props.isExisting && props.isFirstSlide ? "0" : "100vw")};
   ${
     "" /* opacity: ${props => {
     if (
@@ -66,7 +66,7 @@ export const SlideMaskStyled = css`
 
   opacity: ${props => (props.isExisting ? "0" : "1")};
   overflow: hidden;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in, width 0.5s ease-in;
 `;
 
 export const SlideContainerStyled = css`

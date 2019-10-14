@@ -69,6 +69,7 @@ const VideoSlide = ({
 }) => {
   const context = useContext(Context);
   const {
+    globalConfig,
     pauseScroll,
     isExisting,
     setIsExisting,
@@ -95,11 +96,16 @@ const VideoSlide = ({
   };
 
   useEffect(() => {
-    if (isFirstSection && isFirstSlide && !hasPlayed) {
+    if (
+      isFirstSection &&
+      isFirstSlide &&
+      !hasPlayed &&
+      globalConfig.firstLocation === window.location.pathname
+    ) {
       startTimer();
       markPlayed();
     }
-  }, [markPlayed]);
+  });
 
   useEffect(() => {
     currentSectionIndex(sectionIndex);
@@ -110,7 +116,7 @@ const VideoSlide = ({
     return () => {
       setIsExisting(false);
     };
-  }, []);
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler
@@ -139,6 +145,7 @@ const VideoSlide = ({
         lastSectionSlide={lastSectionSlide}
         lastSlide={lastSlide}
         isExisting={isExisting}
+        isFirstSlide={isFirstSlide}
       >
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />

@@ -43,12 +43,12 @@ const videoElement = () => ({
 
 const Section = ({ section, uri }) => {
   const context = useContext(Context);
-  const { headerConfig, setHeaderConfig } = context;
+  const { globalConfig, setGlobalConfig } = context;
 
   const setReturnPath = () => {
-    setHeaderConfig({
-      ...headerConfig,
-      backgroundColor: "transparent",
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "transparent",
       returnPath: "/gallery"
     });
   };

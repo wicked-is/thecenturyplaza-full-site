@@ -29,26 +29,25 @@ const videoElement = () => ({
   maxHeight: "calc(100vh - 160px)"
 });
 
-const SlideshowMedia = ({ media, pageColor }) => {
+const SlideshowMedia = ({ media }) => {
   const context = useContext(Context);
-  const { setHideFooter, headerConfig, setHeaderConfig } = context;
+  const { setHideFooter, globalConfig, setGlobalConfig } = context;
 
   useEffect(() => {
     setHideFooter(true);
     return () => {
       setHideFooter(false);
     };
-  }, []);
+  }, [setHideFooter]);
 
   useEffect(() => {
     return () => {
-      setHeaderConfig({
-        ...headerConfig,
-        backgroundColor: "white",
+      setGlobalConfig({
+        ...globalConfig,
         returnPath: null
       });
     };
-  }, []);
+  }, [globalConfig, setGlobalConfig]);
 
   return (
     <SlideshowContainer>

@@ -64,7 +64,7 @@ const SplitSlide = ({
     return () => {
       setIsExisting(false);
     };
-  }, []);
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler

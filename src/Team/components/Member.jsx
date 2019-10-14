@@ -2,9 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "styled-components-grid";
 import parse from "html-react-parser";
-import Fade from "react-reveal/Fade";
-import { Waypoint } from "react-waypoint";
-import LazyLoad from "react-lazyload";
 
 import { AsideStyled, ItemsStyled } from "Team/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
@@ -17,7 +14,7 @@ const MemberItems = styled.div`
   ${ItemsStyled}
 `;
 
-const Member = ({ member, isExpanded, teamData }) => {
+const Member = ({ member, teamData }) => {
   return (
     <Grid>
       <Grid.Unit
@@ -30,7 +27,7 @@ const Member = ({ member, isExpanded, teamData }) => {
         }}
       >
         <TeamAside>
-          <TeamMenu isExpanded={isExpanded} teamData={teamData} />
+          <TeamMenu teamData={teamData} />
           <p>{parse(member.bio)}</p>
         </TeamAside>
       </Grid.Unit>

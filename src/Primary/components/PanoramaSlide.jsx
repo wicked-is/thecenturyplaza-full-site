@@ -124,7 +124,6 @@ const PanoramaSlide = ({
   slide, // Oobject
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  isExpanded, //Check for Expansion
   firstSlide, // Refactor
   firstSectionSlide, //Refactor
   lastSlide, //Refactor
@@ -151,7 +150,7 @@ const PanoramaSlide = ({
       navbar: false,
       anim_speed: "0rpm",
       default_lat: 0,
-      latitude_range: [0.3, -0.3],
+      latitude_range: [-0.3, 0.3],
       default_long: 0.3,
       max_fov: 38,
       mousewheel: false,
@@ -172,8 +171,7 @@ const PanoramaSlide = ({
     return () => {
       setIsExisting(false);
     };
-  }, []);
-
+  }, [setIsExisting]);
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
@@ -190,8 +188,8 @@ const PanoramaSlide = ({
         isExisting={isExisting}
       >
         <SlideContainer>
-          {/* <SlideBackward previousPath={previousPath} />
-        <SlideForward nextPath={nextPath} /> */}
+          <SlideBackward previousPath={previousPath} />
+          <SlideForward nextPath={nextPath} />
           <PanoImage>
             <PanoViewer id="panorama" />
           </PanoImage>
