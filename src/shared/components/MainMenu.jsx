@@ -40,7 +40,7 @@ const LinksContainer = styled.nav`
 
   ${mediaMin.tabletLandscape`
     width: 70vw;
-    padding: 80px 0 0 30vw;
+    padding: 120px 0 0 30vw;
     height: auto;
   `}
 `;
@@ -60,13 +60,17 @@ const PrimaryLinks = styled.ul`
     a {
       font-family: ${props => props.theme.serifRoman}, serif;
       font-weight: 300;
-      font-size: 40px;
+      font-size: 30px;
       line-height: 1.1em;
       letter-spacing: 0.05em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: antialiased;
       color: ${props => props.theme.gray};
       text-decoration: none;
+
+      ${mediaMin.tablet`
+         font-size: 40px;
+      `}
     }
   }
 `;
@@ -82,6 +86,11 @@ const SecondaryLinks = styled.ul`
   ${mediaMin.phoneXL`
     margin: 0 0 60px;
   `}
+
+  ${mediaMin.desktop`
+    margin: 0 0 30px;
+  `}
+
 
   li {
     display: block;
@@ -101,7 +110,7 @@ const InfoCluster = styled.div`
   ${mediaMin.tabletLandscape`
     position: absolute;
     left: ${props => props.theme.desktopMargin}px;
-    top: ${props => props.theme.headerHeight}px;
+    top: 125px;
  `}
 
   p {
@@ -136,7 +145,7 @@ const InfoCluster = styled.div`
     text-decoration: none;
 
     ${mediaMin.tabletLandscape`
-      margin: 30px 0 0;
+      margin: 25px 0 0;
     `}
   }
 `;
@@ -150,9 +159,15 @@ const DownloadsLinks = styled.ul`
   ${mediaMin.tabletLandscape`
     position: absolute;
     left: ${props => props.theme.desktopMargin}px;
-    bottom: 0;
-    transform: translateY(-120%);
+    top: 370px
  `}
+
+  ${mediaMin.desktop`
+    position: relative;
+    left: auto;
+    top: auto;
+ `}
+
 
   li {
     font-family: ${props => props.theme.sansSerifRegular};
