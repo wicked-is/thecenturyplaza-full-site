@@ -203,7 +203,6 @@ export const Indicator = css`
   right: 0;
   margin: 0;
   padding: 3px ${props => props.theme.mobileMargin}px 0;
-  background: white;
   width: auto;
   opacity: 0;
   line-height: ${props => props.theme.headerHeight}px;
