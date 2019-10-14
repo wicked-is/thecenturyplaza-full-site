@@ -64,7 +64,10 @@ export const SlideMaskStyled = css`
   }}; */
   }
 
-  opacity: ${props => (props.isExisting ? "0" : "1")};
+  opacity: ${props => {
+    if (props.isExisting && !props.isFirstSlide) return "0";
+    return "1";
+  }};
   overflow: hidden;
   transition: opacity 0.5s ease-in, width 0.5s ease-in;
 `;
