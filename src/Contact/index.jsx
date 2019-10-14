@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Select from "react-select";
 import { Link } from "@reach/router";
@@ -8,7 +8,6 @@ import { states } from "./states";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Contact/style.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries";
-import Context from "../config/Context";
 
 const ContactWrapper = styled.div`
   ${Wrapper};
@@ -273,8 +272,6 @@ const InfoCluster = styled.div`
 `;
 
 const Contact = ({ setPageColor }) => {
-  const context = useContext(Context);
-  const { setHasCaptions } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -342,7 +339,6 @@ const Contact = ({ setPageColor }) => {
         LastName: formData.lastName,
         Email: formData.email,
         Phone: formData.phone,
-        Phone: formData.phone,
         StreetAddress: formData.address,
         City: formData.city,
         State: formData.state,
@@ -387,9 +383,8 @@ const Contact = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor(props => props.theme.gray);
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <ContactWrapper>

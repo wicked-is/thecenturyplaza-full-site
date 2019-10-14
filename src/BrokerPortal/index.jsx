@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { PageTitle } from "../shared/styled-components/Typography.js";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "BrokerPortal/style.js";
 import { mediaMin } from "shared/styled-components/MediaQueries";
@@ -187,7 +186,7 @@ const BrokerPortal = ({ setPageColor }) => {
 
   useEffect(() => {
     setPageColor(props => props.theme.gray);
-  }, []);
+  }, [setPageColor]);
 
   return (
     <PortalWrapper>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Router, Link } from "@reach/router";
 import * as api from "./api";
 import Listings from "./components/Listings";
@@ -11,7 +11,6 @@ import {
   ControlsStyled,
   FilterButtonStyled
 } from "Availability/style.js";
-import Context from "config/Context";
 
 const AvailabilityWrapper = styled.div`
   ${Wrapper};
@@ -34,13 +33,10 @@ const AvailabilityFilter = styled.button`
 
 const Availability = props => {
   const { setPageColor } = props;
-  const context = useContext(Context);
-  const { setHasCaptions } = context;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor("white");
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   const [hotelListings, setHotelListings] = useState([]);
   const [towerListings, setTowerListings] = useState([]);

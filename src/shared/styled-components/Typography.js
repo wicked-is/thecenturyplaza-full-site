@@ -194,3 +194,25 @@ export const Caption = css`
     `}
   }
 `;
+
+export const Indicator = css`
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 3px ${props => props.theme.mobileMargin}px 0;
+  background: white;
+  width: auto;
+  opacity: 0;
+  line-height: ${props => props.theme.headerHeight}px;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+  transition: all 0.25s ease-in-out;
+  text-transform: uppercase;
+
+  ${mediaMin.tabletLandscape`
+    display:none;
+  `}
+`;
