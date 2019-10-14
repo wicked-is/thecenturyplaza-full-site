@@ -38,12 +38,12 @@ const Footer = props => {
             location.pathname === "/broker-portal"
           }
         >
-          {hasCaptions && primaryData[isSection].slides[isSlide].caption && (
+          {hasCaptions && primaryData[isSection].slides[isSlide].caption[0] && (
             <SlideCaption isOpen={isOpen}>
               <button onClick={toggleCaption}>
                 {isOpen ? "Close" : "Info"}
               </button>
-              <p>{parse(primaryData[isSection].slides[isSlide].caption)}</p>
+              <p>{parse(primaryData[isSection].slides[isSlide].caption[0])}</p>
             </SlideCaption>
           )}
 

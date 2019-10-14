@@ -18,6 +18,7 @@ const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [firstShouldSwipe, setFirstShouldSwipe] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [isCrossFadingUp, setIsCrossFadingUp] = useState(false);
   const [isCrossFadingDown, setIsCrossFadingDown] = useState(false);
@@ -33,9 +34,10 @@ const ContextProvider = props => {
     headerBackground: "white"
   });
 
-  const scrollCooldown = () => {
+  const scrollCooldown = delay => {
     setPauseScroll(true);
-    setTimeout(() => setPauseScroll(false), 1500);
+    console.log(delay);
+    setTimeout(() => setPauseScroll(false), delay);
   };
 
   const toggleMenu = () => {
@@ -48,7 +50,7 @@ const ContextProvider = props => {
 
   const triggerExit = path => {
     setIsExisting(true);
-    scrollCooldown();
+    scrollCooldown(1500);
     setTimeout(() => {
       navigate(path);
     }, 500);
@@ -108,6 +110,8 @@ const ContextProvider = props => {
         scrollCooldown,
         hasPlayed,
         markPlayed,
+        firstShouldSwipe,
+        setFirstShouldSwipe,
         isExisting,
         setIsExisting,
         triggerExit,
