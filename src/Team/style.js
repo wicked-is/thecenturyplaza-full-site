@@ -86,7 +86,7 @@ export const MenuStyled = css`
       font-size: 14px;
       font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
       font-weight: 300;
-      text-transform: uppercase;
+      text-transform: Capitalize;
       letter-spacing: 0.06em;
     `}
   }
