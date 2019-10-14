@@ -209,7 +209,7 @@ export const Indicator = css`
   animation: ${enterFadeIn};
   will-change: opacity;
   transition: all 0.25s ease-in-out;
-  text-transform: uppercase;
+  color: ${props => props.theme.gray};
 
   ${mediaMin.tabletLandscape`
     display:none;
