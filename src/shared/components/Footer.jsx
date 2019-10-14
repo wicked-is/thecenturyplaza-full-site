@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, Location } from "@reach/router";
 import styled from "styled-components";
 import Context from "../../config/Context";
-import { Caption } from "../styled-components/Typography.js";
+import { Caption, Indicator } from "../styled-components/Typography.js";
 import { FooterWrapper } from "shared/styled-components/Navigation.js";
 import parse from "html-react-parser";
 
@@ -12,6 +12,10 @@ const FooterContainer = styled.footer`
 
 const SlideCaption = styled.div`
   ${Caption};
+`;
+
+const SectionIndicator = styled.div`
+  ${Indicator};
 `;
 
 const Footer = props => {
@@ -41,6 +45,12 @@ const Footer = props => {
               </button>
               <p>{parse(primaryData[isSection].slides[isSlide].caption)}</p>
             </SlideCaption>
+          )}
+
+          {hasCaptions && (
+            <SectionIndicator>
+              {parse(primaryData[isSection].title)}
+            </SectionIndicator>
           )}
 
           <ul>

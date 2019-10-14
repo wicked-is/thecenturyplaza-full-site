@@ -31,7 +31,7 @@ const PressPubInfo = styled.div`
 
 const Press = ({ setPageColor }) => {
   const context = useContext(Context);
-  const { fetchPress, pressItems, setHasCaptions } = context;
+  const { fetchPress, pressItems } = context;
 
   const generatePress = () => {
     return pressItems.map(entry => {
@@ -66,9 +66,8 @@ const Press = ({ setPageColor }) => {
   }, []);
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor("white");
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <PressWrapper>

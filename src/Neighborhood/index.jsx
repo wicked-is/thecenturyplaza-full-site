@@ -1,9 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
 import LazyLoad from "react-lazyload";
-import Context from "../config/Context";
 
 import {
   WrapperStyled,
@@ -49,13 +48,10 @@ const NeighborhoodItemCTA = styled.p`
 
 const Neighborhood = props => {
   const { neighborhoodData, setPageColor } = props;
-  const context = useContext(Context);
-  const { setHasCaptions } = context;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor("white");
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <NeighborhoodWrapper>
@@ -75,7 +71,7 @@ const Neighborhood = props => {
               }}
             >
               <NeighborhoodItem valign={item.valign}>
-                {item.source.length === 1 && item.source != "" && (
+                {item.source.length === 1 && item.source[0] && (
                   <LazyLoad once offset={400}>
                     <Fade>
                       <ResponsiveImage srcPath={item.source[0]} />

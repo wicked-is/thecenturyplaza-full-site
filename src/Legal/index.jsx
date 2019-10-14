@@ -1,9 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { PageTitle } from "shared/styled-components/Typography.js";
 import { Wrapper } from "shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Legal/style.js";
-import Context from "../config/Context";
 
 const LegalWrapper = styled.div`
   ${Wrapper};
@@ -17,13 +16,10 @@ const LegalTitle = styled.h1`
 
 const Legal = props => {
   const { setPageColor } = props;
-  const context = useContext(Context);
-  const { setHasCaptions } = context;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <LegalWrapper>

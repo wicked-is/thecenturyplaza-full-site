@@ -18,13 +18,12 @@ const SecondaryMenuContainer = styled.nav`
 
 const SecondaryMenu = props => {
   const context = useContext(Context);
-  const { pauseScroll, triggerExit, setHasCaptions } = context;
+  const { pauseScroll, triggerExit } = context;
   const { setPageColor } = props;
 
   useEffect(() => {
-    setHasCaptions(false);
     setPageColor(props => props.theme.gray);
-  }, [setPageColor, setHasCaptions]);
+  }, [setPageColor]);
 
   return (
     <ReactScrollWheelHandler

@@ -164,8 +164,8 @@ export const TableStyled = css`
           `}
         }
 
-        a {
-          color: ${props => props.theme.black};
+        > span {
+          cursor: pointer;
         }
       }
     }
