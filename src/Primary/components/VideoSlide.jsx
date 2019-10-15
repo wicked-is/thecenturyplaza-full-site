@@ -102,7 +102,8 @@ const VideoSlide = ({
       isFirstSection &&
       isFirstSlide &&
       !hasPlayed &&
-      globalConfig.firstLocation === window.location.pathname
+      (globalConfig.firstLocation === window.location.pathname ||
+        globalConfig.firstLocation === "/")
     ) {
       startTimer();
       markPlayed();

@@ -96,7 +96,7 @@ class App extends Component {
               primaryData={primaryData}
             />
             <main>
-              <Router primary={false}>
+              <Router>
                 <Redirect from="/" to="home" noThrow />
                 {primaryData.map((section, index) => (
                   <Primary
