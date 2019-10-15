@@ -181,7 +181,7 @@ const VideoSlide = ({
                 height="56.25vw"
                 onStart={removePlaceholder}
                 style={videoElement(isExpanded)}
-                // preload="true"
+                preload="true"
               />
             </FullScreen>
           </PlayerContainer>

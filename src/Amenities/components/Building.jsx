@@ -73,7 +73,7 @@ const Building = props => {
         returnPath: null
       });
     };
-  }, [globalConfig, setGlobalConfig]);
+  }, [setGlobalConfig]);
 
   return (
     <Container>

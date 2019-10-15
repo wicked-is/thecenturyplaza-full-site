@@ -192,7 +192,7 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
         returnPath: null
       });
     };
-  }, [globalConfig, setGlobalConfig]);
+  }, [setGlobalConfig]);
 
   return (
     <SlideshowContainer>
@@ -206,6 +206,7 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
         <SlideshowVideo>
           <ReactPlayer
             url={media.source}
+            preload="true"
             controls
             playsinline
             width="100%"
