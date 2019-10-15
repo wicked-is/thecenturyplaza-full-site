@@ -149,6 +149,28 @@ export const SlideshowContainerStyled = css`
   justify-content: center;
 `;
 
+export const SlideshowPreviousStyled = css`
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-50%);
+  background: red;
+`;
+
+export const SlideshowNextStyled = css`
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-50%);
+  background: red;
+`;
+
 export const SlideshowImageStyled = css`
   display: flex;
   align-items: center;

@@ -143,6 +143,7 @@ class App extends Component {
                     key={index}
                     path={"gallery/" + section.slug + "/*"}
                     section={section}
+                    sectionId={index}
                     galleryData={galleryData}
                     pageColor={this.state.pageColor}
                   />
