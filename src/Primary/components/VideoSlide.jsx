@@ -76,8 +76,8 @@ const VideoSlide = ({
     triggerExit,
     hasPlayed,
     markPlayed,
-    firstShouldSwipe,
-    setFirstShouldSwipe,
+    // firstShouldSwipe,
+    // setFirstShouldSwipe,
     currentSlideIndex,
     currentSectionIndex
   } = context;
@@ -149,7 +149,7 @@ const VideoSlide = ({
         isExisting={isExisting}
         isFirstSlide={isFirstSlide}
         isFirstSection={isFirstSection}
-        firstShouldSwipe={firstShouldSwipe}
+        // firstShouldSwipe={firstShouldSwipe}
       >
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />

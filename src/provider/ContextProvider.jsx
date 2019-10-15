@@ -18,16 +18,15 @@ const ContextProvider = props => {
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
-  const [firstShouldSwipe, setFirstShouldSwipe] = useState(false);
+  // const [firstShouldSwipe, setFirstShouldSwipe] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
-  const [isCrossFadingUp, setIsCrossFadingUp] = useState(false);
-  const [isCrossFadingDown, setIsCrossFadingDown] = useState(false);
   const [pressItems, setPressItems] = useState([]);
   const [isSection, setSection] = useState(0);
   const [isSlide, setSlide] = useState(0);
   const [hasCaptions, setHasCaptions] = useState(false);
   const [fixedFooter, setFixedFooter] = useState(false);
   const [hideFooter, setHideFooter] = useState(false);
+  const [activeCrossFade, setActiveCrossFade] = useState(1);
   const [globalConfig, setGlobalConfig] = useState({
     firstLocation: window.location.pathname,
     returnPath: null,
@@ -36,7 +35,6 @@ const ContextProvider = props => {
 
   const scrollCooldown = delay => {
     setPauseScroll(true);
-    console.log(delay);
     setTimeout(() => setPauseScroll(false), delay);
   };
 
@@ -55,28 +53,6 @@ const ContextProvider = props => {
       navigate(path);
     }, 500);
   };
-
-  // const triggerCrossFadeUp = path => {
-  //   setIsExisting(true);
-  //   setIsCrossFadingUp(true);
-  //   setTimeout(() => {
-  //     scrollCooldown();
-  //     setIsExisting(false);
-  //     setIsCrossFadingUp(false);
-  //     navigate(path);
-  //   }, 500);
-  // };
-
-  // const triggerCrossFadeDown = path => {
-  //   setIsExisting(true);
-  //   setIsCrossFadingDown(true);
-  //   setTimeout(() => {
-  //     scrollCooldown();
-  //     setIsExisting(false);
-  //     setIsCrossFadingDown(false);
-  //     navigate(path);
-  //   }, 500);
-  // };
 
   const currentSectionIndex = index => {
     setSection(index);
@@ -110,17 +86,11 @@ const ContextProvider = props => {
         scrollCooldown,
         hasPlayed,
         markPlayed,
-        firstShouldSwipe,
-        setFirstShouldSwipe,
+        // firstShouldSwipe,
+        // setFirstShouldSwipe,
         isExisting,
         setIsExisting,
         triggerExit,
-        isCrossFadingUp,
-        setIsCrossFadingUp,
-        isCrossFadingDown,
-        setIsCrossFadingDown,
-        // triggerCrossFadeUp,
-        // triggerCrossFadeDown,
         pressItems,
         fetchPress,
         isSection,
@@ -133,6 +103,8 @@ const ContextProvider = props => {
         setFixedFooter,
         hideFooter,
         setHideFooter,
+        activeCrossFade,
+        setActiveCrossFade,
         globalConfig,
         setGlobalConfig
       }}

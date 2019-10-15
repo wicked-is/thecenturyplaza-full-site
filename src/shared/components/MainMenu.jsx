@@ -12,10 +12,9 @@ const MainMenuContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   width: 100vw;
-  height: calc(100% - ${props => props.theme.headerHeight}px);
-  min-height: 100vh;
+  height: 100%;
+  min-height: calc(100vh - 80px);
   z-index: 10000;
   text-indent: 0;
   color: ${props => props.theme.gray};
@@ -187,6 +186,32 @@ const DownloadsLinks = styled.ul`
   }
 `;
 
+const FooterLinks = styled.ul`
+  display: none;
+
+  ${mediaMin.tabletLandscape`
+    display: inline-block;
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateY(-90px);
+      
+    li {
+      display: inline-block;
+      margin: 0 0 0 1em;
+
+      a {
+        color: ${props => props.theme.gray};
+        font-family: ${props => props.theme.sansSerifRegular};
+        text-decoration: none;
+      }
+    }
+  `}
+`;
+
 const MainMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
@@ -302,6 +327,20 @@ const MainMenu = props => {
               </a>
             </li>
           </DownloadsLinks>
+          <FooterLinks>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/broker-portal">Broker Portal</Link>
+            </li>
+            <li>
+              <Link to="/legal">Legal</Link>
+            </li>
+            <li>
+              <Link to="/accessibility">Accessibility</Link>
+            </li>
+          </FooterLinks>
         </LinksContainer>
       </MainMenuContainer>
     </>
