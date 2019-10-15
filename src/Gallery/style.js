@@ -1,8 +1,10 @@
 import { css } from "styled-components";
 import { Container } from "../shared/styled-components/Layouts.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries.js";
-import { fadeIn } from "../shared/styled-components/Transitions.js";
+import { enterFadeIn } from "../shared/styled-components/Transitions.js";
 import playBtnSVG from "icons/play-btn.svg";
+import leftCycleSVG from "icons/left-cycle.svg";
+import rightCycleSVG from "icons/right-cycle.svg";
 
 export const ContainerStyled = css`
   ${Container}
@@ -22,7 +24,7 @@ export const SectionTitlesStyled = css`
   position: relative;
 
   ${mediaMin.tabletLandscape` 
-    @supports (display: grid) {
+    @supports (position: sticky) {
       top: 100px;
       position: sticky;
     }
@@ -41,7 +43,7 @@ export const SectionTitlesStyled = css`
 export const SectionTitleStyled = css`
   margin: 0 10px 20px;
   opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
+  animation: ${enterFadeIn};
   will-change: opacity;
 
   ${mediaMin.tabletLandscape` 
@@ -76,7 +78,7 @@ export const PlaceholderStyled = css`
     left: 50%;
     width: 12vw;
     height: 12vw;
-    margin: -6vw 0 0 -6vw;
+    margin: -6.25vw 0 0 -6vw;
     background: url(${playBtnSVG}) no-repeat center center;
     background-size: contain;
   }
@@ -89,9 +91,6 @@ export const MediaStyled = css`
   height: ${props =>
     props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
   float: left;
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
-  will-change: opacity;
   position: relative;
 
   ${mediaMin.phoneXL`
@@ -149,12 +148,51 @@ export const SlideshowContainerStyled = css`
   justify-content: center;
 `;
 
+export const SlideshowPreviousStyled = css`
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  height: 40px;
+  width: 10px;
+  transform: translateY(-50%);
+  background: url(${leftCycleSVG}) no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  ${mediaMin.tablet`
+    height: 50px;
+    width: 20px;
+    left: 20px;
+  `}
+`;
+
+export const SlideshowNextStyled = css`
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  height: 40px;
+  width: 10px;
+  transform: translateY(-50%);
+  background: url(${rightCycleSVG}) no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+  ${mediaMin.tablet`
+    height: 50px;
+    width: 20px;
+    right: 20px;
+  `}
+`;
+
 export const SlideshowImageStyled = css`
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: calc(100vh - 160px);
   overflow: hidden;
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 `;
 
 export const SlideshowVideoStyled = css`
@@ -163,6 +201,9 @@ export const SlideshowVideoStyled = css`
   justify-content: center;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 `;
 
 export const SlideshowCaptionStyled = css`

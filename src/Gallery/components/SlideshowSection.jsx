@@ -8,7 +8,7 @@ const SlideshowWrapper = styled.div`
   ${ViewportWrapper};
 `;
 
-const SlideshowSection = ({ section, pageColor }) => {
+const SlideshowSection = ({ section, sectionId, pageColor }) => {
   return (
     <SlideshowWrapper>
       <Router>
@@ -16,6 +16,8 @@ const SlideshowSection = ({ section, pageColor }) => {
           <SlideshowMedia
             key={index}
             path={media.slug}
+            sectionId={sectionId}
+            mediaId={index}
             media={media}
             default={index === 0 && true}
             pageColor={pageColor}

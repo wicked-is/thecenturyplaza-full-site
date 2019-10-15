@@ -148,7 +148,7 @@ const PanoramaSlide = ({
       container: "panorama",
       panorama: require("../../imgs/panorama/pano_10000.jpg"),
       navbar: false,
-      anim_speed: "0rpm",
+      anim_speed: "0.25rpm",
       default_lat: 0,
       latitude_range: [-0.3, 0.3],
       default_long: 0.3,
