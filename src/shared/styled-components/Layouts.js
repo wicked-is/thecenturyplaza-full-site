@@ -64,9 +64,15 @@ export const ViewportWrapper = css`
 export const Container = css`
   height: auto;
   width: auto;
-  margin: 0;
+  margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape`
     width: 100%;
+    margin: 40px 0 0;
+  `}
+
+  ${mediaMin.desktop`
+    width: 100%;
+    margin: 80px 0 0;
   `}
 `;

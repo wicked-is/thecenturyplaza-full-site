@@ -15,6 +15,9 @@ export const ContainerStyled = css`
     width: ${props => parseFloat(props.theme.desktopColumn) * 10}vw;
     margin: 40px 0 0;
   `}
+  ${mediaMin.desktop`
+    margin: 80px 0 0;
+  `}
 `;
 
 export const HeaderStyled = css`

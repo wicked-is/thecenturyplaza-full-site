@@ -6,15 +6,11 @@ import { mediaMin } from "shared/styled-components/MediaQueries";
 
 const PortalWrapper = styled.div`
   ${Wrapper};
-  padding: 0;
 `;
 const PortalContainer = styled.div`
   ${ContainerStyled};
-  margin: 0 !important;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  height: calc(100vh - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
-  padding: 0;
 `;
 
 const PortalForm = styled.form`
