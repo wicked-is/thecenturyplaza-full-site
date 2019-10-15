@@ -6,14 +6,15 @@ import playBtnSVG from "icons/play-btn.svg";
 
 export const ContainerStyled = css`
   ${Container}
-  width: 100%;
-  margin: 20px 0 0;
+  width: calc(100% + 20px);
+  margin: 20px -10px 0;
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
     margin: 40px 0 0;
   `}
 `;
+
 export const SectionStyled = css`
   margin: 0 0 50px;
 `;
@@ -52,7 +53,7 @@ export const SectionMediaStyled = css`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: stretch;
   align-content: center;
   .react-reveal {
@@ -82,15 +83,24 @@ export const PlaceholderStyled = css`
 `;
 
 export const MediaStyled = css`
-  positions: relative;
   margin: 0 10px 20px 10px;
   width: ${props =>
-    props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
+    props.type === "video" ? "calc(100% - 20px)" : "calc(50% - 20px)"};
+  height: ${props =>
+    props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
   float: left;
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
   position: relative;
+
+  ${mediaMin.phoneXL`
+    margin: 0 10px 20px 10px;
+    width: ${props =>
+      props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
+    height: ${props =>
+      props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
+  `}
 
   ${mediaMin.tabletLandscape` 
     margin: 0 0 20px 20px;
@@ -109,8 +119,26 @@ export const MediaStyled = css`
 
   img {
     object-fit: cover;
-    height: 18vw;
+    height: ${props =>
+      props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
     width: 100%;
+
+    ${mediaMin.phoneXL` 
+      height: ${props =>
+        props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
+    `}
+  }
+
+  &[type="video"]
+    + [type="image"]
+    + [type="image"]
+    + [type="image"]
+    + [type="image"]
+    + [type="image"] {
+    ${mediaMin.phoneXL` 
+      transform: translateX(calc(200% + 40px));
+      margin-top: -36vw;
+    `}
   }
 `;
 
