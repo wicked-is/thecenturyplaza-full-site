@@ -21,7 +21,13 @@ const SectionIndicator = styled.div`
 const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive, isSection, isSlide, hasCaptions } = context;
+  const {
+    navActive,
+    isSection,
+    isSlide,
+    hasCaptions,
+    activeCrossFade
+  } = context;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCaption = () => {
@@ -38,14 +44,33 @@ const Footer = props => {
             location.pathname === "/broker-portal"
           }
         >
-          {hasCaptions && primaryData[isSection].slides[isSlide].caption[0] && (
-            <SlideCaption isOpen={isOpen}>
-              <button onClick={toggleCaption}>
-                {isOpen ? "Close" : "Info"}
-              </button>
-              <p>{parse(primaryData[isSection].slides[isSlide].caption[0])}</p>
-            </SlideCaption>
-          )}
+          {hasCaptions &&
+            primaryData[isSection].slides[isSlide].caption.length === 1 && (
+              <SlideCaption isOpen={isOpen}>
+                <button onClick={toggleCaption}>
+                  {isOpen ? "Close" : "Info"}
+                </button>
+                <p>
+                  {parse(primaryData[isSection].slides[isSlide].caption[0])}
+                </p>
+              </SlideCaption>
+            )}
+
+          {hasCaptions &&
+            primaryData[isSection].slides[isSlide].caption.length > 1 && (
+              <SlideCaption isOpen={isOpen}>
+                <button onClick={toggleCaption}>
+                  {isOpen ? "Close" : "Info"}
+                </button>
+                <p>
+                  {parse(
+                    primaryData[isSection].slides[isSlide].caption[
+                      activeCrossFade - 1
+                    ]
+                  )}
+                </p>
+              </SlideCaption>
+            )}
 
           {hasCaptions && (
             <SectionIndicator>

@@ -10,7 +10,6 @@ import {
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import primaryData from "Primary/primaryData.json";
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};

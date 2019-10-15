@@ -60,10 +60,10 @@ const Press = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    if (pressItems == false) {
+    if (!pressItems || !pressItems.length) {
       fetchPress();
     }
-  }, []);
+  }, [pressItems]);
 
   useEffect(() => {
     setPageColor("white");

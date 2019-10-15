@@ -1,12 +1,13 @@
 import { css } from "styled-components";
 import {
   enterFadeIn,
-  enterFromSwipe,
+  // enterFromSwipe,
   enterFromBottomText,
   enterFromBottomImage,
   enterFromCenter
 } from "../shared/styled-components/Transitions.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries.js";
+// import { id } from "postcss-selector-parser";
 
 export const SlideMaskStyled = css`
   position: absolute;
@@ -237,8 +238,8 @@ export const CrossFadeStyled = css`
     100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
   );
   opacity: 0;
-  animation: ${enterFadeIn};
-  will-change: opacity;
+  animation: ${enterFromBottomImage};
+  will-change: opacity, transform;
 
   ${mediaMin.tablet`
     max-width: calc(
@@ -259,21 +260,33 @@ export const CrossFadeStyled = css`
     &:nth-child(1) {
       position: relative;
       display: inline-block;
-      opacity: 1;
+      opacity: ${props => {
+        if (props.activeCrossFade === 1) return "1";
+        return "0";
+      }};
+      transition: opacity 0.5s ease-in-out;
       z-index: 300;
     }
 
     &:nth-child(2) {
       position: absolute;
-      display: none;
-      opacity: 0;
+      display: inline-block;
+      opacity: ${props => {
+        if (props.activeCrossFade === 2) return "1";
+        return "0";
+      }};
+      transition: opacity 0.5s ease-in-out;
       z-index: 200;
     }
 
     &:nth-child(3) {
       position: absolute;
-      display: none;
-      opacity: 0;
+      display: inline-block;
+      opacity: ${props => {
+        if (props.activeCrossFade === 3) return "1";
+        return "0";
+      }};
+      transition: opacity 0.5s ease-in-out;
       z-index: 100;
     }
   }

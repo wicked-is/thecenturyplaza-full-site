@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Context from "../../config/Context";
@@ -45,45 +45,42 @@ const CrossFadeSlide = ({
     isExisting,
     triggerExit,
     setIsExisting,
+    activeCrossFade,
+    setActiveCrossFade,
     currentSlideIndex,
     currentSectionIndex
   } = context;
 
-  const [activeImage, setActiveImage] = useState("1");
-
   const toggleImage = direction => {
-    scrollCooldown(1000);
-
-    activeImage === "1" &&
-      direction === "down" &&
-      console.log("start crossfade 1 to 2");
-    setTimeout(() => {
-      setActiveImage("2");
-      console.log("end crossfade 1 to 2");
-    }, 500);
-    activeImage === "2" &&
-      direction === "down" &&
-      console.log("start crossfade 2 to 3");
-    setTimeout(() => {
-      setActiveImage("3");
-      console.log("end crossfade 2 to 3");
-    }, 500);
-    activeImage === "3" && direction === "down" && triggerExit(nextPath);
-
-    activeImage === "3" &&
-      direction === "up" &&
-      console.log("start crossfade 3 to 2");
-    setTimeout(() => {
-      setActiveImage("2");
-      console.log("end crossfade 3 to 2");
-    }, 500);
-    activeImage === "2" &&
-      direction === "up" &&
-      console.log("start crossfade 2 to 1");
-    setTimeout(() => {
-      setActiveImage("1");
-    }, 500);
-    activeImage === "1" && direction === "up" && triggerExit(previousPath);
+    if (direction === "up") {
+      if (activeCrossFade === 1) {
+        triggerExit(previousPath);
+      } else if (activeCrossFade === 2) {
+        scrollCooldown(1000);
+        setTimeout(() => {
+          setActiveCrossFade(1);
+        }, 500);
+      } else if (activeCrossFade === 3) {
+        scrollCooldown(1000);
+        setTimeout(() => {
+          setActiveCrossFade(2);
+        }, 500);
+      }
+    } else if (direction === "down") {
+      if (activeCrossFade === 1) {
+        scrollCooldown(1000);
+        setTimeout(() => {
+          setActiveCrossFade(2);
+        }, 500);
+      } else if (activeCrossFade === 2) {
+        scrollCooldown(1000);
+        setTimeout(() => {
+          setActiveCrossFade(3);
+        }, 500);
+      } else if (activeCrossFade === 3) {
+        triggerExit(nextPath);
+      }
+    }
   };
 
   useEffect(() => {
@@ -101,12 +98,10 @@ const CrossFadeSlide = ({
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        triggerExit(previousPath);
-        // toggleImage("up");
+        toggleImage("up");
       }}
       downHandler={() => {
-        triggerExit(nextPath);
-        // toggleImage("down");
+        toggleImage("down");
       }}
     >
       <SlideMask
@@ -117,7 +112,7 @@ const CrossFadeSlide = ({
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
-          <CrossFade activeImage={activeImage}>
+          <CrossFade activeCrossFade={activeCrossFade}>
             {slide.source.map((source, index) => (
               <div key={index}>
                 <ResponsiveImage srcPath={source} />
