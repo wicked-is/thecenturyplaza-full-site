@@ -12,9 +12,9 @@
       },
       {
         "type": "image",
-        "slug": "aerial-two",
+        "slug": "aerial-one",
         "caption": "Century Plaza, Los Angeles",
-        "source": "century-plaza-aerial-two",
+        "source": "century-plaza-aerial-one",
         "placeholder": ""
       },
       {
@@ -36,6 +36,13 @@
         "slug": "retail-plaza",
         "caption": "Retail Plaza",
         "source": "century-plaza-retail-plaza",
+        "placeholder": ""
+      },
+      {
+        "type": "image",
+        "slug": "aerial-two",
+        "caption": "Century Plaza, Los Angeles",
+        "source": "century-plaza-aerial-two",
         "placeholder": ""
       }
     ]

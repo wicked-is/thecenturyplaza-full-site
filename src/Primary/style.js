@@ -7,7 +7,6 @@ import {
   enterFromCenter
 } from "../shared/styled-components/Transitions.js";
 import { mediaMin } from "../shared/styled-components/MediaQueries.js";
-// import { id } from "postcss-selector-parser";
 
 export const SlideMaskStyled = css`
   position: absolute;
