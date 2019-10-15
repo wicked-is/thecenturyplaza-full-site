@@ -186,13 +186,18 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   }, [setHideFooter]);
 
   useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      returnPath: "/gallery"
+    });
+
     return () => {
       setGlobalConfig({
         ...globalConfig,
         returnPath: null
       });
     };
-  }, [setGlobalConfig]);
+  }, []);
 
   return (
     <SlideshowContainer>
