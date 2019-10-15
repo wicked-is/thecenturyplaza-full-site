@@ -257,9 +257,12 @@ export const CrossFadeStyled = css`
   `}
 
   > div {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
     &:nth-child(1) {
       position: relative;
-      display: inline-block;
       opacity: ${props => {
         if (props.activeCrossFade === 1) return "1";
         return "0";
@@ -270,7 +273,6 @@ export const CrossFadeStyled = css`
 
     &:nth-child(2) {
       position: absolute;
-      display: inline-block;
       opacity: ${props => {
         if (props.activeCrossFade === 2) return "1";
         return "0";
@@ -281,7 +283,6 @@ export const CrossFadeStyled = css`
 
     &:nth-child(3) {
       position: absolute;
-      display: inline-block;
       opacity: ${props => {
         if (props.activeCrossFade === 3) return "1";
         return "0";
