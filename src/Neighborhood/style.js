@@ -23,6 +23,11 @@ export const HeaderStyled = css`
   ${mediaMin.tabletLandscape` 
     width: 100%;
     height: calc(100vh - 160px);
+    margin: 0 0 9vw;
+  `}
+
+  ${mediaMin.desktop` 
+    margin: 0 0 9vw;
   `}
 
   img {

@@ -9,11 +9,11 @@ import rightCycleSVG from "icons/right-cycle.svg";
 export const ContainerStyled = css`
   ${Container}
   width: calc(100% + 20px);
-  margin: 20px -10px 0;
+  margin-left: -10px;
+  margin-right: -10px;
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
-    margin: 40px 0 0;
   `}
 `;
 

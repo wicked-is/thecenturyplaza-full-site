@@ -5,10 +5,15 @@ import chevronDownSVG from "icons/chevron-down.svg";
 
 export const ContainerStyled = css`
   ${Container}
+  margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
-    margin: 20px 0 0;
     width: ${props => parseFloat(props.theme.desktopColumn) * 10}vw;
+    margin: 20px 0 0;
+  `}
+
+  ${mediaMin.desktop` 
+    margin: 20px 0 0;
   `}
 `;
 
