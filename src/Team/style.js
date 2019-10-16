@@ -5,16 +5,20 @@ import chevronDownSVG from "icons/chevron-down.svg";
 
 export const ContainerStyled = css`
   ${Container}
-  margin: 20px 0 0;
+
+
+  ${mediaMin.phoneXL`
+  margin: 0;
+  `}
 
   ${mediaMin.tabletLandscape` 
+    margin: 40px 0 0;
     width: ${props => parseFloat(props.theme.desktopColumn) * 10}vw;
-    margin: 20px 0 0;
   `}
 
-  ${mediaMin.desktop` 
-    margin: 20px 0 0;
-  `}
+  ${mediaMin.desktop`
+    margin: 80px 0 0;
+  `} 
 `;
 
 export const MenuStyled = css`
@@ -23,7 +27,7 @@ export const MenuStyled = css`
   height: ${props => (props.isOpen ? "auto" : "1em")};
   margin: 0;
   padding: 0;
-  positon: relative;
+  position: relative;
 
   ${mediaMin.phoneXL`
     width: 100%;
@@ -102,13 +106,13 @@ export const AsideStyled = css`
   background: white;
   z-index: 1000;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  margin: 2.5em 0 0;
+  margin: 0;
 
   ${mediaMin.phoneXL`
     position: fixed;
     width: 34%;
     left: auto;
-    margin:0 0 20px;
+    margin: 0;
     top: ${props => props.theme.headerHeight}px;
     left: ${props => props.theme.mobileMargin}px;
   `}
@@ -118,28 +122,31 @@ export const AsideStyled = css`
     position: relative;
     top: auto;
     left: auto;
-    margin: 40px 0 0;
   `}
 
   ${mediaMin.tabletLandscape` 
+    top: ${props => props.theme.headerHeight}px;
     position: fixed;
     width: 22%;
     left: auto;
-    margin:0 0 1em;
+    margin: 40px 0 1em;
   `}
 
-  ${mediaMin.desktopSmall` 
+  ${mediaMin.desktopSmall`
+    width: 19%;
+  `} 
+
+  ${mediaMin.desktop` 
     position: fixed;
-    top: ${props => props.theme.headerHeight}px;
-    left: ${props => props.theme.mobileMargin}px;
     width: 18%;
     left: auto;
-    margin: 20px 0 0;
+    margin: 80px 0 0;
   `}
+  
 
   ul {
     margin: 0;
-    padding: 0 0 1em;
+    padding: 0 0 1.5em;
     position: fixed;
     top: ${props => props.theme.headerHeight}px;
     background: white;
@@ -162,16 +169,26 @@ export const AsideStyled = css`
       top: 0;
     `}
 
+    ${mediaMin.desktop`
+      padding: 0;
+    `}
+
   }
 
   p {
     font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
     font-weight: 300;
     font-size: 12px;
+    margin: 1em 0 1.5em;
     line-height: 1.35em;
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
+
+    ${mediaMin.tablet` 
+      margin: 1em 0 2em;
+    `}
+
   }
 `;
 
