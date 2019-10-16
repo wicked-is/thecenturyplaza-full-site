@@ -25,9 +25,22 @@ const Accessibility = props => {
   }, [setPageColor]);
 
   useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: props => props.theme.grayLightGradient,
+      pageBackground: props => props.theme.grayLight,
+      footerBackground: props => props.theme.grayLight,
+      footerDisplay: false
+    });
+  }, [setGlobalConfig]);
+
+  useEffect(() => {
     return () => {
       setGlobalConfig({
         ...globalConfig,
+        headerBackground: "white",
+        pageBackground: "white",
+        footerBackground: "white",
         returnPath: null
       });
     };

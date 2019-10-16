@@ -8,7 +8,6 @@ export const PageBody = css`
   color: ${props => props.theme.black};
   font-size: 14px;
   letter-spacing: 0.6px;
-  transition: background 0.5s ease-in-out;
   background: ${props => props.pageColor};
   height: auto;
   min-height: 100vh;
@@ -29,12 +28,9 @@ export const PageHeader = css`
   height: ${props =>
     props.navActive ? "100%" : props.theme.headerHeight + "px"};
   min-height: ${props => (props.navActive ? "100vh" : "80px")};
-  background: ${props =>
-    props.globalConfig.returnPath === null
-      ? props.pageColor
-      : props.globalConfig.headerBackground};
+  background: ${props => props.globalConfig.headerBackground};
   z-index: 10000;
-  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
   );
@@ -50,20 +46,22 @@ export const PageHeader = css`
 `;
 
 export const PageFooter = css`
-  display: ${props => (props.hideFooter ? "none" : "inline-block")};
-  position: ${props => (props.fixedFooter ? "fixed" : "relative")};
+  display: ${props =>
+    props.globalConfig.footerDisplay ? "inline-block" : "none"};
+  position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
   bottom: 0;
   z-index: 900;
   width: 100%;
   height: ${props => (props.navActive ? "0" : props.theme.headerHeight + "px")};
-  background: ${props => props.pageColor};
-  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+  background: ${props => props.globalConfig.footerBackground};
+  transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
   );
 
   ${mediaMin.tabletLandscape`
-    position: ${props => (props.fixedFooter ? "fixed" : "absolute")};
+    position: ${props =>
+      props.globalConfig.footerFixed ? "fixed" : "absolute"};
   `}
 
   footer {

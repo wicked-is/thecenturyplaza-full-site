@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import Context from "../config/Context";
 import styled from "styled-components";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
@@ -48,10 +49,24 @@ const NeighborhoodItemCTA = styled.p`
 
 const Neighborhood = props => {
   const { neighborhoodData, setPageColor } = props;
+  const context = useContext(Context);
+  const { globalConfig, setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
   }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "white",
+      footerBackground: "transparent",
+      pageBackground: "white",
+      footerDisplay: true,
+      footerFixed: false,
+      returnPath: null
+    });
+  }, [setGlobalConfig]);
 
   return (
     <NeighborhoodWrapper>

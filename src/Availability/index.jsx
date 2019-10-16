@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "../config/Context";
 import { Router, Link } from "@reach/router";
 import * as api from "./api";
 import Listings from "./components/Listings";
@@ -33,10 +34,24 @@ const AvailabilityFilter = styled.button`
 
 const Availability = props => {
   const { setPageColor } = props;
+  const context = useContext(Context);
+  const { globalConfig, setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
   }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "white",
+      footerBackground: "transparent",
+      pageBackground: "white",
+      footerDisplay: true,
+      footerFixed: false,
+      returnPath: null
+    });
+  }, [setGlobalConfig]);
 
   const [hotelListings, setHotelListings] = useState([]);
   const [towerListings, setTowerListings] = useState([]);

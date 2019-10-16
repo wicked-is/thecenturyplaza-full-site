@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Context from "../../config/Context";
 import { Link } from "@reach/router";
 import styled from "styled-components";
@@ -201,11 +201,18 @@ const FooterLinks = styled.ul`
       
     li {
       display: inline-block;
-      margin: 0 0 0 1em;
+      margin: 0 0 0 20px;
 
       a {
         color: ${props => props.theme.gray};
-        font-family: ${props => props.theme.sansSerifRegular};
+        font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 1.35em;
+        letter-spacing: 0.03em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: antialiased;
+
         text-decoration: none;
       }
     }
@@ -218,132 +225,135 @@ const MainMenu = props => {
   const { navActive, toggleMenu } = context;
 
   return (
-    <>
-      <MainMenuContainer navActive={navActive}>
-        <LinksContainer>
-          <PrimaryLinks>
-            {primaryData.map((section, index) => (
-              <li key={index}>
-                <Link
-                  to={"/" + section.slug + "/" + section.slides[0].slug}
-                  onClick={toggleMenu}
-                >
-                  {section.title}
-                </Link>
-              </li>
-            ))}
-          </PrimaryLinks>
-          <SecondaryLinks>
-            <li>
-              <Link to="/neighborhood" onClick={toggleMenu}>
-                Neighborhood
-              </Link>
-            </li>
-            <li>
-              <Link to="/team" onClick={toggleMenu}>
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link to="/availability" onClick={toggleMenu}>
-                Availability
-              </Link>
-            </li>
-            <li>
-              <Link to="/press" onClick={toggleMenu}>
-                Press
-              </Link>
-            </li>
-            <li>
-              <Link to="/gallery" onClick={toggleMenu}>
-                Gallery
-              </Link>
-            </li>
-          </SecondaryLinks>
-          <InfoCluster>
-            <p>
-              <strong>Sales Gallery</strong>
-              <a
-                href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
-                target="_blank"
-                rel="noopener noreferrer"
+    <MainMenuContainer navActive={navActive}>
+      <LinksContainer>
+        <PrimaryLinks>
+          {primaryData.map((section, index) => (
+            <li key={index}>
+              <Link
+                to={"/" + section.slug + "/" + section.slides[0].slug}
+                onClick={toggleMenu}
               >
-                10250 Consteallation Boulevard
-                <br />
-                Los Angeles, California 90067
-              </a>
-            </p>
-            <p>
-              <strong>Schedule an Appointment</strong>
-              +1 310 246 4777
-              <br />
-              <a
-                href="mailto:info@thecenturyplaza.com"
-                rel="noopener noreferrer"
-              >
-                info@thecenturyplaza.com
-              </a>
-            </p>
-            <Link to="/contact" onClick={toggleMenu}>
-              Register Your Interest
+                {section.title}
+              </Link>
+            </li>
+          ))}
+        </PrimaryLinks>
+        <SecondaryLinks>
+          <li>
+            <Link to="/neighborhood" onClick={toggleMenu}>
+              Neighborhood
             </Link>
-          </InfoCluster>
-          <DownloadsLinks>
-            <li>Downloads</li>
-            <li>
-              <a
-                href={
-                  process.env.PUBLIC_URL +
-                  "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Brochure
-              </a>
-            </li>
-            <li>
-              <a
-                href={
-                  process.env.PUBLIC_URL +
-                  "/downloads/Fairmont-Century-Plaza-Residences.pdf"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Hotel Fact Sheet
-              </a>
-            </li>
-            <li>
-              <a
-                href={
-                  process.env.PUBLIC_URL +
-                  "/downloads/Century-Plaza_Tower-Residences.pdf"
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Tower Fact Sheet
-              </a>
-            </li>
-          </DownloadsLinks>
-          <FooterLinks>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/broker-portal">Broker Portal</Link>
-            </li>
-            <li>
-              <Link to="/legal">Legal</Link>
-            </li>
-            <li>
-              <Link to="/accessibility">Accessibility</Link>
-            </li>
-          </FooterLinks>
-        </LinksContainer>
-      </MainMenuContainer>
-    </>
+          </li>
+          <li>
+            <Link to="/team" onClick={toggleMenu}>
+              Team
+            </Link>
+          </li>
+          <li>
+            <Link to="/availability" onClick={toggleMenu}>
+              Availability
+            </Link>
+          </li>
+          <li>
+            <Link to="/press" onClick={toggleMenu}>
+              Press
+            </Link>
+          </li>
+          <li>
+            <Link to="/gallery" onClick={toggleMenu}>
+              Gallery
+            </Link>
+          </li>
+        </SecondaryLinks>
+        <InfoCluster>
+          <p>
+            <strong>Sales Gallery</strong>
+            <a
+              href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              10250 Consteallation Boulevard
+              <br />
+              Los Angeles, California 90067
+            </a>
+          </p>
+          <p>
+            <strong>Schedule an Appointment</strong>
+            +1 310 246 4777
+            <br />
+            <a href="mailto:info@thecenturyplaza.com" rel="noopener noreferrer">
+              info@thecenturyplaza.com
+            </a>
+          </p>
+          <Link to="/contact" onClick={toggleMenu}>
+            Register Your Interest
+          </Link>
+        </InfoCluster>
+        <DownloadsLinks>
+          <li>Downloads</li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Brochure
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Fairmont-Century-Plaza-Residences.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hotel Fact Sheet
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Century-Plaza_Tower-Residences.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tower Fact Sheet
+            </a>
+          </li>
+        </DownloadsLinks>
+        <FooterLinks>
+          <li>
+            <Link to="/contact" onClick={toggleMenu}>
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/broker-portal" onClick={toggleMenu}>
+              Broker Portal
+            </Link>
+          </li>
+          <li>
+            <Link to="/legal" onClick={toggleMenu}>
+              Legal
+            </Link>
+          </li>
+          <li>
+            <Link to="/accessibility" onClick={toggleMenu}>
+              Accessibility
+            </Link>
+          </li>
+        </FooterLinks>
+      </LinksContainer>
+    </MainMenuContainer>
   );
 };
 export default MainMenu;
