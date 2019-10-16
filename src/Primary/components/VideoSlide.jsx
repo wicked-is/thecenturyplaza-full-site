@@ -44,7 +44,7 @@ const PlaceHolder = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: ${props => (props.activePlaceholder ? "900" : "300")};
+  z-index: ${props => (props.activePlaceholder ? "900" : "100")};
 
   img {
     width: 100vw;
@@ -112,6 +112,7 @@ const VideoSlide = ({
   } = context;
 
   const [activePlaceholder, setActivePlaceholder] = useState(true);
+  const [startVideo, setStartVideo] = useState(false);
 
   const startTimer = () => {
     toggleExpand();
@@ -121,9 +122,8 @@ const VideoSlide = ({
   };
 
   const removePlaceholder = () => {
-    setTimeout(() => {
-      setActivePlaceholder(false);
-    }, 1200); // This timeout holds the placeholder, iOS and Safari need a higher timeout whereas Chrome can be lower
+    setActivePlaceholder(false);
+    setStartVideo(true);
   };
 
   useEffect(() => {
@@ -210,7 +210,7 @@ const VideoSlide = ({
               <ReactPlayer
                 url={slide.source[0]}
                 muted
-                playing
+                playing={startVideo}
                 playsinline
                 loop
                 width="100vw"
