@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Context from "../../config/Context";
 import { Link } from "@reach/router";
 import styled from "styled-components";

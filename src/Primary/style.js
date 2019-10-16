@@ -199,7 +199,7 @@ export const ImageSoloStyled = css`
   justify-content: center;
   align-items: center;
   max-height: calc(
-    80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
   );
   max-width: calc(
     100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
@@ -217,10 +217,10 @@ export const ImageSoloStyled = css`
 
   ${mediaMin.tabletLandscape`
     max-height: calc(
-      80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+      90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
     );
     max-width: calc(
-      70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+      780vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
   `}
 `;
@@ -230,38 +230,50 @@ export const CrossFadeStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: calc(
-    80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-  );
-  max-width: calc(
-    100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
-  );
+  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
 
   ${mediaMin.tablet`
-    max-width: calc(
+    width: calc(
       90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
   `}
 
   ${mediaMin.tabletLandscape`
-    max-height: calc(
-      80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+    height: calc(
+      90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
     );
-    max-width: calc(
-      70vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    width: calc(
+      80vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
   `}
 
   > div {
-    display: inline-block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: inline-block;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
 
     &:nth-child(1) {
-      position: relative;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 1) return "1";
         return "0";
@@ -271,7 +283,12 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(2) {
+      width: 100%;
+      height: auto;
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 2) return "1";
         return "0";
@@ -281,7 +298,12 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(3) {
+      width: 100%;
+      height: auto;
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 3) return "1";
         return "0";
@@ -372,7 +394,7 @@ export const SplitImageContainerStyled = css`
   position: relative;
   width: 66vw;
   max-width: 66vw;
-  height: calc(50vh - ${props => props.headerHeight}px);
+  height: calc(45vh - ${props => props.theme.headerHeight}px);
   margin: 0;
   opacity: 0;
   animation: ${enterFadeIn};
