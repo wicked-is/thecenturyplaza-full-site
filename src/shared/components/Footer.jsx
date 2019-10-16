@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, Location } from "@reach/router";
 import styled from "styled-components";
 import Context from "../../config/Context";
-import { Caption, Indicator } from "../styled-components/Typography.js";
+import { Caption } from "../styled-components/Typography.js";
 import { FooterWrapper } from "shared/styled-components/Navigation.js";
 import parse from "html-react-parser";
 
@@ -12,10 +12,6 @@ const FooterContainer = styled.footer`
 
 const SlideCaption = styled.div`
   ${Caption};
-`;
-
-const SectionIndicator = styled.div`
-  ${Indicator};
 `;
 
 const Footer = props => {
@@ -55,10 +51,18 @@ const Footer = props => {
         >
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length === 1 && (
-              <SlideCaption isOpen={isOpen}>
-                <button onClick={toggleCaption}>
-                  {isOpen ? "Close" : "Info"}
-                </button>
+              <SlideCaption
+                emptyCaption={
+                  primaryData[isSection].slides[isSlide].caption[0] === ""
+                }
+                isOpen={isOpen}
+              >
+                <span>{parse(primaryData[isSection].title)}</span>
+                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
+                  <button onClick={toggleCaption}>
+                    {isOpen ? "Close" : "Info"}
+                  </button>
+                )}
                 <p>
                   {parse(primaryData[isSection].slides[isSlide].caption[0])}
                 </p>
@@ -67,10 +71,18 @@ const Footer = props => {
 
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length > 1 && (
-              <SlideCaption isOpen={isOpen}>
-                <button onClick={toggleCaption}>
-                  {isOpen ? "Close" : "Info"}
-                </button>
+              <SlideCaption
+                emptyCaption={
+                  primaryData[isSection].slides[isSlide].caption[0] === ""
+                }
+                isOpen={isOpen}
+              >
+                <span>{parse(primaryData[isSection].title)}</span>
+                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
+                  <button onClick={toggleCaption}>
+                    {isOpen ? "Close" : "Info"}
+                  </button>
+                )}
                 <p>
                   {parse(
                     primaryData[isSection].slides[isSlide].caption[
@@ -80,12 +92,6 @@ const Footer = props => {
                 </p>
               </SlideCaption>
             )}
-
-          {hasCaptions && (
-            <SectionIndicator>
-              {parse(primaryData[isSection].title)}
-            </SectionIndicator>
-          )}
 
           <ul>
             <li>

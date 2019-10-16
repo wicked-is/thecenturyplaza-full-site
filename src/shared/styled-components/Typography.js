@@ -131,7 +131,7 @@ export const Caption = css`
   height: auto;
   top: 0;
   left: 0;
-  margin: 0 0 ${props => props.theme.headerHeight}px;
+  margin: 0;
   padding: ${props => props.theme.mobileMargin}px
     ${props => props.theme.mobileMargin}px 0;
   background: white;
@@ -140,10 +140,13 @@ export const Caption = css`
   animation: ${enterFadeIn};
   will-change: opacity;
   transition: all 0.25s ease-in-out;
-  transform: translateY(${props => (props.isOpen ? "-70%" : "10px")});
+  transform: translateY(
+    ${props => (!props.emptyCaption && props.isOpen ? "-40%" : "10px")}
+  );
 
   ${mediaMin.phoneXL`
-    transform: translateY(${props => (props.isOpen ? "-50%" : "10px")});
+    transform: translateY(${props =>
+      !props.emptyCaption && props.isOpen ? "-40%" : "10px"});
   `}
 
   ${mediaMin.tabletLandscape`
@@ -161,12 +164,13 @@ export const Caption = css`
 
   p {
     display: inline-block;
-    opacity: ${props => (props.isOpen ? "1" : "0")};
+    opacity: ${props => (!props.emptyCaption && props.isOpen ? "1" : "0")};
     font-weight: 300;
     width: 100%;
     font-size: 12px;
     line-height: 1.35em;
     letter-spacing: 0.05em;
+    margin: 1.5em 0 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
     transition: all 0.25s ease-in-out;
@@ -199,7 +203,9 @@ export const Caption = css`
       background-size: contain;
       vertical-align: top;
       margin: 0 0.75em 0 0;
-      transform: rotate(${props => (props.isOpen ? "45deg" : "0")});
+      transform: rotate(
+        ${props => (!props.emptyCaption && props.isOpen ? "45deg" : "0")}
+      );
       transition: transform 0.25s ease-in-out;
     }
 
@@ -207,25 +213,17 @@ export const Caption = css`
       display: none;
     `}
   }
-`;
 
-export const Indicator = css`
-  display: inline-block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 3px ${props => props.theme.mobileMargin}px 0;
-  width: auto;
-  opacity: 0;
-  line-height: ${props => props.theme.headerHeight}px;
-  animation: ${enterFadeIn};
-  will-change: opacity;
-  transition: all 0.25s ease-in-out;
-  color: ${props => props.theme.gray};
+  span {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    color: ${props => props.theme.gray};
 
-  ${mediaMin.tabletLandscape`
-    display:none;
-  `}
+    ${mediaMin.tabletLandscape`
+      display:none;
+    `}
+  }
 `;
