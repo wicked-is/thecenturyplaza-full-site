@@ -145,6 +145,8 @@ export const FullScreenStyled = css`
   width: 100%;
   transition: 0;
   position: relative;
+  ${"" /* background: url(${props => props.placeholder}) no-repeat center center;
+  background-size: cover; */}
 
   .iframe,
   iframe {
@@ -174,7 +176,7 @@ export const PlaceHolderStyled = css`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: 300;
+  z-index: ${props => (props.isPlaying ? "300" : "600")};
 
   img {
     width: 100vw;
