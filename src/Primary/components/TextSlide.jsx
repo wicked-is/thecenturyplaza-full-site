@@ -42,7 +42,8 @@ const TextSlide = ({
     setIsExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    showPlaceholder
   } = context;
 
   const setReturnPath = () => {

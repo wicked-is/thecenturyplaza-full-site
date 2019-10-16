@@ -7,8 +7,7 @@ import {
   SlideMaskStyled,
   SlideContainerStyled,
   PlayerContainerStyled,
-  FullScreenStyled,
-  PlaceHolderStyled
+  FullScreenStyled
 } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
@@ -32,7 +31,37 @@ const FullScreen = styled.div`
 `;
 
 const PlaceHolder = styled.div`
-  ${PlaceHolderStyled};
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: ${props => (props.activePlaceholder ? "600" : "300")};
+
+  img {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0;
+    display: block;
+    position: relative;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
 `;
 
 const videoElement = () => ({
@@ -82,7 +111,7 @@ const VideoSlide = ({
     currentSectionIndex
   } = context;
 
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [activePlaceholder, setActivePlaceholder] = useState(true);
 
   const startTimer = () => {
     toggleExpand();
@@ -93,8 +122,8 @@ const VideoSlide = ({
 
   const removePlaceholder = () => {
     setTimeout(() => {
-      setIsPlaying(true);
-    }, 100);
+      setActivePlaceholder(false);
+    }, 750);
   };
 
   useEffect(() => {
@@ -172,7 +201,10 @@ const VideoSlide = ({
               isExpanded={isExpanded}
               placeholder={"/" + slide.placeholder + "_1500.jpg"}
             >
-              <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
+              <PlaceHolder
+                activePlaceholder={activePlaceholder}
+                isExpanded={isExpanded}
+              >
                 <ResponsiveImage srcPath={slide.placeholder} />
               </PlaceHolder>
               <ReactPlayer
@@ -183,9 +215,8 @@ const VideoSlide = ({
                 loop
                 width="100vw"
                 height="56.25vw"
-                onStart={removePlaceholder}
+                onReady={removePlaceholder}
                 style={videoElement(isExpanded)}
-                preload="true"
               />
             </FullScreen>
           </PlayerContainer>

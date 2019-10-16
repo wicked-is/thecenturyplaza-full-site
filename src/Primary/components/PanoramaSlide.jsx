@@ -140,7 +140,8 @@ const PanoramaSlide = ({
     setIsExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex
+    currentSectionIndex,
+    showPlaceholder
   } = context;
 
   const setUpPanorama = () => {
