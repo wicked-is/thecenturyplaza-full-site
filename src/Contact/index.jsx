@@ -14,7 +14,6 @@ const ContactWrapper = styled.div`
 `;
 const ContactContainer = styled.div`
   ${ContainerStyled};
-  margin: 0 !important;
 `;
 
 const LeftCol = styled.div`
