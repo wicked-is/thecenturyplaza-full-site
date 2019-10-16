@@ -146,7 +146,7 @@ const PanoramaSlide = ({
   const setUpPanorama = () => {
     new PhotoSphereViewer({
       container: "panorama",
-      panorama: require("../../imgs/panorama/pano_10000.jpg"),
+      panorama: require("../../imgs/panorama/pano.jpg"),
       navbar: false,
       anim_speed: "0.25rpm",
       default_lat: 0,
