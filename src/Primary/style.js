@@ -394,7 +394,7 @@ export const SplitImageContainerStyled = css`
   position: relative;
   width: 66vw;
   max-width: 66vw;
-  height: calc(50vh - ${props => props.headerHeight}px);
+  height: calc(45vh - ${props => props.theme.headerHeight}px);
   margin: 0;
   opacity: 0;
   animation: ${enterFadeIn};
