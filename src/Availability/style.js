@@ -43,7 +43,6 @@ export const HeaderStyled = css`
     }
 
     ${mediaMin.tabletLandscape` 
-      margin: 0 0 1em;
       text-align: center;
       text-transform: none;
       font-family: ${props => props.theme.sansSerifLight}, sans-serif;
@@ -468,15 +467,23 @@ export const ControlsStyled = css`
     width: 100%;
     font-family: ${props => props.theme.serifRoman}, serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.4em;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     margin: 0;
 
+    ${mediaMin.phoneXL` 
+      font-size: 24px;
+    `}
+
     ${mediaMin.tabletLandscape` 
-    font-size: 24px;
+      font-size: 22px;
       width: auto;
+    `}
+
+    ${mediaMin.desktop` 
+      font-size: 24px;
     `}
 
     &:first-child {
@@ -484,7 +491,7 @@ export const ControlsStyled = css`
         ${mediaMin.tabletLandscape` 
           display: inline-block;
           content: "/";
-          margin: 0 1em;
+          margin: 0 0.5em;
         `}
       }
     }

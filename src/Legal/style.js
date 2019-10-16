@@ -10,9 +10,6 @@ export const ContainerStyled = css`
     width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
   `}
 
-  h1 {
-    margin: 0 0 3em; 
-  }
 
   p {
     font-family: ${props => props.theme.sansSerifLight}, sans-serif;

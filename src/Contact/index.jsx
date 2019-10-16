@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "../config/Context";
 import styled from "styled-components";
 import Select from "react-select";
 import { Link } from "@reach/router";
@@ -119,10 +120,9 @@ const FormRow = styled.div`
     .react-select__control,
     .react-select__menu,
     .react-select__menu-list {
-      z-index: 100;
       border-radius: 0;
       border: none;
-      background-color: ${props => props.theme.gray};
+      background-color: ${props => props.theme.grayLight};
       color: ${props => props.theme.black};
       border: 1px solid ${props => props.theme.black};
       box-shadow: 0 0 0 transparent;
@@ -130,6 +130,11 @@ const FormRow = styled.div`
 
     .react-select__menu-list {
       border: 0;
+    }
+
+    .react-select__menu {
+      z-index: 20000;
+      margin-bottom: 81px;
     }
 
     .react-select__indicator {
@@ -271,6 +276,8 @@ const InfoCluster = styled.div`
 `;
 
 const Contact = ({ setPageColor }) => {
+  const context = useContext(Context);
+  const { globalConfig, setGlobalConfig } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -382,8 +389,17 @@ const Contact = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    setPageColor(props => props.theme.gray);
+    setPageColor(props => props.theme.grayLight);
   }, [setPageColor]);
+
+  useEffect(() => {
+    return () => {
+      setGlobalConfig({
+        ...globalConfig,
+        returnPath: null
+      });
+    };
+  }, [setGlobalConfig]);
 
   return (
     <ContactWrapper>
