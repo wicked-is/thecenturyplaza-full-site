@@ -162,40 +162,6 @@ export const FullScreenStyled = css`
   }
 `;
 
-export const PlaceHolderStyled = css`
-  width: 100vw;
-  height: 56.25vw;
-  min-height: 100vh;
-  min-width: 177.77vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: 0;
-  display: ${props => (props.isPlaying ? "none" : "flex")};
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: ${props => (props.isPlaying ? "300" : "600")};
-
-  img {
-    width: 100vw;
-    height: 56.25vw;
-    min-height: 100vh;
-    min-width: 177.77vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0;
-    display: ${props => (props.isPlaying ? "none" : "block")};
-    position: relative;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-  }
-`;
-
 export const ImageSoloStyled = css`
   display: flex;
   justify-content: center;
