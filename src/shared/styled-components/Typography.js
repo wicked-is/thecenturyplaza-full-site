@@ -10,8 +10,10 @@ export const PageBody = css`
   letter-spacing: 0.6px;
   transition: background 0.5s ease-in-out;
   background: ${props => props.pageColor};
-  min-height: ${props => (props.navActive ? "100vh" : "auto")};
+  height: auto;
+  min-height: 100vh;
   position: relative;
+  overflow: auto;
 
   a {
     text-decoration: none;
@@ -95,7 +97,12 @@ export const PagePreTitle = css`
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
-  text-align: center;
+  text-align: left;
+  margin: 0 0 0.5em;
+
+  ${mediaMin.tabletLandscape`
+    text-align: center;
+  `}
 `;
 
 export const PageTitle = css`
@@ -104,11 +111,20 @@ export const PageTitle = css`
   font-size: 24px;
   line-height: 1.1em;
   letter-spacing: 0.3em;
-  margin: 10px 0;
-  text-align: center;
+  margin: 0 0 1em;
+  text-align: left;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
+
+  ${mediaMin.tabletLandscape`
+    text-align: center;
+    margin: 0 0 2em;
+  `}
+
+  ${mediaMin.desktop`
+    margin: 0 0 3em;
+  `}
 `;
 
 export const Caption = css`

@@ -10,15 +10,6 @@ export const ContainerStyled = css`
     width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
   `}
 
-  h1 {
-    text-align: left;
-    font-size: 1.25em;
-    ${mediaMin.tabletLandscape`
-      font-size: 2em;
-      text-align: center;
-    `}
-    margin: 0 0 3em; 
-  }
 `;
 
 export const EntryStyled = css`

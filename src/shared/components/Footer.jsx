@@ -22,6 +22,8 @@ const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
   const {
+    globalConfig,
+    setGlobalConfig,
     navActive,
     isSection,
     isSlide,
@@ -29,6 +31,14 @@ const Footer = props => {
     activeCrossFade
   } = context;
   const [isOpen, setIsOpen] = useState(false);
+
+  const setReturnPath = () => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: props => props.theme.grayLight,
+      returnPath: window.location.pathname
+    });
+  };
 
   const toggleCaption = () => {
     setIsOpen(!isOpen);
@@ -80,16 +90,24 @@ const Footer = props => {
 
           <ul>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link onClick={setReturnPath} to="/contact">
+                Contact
+              </Link>
             </li>
             <li>
-              <Link to="/broker-portal">Broker Portal</Link>
+              <Link onClick={setReturnPath} to="/broker-portal">
+                Broker Portal
+              </Link>
             </li>
             <li>
-              <Link to="/legal">Legal</Link>
+              <Link onClick={setReturnPath} to="/legal">
+                Legal
+              </Link>
             </li>
             <li>
-              <Link to="/accessibility">Accessibility</Link>
+              <Link onClick={setReturnPath} to="/accessibility">
+                Accessibility
+              </Link>
             </li>
           </ul>
         </FooterContainer>

@@ -14,10 +14,14 @@ export const ContainerStyled = css`
 `;
 
 export const ContentStyled = css`
-  margin: 5em 0;
+  margin: 3em 0;
   columns: 250px 2;
   column-fill: balance;
   column-gap: 20px;
+
+  ${mediaMin.tabletLandscape` 
+    margin: 0;
+  `}
 `;
 
 export const SectionTitleStyled = css`

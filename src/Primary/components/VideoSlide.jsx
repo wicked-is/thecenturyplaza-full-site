@@ -117,9 +117,10 @@ const VideoSlide = ({
 
   useEffect(() => {
     return () => {
+      closeExpand();
       setIsExisting(false);
     };
-  }, [setIsExisting]);
+  }, [setIsExisting, closeExpand]);
 
   return (
     <ReactScrollWheelHandler

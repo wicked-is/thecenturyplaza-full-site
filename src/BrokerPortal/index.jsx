@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "../config/Context";
 import styled from "styled-components";
-import { Wrapper } from "shared/styled-components/Layouts.js";
+import { Wrapper } from "../shared/styled-components/Layouts.js";
+import { PageTitle } from "../shared/styled-components/Typography.js";
 import { ContainerStyled } from "BrokerPortal/style.js";
-import { mediaMin } from "shared/styled-components/MediaQueries";
+import { mediaMin } from "../shared/styled-components/MediaQueries";
 
 const PortalWrapper = styled.div`
   ${Wrapper};
@@ -11,6 +13,10 @@ const PortalContainer = styled.div`
   ${ContainerStyled};
   display: flex;
   justify-content: center;
+`;
+
+const BrokerTitle = styled.h1`
+  ${PageTitle};
 `;
 
 const PortalForm = styled.form`
@@ -110,6 +116,9 @@ const Error = styled.p`
 `;
 
 const BrokerPortal = ({ setPageColor }) => {
+  const context = useContext(Context);
+  const { globalConfig, setGlobalConfig } = context;
+
   const [formData, setFormData] = useState({
     username: "",
     password: ""
@@ -181,14 +190,23 @@ const BrokerPortal = ({ setPageColor }) => {
   };
 
   useEffect(() => {
-    setPageColor(props => props.theme.gray);
+    setPageColor(props => props.theme.grayLight);
   }, [setPageColor]);
+
+  useEffect(() => {
+    return () => {
+      setGlobalConfig({
+        ...globalConfig,
+        returnPath: null
+      });
+    };
+  }, [setGlobalConfig]);
 
   return (
     <PortalWrapper>
       <PortalContainer>
         <PortalForm onSubmit={handleSubmit}>
-          <h3>BROKER PORTAL</h3>
+          <BrokerTitle>BROKER PORTAL</BrokerTitle>
           <FormRow>
             <TextInput
               placeholder="USERNAME"
