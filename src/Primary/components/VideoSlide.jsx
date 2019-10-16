@@ -168,7 +168,10 @@ const VideoSlide = ({
             isExpanded={isExpanded}
             firstSectionSlide={firstSectionSlide}
           >
-            <FullScreen isExpanded={isExpanded}>
+            <FullScreen
+              isExpanded={isExpanded}
+              placeholder={"/" + slide.placeholder + "_1500.jpg"}
+            >
               <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}>
                 <ResponsiveImage srcPath={slide.placeholder} />
               </PlaceHolder>
