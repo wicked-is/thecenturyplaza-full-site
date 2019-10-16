@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import Context from "../config/Context";
 import { Router } from "@reach/router";
 import styled from "styled-components";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
@@ -12,10 +13,26 @@ const TeamContainer = styled.div`
   ${ContainerStyled};
 `;
 
-const Team = ({ teamData, setPageColor }) => {
+const Team = props => {
+  const { teamData, setPageColor } = props;
+  const context = useContext(Context);
+  const { globalConfig, setGlobalConfig } = context;
+
   useEffect(() => {
     setPageColor("white");
   }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "white",
+      footerBackground: "transparent",
+      pageBackground: "white",
+      footerDisplay: true,
+      footerFixed: false,
+      returnPath: null
+    });
+  }, [setGlobalConfig]);
 
   return (
     <TeamWrapper>

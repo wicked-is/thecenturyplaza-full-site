@@ -36,10 +36,20 @@ const theme = {
     desktopLarge: 1920,
     desktopXLarge: 2048
   },
+  whiteGradient:
+    "linear-gradient(to bottom, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 100%)",
   black: "#101820",
+  blackGradient:
+    "linear-gradient(to bottom, rgba(16,24,32,1) 70%,rgba(16,24,32,0) 100%)",
   grayLight: "#E7E7E7",
+  grayLightGradient:
+    "linear-gradient(to bottom, rgba(231,231,231,1) 70%,rgba(231,231,231,0) 100%)",
   gray: "#B4BAC1",
+  grayGradient:
+    "linear-gradient(to bottom, rgba(180,186,193,1) 70%,rgba(180,186,193,0) 100%)",
   gold: "#BB8A47",
+  goldGradient:
+    "linear-gradient(to bottom, rgba(187,138,71,1) 70%,rgba(187,138,71,0) 100%)",
   sansSerifThin: "HelveticaNeueLTStd-UltLt",
   sansSerifThinItalic: "HelveticaNeueLTStd-UltLt",
   sansSerifLight: "HelveticaNeueLTStd-Lt",

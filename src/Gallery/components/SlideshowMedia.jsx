@@ -188,16 +188,21 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   useEffect(() => {
     setGlobalConfig({
       ...globalConfig,
+      headerBackground: "white",
+      pageBackground: "white",
+      footerDisplay: false,
       returnPath: "/gallery"
     });
+  }, [setGlobalConfig]);
 
+  useEffect(() => {
     return () => {
       setGlobalConfig({
         ...globalConfig,
         returnPath: null
       });
     };
-  }, []);
+  }, [setGlobalConfig]);
 
   return (
     <SlideshowContainer>

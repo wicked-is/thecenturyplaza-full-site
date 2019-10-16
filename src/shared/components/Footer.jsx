@@ -35,7 +35,6 @@ const Footer = props => {
   const setReturnPath = () => {
     setGlobalConfig({
       ...globalConfig,
-      headerBackground: props => props.theme.grayLight,
       returnPath: window.location.pathname
     });
   };

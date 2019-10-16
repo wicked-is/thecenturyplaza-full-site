@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
-import styled from "styled-components";
 import Context from "../config/Context";
+import styled from "styled-components";
 import { PageTitle } from "../shared/styled-components/Typography.js";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
 import {
@@ -29,9 +29,10 @@ const PressPubInfo = styled.div`
   ${PubInfoStyled};
 `;
 
-const Press = ({ setPageColor }) => {
+const Press = props => {
+  const { setPageColor } = props;
   const context = useContext(Context);
-  const { fetchPress, pressItems } = context;
+  const { fetchPress, pressItems, globalConfig, setGlobalConfig } = context;
 
   const generatePress = () => {
     return pressItems.map(entry => {
@@ -68,6 +69,18 @@ const Press = ({ setPageColor }) => {
   useEffect(() => {
     setPageColor("white");
   }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "white",
+      footerBackground: "transparent",
+      pageBackground: "white",
+      footerDisplay: true,
+      footerFixed: false,
+      returnPath: null
+    });
+  }, [setGlobalConfig]);
 
   return (
     <PressWrapper>

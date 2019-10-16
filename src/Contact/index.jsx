@@ -275,7 +275,8 @@ const InfoCluster = styled.div`
   }
 `;
 
-const Contact = ({ setPageColor }) => {
+const Contact = props => {
+  const { setPageColor } = props;
   const context = useContext(Context);
   const { globalConfig, setGlobalConfig } = context;
   const [formVisible, setFormVisible] = useState(true);
@@ -393,9 +394,22 @@ const Contact = ({ setPageColor }) => {
   }, [setPageColor]);
 
   useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: props => props.theme.grayLightGradient,
+      pageBackground: props => props.theme.grayLight,
+      footerBackground: props => props.theme.grayLight,
+      footerDisplay: false
+    });
+  }, [setGlobalConfig]);
+
+  useEffect(() => {
     return () => {
       setGlobalConfig({
         ...globalConfig,
+        headerBackground: "white",
+        pageBackground: "white",
+        footerBackground: "white",
         returnPath: null
       });
     };

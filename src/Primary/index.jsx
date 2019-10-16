@@ -12,7 +12,12 @@ const PrimaryWrapper = styled.div`
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor } = props;
   const context = useContext(Context);
-  const { setHasCaptions, setFixedFooter } = context;
+  const {
+    setHasCaptions,
+    setFixedFooter,
+    globalConfig,
+    setGlobalConfig
+  } = context;
 
   const getPreviousSectionPath = index =>
     index !== 0
@@ -23,6 +28,18 @@ const Primary = props => {
       : null;
   const getNextSectionPath = index =>
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
+
+  useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: "white",
+      pageBackground: "white",
+      footerBackground: "white",
+      footerDisplay: true,
+      fixedFooter: true,
+      returnPath: null
+    });
+  }, [setGlobalConfig]);
 
   useEffect(() => {
     setFixedFooter(true);

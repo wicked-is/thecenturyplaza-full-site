@@ -115,7 +115,8 @@ const Error = styled.p`
   transition: opacity 0.25s ease, visibility 0.25s ease;
 `;
 
-const BrokerPortal = ({ setPageColor }) => {
+const BrokerPortal = props => {
+  const { setPageColor } = props;
   const context = useContext(Context);
   const { globalConfig, setGlobalConfig } = context;
 
@@ -194,9 +195,22 @@ const BrokerPortal = ({ setPageColor }) => {
   }, [setPageColor]);
 
   useEffect(() => {
+    setGlobalConfig({
+      ...globalConfig,
+      headerBackground: props => props.theme.grayLightGradient,
+      pageBackground: props => props.theme.grayLight,
+      footerBackground: props => props.theme.grayLight,
+      footerDisplay: false
+    });
+  }, [setGlobalConfig]);
+
+  useEffect(() => {
     return () => {
       setGlobalConfig({
         ...globalConfig,
+        headerBackground: "white",
+        pageBackground: "white",
+        footerBackground: "white",
         returnPath: null
       });
     };

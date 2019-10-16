@@ -30,7 +30,12 @@ const ContextProvider = props => {
   const [globalConfig, setGlobalConfig] = useState({
     firstLocation: window.location.pathname,
     returnPath: null,
-    headerBackground: "white"
+    headerBackground: "white",
+    footerBackground: "white",
+    footerDisplay: true,
+    footerFixed: true,
+    sidebarBackground: "white",
+    pageBackground: "white"
   });
 
   const scrollCooldown = delay => {
