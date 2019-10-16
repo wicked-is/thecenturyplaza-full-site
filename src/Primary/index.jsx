@@ -12,12 +12,7 @@ const PrimaryWrapper = styled.div`
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor } = props;
   const context = useContext(Context);
-  const {
-    setHasCaptions,
-    setFixedFooter,
-    globalConfig,
-    setGlobalConfig
-  } = context;
+  const { setHasCaptions, globalConfig, setGlobalConfig } = context;
 
   const getPreviousSectionPath = index =>
     index !== 0
@@ -42,7 +37,6 @@ const Primary = props => {
   }, [setGlobalConfig]);
 
   useEffect(() => {
-    setFixedFooter(true);
     setHasCaptions(true);
     setPageColor("white");
     window.onresize = function(e) {
@@ -51,11 +45,10 @@ const Primary = props => {
     window.onresize(); // called to initially set the height.
 
     return () => {
-      setFixedFooter(false);
       setHasCaptions(false);
       window.onresize = null;
     };
-  }, [setFixedFooter, setHasCaptions, setPageColor]);
+  }, [setHasCaptions, setPageColor]);
 
   return (
     <PrimaryWrapper isExpanded={isExpanded}>

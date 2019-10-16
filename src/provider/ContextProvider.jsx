@@ -24,8 +24,6 @@ const ContextProvider = props => {
   const [isSection, setSection] = useState(0);
   const [isSlide, setSlide] = useState(0);
   const [hasCaptions, setHasCaptions] = useState(false);
-  const [fixedFooter, setFixedFooter] = useState(false);
-  const [hideFooter, setHideFooter] = useState(false);
   const [activeCrossFade, setActiveCrossFade] = useState(1);
   const [globalConfig, setGlobalConfig] = useState({
     firstLocation: window.location.pathname,
@@ -104,10 +102,6 @@ const ContextProvider = props => {
         currentSlideIndex,
         hasCaptions,
         setHasCaptions,
-        fixedFooter,
-        setFixedFooter,
-        hideFooter,
-        setHideFooter,
         activeCrossFade,
         setActiveCrossFade,
         globalConfig,

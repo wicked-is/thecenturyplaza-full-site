@@ -44,7 +44,7 @@ const videoElement = () => ({
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   const context = useContext(Context);
-  const { setHideFooter, globalConfig, setGlobalConfig } = context;
+  const { globalConfig, setGlobalConfig } = context;
 
   const previousMedia = () => {
     if (sectionId === 0) {
@@ -177,13 +177,6 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
       }
     }
   };
-
-  useEffect(() => {
-    setHideFooter(true);
-    return () => {
-      setHideFooter(false);
-    };
-  }, [setHideFooter]);
 
   useEffect(() => {
     setGlobalConfig({
