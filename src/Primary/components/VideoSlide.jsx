@@ -44,7 +44,7 @@ const PlaceHolder = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: ${props => (props.activePlaceholder ? "600" : "300")};
+  z-index: ${props => (props.activePlaceholder ? "900" : "300")};
 
   img {
     width: 100vw;
@@ -123,7 +123,7 @@ const VideoSlide = ({
   const removePlaceholder = () => {
     setTimeout(() => {
       setActivePlaceholder(false);
-    }, 750);
+    }, 1200); // This timeout holds the placeholder, iOS and Safari need a higher timeout whereas Chrome can be lower
   };
 
   useEffect(() => {
@@ -199,7 +199,7 @@ const VideoSlide = ({
           >
             <FullScreen
               isExpanded={isExpanded}
-              placeholder={"/" + slide.placeholder + "_1500.jpg"}
+              // placeholder={"/" + slide.placeholder + "_1500.jpg"}
             >
               <PlaceHolder
                 activePlaceholder={activePlaceholder}
