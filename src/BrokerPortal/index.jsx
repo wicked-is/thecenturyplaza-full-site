@@ -118,7 +118,7 @@ const Error = styled.p`
 const BrokerPortal = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig, setReturnPath } = context;
 
   const [formData, setFormData] = useState({
     username: "",
@@ -196,25 +196,31 @@ const BrokerPortal = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: props => props.theme.grayLightGradient,
-      pageBackground: props => props.theme.grayLight,
       footerBackground: props => props.theme.grayLight,
-      footerDisplay: false
+      footerDisplay: false,
+      footerFixed: false,
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 
   useEffect(() => {
     return () => {
       setGlobalConfig({
-        ...globalConfig,
-        headerBackground: "white",
-        pageBackground: "white",
-        footerBackground: "white",
-        returnPath: null
+        headerBackground: "transparent",
+        footerBackground: "transparent",
+        footerDisplay: false,
+        footerFixed: true,
+        sidebarBackground: "transparent"
       });
     };
   }, [setGlobalConfig]);
+
+  useEffect(() => {
+    return () => {
+      setReturnPath(null);
+    };
+  }, [setReturnPath]);
 
   return (
     <PortalWrapper>

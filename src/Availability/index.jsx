@@ -35,7 +35,7 @@ const AvailabilityFilter = styled.button`
 const Availability = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
@@ -43,13 +43,11 @@ const Availability = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
       footerBackground: "transparent",
-      pageBackground: "white",
       footerDisplay: true,
       footerFixed: false,
-      returnPath: null
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 

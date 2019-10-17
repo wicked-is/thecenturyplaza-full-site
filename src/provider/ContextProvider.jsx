@@ -17,6 +17,7 @@ const parsePress = pressData => {
 const ContextProvider = props => {
   const [firstLocation, setFirstLocation] = useState(window.location.pathname);
   const [navActive, setNavActive] = useState(false);
+  const [returnPath, setReturnPath] = useState(null);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
   // const [firstShouldSwipe, setFirstShouldSwipe] = useState(false);
@@ -27,13 +28,11 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [activeCrossFade, setActiveCrossFade] = useState(1);
   const [globalConfig, setGlobalConfig] = useState({
-    returnPath: null,
     headerBackground: "white",
     footerBackground: "white",
     footerDisplay: true,
     footerFixed: true,
-    sidebarBackground: "white",
-    pageBackground: "white"
+    sidebarBackground: "white"
   });
 
   const scrollCooldown = delay => {
@@ -85,6 +84,8 @@ const ContextProvider = props => {
         ...props,
         firstLocation,
         setFirstLocation,
+        returnPath,
+        setReturnPath,
         navActive,
         toggleMenu,
         pauseScroll,

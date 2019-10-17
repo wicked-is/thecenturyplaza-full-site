@@ -189,11 +189,18 @@ export const SlideshowImageStyled = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: calc(100vh - 160px);
+  width: 100%;
+  height: calc(100vh - 160px);
   overflow: hidden;
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const SlideshowVideoStyled = css`

@@ -222,7 +222,12 @@ const FooterLinks = styled.ul`
 const MainMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive, toggleMenu } = context;
+  const { navActive, toggleMenu, setReturnPath } = context;
+
+  const declareReturnPath = () => {
+    toggleMenu();
+    setReturnPath(window.location.pathname);
+  };
 
   return (
     <MainMenuContainer navActive={navActive}>
@@ -287,7 +292,7 @@ const MainMenu = props => {
               info@thecenturyplaza.com
             </a>
           </p>
-          <Link to="/contact" onClick={toggleMenu}>
+          <Link to="/contact" onClick={declareReturnPath}>
             Register Your Interest
           </Link>
         </InfoCluster>
@@ -332,22 +337,22 @@ const MainMenu = props => {
         </DownloadsLinks>
         <FooterLinks>
           <li>
-            <Link to="/contact" onClick={toggleMenu}>
+            <Link to="/contact" onClick={declareReturnPath}>
               Contact
             </Link>
           </li>
           <li>
-            <Link to="/broker-portal" onClick={toggleMenu}>
+            <Link to="/broker-portal" onClick={declareReturnPath}>
               Broker Portal
             </Link>
           </li>
           <li>
-            <Link to="/legal" onClick={toggleMenu}>
+            <Link to="/legal" onClick={declareReturnPath}>
               Legal
             </Link>
           </li>
           <li>
-            <Link to="/accessibility" onClick={toggleMenu}>
+            <Link to="/accessibility" onClick={declareReturnPath}>
               Accessibility
             </Link>
           </li>

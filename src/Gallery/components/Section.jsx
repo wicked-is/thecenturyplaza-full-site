@@ -45,7 +45,7 @@ const Section = ({ section, uri }) => {
   const context = useContext(Context);
   const { globalConfig, setGlobalConfig } = context;
 
-  const setReturnPath = () => {
+  const declareReturnPath = () => {
     setGlobalConfig({
       ...globalConfig,
       headerBackground: "transparent",
@@ -67,7 +67,7 @@ const Section = ({ section, uri }) => {
               <GalleryMedia key={index} type={media.type}>
                 <Fade>
                   <Link
-                    onClick={setReturnPath}
+                    onClick={declareReturnPath}
                     to={"/gallery/" + section.slug + "/" + media.slug}
                   >
                     {media.type === "video" ? (

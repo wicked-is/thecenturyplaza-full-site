@@ -44,7 +44,7 @@ const videoElement = () => ({
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig, setReturnPath } = context;
 
   const previousMedia = () => {
     if (sectionId === 0) {
@@ -179,20 +179,33 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   };
 
   useEffect(() => {
+    setReturnPath("/gallery");
+  }, [setReturnPath]);
+
+  useEffect(() => {
+    return () => {
+      setReturnPath(null);
+    };
+  }, [setReturnPath]);
+
+  useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
-      pageBackground: "white",
+      footerBackground: "transparent",
       footerDisplay: false,
-      returnPath: "/gallery"
+      footerFixed: false,
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 
   useEffect(() => {
     return () => {
       setGlobalConfig({
-        ...globalConfig,
-        returnPath: null
+        headerBackground: "white",
+        footerBackground: "transparent",
+        footerDisplay: true,
+        footerFixed: false,
+        sidebarBackground: "transparent"
       });
     };
   }, [setGlobalConfig]);
