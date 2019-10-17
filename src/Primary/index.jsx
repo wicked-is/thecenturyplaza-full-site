@@ -10,7 +10,7 @@ const PrimaryWrapper = styled.div`
 `;
 
 const Primary = props => {
-  const { isExpanded, primaryData, setPageColor } = props;
+  const { isExpanded, primaryData, setPageColor, closeExpand } = props;
   const context = useContext(Context);
   const { setHasCaptions, setGlobalConfig } = context;
 
@@ -31,12 +31,14 @@ const Primary = props => {
       document.body.height = window.innerHeight;
     };
     window.onresize(); // called to initially set the height.
+  }, [setHasCaptions, setPageColor]);
 
+  useEffect(() => {
     return () => {
       setHasCaptions(false);
       window.onresize = null;
     };
-  }, [setHasCaptions, setPageColor]);
+  }, [setHasCaptions]);
 
   useEffect(() => {
     setGlobalConfig({
