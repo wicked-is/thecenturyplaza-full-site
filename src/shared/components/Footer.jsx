@@ -18,8 +18,7 @@ const Footer = props => {
   const { primaryData } = props;
   const context = useContext(Context);
   const {
-    globalConfig,
-    setGlobalConfig,
+    setReturnPath,
     navActive,
     isSection,
     isSlide,
@@ -28,11 +27,8 @@ const Footer = props => {
   } = context;
   const [isOpen, setIsOpen] = useState(false);
 
-  const setReturnPath = () => {
-    setGlobalConfig({
-      ...globalConfig,
-      returnPath: window.location.pathname
-    });
+  const declareReturnPath = () => {
+    setReturnPath(window.location.pathname);
   };
 
   const toggleCaption = () => {
@@ -95,22 +91,22 @@ const Footer = props => {
 
           <ul>
             <li>
-              <Link onClick={setReturnPath} to="/contact">
+              <Link onClick={declareReturnPath} to="/contact">
                 Contact
               </Link>
             </li>
             <li>
-              <Link onClick={setReturnPath} to="/broker-portal">
+              <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal
               </Link>
             </li>
             <li>
-              <Link onClick={setReturnPath} to="/legal">
+              <Link onClick={declareReturnPath} to="/legal">
                 Legal
               </Link>
             </li>
             <li>
-              <Link onClick={setReturnPath} to="/accessibility">
+              <Link onClick={declareReturnPath} to="/accessibility">
                 Accessibility
               </Link>
             </li>

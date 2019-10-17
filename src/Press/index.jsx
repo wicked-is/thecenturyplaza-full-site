@@ -32,7 +32,7 @@ const PressPubInfo = styled.div`
 const Press = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { fetchPress, pressItems, globalConfig, setGlobalConfig } = context;
+  const { fetchPress, pressItems, setGlobalConfig } = context;
 
   const generatePress = () => {
     return pressItems.map(entry => {
@@ -72,13 +72,11 @@ const Press = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
       footerBackground: "transparent",
-      pageBackground: "white",
       footerDisplay: true,
       footerFixed: false,
-      returnPath: null
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 

@@ -15,7 +15,7 @@ const GalleryContainer = styled.div`
 const Press = props => {
   const { galleryData, setPageColor } = props;
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
@@ -23,13 +23,11 @@ const Press = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
       footerBackground: "transparent",
-      pageBackground: "white",
       footerDisplay: true,
       footerFixed: false,
-      returnPath: null
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 

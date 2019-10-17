@@ -219,10 +219,7 @@ const VideoSlide = ({
             isExpanded={isExpanded}
             firstSectionSlide={firstSectionSlide}
           >
-            <FullScreen
-              isExpanded={isExpanded}
-              // placeholder={"/" + slide.placeholder + "_1500.jpg"}
-            >
+            <FullScreen isExpanded={isExpanded}>
               <PlaceHolder
                 activePlaceholder={activePlaceholder}
                 isExpanded={isExpanded}

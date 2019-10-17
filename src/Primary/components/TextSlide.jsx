@@ -35,8 +35,7 @@ const TextSlide = ({
 }) => {
   const context = useContext(Context);
   const {
-    globalConfig,
-    setGlobalConfig,
+    setReturnPath,
     pauseScroll,
     isExisting,
     setIsExisting,
@@ -45,12 +44,8 @@ const TextSlide = ({
     currentSectionIndex
   } = context;
 
-  const setReturnPath = () => {
-    setGlobalConfig({
-      ...globalConfig,
-      headerBackground: "transparent",
-      returnPath: uri
-    });
+  const declareReturnPath = () => {
+    setReturnPath(window.location.pathname);
   };
 
   useEffect(() => {
@@ -84,7 +79,7 @@ const TextSlide = ({
           <SlideForward nextPath={nextPath} />
           {slide.headline.length > 0 && <h2>{parse(slide.headline)}</h2>}
           {slide.path.length > 0 && slide.cta.length > 0 && (
-            <Link onClick={setReturnPath} to={slide.path}>
+            <Link onClick={declareReturnPath} to={slide.path}>
               {slide.cta}
             </Link>
           )}

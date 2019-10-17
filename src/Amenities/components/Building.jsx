@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import Context from "../../config/Context";
+import React from "react";
 import styled from "styled-components";
 import {
   PageTitle,
@@ -63,17 +62,6 @@ const Disclaimer = styled.p`
 
 const Building = props => {
   const { building } = props;
-  const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
-
-  useEffect(() => {
-    return () => {
-      setGlobalConfig({
-        ...globalConfig,
-        returnPath: null
-      });
-    };
-  }, [setGlobalConfig]);
 
   return (
     <Container>

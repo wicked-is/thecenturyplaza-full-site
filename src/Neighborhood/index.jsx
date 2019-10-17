@@ -50,7 +50,7 @@ const NeighborhoodItemCTA = styled.p`
 const Neighborhood = props => {
   const { neighborhoodData, setPageColor } = props;
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
@@ -58,13 +58,11 @@ const Neighborhood = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
       footerBackground: "transparent",
-      pageBackground: "white",
       footerDisplay: true,
       footerFixed: false,
-      returnPath: null
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 

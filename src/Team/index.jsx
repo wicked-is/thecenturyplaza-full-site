@@ -16,7 +16,7 @@ const TeamContainer = styled.div`
 const Team = props => {
   const { teamData, setPageColor } = props;
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor("white");
@@ -24,13 +24,11 @@ const Team = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: "white",
       footerBackground: "transparent",
-      pageBackground: "white",
       footerDisplay: true,
       footerFixed: false,
-      returnPath: null
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 

@@ -145,8 +145,6 @@ export const FullScreenStyled = css`
   width: 100%;
   transition: 0;
   position: relative;
-  ${"" /* background: url(${props => props.placeholder}) no-repeat center center;
-  background-size: cover; */}
 
   .iframe,
   iframe {

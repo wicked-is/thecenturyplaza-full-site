@@ -13,7 +13,7 @@ const Amenities = props => {
   const { amenitiesData, setPageColor } = props;
 
   const context = useContext(Context);
-  const { globalConfig, setGlobalConfig } = context;
+  const { setGlobalConfig, setReturnPath } = context;
 
   useEffect(() => {
     setPageColor(props => props.theme.grayLight);
@@ -21,25 +21,31 @@ const Amenities = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      ...globalConfig,
       headerBackground: props => props.theme.grayLightGradient,
-      pageBackground: props => props.theme.grayLight,
       footerBackground: props => props.theme.grayLight,
-      footerDisplay: false
+      footerDisplay: false,
+      footerFixed: false,
+      sidebarBackground: "transparent"
     });
   }, [setGlobalConfig]);
 
   useEffect(() => {
     return () => {
       setGlobalConfig({
-        ...globalConfig,
-        headerBackground: "white",
-        pageBackground: "white",
-        footerBackground: "white",
-        returnPath: null
+        headerBackground: "transparent",
+        footerBackground: "transparent",
+        footerDisplay: false,
+        footerFixed: true,
+        sidebarBackground: "transparent"
       });
     };
   }, [setGlobalConfig]);
+
+  useEffect(() => {
+    return () => {
+      setReturnPath(null);
+    };
+  }, [setReturnPath]);
 
   return (
     <AmenitiesWrapper amenitiesData={amenitiesData}>
