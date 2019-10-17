@@ -7,7 +7,7 @@ import { mediaMin } from "shared/styled-components/MediaQueries.js";
 const MainMenuContainer = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
   visibility: ${props => (props.navActive ? "visible" : "hidden")};
-  display: flex;
+  display: ${props => (props.navActive ? "flex" : "none")};
   position: absolute;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@ const MainMenuContainer = styled.div`
   width: 100vw;
   height: 100%;
   min-height: calc(100vh - 80px);
-  z-index: 10000;
+  z-index: ${props => (props.navActive ? "10000" : "0")};
   text-indent: 0;
   color: ${props => props.theme.gray};
 
