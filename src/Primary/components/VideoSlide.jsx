@@ -98,6 +98,7 @@ const VideoSlide = ({
 }) => {
   const context = useContext(Context);
   const {
+    firstLocation,
     globalConfig,
     pauseScroll,
     isExisting,
@@ -122,8 +123,10 @@ const VideoSlide = ({
   };
 
   const removePlaceholder = () => {
-    setActivePlaceholder(false);
     setStartVideo(true);
+    setTimeout(() => {
+      setActivePlaceholder(false);
+    }, 100);
   };
 
   useEffect(() => {
@@ -131,8 +134,7 @@ const VideoSlide = ({
       isFirstSection &&
       isFirstSlide &&
       !hasPlayed &&
-      (globalConfig.firstLocation === window.location.pathname ||
-        globalConfig.firstLocation === "/")
+      (firstLocation === window.location.pathname || firstLocation === "/")
     ) {
       startTimer();
       markPlayed();

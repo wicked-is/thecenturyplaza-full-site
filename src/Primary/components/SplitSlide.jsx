@@ -52,8 +52,7 @@ const SplitSlide = ({
     setIsExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex,
-    showPlaceholder
+    currentSectionIndex
   } = context;
 
   useEffect(() => {

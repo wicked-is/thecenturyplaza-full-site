@@ -42,8 +42,7 @@ const TextSlide = ({
     setIsExisting,
     triggerExit,
     currentSlideIndex,
-    currentSectionIndex,
-    showPlaceholder
+    currentSectionIndex
   } = context;
 
   const setReturnPath = () => {
@@ -74,6 +73,8 @@ const TextSlide = ({
       downHandler={() => {
         triggerExit(nextPath);
       }}
+      leftHandler={() => triggerExit(nextPath)}
+      rightHandler={() => triggerExit(previousPath)}
     >
       <SlideMask
         lastSectionSlide={lastSectionSlide}
