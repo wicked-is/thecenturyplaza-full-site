@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Router, Redirect } from "@reach/router";
 import styled, { ThemeProvider } from "styled-components";
+import ScrollPrompt from "shared/components/ScrollPrompt.jsx";
 import ContextProvider from "./provider/ContextProvider";
 import { PageBody } from "shared/styled-components/Typography.js";
 import AppHeader from "shared/components/AppHeader.jsx";
@@ -100,6 +101,7 @@ class App extends Component {
       <ContextProvider>
         <ThemeProvider theme={theme}>
           <AppBody pageColor={this.state.pageColor}>
+            <ScrollPrompt isExpanded={this.state.isExpanded} />
             <AppHeader
               pageColor={this.state.pageColor}
               isExpanded={this.state.isExpanded}

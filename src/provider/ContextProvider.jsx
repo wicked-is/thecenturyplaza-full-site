@@ -15,6 +15,7 @@ const parsePress = pressData => {
 };
 
 const ContextProvider = props => {
+  const [firstLocation, setFirstLocation] = useState(window.location.pathname);
   const [navActive, setNavActive] = useState(false);
   const [pauseScroll, setPauseScroll] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
@@ -26,7 +27,6 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [activeCrossFade, setActiveCrossFade] = useState(1);
   const [globalConfig, setGlobalConfig] = useState({
-    firstLocation: window.location.pathname,
     returnPath: null,
     headerBackground: "white",
     footerBackground: "white",
@@ -83,6 +83,8 @@ const ContextProvider = props => {
     <Context.Provider
       value={{
         ...props,
+        firstLocation,
+        setFirstLocation,
         navActive,
         toggleMenu,
         pauseScroll,

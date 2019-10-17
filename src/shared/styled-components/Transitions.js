@@ -1,5 +1,16 @@
 import { css, keyframes } from "styled-components";
 
+export const scrollPlease = keyframes`
+  0% { bottom: 2px; opacity: 1;}
+  70% { bottom: 27px; opacity: 0; }
+  100% { bottom: 27px; opacity: 0; }
+`;
+
+export const showScrollPlease = props =>
+  css`
+    ${scrollPlease} 1.75s ease-out 1s infinite;
+  `;
+
 export const activeLine = keyframes`
   0% { width: 0; left: 50%;}
   100% { width: 100%; left: 0;}
@@ -38,6 +49,11 @@ export const fromCenter = keyframes`
 export const enterFromCenter = props =>
   css`
     ${fromCenter} 1.25s cubic-bezier(0, 0.7, 0.3, 1) 0.4s forwards;
+  `;
+
+export const exitFromCenter = props =>
+  css`
+    ${fromCenter} 1s cubic-bezier(0, 0.7, 0.3, 1) reverse forwards;
   `;
 
 export const fromBottomText = keyframes`
