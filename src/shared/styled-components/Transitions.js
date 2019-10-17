@@ -53,7 +53,7 @@ export const enterFromCenter = props =>
 
 export const exitFromCenter = props =>
   css`
-    ${fromCenter} 1s cubic-bezier(0, 0.7, 0.3, 1) reverse forwards;
+    ${fromCenter} 0.5s cubic-bezier(0, 0.7, 0.3, 1) reverse forwards;
   `;
 
 export const fromBottomText = keyframes`

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Context from "../../config/Context";
 import {
   MenuWrapper,
-  SecondaryMenuMenuContainerStyled
+  SecondaryMenuContainerStyled
 } from "shared/styled-components/Navigation.js";
 
 const SecondaryMenuWrapper = styled.div`
@@ -13,7 +13,7 @@ const SecondaryMenuWrapper = styled.div`
 `;
 
 const SecondaryMenuContainer = styled.nav`
-  ${SecondaryMenuMenuContainerStyled};
+  ${SecondaryMenuContainerStyled};
 `;
 
 const SecondaryMenu = props => {

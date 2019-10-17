@@ -74,15 +74,22 @@ export const ActiveMenuContainerStyled = css`
 export const MenuWrapper = css`
   ${Wrapper}
   height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  align-items: center;
 `;
 
-export const SecondaryMenuMenuContainerStyled = css`
+export const SecondaryMenuContainerStyled = css`
   display: inline-block;
   position: relative;
   width: auto;
   height: auto;
-  margin: 0;
+  margin: 20px 0 0;
+
+  ${mediaMin.tabletLandscape`
+    margin: 40px 0 0;
+  `}
+
+  ${mediaMin.desktop`
+    margin: 80px 0 0;
+  `}
 
   ul {
     list-style: none;
@@ -99,13 +106,21 @@ export const SecondaryMenuMenuContainerStyled = css`
 
       a {
         font-family: ${props => props.theme.sansSerifThin};
-        font-size: 40px;
+        font-size: 28px;
         letter-spacing: 1.5px;
         color:white;
 
         &:hover {
           opacity: 0.5;
         }
+
+        ${mediaMin.tabletLandscape`
+          font-size: 30px;
+        `}
+
+        ${mediaMin.desktop`
+          font-size: 40px;
+        `}
       }
     }
   }

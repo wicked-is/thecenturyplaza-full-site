@@ -171,7 +171,7 @@ const DownloadsLinks = styled.ul`
   li {
     font-family: ${props => props.theme.sansSerifRegular};
     display: block;
-    margin: 0 0 5px;
+    margin: 0 0 0.25em;
 
     &:first-child {
       margin: 0 0 15px;
@@ -180,6 +180,7 @@ const DownloadsLinks = styled.ul`
     a {
       font-family: ${props => props.theme.sansSerifLight};
       letter-spacing: 0.6px;
+      line-height: 1.35em;
       color: ${props => props.theme.gray};
       text-decoration: none;
     }
@@ -187,36 +188,43 @@ const DownloadsLinks = styled.ul`
 `;
 
 const FooterLinks = styled.ul`
-  display: none;
+  display: inline-block;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
 
   ${mediaMin.tabletLandscape`
-    display: inline-block;
     position: absolute;
     bottom: 60px;
     right: 40px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
     transform: translateY(-90px);
-      
-    li {
+  `}
+
+  li {
+    display: block;
+    margin: 0 0 0.25em;
+
+    ${mediaMin.tabletLandscape`
       display: inline-block;
       margin: 0 0 0 20px;
+    `}
 
-      a {
-        color: ${props => props.theme.gray};
-        font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
-        font-weight: 300;
+    a {
+      color: ${props => props.theme.gray};
+      font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.35em;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: antialiased;
+      text-decoration: none;
+
+      ${mediaMin.tabletLandscape`
         font-size: 12px;
-        line-height: 1.35em;
-        letter-spacing: 0.03em;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: antialiased;
-
-        text-decoration: none;
-      }
+      `}
     }
-  `}
+  }
 `;
 
 const MainMenu = props => {

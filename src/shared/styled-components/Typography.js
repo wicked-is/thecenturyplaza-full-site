@@ -13,16 +13,28 @@ export const PageBody = css`
   min-height: 100vh;
   position: relative;
   overflow: auto;
+  ${"" /* position: fixed;
+  overflow: hidden; */}
 
   a {
     text-decoration: none;
   }
+
+  ${
+    "" /* main {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; /* enables “momentum” (smooth) scrolling */
+  } */}
 `;
 
 export const PageHeader = css`
   display: inline-block;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
   width: 100%;
   height: ${props =>
@@ -39,12 +51,12 @@ export const PageHeader = css`
   );
   overflow-y: ${props => (props.navActive ? "scroll" : "hidden")};
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 
   header {
     opacity: 0;
     animation: ${enterFadeIn};
     will-change: opacity;
-    ${"" /* overflow: hidden; */}
   }
 `;
 
@@ -53,6 +65,7 @@ export const PageFooter = css`
     props.globalConfig.footerDisplay ? "inline-block" : "none"};
   position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
   bottom: 0;
+  left: 0;
   z-index: 900;
   width: 100%;
   height: ${props => (props.navActive ? "0" : props.theme.headerHeight + "px")};

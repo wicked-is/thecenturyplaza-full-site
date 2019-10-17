@@ -191,6 +191,8 @@ const BrokerPortal = props => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#E7E7E7";
     setPageColor(props => props.theme.grayLight);
   }, [setPageColor]);
 
@@ -206,6 +208,7 @@ const BrokerPortal = props => {
 
   useEffect(() => {
     return () => {
+      document.body.style.backgroundColor = "#FFFFFF";
       setGlobalConfig({
         headerBackground: "transparent",
         footerBackground: "transparent",
