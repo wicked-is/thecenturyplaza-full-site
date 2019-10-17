@@ -161,7 +161,11 @@ class App extends Component {
                   />
                 ))}
                 <Legal path="legal" setPageColor={this.setPageColor} />
-                <Contact path="contact" setPageColor={this.setPageColor} />
+                <Contact
+                  path="contact"
+                  setPageColor={this.setPageColor}
+                  closeExpand={this.closeExpand}
+                />
                 <Accessibility
                   path="accessibility"
                   setPageColor={this.setPageColor}

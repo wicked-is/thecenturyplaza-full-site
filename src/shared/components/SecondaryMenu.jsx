@@ -17,13 +17,35 @@ const SecondaryMenuContainer = styled.nav`
 `;
 
 const SecondaryMenu = props => {
-  const context = useContext(Context);
-  const { pauseScroll, triggerExit } = context;
   const { setPageColor } = props;
+  const context = useContext(Context);
+  const { pauseScroll, triggerExit, setGlobalConfig } = context;
 
   useEffect(() => {
     setPageColor(props => props.theme.gray);
   }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      headerBackground: props => props.theme.grayGradient,
+      footerBackground: props => props.theme.gray,
+      footerDisplay: false,
+      footerFixed: false,
+      sidebarBackground: "transparent"
+    });
+  }, [setGlobalConfig]);
+
+  useEffect(() => {
+    return () => {
+      setGlobalConfig({
+        headerBackground: "transparent",
+        footerBackground: "transparent",
+        footerDisplay: false,
+        footerFixed: true,
+        sidebarBackground: "transparent"
+      });
+    };
+  }, [setGlobalConfig]);
 
   return (
     <ReactScrollWheelHandler

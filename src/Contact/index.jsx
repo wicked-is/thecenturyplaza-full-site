@@ -276,7 +276,7 @@ const InfoCluster = styled.div`
 `;
 
 const Contact = props => {
-  const { setPageColor } = props;
+  const { setPageColor, closeExpand } = props;
   const context = useContext(Context);
   const { setGlobalConfig, setReturnPath } = context;
   const [formVisible, setFormVisible] = useState(true);
@@ -390,8 +390,9 @@ const Contact = props => {
   };
 
   useEffect(() => {
+    closeExpand();
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor]);
+  }, [setPageColor, closeExpand]);
 
   useEffect(() => {
     setGlobalConfig({

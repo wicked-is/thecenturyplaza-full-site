@@ -32,7 +32,10 @@ export const PageHeader = css`
   z-index: 10000;
   transition: transform 0.5s ease-in-out;
   transform: translateY(
-    ${props => (props.isExpanded ? "-" + props.theme.headerHeight + "px" : "0")}
+    ${props =>
+      props.isExpanded && window.location.pathname.includes("/home")
+        ? "-" + props.theme.headerHeight + "px"
+        : "0"}
   );
   overflow-y: ${props => (props.navActive ? "scroll" : "hidden")};
   overflow-x: hidden;
