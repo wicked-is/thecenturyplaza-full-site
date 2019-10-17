@@ -69,12 +69,12 @@ const SplitSlide = ({
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
-      upHandler={() => {
-        triggerExit(previousPath);
-      }}
-      downHandler={() => {
-        triggerExit(nextPath);
-      }}
+      upHandler={() => triggerExit(previousPath)}
+      downHandler={() => triggerExit(nextPath)}
+      // Will throw a warning in Dev but not Prod build, can't resolve warning
+      // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
+      rightHandler={() => triggerExit(previousPath)}
+      leftHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
         lastSectionSlide={lastSectionSlide}

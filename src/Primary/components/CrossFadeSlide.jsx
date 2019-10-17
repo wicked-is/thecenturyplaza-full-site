@@ -51,8 +51,8 @@ const CrossFadeSlide = ({
     currentSectionIndex
   } = context;
 
-  const toggleImage = direction => {
-    if (direction === "up") {
+  const toggleImage = imagePath => {
+    if (imagePath === "previous") {
       if (activeCrossFade === 1) {
         triggerExit(previousPath);
       } else if (activeCrossFade === 2) {
@@ -66,7 +66,7 @@ const CrossFadeSlide = ({
           setActiveCrossFade(2);
         }, 500);
       }
-    } else if (direction === "down") {
+    } else if (imagePath === "next") {
       if (activeCrossFade === 1) {
         scrollCooldown(1000);
         setTimeout(() => {
@@ -97,12 +97,12 @@ const CrossFadeSlide = ({
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
-      upHandler={() => {
-        toggleImage("up");
-      }}
-      downHandler={() => {
-        toggleImage("down");
-      }}
+      upHandler={() => toggleImage("previous")}
+      downHandler={() => toggleImage("next")}
+      // Will throw a warning in Dev but not Prod build, can't resolve warning
+      // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
+      rightHandler={() => toggleImage("previous")}
+      leftHandler={() => toggleImage("next")}
     >
       <SlideMask
         lastSectionSlide={lastSectionSlide}
