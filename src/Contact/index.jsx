@@ -390,6 +390,8 @@ const Contact = props => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#E7E7E7";
     closeExpand();
     setPageColor(props => props.theme.grayLight);
   }, [setPageColor, closeExpand]);
@@ -406,6 +408,7 @@ const Contact = props => {
 
   useEffect(() => {
     return () => {
+      document.body.style.backgroundColor = "#FFFFFF";
       setGlobalConfig({
         headerBackground: "transparent",
         footerBackground: "transparent",

@@ -21,6 +21,8 @@ const Legal = props => {
   const { setGlobalConfig, setReturnPath } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#E7E7E7";
     setPageColor(props => props.theme.grayLight);
   }, [setPageColor]);
 
@@ -36,6 +38,7 @@ const Legal = props => {
 
   useEffect(() => {
     return () => {
+      document.body.style.backgroundColor = "#FFFFFF";
       setGlobalConfig({
         headerBackground: "transparent",
         footerBackground: "transparent",
