@@ -17,15 +17,6 @@ export const PageBody = css`
   a {
     text-decoration: none;
   }
-
-  ${
-    "" /* main {
-    display: inline-block;
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch; /* enables “momentum” (smooth) scrolling */
-  } */}
 `;
 
 export const PageHeader = css`
@@ -75,7 +66,7 @@ export const PageFooter = css`
     position: ${props =>
       props.globalConfig.footerFixed ? "fixed" : "absolute"};
   `}
-  overflow: hidden;
+  overflow: ${props => (props.navActive ? "hidden" : "visible")};
 
   footer {
     position: relative;
