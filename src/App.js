@@ -114,77 +114,74 @@ class App extends Component {
               primaryData={primaryData}
               setPageColor={this.setPageColor}
             />
-            <main>
-              <Router>
-                <Redirect from="/" to="home" noThrow />
-                {primaryData.map((section, index) => (
-                  <Primary
-                    key={index}
-                    default
-                    path={section.slug + "/*"}
-                    primaryData={primaryData}
-                    isExpanded={this.state.isExpanded}
-                    toggleExpand={this.toggleExpand}
-                    closeExpand={this.closeExpand}
-                    setPageColor={this.setPageColor}
-                  />
-                ))}
-                <SecondaryMenu
-                  setPageColor={this.setPageColor}
-                  path="continue"
-                />
-                <Redirect from="fairmont" to="fairmont/hotel" noThrow />
-                <Neighborhood
-                  neighborhoodData={neighborhoodData}
-                  path="neighborhood"
-                  setPageColor={this.setPageColor}
-                />
-                <Team
-                  teamData={teamData}
-                  path="team/*"
+
+            <Router>
+              <Redirect from="/" to="home" noThrow />
+              {primaryData.map((section, index) => (
+                <Primary
+                  key={index}
+                  default
+                  path={section.slug + "/*"}
+                  primaryData={primaryData}
+                  isExpanded={this.state.isExpanded}
                   toggleExpand={this.toggleExpand}
+                  closeExpand={this.closeExpand}
                   setPageColor={this.setPageColor}
                 />
-                <Redirect from="team" to={"team/" + teamData[0].slug} noThrow />
-                <Availability
-                  path="availability/*"
-                  setPageColor={this.setPageColor}
-                />
-                <Redirect from="availability" to="availability/hotel" noThrow />
-                <Press path="press" setPageColor={this.setPageColor} />
-                <Gallery
+              ))}
+              <SecondaryMenu setPageColor={this.setPageColor} path="continue" />
+              <Redirect from="fairmont" to="fairmont/hotel" noThrow />
+              <Neighborhood
+                neighborhoodData={neighborhoodData}
+                path="neighborhood"
+                setPageColor={this.setPageColor}
+              />
+              <Team
+                teamData={teamData}
+                path="team/*"
+                toggleExpand={this.toggleExpand}
+                setPageColor={this.setPageColor}
+              />
+              <Redirect from="team" to={"team/" + teamData[0].slug} noThrow />
+              <Availability
+                path="availability/*"
+                setPageColor={this.setPageColor}
+              />
+              <Redirect from="availability" to="availability/hotel" noThrow />
+              <Press path="press" setPageColor={this.setPageColor} />
+              <Gallery
+                galleryData={galleryData}
+                path="gallery"
+                setPageColor={this.setPageColor}
+              />
+              {galleryData.map((section, index) => (
+                <SlideshowSection
+                  key={index}
+                  path={"gallery/" + section.slug + "/*"}
+                  section={section}
+                  sectionId={index}
                   galleryData={galleryData}
-                  path="gallery"
-                  setPageColor={this.setPageColor}
-                />
-                {galleryData.map((section, index) => (
-                  <SlideshowSection
-                    key={index}
-                    path={"gallery/" + section.slug + "/*"}
-                    section={section}
-                    sectionId={index}
-                    galleryData={galleryData}
-                    pageColor={this.state.pageColor}
-                  />
-                ))}
-                <Legal path="legal" setPageColor={this.setPageColor} />
-                <Contact path="contact" setPageColor={this.setPageColor} />
-                <Accessibility
-                  path="accessibility"
-                  setPageColor={this.setPageColor}
-                />
-                <Amenities
                   pageColor={this.state.pageColor}
-                  amenitiesData={amenitiesData}
-                  path="amenities/*"
-                  setPageColor={this.setPageColor}
                 />
-                <BrokerPortal
-                  path="broker-portal"
-                  setPageColor={this.setPageColor}
-                />
-              </Router>
-            </main>
+              ))}
+              <Legal path="legal" setPageColor={this.setPageColor} />
+              <Contact path="contact" setPageColor={this.setPageColor} />
+              <Accessibility
+                path="accessibility"
+                setPageColor={this.setPageColor}
+              />
+              <Amenities
+                pageColor={this.state.pageColor}
+                amenitiesData={amenitiesData}
+                path="amenities/*"
+                setPageColor={this.setPageColor}
+              />
+              <BrokerPortal
+                path="broker-portal"
+                setPageColor={this.setPageColor}
+              />
+            </Router>
+
             <AppFooter
               pageColor={this.state.pageColor}
               isExpanded={this.state.isExpanded}
