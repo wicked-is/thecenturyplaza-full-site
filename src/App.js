@@ -99,7 +99,7 @@ class App extends Component {
 
   render() {
     return (
-      <ContextProvider>
+      <ContextProvider pageColor={this.state.pageColor}>
         <ThemeProvider theme={theme}>
           <AppBody pageColor={this.state.pageColor}>
             <ScrollPrompt isExpanded={this.state.isExpanded} />

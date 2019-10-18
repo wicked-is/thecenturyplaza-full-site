@@ -38,7 +38,6 @@ const Accessibility = props => {
 
   useEffect(() => {
     return () => {
-      document.body.style.backgroundColor = "#FFFFFF";
       setGlobalConfig({
         headerBackground: "transparent",
         footerBackground: "transparent",

@@ -146,6 +146,7 @@ const Header = ({ primaryData, pageColor }) => {
               ) : (
                 <Link to={returnPath}>
                   <Close
+                    onClick={toggleMenu}
                     isLight={
                       location.pathname === "/contact" ||
                       location.pathname === "broker-portal"
