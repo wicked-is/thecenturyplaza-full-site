@@ -43,6 +43,11 @@ const ContextProvider = props => {
   const toggleMenu = () => {
     setNavActive(!navActive);
     window.scrollTo(0, 0);
+    if (!navActive) {
+      document.body.style.backgroundColor = "#101820";
+    } else {
+      document.body.style.backgroundColor = props.pageColor;
+    }
   };
 
   const markPlayed = () => {

@@ -27,6 +27,7 @@ const SecondaryMenu = props => {
   useEffect(() => {
     setGlobalConfig({
       headerBackground: props => props.theme.grayGradient,
+      pageBackground: props => props.theme.gray,
       footerBackground: props => props.theme.gray,
       footerDisplay: false,
       footerFixed: false,
@@ -38,6 +39,7 @@ const SecondaryMenu = props => {
     return () => {
       setGlobalConfig({
         headerBackground: "transparent",
+
         footerBackground: "transparent",
         footerDisplay: false,
         footerFixed: true,
