@@ -5,6 +5,7 @@ import ScrollPrompt from "shared/components/ScrollPrompt.jsx";
 import ContextProvider from "./provider/ContextProvider";
 import { PageBody } from "shared/styled-components/Typography.js";
 import AppHeader from "shared/components/AppHeader.jsx";
+import MainMenu from "shared/components/MainMenu.jsx";
 import AppFooter from "shared/components/AppFooter.jsx";
 import Primary from "Primary";
 import BrokerPortal from "BrokerPortal";
@@ -107,6 +108,12 @@ class App extends Component {
               isExpanded={this.state.isExpanded}
               primaryData={primaryData}
             />
+            <MainMenu
+              pageColor={this.state.pageColor}
+              isExpanded={this.state.isExpanded}
+              primaryData={primaryData}
+              setPageColor={this.setPageColor}
+            />
             <main>
               <Router>
                 <Redirect from="/" to="home" noThrow />
@@ -161,11 +168,7 @@ class App extends Component {
                   />
                 ))}
                 <Legal path="legal" setPageColor={this.setPageColor} />
-                <Contact
-                  path="contact"
-                  setPageColor={this.setPageColor}
-                  closeExpand={this.closeExpand}
-                />
+                <Contact path="contact" setPageColor={this.setPageColor} />
                 <Accessibility
                   path="accessibility"
                   setPageColor={this.setPageColor}

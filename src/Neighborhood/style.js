@@ -5,8 +5,8 @@ import { fadeIn } from "../shared/styled-components/Transitions.js";
 
 export const WrapperStyled = css`
   ${Wrapper}
-  flex-wrap: wrap;
-  padding-bottom: 0;
+  ${"" /* flex-wrap: wrap;
+  padding-bottom: 0; */}
 `;
 
 export const HeaderStyled = css`

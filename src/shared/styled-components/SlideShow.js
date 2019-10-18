@@ -1,9 +1,9 @@
 import { css } from "styled-components";
 import {
-  slideOne,
-  slideTwo,
-  slideThree,
-  slideFour
+  imageOne,
+  imageTwo,
+  imageThree
+  // imageFour
 } from "shared/styled-components/Transitions.js";
 
 export const SlideShow = css`
@@ -18,27 +18,29 @@ export const SlideShow = css`
     position: relative;
     z-index: 140;
     opacity: 0;
-    animation: ${slideOne} 12s ease-in-out 0.5s infinite;
+    animation: ${imageOne} 12s ease-in-out 0.5s infinite;
   }
 
   img:nth-child(2) {
     position: absolute;
     z-index: 130;
     opacity: 0;
-    animation: ${slideTwo} 12s ease-in-out 0.5s infinite;
+    animation: ${imageTwo} 12s ease-in-out 0.5s infinite;
   }
 
   img:nth-child(3) {
     position: absolute;
     z-index: 120;
     opacity: 0;
-    animation: ${slideThree} 12s ease-in-out 0.5s infinite;
+    animation: ${imageThree} 12s ease-in-out 0.5s infinite;
   }
 
-  img:nth-child(4) {
+  ${"" /* Uncomment this out if a 4th Image is added to the Slideshow on the Split Slide type, image was removed for rights reasons last minute. Corresponding update on Transitions.js and naturally an additional data entry is needed for PrimaryData.json where source is declared */}
+
+  ${"" /* img:nth-child(4) {
     position: absolute;
     z-index: 110;
     opacity: 0;
-    animation: ${slideFour} 12s ease-in-out 0.5s infinite;
-  }
+    animation: ${imageFour} 12s ease-in-out 0.5s infinite;
+  } */}
 `;

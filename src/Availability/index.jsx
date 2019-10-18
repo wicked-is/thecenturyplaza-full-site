@@ -35,9 +35,10 @@ const AvailabilityFilter = styled.button`
 const Availability = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig } = context;
+  const { setGlobalConfig, navActive } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor("white");
   }, [setPageColor]);
 
@@ -107,16 +108,16 @@ const Availability = props => {
   );
 
   return (
-    <AvailabilityWrapper>
+    <AvailabilityWrapper navActive={navActive}>
       <AvailabilityContainer>
         <AvailabilityHeader>
-          <p>Availability List</p>
+          <p>Select a Residence</p>
           <AvailabilityControls>
             <ActiveListingLink to="/availability/hotel">
-              Fairmont Hotel
+              Hotel <span>Residences</span>
             </ActiveListingLink>
             <ActiveListingLink to="/availability/tower">
-              Two Eleven Elm
+              Tower <span>Residences</span>
             </ActiveListingLink>
             <AvailabilityFilter onClick={handleFilter} active={showFilter}>
               Filter

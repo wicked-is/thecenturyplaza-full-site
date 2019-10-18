@@ -161,34 +161,32 @@ export const FullScreenStyled = css`
 `;
 
 export const ImageSoloStyled = css`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: calc(
-    90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-  );
-  max-width: calc(
-    100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
-  );
-  transform: translate3d(0, 5em, 0);
+  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  width: calc(90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
+  transform: translate3d(0, 5em, 0);
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
-
-  ${mediaMin.tablet`
-    max-width: calc(
-      90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
-    );
-  `}
+  overflow: hidden;
 
   ${mediaMin.tabletLandscape`
-    max-height: calc(
+    height: calc(
       90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
     );
-    max-width: calc(
-      780vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+    width: calc(
+      80vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
     );
   `}
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const CrossFadeStyled = css`
@@ -197,16 +195,12 @@ export const CrossFadeStyled = css`
   justify-content: center;
   align-items: center;
   height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
+  width: calc(90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
+  transform: translate3d(0, 5em, 0);
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
-
-  ${mediaMin.tablet`
-    width: calc(
-      90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
-    );
-  `}
+  overflow: hidden;
 
   ${mediaMin.tabletLandscape`
     height: calc(

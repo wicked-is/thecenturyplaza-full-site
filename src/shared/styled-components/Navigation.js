@@ -140,8 +140,6 @@ export const SecondaryMenuContainerStyled = css`
 `;
 
 export const FooterWrapper = css`
-  z-index: 10000;
-
   ul {
     display: inline-block;
     position: absolute;

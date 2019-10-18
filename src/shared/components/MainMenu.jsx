@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Context from "../../config/Context";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
-const MainMenuContainer = styled.div`
+const MainMenuWrapper = styled.div`
   opacity: ${props => (props.navActive ? "1" : "0")};
   visibility: ${props => (props.navActive ? "visible" : "hidden")};
   display: ${props => (props.navActive ? "flex" : "none")};
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  flex-wrap: wrap;
+  position: relative;
   width: 100vw;
-  height: 100%;
-  min-height: calc(100vh - 80px);
+  height: auto;
+  min-height: 100vh;
   z-index: ${props => (props.navActive ? "10000" : "0")};
   text-indent: 0;
   color: ${props => props.theme.gray};
+  background: ${props => props.theme.black};
+  z-index: 1000;
 
   a:hover {
     opacity: 0.5;
@@ -25,22 +25,24 @@ const MainMenuContainer = styled.div`
 `;
 
 const LinksContainer = styled.nav`
+  display: inline-block;
   position: relative;
   width: 100%;
-  padding: ${props => props.theme.headerHeight}px
-    ${props => props.theme.mobileMargin}px
-    ${props => props.theme.headerHeight}px;
+  padding: 0 ${props => props.theme.mobileMargin}px;
   height: auto;
-  min-height: 100vh;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.black};
+  margin-top: calc(${props => props.theme.headerHeight}px + 20px);
 
   ${mediaMin.tabletLandscape`
     width: 70vw;
-    padding: 120px 0 0 30vw;
-    height: auto;
+    padding: 0 0 0 30vw;
+    margin-top: calc( ${props => props.theme.headerHeight}px + 40px );
+  `}
+
+  ${mediaMin.desktop`
+      margin-top: calc( ${props => props.theme.headerHeight}px + 80px );
   `}
 `;
 
@@ -49,7 +51,7 @@ const PrimaryLinks = styled.ul`
   width: auto;
   height: auto;
   text-align: left;
-  margin: 0 0 30px;
+  margin: -5px 0 30px;
   padding: 0;
 
   li {
@@ -82,15 +84,6 @@ const SecondaryLinks = styled.ul`
   margin: 0 0 30px;
   padding: 0;
 
-  ${mediaMin.phoneXL`
-    margin: 0 0 60px;
-  `}
-
-  ${mediaMin.desktop`
-    margin: 0 0 30px;
-  `}
-
-
   li {
     display: block;
     margin: 0 0 15px;
@@ -109,7 +102,7 @@ const InfoCluster = styled.div`
   ${mediaMin.tabletLandscape`
     position: absolute;
     left: ${props => props.theme.desktopMargin}px;
-    top: 125px;
+    top: 0;
  `}
 
   p {
@@ -158,13 +151,14 @@ const DownloadsLinks = styled.ul`
   ${mediaMin.tabletLandscape`
     position: absolute;
     left: ${props => props.theme.desktopMargin}px;
-    top: 370px
+    top: 245px
  `}
 
   ${mediaMin.desktop`
     position: relative;
     left: auto;
     top: auto;
+    margin: 0 0 30px;
  `}
 
 
@@ -189,15 +183,18 @@ const DownloadsLinks = styled.ul`
 
 const FooterLinks = styled.ul`
   display: inline-block;
-  margin: 30px 0 0;
+  margin: 30px ${props => props.theme.mobileMargin}px
+    ${props => props.theme.headerHeight}px;
   padding: 0;
   list-style: none;
+  width: 100%;
 
   ${mediaMin.tabletLandscape`
-    position: absolute;
-    bottom: 60px;
+    margin: 0;
+    position: fixed;
+    bottom: 30px;
     right: 40px;
-    transform: translateY(-90px);
+    width: auto;
   `}
 
   li {
@@ -228,9 +225,9 @@ const FooterLinks = styled.ul`
 `;
 
 const MainMenu = props => {
-  const { primaryData } = props;
+  const { primaryData, pageColor, isExpanded, setPageColor } = props;
   const context = useContext(Context);
-  const { navActive, toggleMenu, setReturnPath } = context;
+  const { navActive, toggleMenu, setReturnPath, globalConfig } = context;
 
   const declareReturnPath = () => {
     toggleMenu();
@@ -238,7 +235,7 @@ const MainMenu = props => {
   };
 
   return (
-    <MainMenuContainer navActive={navActive}>
+    <MainMenuWrapper navActive={navActive}>
       <LinksContainer>
         <PrimaryLinks>
           {primaryData.map((section, index) => (
@@ -343,30 +340,30 @@ const MainMenu = props => {
             </a>
           </li>
         </DownloadsLinks>
-        <FooterLinks>
-          <li>
-            <Link to="/contact" onClick={declareReturnPath}>
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/broker-portal" onClick={declareReturnPath}>
-              Broker Portal
-            </Link>
-          </li>
-          <li>
-            <Link to="/legal" onClick={declareReturnPath}>
-              Legal
-            </Link>
-          </li>
-          <li>
-            <Link to="/accessibility" onClick={declareReturnPath}>
-              Accessibility
-            </Link>
-          </li>
-        </FooterLinks>
       </LinksContainer>
-    </MainMenuContainer>
+      <FooterLinks>
+        <li>
+          <Link to="/contact" onClick={declareReturnPath}>
+            Contact
+          </Link>
+        </li>
+        <li>
+          <Link to="/broker-portal" onClick={declareReturnPath}>
+            Broker Portal
+          </Link>
+        </li>
+        <li>
+          <Link to="/legal" onClick={declareReturnPath}>
+            Legal
+          </Link>
+        </li>
+        <li>
+          <Link to="/accessibility" onClick={declareReturnPath}>
+            Accessibility
+          </Link>
+        </li>
+      </FooterLinks>
+    </MainMenuWrapper>
   );
 };
 export default MainMenu;

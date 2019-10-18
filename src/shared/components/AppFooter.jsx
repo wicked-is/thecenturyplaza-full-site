@@ -11,18 +11,20 @@ const FooterWrapper = styled.div`
 const AppFooter = props => {
   const { primaryData, pageColor, isExpanded } = props;
   const context = useContext(Context);
-  const { globalConfig } = context;
+  const { globalConfig, navActive } = context;
 
   return (
     <FooterWrapper
       pageColor={pageColor}
       isExpanded={isExpanded}
       globalConfig={globalConfig}
+      navActive={navActive}
     >
       <Footer
         pageColor={pageColor}
         isExpanded={isExpanded}
         primaryData={primaryData}
+        navActive={navActive}
       />
     </FooterWrapper>
   );
