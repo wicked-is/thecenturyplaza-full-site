@@ -125,7 +125,7 @@ const VideoSlide = ({
     setStartVideo(true);
     setTimeout(() => {
       setActivePlaceholder(false);
-    }, 100);
+    }, 250);
   };
 
   useEffect(() => {
@@ -147,10 +147,9 @@ const VideoSlide = ({
 
   useEffect(() => {
     return () => {
-      closeExpand();
       setIsExisting(false);
     };
-  }, [setIsExisting, closeExpand]);
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler
@@ -236,6 +235,7 @@ const VideoSlide = ({
                 height="56.25vw"
                 onReady={removePlaceholder}
                 style={videoElement(isExpanded)}
+                preload="true"
               />
             </FullScreen>
           </PlayerContainer>

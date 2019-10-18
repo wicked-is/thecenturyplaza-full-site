@@ -130,11 +130,11 @@ export const PlayerContainerStyled = css`
   overflow: hidden;
   position: relative;
   opacity: 0;
-  transform: ${props => props.firstSectionSlide && "scale(0.9)"};
+  transform: ${props => (props.firstSectionSlide ? "scale(0.9)" : "scale(1)")};
   animation: ${props =>
-    !props.firstSectionSlide ? enterFadeIn : enterFromCenter};
+    props.firstSectionSlide ? enterFromCenter : enterFadeIn};
   will-change: ${props =>
-    !props.firstSectionSlide ? "opacity" : "opacity, transform"};
+    props.firstSectionSlide ? "opacity, transform" : "opacity"};
 `;
 
 export const FullScreenStyled = css`

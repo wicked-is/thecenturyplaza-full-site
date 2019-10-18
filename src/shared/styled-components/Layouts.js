@@ -52,6 +52,7 @@ export const ViewportWrapper = css`
   margin: 0;
   padding: ${props =>
     props.isExpanded ? "0" : props.theme.headerHeight + "px 0"};
+  transition: height 0.5s ease-in-out, padding 0.5s ease-in-out;
 
   ${mediaMin.tablet`
   height: ${props =>
