@@ -73,7 +73,7 @@ const Press = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      headerBackground: "white",
+      headerBackground: props => props.theme.whiteGradient,
       footerBackground: "transparent",
       footerDisplay: true,
       footerFixed: false,
