@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Context from "../../config/Context";
 import { Link } from "@reach/router";
 import styled from "styled-components";
@@ -225,9 +225,9 @@ const FooterLinks = styled.ul`
 `;
 
 const MainMenu = props => {
-  const { primaryData, pageColor, isExpanded, setPageColor } = props;
+  const { primaryData } = props;
   const context = useContext(Context);
-  const { navActive, toggleMenu, setReturnPath, globalConfig } = context;
+  const { navActive, toggleMenu, setReturnPath } = context;
 
   const declareReturnPath = () => {
     toggleMenu();

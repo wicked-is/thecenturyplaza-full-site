@@ -10,7 +10,7 @@ const PrimaryWrapper = styled.div`
 `;
 
 const Primary = props => {
-  const { isExpanded, primaryData, setPageColor, closeExpand } = props;
+  const { isExpanded, primaryData, setPageColor } = props;
   const context = useContext(Context);
   const { setHasCaptions, setGlobalConfig, navActive } = context;
 

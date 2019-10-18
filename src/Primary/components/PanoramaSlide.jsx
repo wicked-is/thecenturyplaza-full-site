@@ -172,6 +172,7 @@ const PanoramaSlide = ({
       setIsExisting(false);
     };
   }, [setIsExisting]);
+
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
