@@ -15,9 +15,10 @@ const GalleryContainer = styled.div`
 const Press = props => {
   const { galleryData, setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig } = context;
+  const { setGlobalConfig, navActive } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor("white");
   }, [setPageColor]);
 
@@ -32,7 +33,7 @@ const Press = props => {
   }, [setGlobalConfig]);
 
   return (
-    <GalleryWrapper galleryData={galleryData}>
+    <GalleryWrapper galleryData={galleryData} navActive={navActive}>
       <GalleryContainer>
         {galleryData.map((section, index) => (
           <Section key={index} section={section} />

@@ -18,7 +18,7 @@ const AccessibilityTitle = styled.h1`
 const Accessibility = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const { setGlobalConfig, navActive, setReturnPath } = context;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +56,7 @@ const Accessibility = props => {
   }, [setReturnPath]);
 
   return (
-    <AccessibilityWrapper>
+    <AccessibilityWrapper navActive={navActive}>
       <AccessibilityContainer>
         <AccessibilityTitle>Accessibility Statement</AccessibilityTitle>
         <p>

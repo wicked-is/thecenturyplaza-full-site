@@ -1,15 +1,13 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "@reach/router";
+import Context from "../../config/Context";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import styled from "styled-components";
-import Context from "../../config/Context";
-import {
-  MenuWrapper,
-  SecondaryMenuContainerStyled
-} from "shared/styled-components/Navigation.js";
+import { Wrapper } from "../styled-components/Layouts.js";
+import { SecondaryMenuContainerStyled } from "shared/styled-components/Navigation.js";
 
 const SecondaryMenuWrapper = styled.div`
-  ${MenuWrapper};
+  ${Wrapper};
 `;
 
 const SecondaryMenuContainer = styled.nav`
@@ -19,9 +17,10 @@ const SecondaryMenuContainer = styled.nav`
 const SecondaryMenu = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { pauseScroll, triggerExit, setGlobalConfig } = context;
+  const { pauseScroll, triggerExit, setGlobalConfig, navActive } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor(props => props.theme.gray);
   }, [setPageColor]);
 
@@ -54,7 +53,7 @@ const SecondaryMenu = props => {
         triggerExit("tower/residences/views");
       }}
     >
-      <SecondaryMenuWrapper>
+      <SecondaryMenuWrapper navActive={navActive}>
         <SecondaryMenuContainer>
           <ul>
             <li>
@@ -70,7 +69,7 @@ const SecondaryMenu = props => {
               <Link to="/press">Read the Press</Link>
             </li>
             <li>
-              <Link to="/gallery">Visit the Sales Gallery</Link>
+              <Link to="/contact">Visit the Sales Gallery</Link>
             </li>
           </ul>
           <span>

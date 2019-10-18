@@ -4,9 +4,8 @@ import styled from "styled-components";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
 import LazyLoad from "react-lazyload";
-
+import { Wrapper } from "../shared/styled-components/Layouts.js";
 import {
-  WrapperStyled,
   HeaderStyled,
   ContainerStyled,
   ItemStyled,
@@ -19,8 +18,9 @@ import {
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
 const NeighborhoodWrapper = styled.div`
-  ${WrapperStyled};
+  ${Wrapper};
 `;
+
 const NeighborhoodContainer = styled.div`
   ${ContainerStyled};
 `;
@@ -50,9 +50,10 @@ const NeighborhoodItemCTA = styled.p`
 const Neighborhood = props => {
   const { neighborhoodData, setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig } = context;
+  const { setGlobalConfig, navActive } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor("white");
   }, [setPageColor]);
 
@@ -67,7 +68,7 @@ const Neighborhood = props => {
   }, [setGlobalConfig]);
 
   return (
-    <NeighborhoodWrapper>
+    <NeighborhoodWrapper navActive={navActive}>
       <NeighborhoodHeader>
         <Fade>
           <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />

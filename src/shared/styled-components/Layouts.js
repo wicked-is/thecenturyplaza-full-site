@@ -4,18 +4,27 @@ import { enterFadeIn } from "shared/styled-components/Transitions.js";
 
 export const Wrapper = css`
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  min-height: calc(
+  height: ${props => (props.navActive ? "0" : "auto")};
+  ${
+    "" /* min-height: calc(
     100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-  );
+  ); */
+  }
   margin: 0 ${props => props.theme.mobileMargin}px;
-  padding: ${props => props.theme.headerHeight}px 0;
+  height: ${props => (props.navActive ? "0" : "auto")};
+  padding: ${props =>
+    props.navActive ? "0" : props.theme.headerHeight + "px 0"};
+
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
   background: transparent;
+  visibility: ${props => (props.navActive ? "hidden" : "visible")};
+  overflow: hidden;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>

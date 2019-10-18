@@ -13,8 +13,6 @@ export const PageBody = css`
   min-height: 100vh;
   position: relative;
   overflow: auto;
-  ${"" /* position: fixed;
-  overflow: hidden; */}
 
   a {
     text-decoration: none;
@@ -31,17 +29,17 @@ export const PageBody = css`
 `;
 
 export const PageHeader = css`
-  display: inline-block;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  display: inline-block;
   width: 100%;
-  height: ${props =>
-    props.navActive ? "100%" : props.theme.headerHeight + "px"};
-  min-height: ${props => (props.navActive ? "100vh" : "80px")};
-  background: ${props => props.globalConfig.headerBackground};
-  z-index: 10000;
+  height: ${props => props.theme.headerHeight}px;
+  background: ${props =>
+    props.navActive
+      ? props.theme.blackGradient
+      : props.globalConfig.headerBackground};
+  z-index: 1100;
   transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props =>
@@ -49,9 +47,6 @@ export const PageHeader = css`
         ? "-" + props.theme.headerHeight + "px"
         : "0"}
   );
-  overflow-y: ${props => (props.navActive ? "scroll" : "hidden")};
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
 
   header {
     opacity: 0;
@@ -74,11 +69,13 @@ export const PageFooter = css`
   transform: translateY(
     ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
   );
+  visibility: ${props => (props.navActive ? "hidden" : "visible")};
 
   ${mediaMin.tabletLandscape`
     position: ${props =>
       props.globalConfig.footerFixed ? "fixed" : "absolute"};
   `}
+  overflow: hidden;
 
   footer {
     position: relative;

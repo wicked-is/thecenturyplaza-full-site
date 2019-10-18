@@ -18,7 +18,7 @@ const LegalTitle = styled.h1`
 const Legal = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const { setGlobalConfig, setReturnPath, navActive } = context;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,7 +56,7 @@ const Legal = props => {
   }, [setReturnPath]);
 
   return (
-    <LegalWrapper>
+    <LegalWrapper navActive={navActive}>
       <LegalContainer>
         <LegalTitle>Disclosures</LegalTitle>
         <p>

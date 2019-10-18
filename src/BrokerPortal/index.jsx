@@ -118,7 +118,7 @@ const Error = styled.p`
 const BrokerPortal = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const { setGlobalConfig, setReturnPath, navActive } = context;
 
   const [formData, setFormData] = useState({
     username: "",
@@ -226,7 +226,7 @@ const BrokerPortal = props => {
   }, [setReturnPath]);
 
   return (
-    <PortalWrapper>
+    <PortalWrapper navActive={navActive}>
       <PortalContainer>
         <PortalForm onSubmit={handleSubmit}>
           <BrokerTitle>BROKER PORTAL</BrokerTitle>

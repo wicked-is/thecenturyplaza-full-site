@@ -12,7 +12,7 @@ const PrimaryWrapper = styled.div`
 const Primary = props => {
   const { isExpanded, primaryData, setPageColor, closeExpand } = props;
   const context = useContext(Context);
-  const { setHasCaptions, setGlobalConfig } = context;
+  const { setHasCaptions, setGlobalConfig, navActive } = context;
 
   const getPreviousSectionPath = index =>
     index !== 0
@@ -51,7 +51,7 @@ const Primary = props => {
   }, [setGlobalConfig]);
 
   return (
-    <PrimaryWrapper isExpanded={isExpanded}>
+    <PrimaryWrapper isExpanded={isExpanded} navActive={navActive}>
       <Router primary={false}>
         {primaryData.map((section, index) => (
           <Section

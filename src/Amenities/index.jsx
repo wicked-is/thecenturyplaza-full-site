@@ -13,7 +13,7 @@ const Amenities = props => {
   const { amenitiesData, setPageColor } = props;
 
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const { setGlobalConfig, setReturnPath, navActive } = context;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,7 +51,7 @@ const Amenities = props => {
   }, [setReturnPath]);
 
   return (
-    <AmenitiesWrapper amenitiesData={amenitiesData}>
+    <AmenitiesWrapper amenitiesData={amenitiesData} navActive={navActive}>
       <Router>
         {amenitiesData.map((building, index) => (
           <BuidlingContainer

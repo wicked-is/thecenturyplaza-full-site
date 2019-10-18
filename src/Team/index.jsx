@@ -16,9 +16,10 @@ const TeamContainer = styled.div`
 const Team = props => {
   const { teamData, setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig } = context;
+  const { setGlobalConfig, navActive } = context;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor("white");
   }, [setPageColor]);
 
@@ -33,7 +34,7 @@ const Team = props => {
   }, [setGlobalConfig]);
 
   return (
-    <TeamWrapper>
+    <TeamWrapper navActive={navActive}>
       <TeamContainer>
         <Router primary={false}>
           {teamData.map((member, index) => (

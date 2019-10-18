@@ -18,21 +18,46 @@ const ContactContainer = styled.div`
 `;
 
 const LeftCol = styled.div`
-  display: none;
-  ${mediaMin.tabletLandscape`
-    display: flex;
-  `}
+  display: flex;
   flex-direction: column;
-  width: calc(30vw - 40px);
+  margin: 0 0 30px;
 
-  section {
+  ${mediaMin.tablet`
+  margin: 0 0 40px;
+  `}
+
+  ${mediaMin.tabletLandscape`
+    width: calc(30vw - 40px);
+  `}
+
+  div {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 24px;
-    span {
-      margin-bottom: 4px;
-      &:last-child {
-        margin-bottom: 0;
+    flex-wrap: wrap;
+
+    ${mediaMin.phoneXL`
+      flex-wrap: nowrap;
+    `}
+
+    ${mediaMin.tabletLandscape`
+      flex-wrap: wrap;
+    `}
+
+    p {
+      margin: 20px 0 0;
+      width: 100%;
+
+      ${mediaMin.phoneXL`
+        margin: 0 0 0 48px;
+        width: auto;
+      `}
+
+      ${mediaMin.tabletLandscape`
+        margin: 20px 0 0;
+        width: 100%;
+      `}
+
+      &:first-child {
+        margin: 0;
       }
     }
   }
@@ -60,6 +85,7 @@ const ContactForm = styled.form`
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
+  max-width: 445px;
 
   ${mediaMin.tabletLandscape`
     width: 50%;
@@ -276,9 +302,9 @@ const InfoCluster = styled.div`
 `;
 
 const Contact = props => {
-  const { setPageColor, closeExpand } = props;
+  const { setPageColor } = props;
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const { setGlobalConfig, setReturnPath, navActive } = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [confirmationVisible, setConfirmationVisible] = useState(false);
@@ -392,9 +418,8 @@ const Contact = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.backgroundColor = "#E7E7E7";
-    closeExpand();
     setPageColor(props => props.theme.grayLight);
-  }, [setPageColor, closeExpand]);
+  }, [setPageColor]);
 
   useEffect(() => {
     setGlobalConfig({
@@ -426,7 +451,7 @@ const Contact = props => {
   }, [setReturnPath]);
 
   return (
-    <ContactWrapper>
+    <ContactWrapper navActive={navActive}>
       <ContactContainer>
         <LeftCol>
           <InfoCluster>

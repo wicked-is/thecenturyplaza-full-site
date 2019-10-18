@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { mediaMin } from "../styled-components/MediaQueries.js";
 import Context from "../../config/Context";
 import ActiveMenu from "shared/components/ActiveMenu.jsx";
-import MainMenu from "shared/components/MainMenu.jsx";
+
 import logoBlackSVG from "icons/logo-black.svg";
 import logoGraySVG from "icons/logo-gray.svg";
 import hamburgerBlackSVG from "icons/hamburger-black.svg";
@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   display: inline-block;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: ${props => props.theme.headerHeight}px;
 `;
 
 const NavRow = styled.div`
@@ -23,7 +23,6 @@ const NavRow = styled.div`
   width: calc(100vw - ${props => parseFloat(props.theme.mobilepMargin) * 2}px);
   justify-content: space-between;
   padding: 30px ${props => props.theme.mobileMargin}px 0;
-  z-index: 10000;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
@@ -122,7 +121,7 @@ const Header = ({ primaryData, pageColor }) => {
     <Location>
       {({ location }) => {
         return (
-          <HeaderContainer>
+          <HeaderContainer navActive={navActive}>
             <NavRow>
               <Link to="/">
                 <Logo
@@ -156,12 +155,6 @@ const Header = ({ primaryData, pageColor }) => {
               )}
             </NavRow>
             <ActiveMenu primaryData={primaryData} />
-            <MainMenu
-              navActive={navActive}
-              toggleMenu={toggleMenu}
-              pageColor={pageColor}
-              primaryData={primaryData}
-            />
           </HeaderContainer>
         );
       }}

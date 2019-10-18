@@ -11,7 +11,7 @@ const HeaderWrapper = styled.div`
 const AppHeader = props => {
   const { primaryData, pageColor, isExpanded } = props;
   const context = useContext(Context);
-  const { navActive, globalConfig } = context;
+  const { navActive, toggleMenu, globalConfig } = context;
 
   return (
     <HeaderWrapper

@@ -32,7 +32,7 @@ const PressPubInfo = styled.div`
 const Press = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { fetchPress, pressItems, setGlobalConfig } = context;
+  const { fetchPress, pressItems, setGlobalConfig, navActive } = context;
 
   const generatePress = () => {
     return pressItems.map(entry => {
@@ -67,12 +67,13 @@ const Press = props => {
   }, [pressItems]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setPageColor("white");
   }, [setPageColor]);
 
   useEffect(() => {
     setGlobalConfig({
-      headerBackground: "white",
+      headerBackground: props => props.theme.whiteGradient,
       footerBackground: "transparent",
       footerDisplay: true,
       footerFixed: false,
@@ -81,7 +82,7 @@ const Press = props => {
   }, [setGlobalConfig]);
 
   return (
-    <PressWrapper>
+    <PressWrapper navActive={navActive}>
       <PressContainer>
         <PressTitle>Featured Press</PressTitle>
         {generatePress()}
