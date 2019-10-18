@@ -42,6 +42,7 @@ const ContextProvider = props => {
 
   const toggleMenu = () => {
     setNavActive(!navActive);
+    window.scrollTo(0, 0);
   };
 
   const markPlayed = () => {
