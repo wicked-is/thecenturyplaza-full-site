@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Listing from "./Listing";
 import { headers } from "../config";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import {
   TableStyled,
   AscendingStyled,

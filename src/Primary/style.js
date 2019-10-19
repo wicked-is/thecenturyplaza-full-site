@@ -287,18 +287,15 @@ export const SplitSlideContainerStyled = css`
   justify-content: center;
 
   ${mediaMin.phoneXL`
-    justify-content: space-evenly;
     flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
   `}
 
   ${mediaMin.tablet`
     flex-direction: column;
-    justify-content: center;
     height: 100vh;
   `}
 
   ${mediaMin.tabletLandscape`
-    justify-content: space-evenly;
     flex-direction: ${props => (props.isInverted ? "row-reverse" : "row")};
   `}
 
@@ -323,7 +320,7 @@ export const SplitSlideContainerStyled = css`
 
     ${mediaMin.phoneXL`
       width: 30vw;
-      margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+      margin: ${props => (props.isInverted ? "0 3vw 0 0" : "0 0 0 3vw")};
     `}
 
     ${mediaMin.tablet`
@@ -337,7 +334,7 @@ export const SplitSlideContainerStyled = css`
     ${mediaMin.tabletLandscape`
       width: 30vw;
       font-size: 34px;
-      margin: ${props => (props.isInverted ? "0 0 0 5vw" : "0 5vw 0 0")};
+      margin: ${props => (props.isInverted ? "0 3vw 0 0" : "0 0 0 3vw")};
     `}
 
     em {
@@ -362,7 +359,7 @@ export const SplitImageContainerStyled = css`
 
   ${mediaMin.phoneXL`
     height: auto;
-    margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
+    margin: ${props => (props.isInverted ? "0 0 0 3vw" : "0 3vw 0 0")};
     width: 30vw;
     max-width: 30vw;
   `}
@@ -376,7 +373,7 @@ export const SplitImageContainerStyled = css`
 
   ${mediaMin.tabletLandscape`
     height: auto;
-    margin: ${props => (props.isInverted ? "0 5vw 0 0" : "0 0 0 5vw")};
+    margin: ${props => (props.isInverted ? "0 0 0 3vw" : "0 3vw 0 0")};
     width: 30vw;
     max-width: 30vw;
   `}

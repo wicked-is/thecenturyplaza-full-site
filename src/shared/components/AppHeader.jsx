@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Context from "../../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { PageHeader } from "shared/styled-components/Typography.js";
 import Header from "shared/components/Header.jsx";
 

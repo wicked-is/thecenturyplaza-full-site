@@ -136,7 +136,7 @@ export const MediaStyled = css`
     + [type="image"]
     + [type="image"] {
     ${mediaMin.phoneXL` 
-      transform: translateX(calc(200% + 40px));
+      transform: translateX(200%) translateX(40px);
       margin-top: -36vw;
     `}
   }

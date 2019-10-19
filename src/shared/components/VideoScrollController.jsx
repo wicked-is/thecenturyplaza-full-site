@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Context from "../../config/Context";
 import { mediaMin } from "../styled-components/MediaQueries.js";
 

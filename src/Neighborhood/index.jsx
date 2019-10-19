@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Context from "../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";
 import LazyLoad from "react-lazyload";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Context from "../../config/Context";
 import { Location } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import {
   showScrollPlease,
   enterFromCenter,

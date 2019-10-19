@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Context from "../../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { PageFooter } from "shared/styled-components/Typography.js";
 import Footer from "shared/components/Footer.jsx";
 

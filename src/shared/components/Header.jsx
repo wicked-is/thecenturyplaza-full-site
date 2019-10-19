@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Location } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { mediaMin } from "../styled-components/MediaQueries.js";
 import Context from "../../config/Context";
 import ActiveMenu from "shared/components/ActiveMenu.jsx";
@@ -49,11 +49,11 @@ const Logo = styled.div`
 
 const Hamburger = styled.button`
   right: ${props => props.theme.mobileMargin}px;
-  top: 31px;
+  top: 30px;
   position: absolute;
   display: inline-block;
   width: 25px;
-  height: 16px;
+  height: 20px;
   overflow: hidden;
   border: 0;
   text-indent: -99999px;
@@ -68,6 +68,7 @@ const Hamburger = styled.button`
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   z-index: 11000;
+
   &:hover {
     background: url(${props =>
           props.navActive ? closeGraySVG : hamburgerBlackSVG})
@@ -146,7 +147,6 @@ const Header = ({ primaryData, pageColor }) => {
               ) : (
                 <Link to={returnPath}>
                   <Close
-                    onClick={toggleMenu}
                     isLight={
                       location.pathname === "/contact" ||
                       location.pathname === "broker-portal"

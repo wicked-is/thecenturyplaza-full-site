@@ -49,7 +49,6 @@ export const MenuStyled = css`
     width: 1em;
     content: "";
     background: url(${chevronDownSVG}) no-repeat center center;
-    background-size: contain;
     vertical-align: bottom;
     margin: 0;
     transform: rotate(${props => (props.isOpen ? "180deg" : "0")});

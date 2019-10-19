@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Match } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { ActiveMenuContainerStyled } from "shared/styled-components/Navigation.js";
 import Context from "../../config/Context";
 

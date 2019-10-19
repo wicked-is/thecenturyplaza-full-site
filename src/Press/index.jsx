@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Context from "../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { PageTitle } from "../shared/styled-components/Typography.js";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
 import {

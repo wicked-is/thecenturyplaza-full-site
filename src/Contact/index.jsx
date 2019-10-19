@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Context from "../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import Select from "react-select";
 import { Link } from "@reach/router";
 import $ from "jquery";

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import parse from "html-react-parser";
 import { Link } from "@reach/router";
 import Context from "../../config/Context";

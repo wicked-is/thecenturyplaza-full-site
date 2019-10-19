@@ -23,6 +23,7 @@ export const ActiveMenuContainerStyled = css`
     li {
       display: inline-block;
       margin: 0 15px;
+      position: relative;
 
       a {
         position: relative;
@@ -37,7 +38,6 @@ export const ActiveMenuContainerStyled = css`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: antialiased;
     
-
         &::after {
             position: absolute;
             bottom: -1px;
