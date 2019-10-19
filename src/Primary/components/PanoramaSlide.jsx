@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import PhotoSphereViewer from "photo-sphere-viewer";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import Context from "../../config/Context";

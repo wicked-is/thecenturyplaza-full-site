@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Context from "../../config/Context";
 import { Link } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
 const MainMenuWrapper = styled.div`

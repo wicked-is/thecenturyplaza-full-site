@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Context from "../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
 import { ContainerStyled } from "Gallery/style.js";
 import Section from "Gallery/components/Section.jsx";

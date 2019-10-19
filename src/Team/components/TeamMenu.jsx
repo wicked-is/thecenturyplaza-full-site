@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Location } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { MenuStyled } from "../style.js";
 
 const TeamMembers = styled.ul`

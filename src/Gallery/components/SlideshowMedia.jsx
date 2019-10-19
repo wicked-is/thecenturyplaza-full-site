@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Context from "../../config/Context";
 import { navigate } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import ReactPlayer from "react-player";
 import {
   SlideshowContainerStyled,

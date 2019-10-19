@@ -1,6 +1,6 @@
 import React from "react";
 import { Router } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import SlideshowMedia from "Gallery/components/SlideshowMedia.jsx";
 import { ViewportWrapper } from "../../shared/styled-components/Layouts.js";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import Context from "../config/Context";
 import { Router } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { ViewportWrapper } from "../shared/styled-components/Layouts.js";
 import Section from "Primary/components/Section.jsx";
 

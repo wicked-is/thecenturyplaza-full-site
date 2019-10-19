@@ -4,7 +4,7 @@ import { Router, Link } from "@reach/router";
 import * as api from "./api";
 import Listings from "./components/Listings";
 import Filter from "./components/Filter";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Wrapper } from "../shared/styled-components/Layouts.js";
 import {
   ContainerStyled,

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import Context from "../../config/Context";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import ReactPlayer from "react-player";
 import Grid from "styled-components-grid";
 import Fade from "react-reveal/Fade";

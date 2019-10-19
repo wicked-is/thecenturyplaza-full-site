@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { directions } from "../config";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import {
   FilterContainer,
   FilterCategory,

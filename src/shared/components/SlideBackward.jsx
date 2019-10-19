@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const SlideBackwardContainer = styled.span`
