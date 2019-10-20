@@ -126,7 +126,7 @@ export const PlayerContainerStyled = css`
   align-items: center;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
   opacity: 0;
@@ -166,7 +166,7 @@ export const ImageSoloStyled = css`
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  height: calc(90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   width: calc(90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
   transform: translate3d(0, 5em, 0);
@@ -204,7 +204,7 @@ export const CrossFadeStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  height: calc(90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   width: calc(90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
   transform: translate3d(0, 5em, 0);
