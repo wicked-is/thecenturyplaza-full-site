@@ -38,6 +38,9 @@ export const PageHeader = css`
         ? "-" + props.theme.headerHeight + "px"
         : "0"}
   );
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 
   header {
     opacity: 0;
@@ -67,7 +70,10 @@ export const PageFooter = css`
       props.globalConfig.footerFixed ? "fixed" : "absolute"};
   `}
   overflow: ${props => (props.navActive ? "hidden" : "visible")};
-
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+  
   footer {
     position: relative;
     width: 100%;

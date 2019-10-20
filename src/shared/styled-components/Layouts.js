@@ -41,8 +41,6 @@ export const ViewportWrapper = css`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   align-items: center;
   width: 100vw;
   height: ${props =>
@@ -52,17 +50,18 @@ export const ViewportWrapper = css`
   margin: 0;
   padding: ${props =>
     props.isExpanded ? "0" : props.theme.headerHeight + "px 0"};
-  transition: height 0.5s ease-in-out, padding 0.5s ease-in-out;
 
   ${mediaMin.tablet`
-  height: ${props =>
+  ${
+    "" /* height: ${props =>
     props.isExpanded
       ? "100vh"
       : "calc(100vh - " +
         parseFloat(props.theme.headerHeight * 2) +
         "px - " +
         props.theme.browserBottom +
-        "px)"};
+        "px)"}; */
+  }
   `}
 
   ${mediaMin.tabletLandscape`

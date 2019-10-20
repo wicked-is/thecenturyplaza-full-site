@@ -165,6 +165,7 @@ export const ImageSoloStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
   width: calc(90vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
   opacity: 0;
@@ -182,10 +183,19 @@ export const ImageSoloStyled = css`
     );
   `}
 
-  img {
-    object-fit: cover;
+  div {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
@@ -220,12 +230,6 @@ export const CrossFadeStyled = css`
     align-content: center;
     display: inline-block;
     overflow: hidden;
-
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: auto;
-    }
 
     &:nth-child(1) {
       width: 100%;

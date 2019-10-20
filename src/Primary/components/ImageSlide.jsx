@@ -77,7 +77,9 @@ const ImageSlide = ({
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
           <ImageSolo>
-            <ResponsiveImage srcPath={slide.source[0]} />
+            <div>
+              <ResponsiveImage srcPath={slide.source[0]} />
+            </div>
           </ImageSolo>
         </SlideContainer>
       </SlideMask>

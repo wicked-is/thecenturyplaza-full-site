@@ -5,14 +5,15 @@ import { fadeIn } from "../shared/styled-components/Transitions.js";
 
 export const WrapperStyled = css`
   ${Wrapper}
-  ${"" /* flex-wrap: wrap;
-  padding-bottom: 0; */}
 `;
 
 export const HeaderStyled = css`
   ${Container}
   width: 100%;
-  height: 38vh;
+  height: auto;
+  @supports (object-fit: cover) {
+    height: 38vh;
+  }
   margin: 0 0 9vw;
   position: relative;
   opacity: 0;
@@ -22,8 +23,11 @@ export const HeaderStyled = css`
 
   ${mediaMin.tabletLandscape` 
     width: 100%;
-    height: calc(100vh - 160px);
+    height: auto;
     margin: 0 0 9vw;
+    @supports (object-fit: cover) {
+      height: calc(100vh - 160px);
+    }
   `}
 
   ${mediaMin.desktop` 
@@ -32,13 +36,22 @@ export const HeaderStyled = css`
 
   img {
     width: 100%;
-    height: 38vh;
-    object-fit: cover;
-    object-position: 100% 50%;
+    height: auto;
+
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      object-position: 100% 50%;
+      height: 38vh;
+    }
 
     ${mediaMin.tabletLandscape` 
       width: 100%;
-      height: calc(100vh - 160px);
+
+      @supports (object-fit: cover) {
+        height: calc(100vh - 160px);
+        object-position: 100% 60%;
+      }
+
     `}
   }
 `;
@@ -64,11 +77,22 @@ export const ItemStyled = css`
   opacity: 0;
   animation: ${fadeIn} 0.5s ease-in-out 0.5s forwards;
   will-change: opacity;
+  width: 100%;
+
+  .react-reveal {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const PairedStyled = css`
   display: flex;
   align-items: flex-start;
+  width: auto;
 
   img {
     width: calc(50% - ${props => props.theme.mobileGutter / 2}px);
