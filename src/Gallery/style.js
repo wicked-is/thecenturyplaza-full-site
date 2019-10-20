@@ -78,7 +78,7 @@ export const PlaceholderStyled = css`
     left: 50%;
     width: 12vw;
     height: 12vw;
-    margin: -6.25vw 0 0 -6vw;
+    margin: -6.05vw 0 0 -6vw;
     background: url(${playBtnSVG}) no-repeat center center;
     background-size: contain;
   }
@@ -111,21 +111,43 @@ export const MediaStyled = css`
   }
 
   a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
     width: 100%;
     height: 100%;
     position: relative;
+
+    @supports (object-fit: cover) {
+      display: inline-block;
+      background: transparent;
+    }
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
   }
 
   img {
-    object-fit: cover;
-    height: ${props =>
-      props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
     width: 100%;
+    height: auto;
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      height: ${props =>
+        props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
+    }
 
     ${mediaMin.phoneXL` 
-      height: ${props =>
-        props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
+      @supports (object-fit: cover) {
+        height: ${props =>
+          props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
+      }
+
     `}
   }
 
@@ -197,9 +219,10 @@ export const SlideshowImageStyled = css`
   will-change: opacity;
 
   img {
-    object-fit: contain;
-    width: 100%;
+    width: auto;
     height: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
   }
 `;
 

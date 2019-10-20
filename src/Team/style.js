@@ -5,7 +5,7 @@ import chevronDownSVG from "icons/chevron-down.svg";
 
 export const ContainerStyled = css`
   ${Container}
-
+  width: 100%
 
   ${mediaMin.phoneXL`
   margin: 0;
@@ -106,6 +106,7 @@ export const AsideStyled = css`
   z-index: 1000;
   width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
   margin: 0;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
   ${mediaMin.phoneXL`
     position: fixed;
@@ -157,7 +158,7 @@ export const AsideStyled = css`
     `}
 
     ${mediaMin.tablet` 
-      padding: 0 0 2em;
+      padding: 0 0 1em;
       position: fixed;
       top: ${props => props.theme.headerHeight}px;
     `}
@@ -178,13 +179,17 @@ export const AsideStyled = css`
     font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
     font-weight: 300;
     font-size: 12px;
-    margin: 1em 0 1.5em;
+    margin: 1.5em 0 1.5em;
     line-height: 1.35em;
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
 
     ${mediaMin.tablet` 
+      margin: 3em 0 2em;
+    `}
+  
+    ${mediaMin.tabletLandscape` 
       margin: 1em 0 2em;
     `}
 
@@ -193,6 +198,7 @@ export const AsideStyled = css`
 
 export const ItemsStyled = css`
   margin: 0;
+  width: 100%;
 
   ${mediaMin.phoneXL`
     margin: ${props =>
@@ -207,6 +213,7 @@ export const ItemsStyled = css`
   `}
 
   img {
+    width: 100%;
     margin: 0 0 ${props => props.theme.mobileMargin}px;
 
     ${mediaMin.phoneXL`

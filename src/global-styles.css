@@ -155,6 +155,10 @@
   font-stretch: normal;
 }
 
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 body {
   overscroll-behavior: none;
 }

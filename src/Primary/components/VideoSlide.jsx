@@ -56,11 +56,8 @@ const PlaceHolder = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0;
-    display: block;
+    display: inline-block;
     position: relative;
-    width: auto;
-    height: auto;
-    object-fit: cover;
   }
 `;
 

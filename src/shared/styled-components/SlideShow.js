@@ -10,6 +10,7 @@ export const SlideShow = css`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -23,6 +24,9 @@ export const SlideShow = css`
 
   img:nth-child(2) {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 130;
     opacity: 0;
     animation: ${imageTwo} 12s ease-in-out 0.5s infinite;
@@ -30,6 +34,9 @@ export const SlideShow = css`
 
   img:nth-child(3) {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 120;
     opacity: 0;
     animation: ${imageThree} 12s ease-in-out 0.5s infinite;
@@ -39,6 +46,8 @@ export const SlideShow = css`
 
   ${"" /* img:nth-child(4) {
     position: absolute;
+    top: 0;
+    left: 0;
     z-index: 110;
     opacity: 0;
     animation: ${imageFour} 12s ease-in-out 0.5s infinite;
