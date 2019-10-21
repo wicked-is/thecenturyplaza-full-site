@@ -73,12 +73,11 @@ export const ListStyled = css`
 export const ListTitleStyled = css`
   margin: 0 0 5px;
   padding: 0;
-  font-family: ${props => props.theme.sansSerifLightItalic}, sans-serif;
+  font-family: ${props => props.theme.sansSerifLight}, sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 1.35em;
   letter-spacing: 0.05em;
-  font-style: Italic;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
 `;

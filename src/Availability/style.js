@@ -22,7 +22,11 @@ export const ContainerStyled = css`
 
 export const HeaderStyled = css`
   width: 100%;
-  margin: 0 0 5vw;
+  margin: 0 0 2em;
+
+  ${mediaMin.tabletLandscape` 
+    margin: 0 0 3em;
+  `}
 
   p {
     text-align: left;
@@ -67,7 +71,7 @@ export const ControlsStyled = css`
 
   > li {
     display: inline-block;
-    width: 100%;
+    width: auto;
     font-family: ${props => props.theme.serifRoman}, serif;
     font-weight: 300;
     font-size: 19px;
@@ -82,7 +86,6 @@ export const ControlsStyled = css`
 
     ${mediaMin.tabletLandscape` 
       font-size: 22px;
-      width: auto;
     `}
 
     ${mediaMin.desktop` 
@@ -91,18 +94,16 @@ export const ControlsStyled = css`
 
     &:first-child {
       &::after {
-        ${mediaMin.tabletLandscape` 
-          display: inline-block;
-          content: "/";
-          margin: 0 0.5em;
-        `}
+        display: inline-block;
+        content: "/";
+        margin: 0 0.5em;
       }
     }
 
     span {
       display: none;
 
-      ${mediaMin.phoneXL`
+      ${mediaMin.tabletLandscape`
         display: inline-block; 
       `}
     }
