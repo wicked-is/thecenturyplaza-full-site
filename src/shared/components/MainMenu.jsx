@@ -11,7 +11,7 @@ const MainMenuWrapper = styled.div`
   flex-wrap: wrap;
   position: relative;
   width: 100vw;
-  height: auto;
+  height: 100%;
   min-height: 100vh;
   z-index: ${props => (props.navActive ? "10000" : "0")};
   text-indent: 0;
@@ -28,21 +28,29 @@ const LinksContainer = styled.nav`
   display: inline-block;
   position: relative;
   width: 100%;
-  padding: 0 ${props => props.theme.mobileMargin}px;
+  padding: 0 ${props => props.theme.mobileSideMargin}px;
   height: auto;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  margin-top: calc(${props => props.theme.headerHeight}px + 20px);
+  margin-top: calc(${props => props.theme.mobilePortraitHeaderHeight}px + 20px);
+
+  ${mediaMin.phoneXL`
+    margin-top: calc(${props =>
+      props.theme.mobileLandscapeHeaderHeight}px + 20px);
+  `}
+  ${mediaMin.tablet`
+    margin-top: calc(${props => props.theme.desktopHeaderHeight}px + 20px);
+  `}
 
   ${mediaMin.tabletLandscape`
     width: 70vw;
     padding: 0 0 0 30vw;
-    margin-top: calc( ${props => props.theme.headerHeight}px + 40px );
+    margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 40px );
   `}
 
   ${mediaMin.desktop`
-      margin-top: calc( ${props => props.theme.headerHeight}px + 80px );
+      margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 80px );
   `}
 `;
 
@@ -101,7 +109,7 @@ const SecondaryLinks = styled.ul`
 const InfoCluster = styled.div`
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: ${props => props.theme.desktopMargin}px;
+    left: ${props => props.theme.desktopSideMargin}px;
     top: 0;
  `}
 
@@ -150,7 +158,7 @@ const DownloadsLinks = styled.ul`
 
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: ${props => props.theme.desktopMargin}px;
+    left: ${props => props.theme.desktopSideMargin}px;
     top: 245px
  `}
 
@@ -183,8 +191,7 @@ const DownloadsLinks = styled.ul`
 
 const FooterLinks = styled.ul`
   display: inline-block;
-  margin: 30px ${props => props.theme.mobileMargin}px
-    ${props => props.theme.headerHeight}px;
+  margin: 30px ${props => props.theme.mobileSideMargin}px;
   padding: 0;
   list-style: none;
   width: 100%;

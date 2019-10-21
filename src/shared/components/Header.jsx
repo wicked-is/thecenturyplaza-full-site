@@ -15,41 +15,59 @@ const HeaderContainer = styled.header`
   display: inline-block;
   position: relative;
   width: 100%;
-  height: ${props => props.theme.headerHeight}px;
+  height: ${props => props.theme.mobilePortraitHeaderHeight}px;
+
+  ${mediaMin.phoneXL`
+    height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
+  `}
+
+  ${mediaMin.tablet`
+    height: ${props => props.theme.desktopHeaderHeight}px;
+  `}
 `;
 
 const NavRow = styled.div`
   display: flex;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobilepMargin) * 2}px);
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+  );
   justify-content: space-between;
-  padding: 30px ${props => props.theme.mobileMargin}px 0;
+  padding: 30px ${props => props.theme.mobileSideMargin}px 0;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px);
-    padding: 30px ${props => props.theme.desktopMargin}px 0;
+      parseFloat(props.theme.desktopSideMargin) * 2}px);
+    padding: 30px ${props => props.theme.desktopSideMargin}px 0;
   `}
 `;
 
 const Logo = styled.div`
-  left: ${props => props.theme.mobileMargin}px;
-  top: 31px;
+  left: ${props => props.theme.mobileSideMargin}px;
+  top: 22px;
   display: inline-block;
   width: 250px;
-  height: 17px;
+  height: 16px;
   z-index: 11000;
   position: absolute;
   background: url(${props => (props.navActive ? logoGraySVG : logoBlackSVG)})
       no-repeat center center,
     none;
+
+  ${mediaMin.phoneXL`
+  top: 12px;
+  `}
+  ${mediaMin.tablet`
+    top: 32px;
+  `}
+  
   ${mediaMin.tabletLandscape`
-    left: ${props => props.theme.desktopMargin}px;
+    left: ${props => props.theme.desktopSideMargin}px;
   `}
 `;
 
 const Hamburger = styled.button`
-  right: ${props => props.theme.mobileMargin}px;
-  top: 30px;
+  right: ${props => props.theme.mobileSideMargin}px;
+  top: 20px;
   position: absolute;
   display: inline-block;
   width: 25px;
@@ -59,10 +77,10 @@ const Hamburger = styled.button`
   text-indent: -99999px;
 
   background: url(${props => {
-        if (props.navActive) return closeGraySVG;
-        if (props.isLight) return hamburgerBlackSVG;
-        return hamburgerBlackSVG;
-      }})
+    if (props.navActive) return closeGraySVG;
+    if (props.isLight) return hamburgerBlackSVG;
+    return hamburgerBlackSVG;
+  }})
       no-repeat center center,
     none;
   cursor: pointer;
@@ -71,7 +89,7 @@ const Hamburger = styled.button`
 
   &:hover {
     background: url(${props =>
-          props.navActive ? closeGraySVG : hamburgerBlackSVG})
+      props.navActive ? closeGraySVG : hamburgerBlackSVG})
         no-repeat center center,
       none;
   }
@@ -80,14 +98,21 @@ const Hamburger = styled.button`
     outline: none;
   }
 
+  ${mediaMin.phoneXL`
+    top: 10px;
+  `}
+  ${mediaMin.tablet`
+    top: 30px;
+  `}
+
   ${mediaMin.tabletLandscape`
-    right: ${props => props.theme.desktopMargin}px;
+    right: ${props => props.theme.desktopSideMargin}px;
   `}
 `;
 
 const Close = styled.span`
-  right: ${props => props.theme.mobileMargin}px;
-  top: 31px;
+  right: ${props => props.theme.mobileSideMargin}px;
+  top: 22px;
   position: absolute;
   display: inline-block;
   width: 25px;
@@ -109,8 +134,16 @@ const Close = styled.span`
     outline: none;
   }
 
+  ${mediaMin.phoneXL`
+  top: 12px;
+  `}
+  
+  ${mediaMin.tablet`
+    top: 32px;
+  `}
+
   ${mediaMin.tabletLandscape`
-    right: ${props => props.theme.desktopMargin}px;
+    right: ${props => props.theme.desktopSideMargin}px;
   `}
 `;
 

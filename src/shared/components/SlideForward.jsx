@@ -8,20 +8,20 @@ const SlideForwardContainer = styled.span`
   right: 0;
   top: 0;
   display: inline-block;
-  width: ${props => props.theme.mobileMargin + "px"};
-  height: 100vh;
+  width: ${props => props.theme.mobileSideMargin + "px"};
+  height: 100%;
   margin: 0;
   z-index: 600;
   background: white;
   transition: transform 0.5s ease-in-out;
   transform: translateX(
-    ${props => (props.isExpanded ? props.theme.mobileMargin + "px" : "0")}
+    ${props => (props.isExpanded ? props.theme.mobileSideMargin + "px" : "0")}
   );
 
   ${mediaMin.tabletLandscape` 
-    width: ${props => props.theme.desktopMargin + "px"};
+    width: ${props => props.theme.desktopSideMargin + "px"};
     transform: translateX(${props =>
-      props.isExpanded ? props.theme.desktopMargin + "px" : "0"})
+      props.isExpanded ? props.theme.desktopSideMargin + "px" : "0"})
   `}
 
   a {

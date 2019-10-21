@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import Context from "../../config/Context";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { Wrapper } from "../styled-components/Layouts.js";
 import { SecondaryMenuContainerStyled } from "shared/styled-components/Navigation.js";
 

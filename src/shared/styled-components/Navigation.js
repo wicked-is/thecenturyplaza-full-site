@@ -71,11 +71,6 @@ export const ActiveMenuContainerStyled = css`
   `}
 `;
 
-export const MenuWrapper = css`
-  ${Wrapper}
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-`;
-
 export const SecondaryMenuContainerStyled = css`
   display: inline-block;
   position: relative;
@@ -88,12 +83,12 @@ export const SecondaryMenuContainerStyled = css`
   `}
 
   ${mediaMin.desktop`
-    margin: 80px 0 0;
+    margin: calc(80px + ${props => props.theme.desktopHeaderHeight}px) 0 0;
   `}
 
   ul {
     list-style: none;
-    margin: 0 0 80px;
+    margin: 0 0 30px;
     padding: 0;
     height: auto;
     opacity: 0;

@@ -3,18 +3,13 @@ import { mediaMin } from "shared/styled-components/MediaQueries.js";
 import { enterFadeIn } from "shared/styled-components/Transitions.js";
 
 export const Wrapper = css`
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  width: calc(100vw - ${props =>
+    parseFloat(props.theme.mobileSideMargin) * 2}px);
   height: ${props => (props.navActive ? "0" : "auto")};
-  ${
-    "" /* min-height: calc(
-    100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-  ); */
-  }
-  margin: 0 ${props => props.theme.mobileMargin}px;
+  margin: 0 ${props => props.theme.mobileSideMargin}px;
   height: ${props => (props.navActive ? "0" : "auto")};
   padding: ${props =>
-    props.navActive ? "0" : props.theme.headerHeight + "px 0"};
-
+    props.navActive ? "0" : props.theme.mobilePortraitHeaderHeight + "px 0 0"};
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,10 +21,24 @@ export const Wrapper = css`
   visibility: ${props => (props.navActive ? "hidden" : "visible")};
   overflow: hidden;
 
+  ${mediaMin.phoneXL`
+    padding: ${props =>
+      props.navActive
+        ? "0"
+        : props.theme.mobileLandscapeHeaderHeight + "px 0 0"};
+    `}
+
+  ${mediaMin.tablet`
+    padding: ${props =>
+      props.navActive ? "0" : props.theme.desktopHeaderHeight + "px 0 0"};
+  `}
+
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px);
-    margin: 0 ${props => props.theme.desktopMargin}px;
+      parseFloat(props.theme.desktopSideMargin) * 2}px);
+    margin: 0 ${props => props.theme.desktopSideMargin}px;
+    padding: ${props =>
+      props.navActive ? "0" : props.theme.desktopHeaderHeight + "px 0"};
   `}
 `;
 
@@ -45,23 +54,38 @@ export const ViewportWrapper = css`
   width: 100vw;
   height: ${props =>
     props.isExpanded
-      ? "100vh"
-      : "calc(100vh - " + parseFloat(props.theme.headerHeight * 2) + "px)"};
+      ? "100%"
+      : "calc(100% - " +
+        parseFloat(props.theme.mobilePortraitHeaderHeight * 2) +
+        "px)"};
   margin: 0;
   padding: ${props =>
-    props.isExpanded ? "0" : props.theme.headerHeight + "px 0"};
+    props.isExpanded ? "0" : props.theme.mobilePortraitHeaderHeight + "px 0"};
+
+  ${mediaMin.phoneXL`
+    height: ${props =>
+      props.isExpanded
+        ? "100%"
+        : "calc(100% - " +
+          parseFloat(props.theme.mobileLandscapeHeaderHeight * 2) +
+          "px)"};
+    padding: ${props =>
+      props.isExpanded
+        ? "0"
+        : props.theme.mobileLandscapeHeaderHeight + "px 0"};
+
+  `}
 
   ${mediaMin.tablet`
-  ${
-    "" /* height: ${props =>
+  height: ${props =>
     props.isExpanded
-      ? "100vh"
-      : "calc(100vh - " +
-        parseFloat(props.theme.headerHeight * 2) +
-        "px - " +
-        props.theme.browserBottom +
-        "px)"}; */
-  }
+      ? "100%"
+      : "calc(100% - " +
+        parseFloat(props.theme.desktopHeaderHeight * 2) +
+        "px)"};
+      padding: ${props =>
+        props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px 0"};
+
   `}
 
   ${mediaMin.tabletLandscape`

@@ -18,7 +18,7 @@ const ScrollPromptWrapper = styled.div`
   z-index: ${props => (props.preventScroll ? "999999" : "-1")};
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: transparent;
   justify-content: center;
   align-items: center;
