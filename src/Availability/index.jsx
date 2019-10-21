@@ -114,10 +114,10 @@ const Availability = props => {
           <p>Select a Residence</p>
           <AvailabilityControls>
             <ActiveListingLink to="/availability/hotel">
-              Hotel <span>Residences</span>
+              Hotel<span>&nbsp;Residences</span>
             </ActiveListingLink>
             <ActiveListingLink to="/availability/tower">
-              Tower <span>Residences</span>
+              Tower<span>&nbsp;Residences</span>
             </ActiveListingLink>
             <AvailabilityFilter onClick={handleFilter} active={showFilter}>
               Filter

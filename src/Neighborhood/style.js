@@ -109,14 +109,22 @@ export const ItemStyled = css`
 
 export const PairedStyled = css`
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   width: auto;
+  @supports (object-fit: cover) {
+    align-items: flex-start;
+  }
 
   img {
     width: calc(50% - ${props => props.theme.mobileGutter / 2}px);
     float: left;
     height: auto;
     margin-right: ${props => props.theme.mobileGutter / 2}px;
+
+    @supports (object-fit: cover) {
+      object-fit: cover;
+      height: 100%;
+    }
 
     ${mediaMin.tabletLandscape` 
       margin-right: ${props => props.theme.desktopGutter / 2}px;

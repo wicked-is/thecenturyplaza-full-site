@@ -76,15 +76,8 @@ export const SecondaryMenuContainerStyled = css`
   position: relative;
   width: auto;
   height: auto;
-  margin: 20px 0 0;
-
-  ${mediaMin.tabletLandscape`
-    margin: 40px 0 0;
-  `}
-
-  ${mediaMin.desktop`
-    margin: calc(80px + ${props => props.theme.desktopHeaderHeight}px) 0 0;
-  `}
+  margin: 0;
+  padding: 0;
 
   ul {
     list-style: none;

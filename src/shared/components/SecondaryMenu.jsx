@@ -2,12 +2,29 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import Context from "../../config/Context";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Wrapper } from "../styled-components/Layouts.js";
 import { SecondaryMenuContainerStyled } from "shared/styled-components/Navigation.js";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const SecondaryMenuWrapper = styled.div`
   ${Wrapper};
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(
+    100vh - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px
+  );
+
+  ${mediaMin.phoneXL`
+    min-height: calc(100vh - ${props =>
+      props.theme.mobileLandscapeHeaderHeight}px);
+  `}
+
+  ${mediaMin.tablet`
+  justify-content: center;
+  min-height: calc(100vh - ${props =>
+    parseFloat(props.theme.desktopHeaderHeight) * 2}px);
+  `}
 `;
 
 const SecondaryMenuContainer = styled.nav`

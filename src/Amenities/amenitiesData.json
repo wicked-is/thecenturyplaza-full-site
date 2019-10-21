@@ -8,8 +8,8 @@
         "title": "RESIDENCE FEATURES",
         "lists": [
           {
-            "title": "Interiors by Yabu Pushelberg",
-            "subline": "",
+            "title": "",
+            "subline": "Interiors by Yabu Pushelberg",
             "items": [
               "Oak or Walnut wood wall paneling in foyer",
               "7 1/2” plank Oak flooring with painted wood base",
@@ -18,8 +18,8 @@
             ]
           },
           {
-            "title": "Chef’s Kitchens",
-            "subline": "",
+            "title": "",
+            "subline": "Chef’s Kitchens",
             "items": [
               "Professional appliances include Miele cooktop, stainless steel Miele oven, paneled Miele dishwasher, stainless steel Miele microwave drawer, paneled Sub-Zero refrigerator, Kallista faucet and Kohler sink",
               "7 1/2” plank Oak flooring",
@@ -29,8 +29,8 @@
             ]
           },
           {
-            "title": "Spa-Inspired Master Baths",
-            "subline": "",
+            "title": "",
+            "subline": "Spa-Inspired Master Baths",
             "items": [
               "Marble featured in flooring, walls, shower, and vanity",
               "Oak or Walnut accent wood wall paneling",
@@ -39,8 +39,8 @@
             ]
           },
           {
-            "title": "Secondary Baths",
-            "subline": "",
+            "title": "",
+            "subline": "Secondary Baths",
             "items": [
               "Marble featured in flooring, walls, shower, and vanity",
               "Kallista bath fixtures, Kohler sink, and Toto toilet",
@@ -48,8 +48,8 @@
             ]
           },
           {
-            "title": "Powder Rooms",
-            "subline": "",
+            "title": "",
+            "subline": "Powder Rooms",
             "items": [
               "Kallista faucet, Kohler sink and Toto toilet",
               "Marble flooring, vanity counter and backsplash",
@@ -110,21 +110,21 @@
         "title": "RESIDENCE FEATURES",
         "lists": [
           {
-            "title": "Foyer",
-            "subline": "",
+            "title": "",
+            "subline": "Foyer",
             "items": [
               "Stained oak veneer walls and door",
               "7.5” wide oak flooring"
             ]
           },
           {
-            "title": "Interiors",
-            "subline": "",
+            "title": "",
+            "subline": "Interiors",
             "items": ["7.5” wide oak flooring", "Miele Washer/Dryer"]
           },
           {
-            "title": "Kitchen",
-            "subline": "",
+            "title": "",
+            "subline": "Kitchen",
             "items": [
               "7.5” wide oak flooring",
               "Quartzite or granite",
@@ -133,8 +133,8 @@
             ]
           },
           {
-            "title": "Master Bathroom",
-            "subline": "",
+            "title": "",
+            "subline": "Master Bathroom",
             "items": [
               "marble featured in floors and walls",
               "Custom designed mirror",
