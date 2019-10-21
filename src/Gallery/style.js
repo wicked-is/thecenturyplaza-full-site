@@ -228,7 +228,7 @@ export const SlideshowImageStyled = css`
 
   ${mediaMin.tablet` 
   height: calc(90vh - ${props =>
-    parseFloat(props.theme.mdesktopHeaderHeight * 2)}px);  `}
+    parseFloat(props.theme.desktopHeaderHeight * 2)}px);  `}
 
   img {
     width: auto;

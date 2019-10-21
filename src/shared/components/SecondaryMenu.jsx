@@ -21,13 +21,13 @@ const SecondaryMenu = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#B4BAC1";
     setPageColor(props => props.theme.gray);
   }, [setPageColor]);
 
   useEffect(() => {
     setGlobalConfig({
       headerBackground: props => props.theme.grayGradient,
-      pageBackground: props => props.theme.gray,
       footerBackground: props => props.theme.gray,
       footerDisplay: false,
       footerFixed: false,
@@ -39,7 +39,6 @@ const SecondaryMenu = props => {
     return () => {
       setGlobalConfig({
         headerBackground: "transparent",
-
         footerBackground: "transparent",
         footerDisplay: false,
         footerFixed: true,

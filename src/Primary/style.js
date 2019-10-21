@@ -202,7 +202,7 @@ export const ImageSoloStyled = css`
 
   div {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -213,6 +213,17 @@ export const ImageSoloStyled = css`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+
+    img {
+      height: auto;
+      flex-grow: 0;
+      flex-shrink: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 `;
 
@@ -234,6 +245,8 @@ export const CrossFadeStyled = css`
   overflow: hidden;
 
   ${mediaMin.phoneXL`
+
+  
     height: calc(
       100% - ${props =>
         parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px
@@ -257,15 +270,18 @@ export const CrossFadeStyled = css`
 
   > div {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     display: inline-block;
     overflow: hidden;
+    text-align: center;
 
     &:nth-child(1) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
@@ -281,6 +297,8 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(2) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
@@ -296,6 +314,8 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(3) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
