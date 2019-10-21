@@ -14,7 +14,7 @@ import {
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import galleryData from "../galleryData.json";
 
-const SlideshowContainer = styled.section`
+const SlideshowContainer = styled.div`
   ${SlideshowContainerStyled};
 `;
 
@@ -29,7 +29,7 @@ const SlideshowNext = styled.div`
 const SlideshowImage = styled.div`
   ${SlideshowImageStyled};
 `;
-const SlideshowVideo = styled.h2`
+const SlideshowVideo = styled.div`
   ${SlideshowVideoStyled};
 `;
 const SlideshowCaption = styled.div`
@@ -39,7 +39,7 @@ const SlideshowCaption = styled.div`
 const videoElement = () => ({
   width: "100%",
   height: "100%",
-  maxHeight: "calc(100vh - 160px)"
+  maxHeight: "100%"
 });
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {

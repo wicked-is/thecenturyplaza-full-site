@@ -7,27 +7,64 @@ import { mediaMin } from "../styled-components/MediaQueries.js";
 const InnerScrollContainer = styled.span`
   position: absolute;
   transition: all 0.5s ease-in-out;
-  top: ${props => (props.isExpanded ? "0" : props.theme.headerHeight + "px")};
-  left: ${props => (props.isExpanded ? "0" : props.theme.mobileMargin + "px")};
+  top: ${props =>
+    props.isExpanded ? "0" : props.theme.mobilePortraitHeaderHeight + "px"};
+  left: ${props =>
+    props.isExpanded ? "0" : props.theme.mobileSideMargin + "px"};
   display: inline-block;
   width: ${props =>
     props.isExpanded
       ? "100vw"
-      : "calc(100vw - " + parseFloat(props.theme.mobileMargin) * 2 + "px)"};
+      : "calc(100vw - " + parseFloat(props.theme.mobileSideMargin) * 2 + "px)"};
   height: ${props =>
     props.isExpanded
-      ? "100vh"
-      : "calc(100vh - " + parseFloat(props.theme.headerHeight) * 2 + "px)"};
+      ? "100%"
+      : "calc(100% - " +
+        parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+        "px)"};
   margin: 0;
   z-index: 600;
+
+  ${mediaMin.phoneXL`
+    top: ${props =>
+      props.isExpanded ? "0" : props.theme.mobileLandscapeHeaderHeight + "px"};
+    height: ${props =>
+      props.isExpanded
+        ? "100%"
+        : "calc(100% - " +
+          parseFloat(props.theme.mobileLandscapeHeaderHeight * 2) +
+          "px)"};
+    padding: ${props =>
+      props.isExpanded
+        ? "0"
+        : props.theme.mobileLandscapeHeaderHeight + "px 0"};
+
+  `}
+
+  ${mediaMin.tablet`
+  top: ${props =>
+    props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px"};
+  height: ${props =>
+    props.isExpanded
+      ? "100%"
+      : "calc(100% - " +
+        parseFloat(props.theme.DesktopHeaderHeight * 2) +
+        "px)"};
+      padding: ${props =>
+        props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px 0"};
+
+  `}
+
 
   ${mediaMin.tabletLandscape`
     width: ${props =>
       props.isExpanded
         ? "100vw"
-        : "calc(100vw - " + parseFloat(props.theme.desktopMargin) * 2 + "px)"};
+        : "calc(100vw - " +
+          parseFloat(props.theme.desktopSideMargin) * 2 +
+          "px)"};
     left: ${props =>
-      props.isExpanded ? "0" : props.theme.desktopMargin + "px"};
+      props.isExpanded ? "0" : props.theme.desktopSideMargin + "px"};
   `}
 `;
 

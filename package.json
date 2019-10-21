@@ -12,6 +12,7 @@
     "photo-sphere-viewer": "^3.5.1",
     "react": "^16.9.0",
     "react-app-polyfill": "^1.0.4",
+    "react-div-100vh": "^0.3.4",
     "react-dom": "^16.9.0",
     "react-lazyload": "^2.6.2",
     "react-player": "^1.13.0",

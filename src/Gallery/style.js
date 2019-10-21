@@ -165,7 +165,8 @@ export const MediaStyled = css`
 `;
 
 export const SlideshowContainerStyled = css`
-  width: calc(100vw - 160px);
+  width: calc(100vw - 100px);
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,11 +213,22 @@ export const SlideshowImageStyled = css`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100vh - 160px);
+  height: calc(
+    90vh - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight * 2)}px
+  );
   overflow: hidden;
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  ${mediaMin.phoneXL` 
+  height: calc(90vh - ${props =>
+    parseFloat(props.theme.mobileLandscapeHeaderHeight * 2)}px);
+    `}
+
+  ${mediaMin.tablet` 
+  height: calc(90vh - ${props =>
+    parseFloat(props.theme.desktopHeaderHeight * 2)}px);  `}
 
   img {
     width: auto;
@@ -231,15 +243,42 @@ export const SlideshowVideoStyled = css`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: calc(
+    90vh - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight * 2)}px
+  );
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  ${mediaMin.phoneXL` 
+  height: calc(90vh - ${props =>
+    parseFloat(props.theme.mobileLandscapeHeaderHeight * 2)}px);
+    `}
+
+  ${mediaMin.tablet` 
+  height: calc(90vh - ${props =>
+    parseFloat(props.theme.mdesktopHeaderHeight * 2)}px);  `}
 `;
 
 export const SlideshowCaptionStyled = css`
   display: inline-block;
   position: absolute;
-  bottom: 30px;
-  left: 40px;
+  bottom: 20px;
+  left:25px;
+
+  ${mediaMin.phoneXL` 
+    bottom: 10px;
+  `}
+
+
+  ${mediaMin.tablet` 
+    bottom: 30px;
+  `}
+
+  ${mediaMin.tabletLandscape` 
+    bottom: 30px;
+    left: 40px;
+  `}
+
+
 `;

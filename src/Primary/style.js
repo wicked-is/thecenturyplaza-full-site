@@ -13,6 +13,7 @@ export const SlideMaskStyled = css`
   top: 0;
   left: 0;
   width: 100vw;
+  height: 100%;
   ${
     "" /* width: ${props => {
     if (props.isFirstSlide && !props.isFirstSection) return "0";
@@ -64,15 +65,15 @@ export const SlideContainerStyled = css`
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: ${props => (props.isExpanded ? "100vh" : "calc(100vh - 60px)")};
+  height: 100%;
   z-index: 200;
   transition: height 0.25s ease-in-out;
   position: relative;
   flex-wrap: wrap;
 
-  ${mediaMin.tablet`
-    height: 100vh;
-  `}
+  ${"" /* ${mediaMin.tablet`
+    height: 100%;
+  `} */}
 
   h2 {
     font-family: ${props => props.theme.serifMedium}, serif;
@@ -82,6 +83,7 @@ export const SlideContainerStyled = css`
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
+    margin: 0;
     width: 70vw;
     text-align: center;
     position: relative;
@@ -103,8 +105,6 @@ export const SlideContainerStyled = css`
 
   a {
     position: relative;
-    ${"" /* bottom: 24vh;
-    left: 0; */}
     width: 100%;
     text-align: center;
     color: ${props => props.theme.gray};
@@ -166,26 +166,43 @@ export const ImageSoloStyled = css`
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  height: calc(
+    100% - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px
+  );
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+  );
   opacity: 0;
   transform: translate3d(0, 5em, 0);
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
   overflow: hidden;
 
+  ${mediaMin.phoneXL`
+    height: calc(
+      100% - ${props =>
+        parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px
+    );
+  `}
+
+  ${mediaMin.tablet`
+    height: calc(
+      100% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
+    );
+  `}
+
   ${mediaMin.tabletLandscape`
     height: calc(
-      90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+      90% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
     );
     width: calc(
-      80vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+      80vw - ${props => parseFloat(props.theme.desktopSideMargin) * 2}px
     );
   `}
 
   div {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,6 +213,17 @@ export const ImageSoloStyled = css`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+
+    img {
+      height: auto;
+      flex-grow: 0;
+      flex-shrink: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 `;
 
@@ -204,34 +232,56 @@ export const CrossFadeStyled = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  height: calc(
+    100% - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px
+  );
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+  );
   opacity: 0;
   transform: translate3d(0, 5em, 0);
   animation: ${enterFromBottomImage};
   will-change: opacity, transform;
   overflow: hidden;
 
+  ${mediaMin.phoneXL`
+
+  
+    height: calc(
+      100% - ${props =>
+        parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px
+    );
+  `}
+
+  ${mediaMin.tablet`
+    height: calc(
+      100% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
+    );
+  `}
+
   ${mediaMin.tabletLandscape`
     height: calc(
-      90vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
+      90% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
     );
     width: calc(
-      80vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px
+      80vw - ${props => parseFloat(props.theme.desktopSideMargin) * 2}px
     );
   `}
 
   > div {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     display: inline-block;
     overflow: hidden;
+    text-align: center;
 
     &:nth-child(1) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
@@ -247,6 +297,8 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(2) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
@@ -262,6 +314,8 @@ export const CrossFadeStyled = css`
     }
 
     &:nth-child(3) {
+      flex-grow: 0;
+      flex-shrink: 1;
       width: 100%;
       height: auto;
       position: absolute;
@@ -284,7 +338,7 @@ export const SplitSlideContainerStyled = css`
   align-items: center;
   align-content: center;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: 100%;
   z-index: 200;
   position: relative;
   flex-direction: column;
@@ -296,7 +350,6 @@ export const SplitSlideContainerStyled = css`
 
   ${mediaMin.tablet`
     flex-direction: column;
-    height: 100vh;
   `}
 
   ${mediaMin.tabletLandscape`
@@ -314,7 +367,7 @@ export const SplitSlideContainerStyled = css`
     -moz-osx-font-smoothing: antialiased;
     width: 70vw;
     text-align: center;
-    margin: 7vh 0 0;
+    margin: 2em 0 0;
     position: relative;
     overflow: hidden;
     opacity: 0;
@@ -329,7 +382,7 @@ export const SplitSlideContainerStyled = css`
 
     ${mediaMin.tablet`
       width: 70vw;
-      margin: 7vh 0 0;
+      margin: 2em 0 0;
       font-size: 30px;
       flex-direction: column;
       justify-content: center;
@@ -355,7 +408,7 @@ export const SplitImageContainerStyled = css`
   position: relative;
   width: 66vw;
   max-width: 66vw;
-  height: calc(45vh - ${props => props.theme.headerHeight}px);
+  height: calc(45% - ${props => props.theme.mobilePortraitHeaderHeight}px);
   margin: 0;
   opacity: 0;
   animation: ${enterFadeIn};
@@ -389,9 +442,26 @@ export const PanoImageStyled = css`
   align-items: center;
   background: transparent;
   overflow: hidden;
-  width: calc(100vw - ${props => parseFloat(props.theme.desktopMargin) * 2}px);
-  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.desktopSideMargin) * 2}px
+  );
+  height: calc(
+    80% - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px
+  );
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  ${mediaMin.phoneXL`
+    height: calc(
+      80% - ${props =>
+        parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px
+    );
+  `}
+
+  ${mediaMin.tablet`
+    height: calc(
+      80% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
+    );
+  `}
 `;

@@ -8,7 +8,7 @@ export const ContainerStyled = css`
   width: 100%
 
   ${mediaMin.phoneXL`
-  margin: 0;
+    margin: 20px 0 0;
   `}
 
   ${mediaMin.tabletLandscape` 
@@ -23,7 +23,8 @@ export const ContainerStyled = css`
 
 export const MenuStyled = css`
   display: inline-block;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  width: calc(100vw - ${props =>
+    parseFloat(props.theme.mobileSideMargin) * 2}px);
   height: ${props => (props.isOpen ? "auto" : "1em")};
   margin: 0;
   padding: 0;
@@ -33,7 +34,8 @@ export const MenuStyled = css`
     width: 100%;
   `}
   ${mediaMin.tablet` 
-    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.mobileSideMargin) * 2}px);
   `}
   ${mediaMin.tabletLandscape` 
     width: 100%;
@@ -42,7 +44,7 @@ export const MenuStyled = css`
 
   &::after {
     position: absolute;
-    top: 2px;
+    top: 22px;
     right: 0;
     display: inline-block;
     height: 1em;
@@ -53,6 +55,15 @@ export const MenuStyled = css`
     margin: 0;
     transform: rotate(${props => (props.isOpen ? "180deg" : "0")});
     transition: transform 0.25s ease-in-out;
+
+
+    ${mediaMin.phoneXL` 
+      top: 2px;
+    `}
+
+    ${mediaMin.tablet` 
+      top: 22px;
+    `}
 
     ${mediaMin.tabletLandscape` 
     display: none;
@@ -104,7 +115,8 @@ export const AsideStyled = css`
   position: relative;
   background: white;
   z-index: 1000;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  width: calc(100vw - ${props =>
+    parseFloat(props.theme.mobileSideMargin) * 2}px);
   margin: 0;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 
@@ -113,19 +125,20 @@ export const AsideStyled = css`
     width: 34%;
     left: auto;
     margin: 0;
-    top: ${props => props.theme.headerHeight}px;
-    left: ${props => props.theme.mobileMargin}px;
+    top: ${props => props.theme.mobilePortraitHeaderHeight}px;
+    left: ${props => props.theme.mobileSideMargin}px;
   `}
   
   ${mediaMin.tablet` 
-    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+    width: calc(100vw - ${props =>
+      parseFloat(props.theme.mobileSideMargin) * 2}px);
     position: relative;
     top: auto;
     left: auto;
   `}
 
   ${mediaMin.tabletLandscape` 
-    top: ${props => props.theme.headerHeight}px;
+    top: ${props => props.theme.desktopHeaderHeight}px;
     position: fixed;
     width: 22%;
     left: auto;
@@ -146,9 +159,9 @@ export const AsideStyled = css`
 
   ul {
     margin: 0;
-    padding: 0 0 1.5em;
+    padding: 20px 0 0.5em;
     position: fixed;
-    top: ${props => props.theme.headerHeight}px;
+    top: ${props => props.theme.mobilePortraitHeaderHeight}px;
     background: white;
 
     ${mediaMin.phoneXL`
@@ -158,9 +171,9 @@ export const AsideStyled = css`
     `}
 
     ${mediaMin.tablet` 
-      padding: 0 0 1em;
+      padding: 20px 0 1em;
       position: fixed;
-      top: ${props => props.theme.headerHeight}px;
+      top: ${props => props.theme.desktopHeaderHeight}px;
     `}
 
     ${mediaMin.tabletLandscape`
@@ -179,18 +192,22 @@ export const AsideStyled = css`
     font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
     font-weight: 300;
     font-size: 12px;
-    margin: 1.5em 0 1.5em;
+    margin: 3em 0 2em;
     line-height: 1.35em;
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
+
+    ${mediaMin.phoneXL` 
+     margin: 1.5em 0 1.5em;
+    `}
 
     ${mediaMin.tablet` 
       margin: 3em 0 2em;
     `}
   
     ${mediaMin.tabletLandscape` 
-      margin: 1em 0 2em;
+      margin: 0.5em 0 2em;
     `}
 
   }
@@ -214,7 +231,7 @@ export const ItemsStyled = css`
 
   img {
     width: 100%;
-    margin: 0 0 ${props => props.theme.mobileMargin}px;
+    margin: 0 0 ${props => props.theme.mobileSideMargin}px;
 
     ${mediaMin.phoneXL`
       margin: 0;

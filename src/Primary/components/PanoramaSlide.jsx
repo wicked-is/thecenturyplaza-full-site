@@ -25,66 +25,68 @@ const PanoImage = styled.div`
 `;
 
 const PanoViewer = styled.div`
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-  height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+  );
+  height: 100%;
   overflow: hidden;
   z-index: 0;
   background: transparent;
 
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px);
+      parseFloat(props.theme.desktopSideMargin) * 2}px);
   `}
 
   .psv-container {
     position: relative;
-    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-    height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+    width: calc(
+      100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+    );
+    height: 100%;
     overflow: hidden;
     position: relative;
     background: transparent;
 
     ${mediaMin.tabletLandscape`
       width: calc(100vw - ${props =>
-        parseFloat(props.theme.desktopMargin) * 2}px);
+        parseFloat(props.theme.desktopSideMargin) * 2}px);
     `}
 
     .psv-hud {
       width: calc(
-        100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
+        100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
       );
-      height: calc(
-        80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-      );
+      height: 100%;
       overflow: hidden;
       position: absolute;
 
       ${mediaMin.tabletLandscape`
         width: calc(100vw - ${props =>
-          parseFloat(props.theme.desktopMargin) * 2}px);
+          parseFloat(props.theme.desktopSideMargin) * 2}px);
       `}
     }
   }
 
   .psv-loader-container {
     position: relative;
-    width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
-    height: calc(80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px);
+    width: calc(
+      100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+    );
+    height: 100%;
     overflow: hidden;
     background: transparent;
 
     ${mediaMin.tabletLandscape`
       width: calc(100vw - ${props =>
-        parseFloat(props.theme.desktopMargin) * 2}px);
+        parseFloat(props.theme.desktopSideMargin) * 2}px);
     `}
 
     .psv-loader {
       width: calc(
-        100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px
+        100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
       );
-      height: calc(
-        80vh - ${props => parseFloat(props.theme.headerHeight) * 2}px
-      );
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,7 +95,7 @@ const PanoViewer = styled.div`
 
       ${mediaMin.tabletLandscape`
         width: calc(100vw - ${props =>
-          parseFloat(props.theme.desktopMargin) * 2}px);
+          parseFloat(props.theme.desktopSideMargin) * 2}px);
       `}
 
       img {

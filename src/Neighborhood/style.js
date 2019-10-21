@@ -12,7 +12,7 @@ export const HeaderStyled = css`
   width: 100%;
   height: auto;
   @supports (object-fit: cover) {
-    height: 38vh;
+    height: 38%;
   }
   margin: 0 0 9vw;
   position: relative;
@@ -21,18 +21,37 @@ export const HeaderStyled = css`
   will-change: opacity;
   overflow: hidden;
 
+  ${mediaMin.phoneXL` 
+    height: auto;
+    @supports (object-fit: cover) {
+      height: 100%;
+    }  
+  `}
+
+  ${mediaMin.tablet`
+    height: auto;
+    @supports (object-fit: cover) {
+      height: 38%;
+    }
+  `}
+
   ${mediaMin.tabletLandscape` 
     width: 100%;
     height: auto;
     margin: 0 0 9vw;
     @supports (object-fit: cover) {
-      height: calc(100vh - 160px);
+      height: calc(100vh - ${props =>
+        parseFloat(props.theme.desktopHeaderHeight) * 2}px);
     }
   `}
 
   ${mediaMin.desktop` 
     margin: 0 0 9vw;
   `}
+
+  .react-reveal {
+    height: 100%;
+  }
 
   img {
     width: 100%;
@@ -41,15 +60,14 @@ export const HeaderStyled = css`
     @supports (object-fit: cover) {
       object-fit: cover;
       object-position: 100% 50%;
-      height: 38vh;
+      height: 100%;
     }
 
     ${mediaMin.tabletLandscape` 
-      width: 100%;
 
       @supports (object-fit: cover) {
-        height: calc(100vh - 160px);
         object-position: 100% 60%;
+        height: 100%;
       }
 
     `}

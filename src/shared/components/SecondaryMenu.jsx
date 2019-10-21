@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import Context from "../../config/Context";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { Wrapper } from "../styled-components/Layouts.js";
 import { SecondaryMenuContainerStyled } from "shared/styled-components/Navigation.js";
 
@@ -21,13 +21,13 @@ const SecondaryMenu = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#B4BAC1";
     setPageColor(props => props.theme.gray);
   }, [setPageColor]);
 
   useEffect(() => {
     setGlobalConfig({
       headerBackground: props => props.theme.grayGradient,
-      pageBackground: props => props.theme.gray,
       footerBackground: props => props.theme.gray,
       footerDisplay: false,
       footerFixed: false,
@@ -39,7 +39,6 @@ const SecondaryMenu = props => {
     return () => {
       setGlobalConfig({
         headerBackground: "transparent",
-
         footerBackground: "transparent",
         footerDisplay: false,
         footerFixed: true,

@@ -10,7 +10,7 @@ export const PageBody = css`
   letter-spacing: 0.6px;
   background: ${props => props.pageColor};
   height: auto;
-  min-height: 100vh;
+  min-height: 100%;
   position: relative;
   overflow: auto;
 
@@ -25,7 +25,7 @@ export const PageHeader = css`
   left: 0;
   display: inline-block;
   width: 100%;
-  height: ${props => props.theme.headerHeight}px;
+  height: ${props => props.theme.mobilePortraitHeaderHeight}px;
   background: ${props =>
     props.navActive
       ? props.theme.blackGradient
@@ -35,12 +35,21 @@ export const PageHeader = css`
   transform: translateY(
     ${props =>
       props.isExpanded && window.location.pathname.includes("/home")
-        ? "-" + props.theme.headerHeight + "px"
+        ? "-" + props.theme.desktopHeaderHeight + "px"
         : "0"}
   );
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
+
+  ${mediaMin.phoneXL`
+    height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
+  `}
+
+  ${mediaMin.tablet`
+    height: ${props => props.theme.desktopHeaderHeight}px;
+  `}
+  
 
   header {
     opacity: 0;
@@ -57,22 +66,41 @@ export const PageFooter = css`
   left: 0;
   z-index: 900;
   width: 100%;
-  height: ${props => (props.navActive ? "0" : props.theme.headerHeight + "px")};
+  height: ${props =>
+    props.navActive ? "0" : props.theme.mobilePortraitHeaderHeight + "px"};
   background: ${props => props.globalConfig.footerBackground};
   transition: transform 0.5s ease-in-out;
   transform: translateY(
-    ${props => (props.isExpanded ? props.theme.headerHeight + "px" : "0")}
+    ${props =>
+      props.isExpanded ? props.theme.mobilePortraitHeaderHeight + "px" : "0"}
   );
   visibility: ${props => (props.navActive ? "hidden" : "visible")};
+  overflow: ${props => (props.navActive ? "hidden" : "visible")};
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+
+  ${mediaMin.phoneXL`
+    height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
+    transform: translateY(
+      ${props =>
+        props.isExpanded ? props.theme.mobileLandscapeHeaderHeight + "px" : "0"}
+    );
+  `}
+
+  ${mediaMin.tablet`
+    height: ${props => props.theme.desktopHeaderHeight}px;
+    transform: translateY(
+      ${props =>
+        props.isExpanded ? props.theme.desktopHeaderHeight + "px" : "0"}
+    );
+    
+  `}
 
   ${mediaMin.tabletLandscape`
     position: ${props =>
       props.globalConfig.footerFixed ? "fixed" : "absolute"};
   `}
-  overflow: ${props => (props.navActive ? "hidden" : "visible")};
-  opacity: 0;
-  animation: ${enterFadeIn};
-  will-change: opacity;
   
   footer {
     position: relative;
@@ -142,29 +170,54 @@ export const Caption = css`
   top: 0;
   left: 0;
   margin: 0;
-  padding: ${props => props.theme.mobileMargin}px
-    ${props => props.theme.mobileMargin}px 0;
+  padding: 24px ${props => props.theme.mobileSideMargin}px 0;
   background: white;
-  width: calc(100vw - ${props => parseFloat(props.theme.mobileMargin) * 2}px);
+  width: calc(
+    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+  );
   opacity: 0;
   animation: ${enterFadeIn};
   will-change: opacity;
   transition: all 0.25s ease-in-out;
+  ${
+    "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+  }
   transform: translateY(
-    ${props => (!props.emptyCaption && props.isOpen ? "-40%" : "10px")}
-  );
+      ${props => (!props.emptyCaption && props.isOpen ? "-100%" : "0")}
+    )
+    translateY(${props =>
+      !props.emptyCaption && props.isOpen ? "36px" : "0"});
 
   ${mediaMin.phoneXL`
+    padding: 14px ${props => props.theme.mobileSideMargin}px 0;
+    ${
+      "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+    }
     transform: translateY(${props =>
-      !props.emptyCaption && props.isOpen ? "-40%" : "10px"});
+      !props.emptyCaption && props.isOpen
+        ? "-100%"
+        : "0"}) translateY(${props =>
+    !props.emptyCaption && props.isOpen ? "26px" : "0"});
+  `}
+
+  ${mediaMin.tablet`
+    padding: 35px ${props => props.theme.mobileSideMargin}px 0;
+    ${
+      "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+    }
+    transform: translateY(${props =>
+      !props.emptyCaption && props.isOpen
+        ? "-100%"
+        : "0"}) translateY(${props =>
+    !props.emptyCaption && props.isOpen ? "45px" : "0"});
   `}
 
   ${mediaMin.tabletLandscape`
     display: flex;
-    left: ${props => props.theme.desktopMargin}px;
+    left: ${props => props.theme.desktopSideMargin}px;
     align-items: center;
     width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopMargin) * 2}px - 300px);
+      parseFloat(props.theme.desktopSideMargin) * 2}px - 300px);
     height 80px;
     padding: 0;
     margin: 0;
