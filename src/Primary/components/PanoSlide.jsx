@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Context from "../../config/Context";
 import styled from "styled-components/macro";
 import { Pannellum } from "pannellum-react";
-import panoImg from "../../imgs/pano_4096condensed.jpg";
+import panoImg from "../../imgs/pano_4096.jpg";
 import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
@@ -17,8 +17,6 @@ const SlideContainer = styled.div`
 
   .pnlm-container {
     background: white;
-
-    max-height: 45vh;
 
     .pnlm-load-box {
       background-color: transparent;
@@ -78,7 +76,7 @@ const PanoramaSlide = ({
   const context = useContext(Context);
   const {
     pauseScroll,
-    scrollCooldown,
+    setPauseScroll,
     isExisting,
     setIsExisting,
     triggerExit,
@@ -86,8 +84,12 @@ const PanoramaSlide = ({
     currentSectionIndex
   } = context;
 
-  const pauseScrollDetection = () => {
-    scrollCooldown(4000);
+  const pauseScrollDetection = status => {
+    if (status === true) {
+      setPauseScroll(true);
+    } else {
+      setPauseScroll(false);
+    }
   };
 
   useEffect(() => {
@@ -106,8 +108,6 @@ const PanoramaSlide = ({
       pauseListeners={pauseScroll}
       upHandler={() => triggerExit(previousPath)}
       downHandler={() => triggerExit(nextPath)}
-      rightHandler={() => triggerExit(previousPath)}
-      leftHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
         lastSectionSlide={lastSectionSlide}
@@ -118,15 +118,17 @@ const PanoramaSlide = ({
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
           <Pannellum
-            width="100% "
-            height="500px"
+            width="100%"
+            height="30vw"
             image={panoImg}
-            vaov={360}
+            vaov={270}
             yaw={18}
             pitch={0}
             maxPitch={0}
             minPitch={0}
-            hfov={100}
+            hfov={131}
+            minHfov={131}
+            maxHfov={131}
             mouseZoom={false}
             showZoomCtrl={false}
             showFullscreenCtrl={false}
@@ -134,16 +136,16 @@ const PanoramaSlide = ({
             autoLoad
             autoRotate={0.35}
             onMousedown={() => {
-              pauseScrollDetection();
+              pauseScrollDetection(true);
             }}
             onMouseup={() => {
-              pauseScrollDetection();
+              pauseScrollDetection(false);
             }}
             onTouchstart={() => {
-              pauseScrollDetection();
+              pauseScrollDetection(true);
             }}
             onTouchend={() => {
-              pauseScrollDetection();
+              pauseScrollDetection(false);
             }}
           />
         </SlideContainer>

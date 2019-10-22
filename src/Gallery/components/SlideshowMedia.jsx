@@ -14,7 +14,6 @@ import {
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import galleryData from "../galleryData.json";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import GalleryVideoScrollController from "shared/components/GalleryVideoScrollController.jsx";
 
 const SlideshowContainer = styled.div`
   ${SlideshowContainerStyled};
@@ -45,7 +44,6 @@ const videoElement = () => ({
 });
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {
-  const [startVideo, setStartVideo] = useState(false);
   const context = useContext(Context);
   const {
     setGlobalConfig,
@@ -186,10 +184,6 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
     }
   };
 
-  const removePlaceholder = () => {
-    setStartVideo(true);
-  };
-
   useEffect(() => {
     setReturnPath("/gallery");
   }, [setReturnPath]);
@@ -250,40 +244,22 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
             <ResponsiveImage srcPath={media.source} />
           </SlideshowImage>
         ) : (
-          <React.Fragment>
-            <GalleryVideoScrollController
-              nextMedia={
-                "/gallery/" +
-                galleryData[0].slug +
-                "/" +
-                galleryData[0].media[mediaId + 1].slug
-              }
-              previousMedia={
-                "/gallery/" +
-                galleryData[3].slug +
-                "/" +
-                galleryData[3].media[galleryData[3].media.length - 1].slug
-              }
+          <SlideshowVideo>
+            <ReactPlayer
+              url={media.source}
+              preload="true"
+              controls
+              playsinline
+              width="100%"
+              height="56.25vw"
+              style={videoElement()}
+              config={{
+                vimeo: {
+                  playerVars: { transparent: true }
+                }
+              }}
             />
-            <SlideshowVideo>
-              <ReactPlayer
-                url={media.source}
-                preload="true"
-                controls={false}
-                playing={startVideo}
-                onReady={removePlaceholder}
-                playsinline
-                width="100%"
-                height="56.25vw"
-                style={videoElement()}
-                config={{
-                  vimeo: {
-                    playerVars: { showinfo: 1 }
-                  }
-                }}
-              />
-            </SlideshowVideo>
-          </React.Fragment>
+          </SlideshowVideo>
         )}
         <SlideshowCaption>{media.caption}</SlideshowCaption>
       </SlideshowContainer>
