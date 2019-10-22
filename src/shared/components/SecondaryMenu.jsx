@@ -10,15 +10,15 @@ import { mediaMin } from "../styled-components/MediaQueries.js";
 const SecondaryMenuWrapper = styled.div`
   ${Wrapper};
   align-items: center;
-  justify-content: flex-start;  
-  min-height: calc(${props =>
-    props.navActive
-      ? "0"
-      : "100vh - " +
-        parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
-        "px"});
+  justify-content: flex-start;
+  min-height: calc(
+    ${props =>
+      props.navActive
+        ? "0"
+        : "100vh - " +
+          parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+          "px"}
   );
-
 
   ${mediaMin.phoneXL`
     min-height: calc(${props =>
@@ -35,7 +35,7 @@ const SecondaryMenuWrapper = styled.div`
       props.navActive
         ? "0"
         : "100vh - " + parseFloat(props.theme.desktopHeaderHeight) * 2 + "px"});
-    `}
+  `}
 `;
 
 const SecondaryMenuContainer = styled.nav`
