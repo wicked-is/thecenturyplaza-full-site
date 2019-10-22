@@ -11,7 +11,7 @@ import {
 } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import InnerScrollController from "shared/components/VideoScrollController.jsx";
+import SlideVideoScrollController from "shared/components/SlideVideoScrollController.jsx";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
 const SlideMask = styled.div`
@@ -170,8 +170,6 @@ const VideoSlide = ({
       downHandler={() => {
         isExpanded ? toggleExpand() : triggerExit(nextPath);
       }}
-      // Will throw a warning in Dev but not Prod build, can't resolve warning
-      // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
       rightHandler={() => {
         isExpanded && toggleExpand();
         !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
@@ -203,7 +201,7 @@ const VideoSlide = ({
         <SlideContainer isExpanded={isExpanded}>
           <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
           <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
-          <InnerScrollController
+          <SlideVideoScrollController
             nextPath={nextPath}
             previousPath={previousPath}
             isExpanded={isExpanded}

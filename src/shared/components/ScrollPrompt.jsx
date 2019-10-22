@@ -109,8 +109,6 @@ const ScrollPrompt = ({ isExpanded }) => {
             pauseListeners={pauseScroll}
             upHandler={() => fadeAway()}
             downHandler={() => fadeAway()}
-            // Will throw a warning in Dev but not Prod build, can't resolve warning
-            // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
             rightHandler={() => fadeAway()}
             leftHandler={() => fadeAway()}
           >

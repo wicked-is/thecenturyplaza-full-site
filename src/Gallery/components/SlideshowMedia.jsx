@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Context from "../../config/Context";
 import { navigate } from "@reach/router";
 import styled from "styled-components/macro";
@@ -13,6 +13,8 @@ import {
 } from "Gallery/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import galleryData from "../galleryData.json";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import GalleryVideoScrollController from "shared/components/GalleryVideoScrollController.jsx";
 
 const SlideshowContainer = styled.div`
   ${SlideshowContainerStyled};
@@ -43,8 +45,14 @@ const videoElement = () => ({
 });
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {
+  const [startVideo, setStartVideo] = useState(false);
   const context = useContext(Context);
-  const { setGlobalConfig, setReturnPath } = context;
+  const {
+    setGlobalConfig,
+    setReturnPath,
+    scrollCooldown,
+    pauseScroll
+  } = context;
 
   const previousMedia = () => {
     if (sectionId === 0) {
@@ -57,7 +65,7 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
             galleryData[3].media[galleryData[3].media.length - 1].slug
         );
       } else {
-        // Previous Media's Last Media
+        // Previous Media
         navigate(
           "/gallery/" +
             galleryData[0].slug +
@@ -178,6 +186,10 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
     }
   };
 
+  const removePlaceholder = () => {
+    setStartVideo(true);
+  };
+
   useEffect(() => {
     setReturnPath("/gallery");
   }, [setReturnPath]);
@@ -211,28 +223,71 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   }, [setGlobalConfig]);
 
   return (
-    <SlideshowContainer>
-      <SlideshowPrevious onClick={previousMedia} />
-      <SlideshowNext onClick={nextMedia} />
-      {media.type === "image" ? (
-        <SlideshowImage>
-          <ResponsiveImage srcPath={media.source} />
-        </SlideshowImage>
-      ) : (
-        <SlideshowVideo>
-          <ReactPlayer
-            url={media.source}
-            preload="true"
-            controls
-            playsinline
-            width="100%"
-            height="56.25vw"
-            style={videoElement()}
-          />
-        </SlideshowVideo>
-      )}
-      <SlideshowCaption>{media.caption}</SlideshowCaption>
-    </SlideshowContainer>
+    <ReactScrollWheelHandler
+      pauseListeners={pauseScroll}
+      upHandler={() => {
+        previousMedia();
+        scrollCooldown(1000);
+      }}
+      downHandler={() => {
+        nextMedia();
+        scrollCooldown(1000);
+      }}
+      rightHandler={() => {
+        previousMedia();
+        scrollCooldown(1000);
+      }}
+      leftHandler={() => {
+        nextMedia();
+        scrollCooldown(1000);
+      }}
+    >
+      <SlideshowContainer>
+        <SlideshowPrevious onClick={previousMedia} />
+        <SlideshowNext onClick={nextMedia} />
+        {media.type === "image" ? (
+          <SlideshowImage>
+            <ResponsiveImage srcPath={media.source} />
+          </SlideshowImage>
+        ) : (
+          <React.Fragment>
+            <GalleryVideoScrollController
+              nextMedia={
+                "/gallery/" +
+                galleryData[0].slug +
+                "/" +
+                galleryData[0].media[mediaId + 1].slug
+              }
+              previousMedia={
+                "/gallery/" +
+                galleryData[3].slug +
+                "/" +
+                galleryData[3].media[galleryData[3].media.length - 1].slug
+              }
+            />
+            <SlideshowVideo>
+              <ReactPlayer
+                url={media.source}
+                preload="true"
+                controls={false}
+                playing={startVideo}
+                onReady={removePlaceholder}
+                playsinline
+                width="100%"
+                height="56.25vw"
+                style={videoElement()}
+                config={{
+                  vimeo: {
+                    playerVars: { showinfo: 1 }
+                  }
+                }}
+              />
+            </SlideshowVideo>
+          </React.Fragment>
+        )}
+        <SlideshowCaption>{media.caption}</SlideshowCaption>
+      </SlideshowContainer>
+    </ReactScrollWheelHandler>
   );
 };
 
