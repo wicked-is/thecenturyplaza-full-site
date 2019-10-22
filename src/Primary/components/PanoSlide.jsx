@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import Context from "../../config/Context";
 import styled from "styled-components/macro";
 import { Pannellum } from "pannellum-react";
-import panoImg from "../../imgs/panorama/pano.jpg";
+import panoImg from "../../imgs/pano_4096condensed.jpg";
 import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
@@ -26,12 +26,19 @@ const SlideContainer = styled.div`
       color: ${props => props.theme.black};
 
       .pnlm-lbar {
-        border: ${props => props.theme.black} 1px solid;
+        border: ${props => props.theme.gray} 1px solid;
 
         .pnlm-lbar-fill {
-          background: ${props => props.theme.black};
+          background: ${props => props.theme.gray};
         }
       }
+    }
+
+    .pnlm-error-msg {
+      background-color: transparent;
+      font-family: ${props => props.theme.sansSerifThin};
+      letter-spacing: 1.5px;
+      color: ${props => props.theme.black};
     }
 
     .pnlm-about-msg {
@@ -78,8 +85,7 @@ const PanoramaSlide = ({
   } = context;
 
   const pauseScrollDetection = () => {
-    scrollCooldown(3000);
-    console.log("pause scroll: ", pauseScroll);
+    scrollCooldown(4000);
   };
 
   useEffect(() => {
@@ -107,17 +113,16 @@ const PanoramaSlide = ({
         <SlideContainer>
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
-
           <Pannellum
             width="100%"
-            height="55vh"
+            height="350px"
             image={panoImg}
-            vaov={180}
+            vaov={360}
             yaw={18}
             pitch={0}
             maxPitch={0}
             minPitch={0}
-            hfov={50}
+            hfov={100}
             mouseZoom={false}
             showZoomCtrl={false}
             showFullscreenCtrl={false}

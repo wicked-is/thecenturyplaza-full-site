@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import { Wrapper } from "../styled-components/Layouts.js";
 import {
   enterActiveLink,
   enterFromBottomText,

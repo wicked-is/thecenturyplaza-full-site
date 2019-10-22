@@ -68,7 +68,7 @@ const SecondaryMenu = props => {
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        scrollCooldown(1500);
+        scrollCooldown(4000);
         window.history.back();
       }}
     >
