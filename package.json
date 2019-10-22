@@ -9,6 +9,7 @@
     "html-react-parser": "^0.9.1",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
+    "pannellum-react": "^1.2.4",
     "photo-sphere-viewer": "^3.5.1",
     "react": "^16.9.0",
     "react-app-polyfill": "^1.0.4",

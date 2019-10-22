@@ -114,7 +114,6 @@ export const MediaStyled = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: black;
     width: 100%;
     height: 100%;
     position: relative;
@@ -135,7 +134,7 @@ export const MediaStyled = css`
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     @supports (object-fit: cover) {
       object-fit: cover;
       height: ${props =>
