@@ -34,7 +34,7 @@ const SecondaryMenuContainer = styled.nav`
 const SecondaryMenu = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
-  const { pauseScroll, triggerExit, setGlobalConfig, navActive } = context;
+  const { pauseScroll, scrollCooldown, setGlobalConfig, navActive } = context;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -68,7 +68,8 @@ const SecondaryMenu = props => {
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
-        triggerExit("tower/residences/views");
+        scrollCooldown(1500);
+        window.history.back();
       }}
     >
       <SecondaryMenuWrapper navActive={navActive}>

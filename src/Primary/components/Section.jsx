@@ -5,7 +5,7 @@ import SplitSlide from "Primary/components/SplitSlide.jsx";
 import ImageSlide from "Primary/components/ImageSlide.jsx";
 import CrossFadeSlide from "Primary/components/CrossFadeSlide.jsx";
 import TextSlide from "Primary/components/TextSlide.jsx";
-import PanoramaSlide from "Primary/components/PanoramaSlide.jsx";
+import PanoramaSlide from "Primary/components/PanoSlide.jsx";
 
 const Section = ({
   section,
