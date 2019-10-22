@@ -99,8 +99,6 @@ const CrossFadeSlide = ({
       pauseListeners={pauseScroll}
       upHandler={() => toggleImage("previous")}
       downHandler={() => toggleImage("next")}
-      // Will throw a warning in Dev but not Prod build, can't resolve warning
-      // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
       rightHandler={() => toggleImage("previous")}
       leftHandler={() => toggleImage("next")}
     >

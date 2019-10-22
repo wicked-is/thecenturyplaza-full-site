@@ -68,7 +68,7 @@ const InnerScrollContainer = styled.span`
   `}
 `;
 
-const ScrollController = ({
+const SlideVideoScrollController = ({
   previousPath,
   nextPath,
   isExpanded,
@@ -102,8 +102,6 @@ const ScrollController = ({
         downHandler={() => {
           isExpanded ? toggleExpand() : triggerExit(nextPath);
         }}
-        // Will throw a warning in Dev but not Prod build, can't resolve warning
-        // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
         rightHandler={() => {
           isExpanded && toggleExpand();
           !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
@@ -127,4 +125,4 @@ const ScrollController = ({
     </InnerScrollContainer>
   );
 };
-export default ScrollController;
+export default SlideVideoScrollController;
