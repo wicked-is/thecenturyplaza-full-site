@@ -88,7 +88,7 @@ const PanoramaSlide = ({
     if (status === true) {
       setPauseScroll(true);
     } else {
-      setPauseScroll(false);
+      setTimeout(() => setPauseScroll(false), 1000);
     }
   };
 
