@@ -14,7 +14,6 @@ import {
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import galleryData from "../galleryData.json";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import GalleryVideoScrollController from "shared/components/GalleryVideoScrollController.jsx";
 
 const SlideshowContainer = styled.div`
   ${SlideshowContainerStyled};
@@ -45,7 +44,6 @@ const videoElement = () => ({
 });
 
 const SlideshowMedia = ({ sectionId, media, mediaId }) => {
-  const [startVideo, setStartVideo] = useState(false);
   const context = useContext(Context);
   const {
     setGlobalConfig,
@@ -184,10 +182,6 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
         );
       }
     }
-  };
-
-  const removePlaceholder = () => {
-    setStartVideo(true);
   };
 
   useEffect(() => {

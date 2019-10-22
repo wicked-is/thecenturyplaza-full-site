@@ -77,7 +77,6 @@ const PanoramaSlide = ({
   const {
     pauseScroll,
     setPauseScroll,
-    scrollCooldown,
     isExisting,
     setIsExisting,
     triggerExit,
@@ -86,7 +85,6 @@ const PanoramaSlide = ({
   } = context;
 
   const pauseScrollDetection = status => {
-    // scrollCooldown(4000);
     if (status === true) {
       setPauseScroll(true);
     } else {
