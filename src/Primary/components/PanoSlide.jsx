@@ -115,7 +115,7 @@ const PanoramaSlide = ({
           <SlideForward nextPath={nextPath} />
           <Pannellum
             width="100%"
-            height="350px"
+            height="345px"
             image={panoImg}
             vaov={360}
             yaw={18}
