@@ -8,37 +8,62 @@ import { mediaMin } from "../styled-components/MediaQueries.js";
 const InnerScrollContainer = styled.span`
   position: absolute;
   transition: all 0.5s ease-in-out;
-  top: ${props => props.theme.mobilePortraitHeaderHeight}px;
-  left: ${props => props.theme.mobileSideMargin}px;
+  top: ${props =>
+    props.isExpanded ? "0" : props.theme.mobilePortraitHeaderHeight + "px"};
+  left: ${props =>
+    props.isExpanded ? "0" : props.theme.mobileSideMargin + "px"};
   display: inline-block;
-  width: 100vw;
-  height: 100%;
+  width: ${props =>
+    props.isExpanded
+      ? "100vw"
+      : "calc(100vw - " + parseFloat(props.theme.mobileSideMargin) * 2 + "px)"};
+  height: ${props =>
+    props.isExpanded
+      ? "100%"
+      : "calc(100% - " +
+        parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+        "px)"};
   margin: 0;
   z-index: 600;
 
   ${mediaMin.phoneXL`
-    top: ${props => props.theme.mobileLandscapeHeaderHeight + "px"};
+    top: ${props =>
+      props.isExpanded ? "0" : props.theme.mobileLandscapeHeaderHeight + "px"};
     height: ${props =>
-      "calc(100% - " +
-      parseFloat(props.theme.mobileLandscapeHeaderHeight * 2) +
-      "px)"};
-    padding: ${props => props.theme.mobileLandscapeHeaderHeight + "px 0"};
+      props.isExpanded
+        ? "100%"
+        : "calc(100% - " +
+          parseFloat(props.theme.mobileLandscapeHeaderHeight * 2) +
+          "px)"};
+    padding: 0;
 
   `}
 
   ${mediaMin.tablet`
-  top: ${props => props.theme.desktopHeaderHeight + "px"};
-  height: ${props =>
-    "calc(100% - " + parseFloat(props.theme.DesktopHeaderHeight * 2) + "px)"};
-      padding: ${props => props.theme.desktopHeaderHeight + "px 0"};
+  top: ${props =>
+    props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px"};
+  
+    height: ${props =>
+      props.isExpanded
+        ? "100%"
+        : "calc(100% - " +
+          parseFloat(props.theme.desktopHeaderHeight * 2) +
+          "px)"};
+
+  padding: 0;
 
   `}
 
 
   ${mediaMin.tabletLandscape`
     width: ${props =>
-      "calc(100vw - " + parseFloat(props.theme.desktopSideMargin) * 2 + "px)"};
-    left: ${props => props.theme.desktopSideMargin + "px"};
+      props.isExpanded
+        ? "100vw"
+        : "calc(100vw - " +
+          parseFloat(props.theme.desktopSideMargin) * 2 +
+          "px)"};
+    left: ${props =>
+      props.isExpanded ? "0" : props.theme.desktopSideMargin + "px"};
   `}
 `;
 

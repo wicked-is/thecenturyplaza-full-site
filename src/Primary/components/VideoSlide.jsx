@@ -231,6 +231,11 @@ const VideoSlide = ({
                 onReady={removePlaceholder}
                 style={videoElement(isExpanded)}
                 preload="true"
+                config={{
+                  vimeo: {
+                    playerVars: { transparent: true }
+                  }
+                }}
               />
             </FullScreen>
           </PlayerContainer>

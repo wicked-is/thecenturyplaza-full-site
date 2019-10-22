@@ -95,6 +95,7 @@ const ContextProvider = props => {
         navActive,
         toggleMenu,
         pauseScroll,
+        setPauseScroll,
         scrollCooldown,
         hasPlayed,
         markPlayed,
