@@ -54,6 +54,7 @@ const Neighborhood = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#FFFFFF";
     setPageColor("white");
   }, [setPageColor]);
 

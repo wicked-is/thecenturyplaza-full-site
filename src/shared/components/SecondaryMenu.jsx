@@ -10,21 +10,32 @@ import { mediaMin } from "../styled-components/MediaQueries.js";
 const SecondaryMenuWrapper = styled.div`
   ${Wrapper};
   align-items: center;
-  justify-content: flex-start;
-  min-height: calc(
-    100vh - ${props => parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px
+  justify-content: flex-start;  
+  min-height: calc(${props =>
+    props.navActive
+      ? "0"
+      : "100vh - " +
+        parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+        "px"});
   );
 
+
   ${mediaMin.phoneXL`
-    min-height: calc(100vh - ${props =>
-      props.theme.mobileLandscapeHeaderHeight}px);
+    min-height: calc(${props =>
+      props.navActive
+        ? "0"
+        : "100vh - " +
+          parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2 +
+          "px"});
   `}
 
   ${mediaMin.tablet`
-  justify-content: center;
-  min-height: calc(100vh - ${props =>
-    parseFloat(props.theme.desktopHeaderHeight) * 2}px);
-  `}
+    justify-content: center;
+    min-height: calc(${props =>
+      props.navActive
+        ? "0"
+        : "100vh - " + parseFloat(props.theme.desktopHeaderHeight) * 2 + "px"});
+    `}
 `;
 
 const SecondaryMenuContainer = styled.nav`
@@ -39,7 +50,7 @@ const SecondaryMenu = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.backgroundColor = "#B4BAC1";
-    setPageColor(props => props.theme.gray);
+    setPageColor("#B4BAC1");
   }, [setPageColor]);
 
   useEffect(() => {
@@ -68,6 +79,10 @@ const SecondaryMenu = props => {
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
       upHandler={() => {
+        scrollCooldown(4000);
+        window.history.back();
+      }}
+      rightHandler={() => {
         scrollCooldown(4000);
         window.history.back();
       }}

@@ -5,7 +5,6 @@ import { enterFadeIn } from "shared/styled-components/Transitions.js";
 export const Wrapper = css`
   width: calc(100vw - ${props =>
     parseFloat(props.theme.mobileSideMargin) * 2}px);
-  height: ${props => (props.navActive ? "0" : "auto")};
   margin: 0 ${props => props.theme.mobileSideMargin}px;
   height: ${props => (props.navActive ? "0" : "auto")};
   padding: ${props =>
