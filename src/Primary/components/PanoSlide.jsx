@@ -18,6 +18,8 @@ const SlideContainer = styled.div`
   .pnlm-container {
     background: white;
 
+    max-height: 45vh;
+
     .pnlm-load-box {
       background-color: transparent;
       font-family: ${props => props.theme.sansSerifThin};
@@ -104,6 +106,10 @@ const PanoramaSlide = ({
       pauseListeners={pauseScroll}
       upHandler={() => triggerExit(previousPath)}
       downHandler={() => triggerExit(nextPath)}
+      // Will throw a warning in Dev but not Prod build, can't resolve warning
+      // Ref this GIPHY https://giphy.com/gifs/personal-why-race-XNX9uw7fykn5e
+      rightHandler={() => triggerExit(previousPath)}
+      leftHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
         lastSectionSlide={lastSectionSlide}
@@ -114,8 +120,8 @@ const PanoramaSlide = ({
           <SlideBackward previousPath={previousPath} />
           <SlideForward nextPath={nextPath} />
           <Pannellum
-            width="100%"
-            height="345px"
+            width="100% "
+            height="500px"
             image={panoImg}
             vaov={360}
             yaw={18}

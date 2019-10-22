@@ -418,7 +418,7 @@ const Contact = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.style.backgroundColor = "#E7E7E7";
-    setPageColor(props => props.theme.grayLight);
+    setPageColor("#E7E7E7");
   }, [setPageColor]);
 
   useEffect(() => {

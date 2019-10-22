@@ -26,17 +26,13 @@ const Primary = props => {
 
   useEffect(() => {
     setHasCaptions(true);
+    document.body.style.backgroundColor = "#FFFFFF";
     setPageColor("white");
-    window.onresize = function(e) {
-      document.body.height = window.innerHeight;
-    };
-    window.onresize(); // called to initially set the height.
   }, [setHasCaptions, setPageColor]);
 
   useEffect(() => {
     return () => {
       setHasCaptions(false);
-      window.onresize = null;
     };
   }, [setHasCaptions]);
 
