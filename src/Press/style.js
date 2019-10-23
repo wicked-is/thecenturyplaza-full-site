@@ -5,7 +5,7 @@ import { mediaMin } from "shared/styled-components/MediaQueries.js";
 export const ContainerStyled = css`
   ${Container}
   width: ${props => parseFloat(props.theme.mobileColumn) * 12}vw;
-
+  
   ${mediaMin.tabletLandscape` 
     width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
   `}

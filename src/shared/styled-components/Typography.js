@@ -63,7 +63,8 @@ export const PageFooter = css`
   display: ${props => {
     if (props.globalConfig.footerDisplay && !props.navActive)
       return "inline-block";
-    if (props.navActive) return "none";
+    if (props.globalConfig.footerDisplay && props.navActive) return "none";
+    if (!props.globalConfig.footerDisplay && !props.navActive) return "none";
   }};
   position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
   bottom: 0;
@@ -110,9 +111,6 @@ export const PageFooter = css`
     position: relative;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    animation: ${enterFadeIn};
-    will-change: opacity;
 
     ${mediaMin.tabletLandscape`
       display: flex;
@@ -168,9 +166,6 @@ export const PageTitle = css`
 `;
 
 export const FooterMessage = css`
-  opacity: 0;
-  animation: ${enterFadeIn};
-  will-change: opacity;
   width: 100%;
   height: 100%;
   display: flex;
@@ -178,6 +173,9 @@ export const FooterMessage = css`
   justify-content: center;
   background: ${props => props.theme.gray};
   text-align: center;
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
 
   a {
     width: auto;
