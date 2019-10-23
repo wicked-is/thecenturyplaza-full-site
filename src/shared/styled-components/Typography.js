@@ -2,6 +2,7 @@ import { css } from "styled-components";
 import { enterFadeIn } from "shared/styled-components/Transitions.js";
 import { mediaMin } from "./MediaQueries.js";
 import plusCloseSVG from "icons/plus-icon.svg";
+import footerMessageSVG from "icons/footer-message.svg";
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
@@ -12,7 +13,7 @@ export const PageBody = css`
   height: auto;
   min-height: 100%;
   position: relative;
-  overflow: auto;
+  ${"" /* overflow: auto; */}
 
   a {
     text-decoration: none;
@@ -59,8 +60,11 @@ export const PageHeader = css`
 `;
 
 export const PageFooter = css`
-  display: ${props =>
-    props.globalConfig.footerDisplay ? "inline-block" : "none"};
+  display: ${props => {
+    if (props.globalConfig.footerDisplay && !props.navActive)
+      return "inline-block";
+    if (props.navActive) return "none";
+  }};
   position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
   bottom: 0;
   left: 0;
@@ -163,7 +167,65 @@ export const PageTitle = css`
   `}
 `;
 
-export const Caption = css`
+export const FooterMessage = css`
+  opacity: 0;
+  animation: ${enterFadeIn};
+  will-change: opacity;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.theme.gray};
+  text-align: center;
+
+  a {
+    width: auto;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-family: ${props => props.theme.sansSerifLight}, courier;
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+
+    &::after {
+      display: inline-block;
+      height: 0.5em;
+      width: 100%;
+      content: "";
+      background: url(${footerMessageSVG}) no-repeat center center;
+      background-size: contain;
+      margin: 0.25em 0 0;
+
+      ${mediaMin.phoneXL`
+        position: absolute;
+        width: 1em;
+        right: -1.25em;
+        top: 0;
+        transform: rotate(-90deg);
+      `}
+
+      ${mediaMin.tablet`
+        position: relative;
+        width: 100%;
+        right: auto;
+        top: auto;
+        transform: rotate(0deg);
+      `}
+    }
+  }
+
+  ${mediaMin.tabletLandscape`
+    display: none;
+  `}
+`;
+
+export const SlideCaption = css`
   display: inline-block;
   position: absolute;
   height: auto;

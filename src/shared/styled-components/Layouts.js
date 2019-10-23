@@ -18,7 +18,7 @@ export const Wrapper = css`
   will-change: opacity;
   background: transparent;
   visibility: ${props => (props.navActive ? "hidden" : "visible")};
-  overflow: hidden;
+  ${"" /* overflow: hidden; */}
 
   ${mediaMin.phoneXL`
     padding: ${props =>
@@ -94,17 +94,18 @@ export const ViewportWrapper = css`
 `;
 
 export const Container = css`
+  display: ${props => (props.navActive ? "none" : "inline-block")};
   height: auto;
   width: auto;
-  margin: 20px 0 0;
+  margin: 20px 0;
 
   ${mediaMin.tabletLandscape`
     width: 100%;
-    margin: 40px 0 0;
+    margin: 40px 0;
   `}
 
   ${mediaMin.desktop`
     width: 100%;
-    margin: 80px 0 0;
+    margin: 80px 0 40px;
   `}
 `;

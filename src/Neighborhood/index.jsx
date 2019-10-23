@@ -70,12 +70,12 @@ const Neighborhood = props => {
 
   return (
     <NeighborhoodWrapper navActive={navActive}>
-      <NeighborhoodHeader>
+      <NeighborhoodHeader navActive={navActive}>
         <Fade>
           <ResponsiveImage srcPath={neighborhoodData[0].source[0]} />
         </Fade>
       </NeighborhoodHeader>
-      <NeighborhoodContainer>
+      <NeighborhoodContainer navActive={navActive}>
         <Grid halign="justify">
           {neighborhoodData.slice(1).map((item, index) => (
             <Grid.Unit

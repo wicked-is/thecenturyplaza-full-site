@@ -11,7 +11,7 @@ const PortalWrapper = styled.div`
 `;
 const PortalContainer = styled.div`
   ${ContainerStyled};
-  display: flex;
+  display: ${props => (props.navActive ? "none" : "flex")};
   justify-content: center;
 `;
 
@@ -227,7 +227,7 @@ const BrokerPortal = props => {
 
   return (
     <PortalWrapper navActive={navActive}>
-      <PortalContainer>
+      <PortalContainer navActive={navActive}>
         <PortalForm onSubmit={handleSubmit}>
           <BrokerTitle>BROKER PORTAL</BrokerTitle>
           <FormRow>

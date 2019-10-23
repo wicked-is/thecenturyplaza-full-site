@@ -36,7 +36,7 @@ const Team = props => {
 
   return (
     <TeamWrapper navActive={navActive}>
-      <TeamContainer>
+      <TeamContainer navActive={navActive}>
         <Router primary={false}>
           {teamData.map((member, index) => (
             <Member

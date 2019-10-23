@@ -110,7 +110,7 @@ const Availability = props => {
 
   return (
     <AvailabilityWrapper navActive={navActive}>
-      <AvailabilityContainer>
+      <AvailabilityContainer navActive={navActive}>
         <AvailabilityHeader>
           <p>Select a Residence</p>
           <AvailabilityControls>

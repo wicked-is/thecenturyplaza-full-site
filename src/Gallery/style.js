@@ -18,16 +18,27 @@ export const ContainerStyled = css`
 `;
 
 export const SectionStyled = css`
-  margin: 0 0 50px;
+  margin: 0 0 20px;
+
+  ${mediaMin.tablet` 
+    margin: 0 0 20px;
+  `}
+
+  ${mediaMin.desktop`
+    margin: 0 0 60px; 
+  `}
+
+  &:last-child {
+    margin: 0;
+  }
 `;
+
 export const SectionTitlesStyled = css`
   position: relative;
 
   ${mediaMin.tabletLandscape` 
-    @supports (position: sticky) {
-      top: 100px;
-      position: sticky;
-    }
+    top: 80px;
+    position: sticky;
   `}
 
   h2 {
@@ -40,6 +51,7 @@ export const SectionTitlesStyled = css`
     -moz-osx-font-smoothing: antialiased;
   }
 `;
+
 export const SectionTitleStyled = css`
   margin: 0 10px 20px;
   opacity: 0;
@@ -58,6 +70,7 @@ export const SectionMediaStyled = css`
   justify-content: flex-start;
   align-items: stretch;
   align-content: center;
+
   .react-reveal {
     width: 100%;
     height: 100%;

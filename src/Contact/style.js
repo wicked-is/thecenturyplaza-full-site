@@ -5,7 +5,7 @@ import { mediaMin } from "../shared/styled-components/MediaQueries.js";
 export const ContainerStyled = css`
   ${Container}
   width: 100%;
-  display: flex;
+  display: ${props => (props.navActive ? "none" : "flex")};
   flex-direction: column;
 
   ${mediaMin.tabletLandscape` 

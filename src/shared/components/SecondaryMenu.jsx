@@ -88,7 +88,7 @@ const SecondaryMenu = props => {
       }}
     >
       <SecondaryMenuWrapper navActive={navActive}>
-        <SecondaryMenuContainer>
+        <SecondaryMenuContainer navActive={navActive}>
           <ul>
             <li>
               <Link to="/neighborhood">Explore the Neighborhood</Link>

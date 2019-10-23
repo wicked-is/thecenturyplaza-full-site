@@ -71,7 +71,7 @@ export const ActiveMenuContainerStyled = css`
 `;
 
 export const SecondaryMenuContainerStyled = css`
-  display: inline-block;
+   display: ${props => (props.navActive ? "none" : "inline-block")};
   position: relative;
   width: auto;
   height: auto;
