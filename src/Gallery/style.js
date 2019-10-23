@@ -220,6 +220,13 @@ export const SlideshowNextStyled = css`
   `}
 `;
 
+export const SlideShowMediaStyled = css`
+  opacity: ${props => (props.isExisting ? "0" : "1")};
+  transition: opacity 0.5s ease-in;
+  width: 100%;
+  height: 100%;
+`;
+
 export const SlideshowImageStyled = css`
   display: flex;
   align-items: center;

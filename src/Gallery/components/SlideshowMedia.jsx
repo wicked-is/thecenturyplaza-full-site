@@ -7,6 +7,7 @@ import {
   SlideshowContainerStyled,
   SlideshowPreviousStyled,
   SlideshowNextStyled,
+  SlideShowMediaStyled,
   SlideshowImageStyled,
   SlideshowVideoStyled,
   SlideshowCaptionStyled
@@ -25,6 +26,10 @@ const SlideshowPrevious = styled.div`
 
 const SlideshowNext = styled.div`
   ${SlideshowNextStyled};
+`;
+
+const SlideShowMedia = styled.div`
+  ${SlideShowMediaStyled};
 `;
 
 const SlideshowImage = styled.div`
@@ -49,81 +54,115 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
     setGlobalConfig,
     setReturnPath,
     scrollCooldown,
-    pauseScroll
+    pauseScroll,
+    isExisting,
+    setIsExisting
   } = context;
 
   const previousMedia = () => {
     if (sectionId === 0) {
       if (mediaId === 0) {
         // Previous Section's Last Media
-        navigate(
-          "/gallery/" +
-            galleryData[3].slug +
-            "/" +
-            galleryData[3].media[galleryData[3].media.length - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[3].slug +
+              "/" +
+              galleryData[3].media[galleryData[3].media.length - 1].slug
+          );
+        }, 500);
       } else {
         // Previous Media
-        navigate(
-          "/gallery/" +
-            galleryData[0].slug +
-            "/" +
-            galleryData[0].media[mediaId - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[0].slug +
+              "/" +
+              galleryData[0].media[mediaId - 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 1) {
       if (mediaId === 0) {
         // Previous Section's Last Media
-        navigate(
-          "/gallery/" +
-            galleryData[0].slug +
-            "/" +
-            galleryData[0].media[galleryData[0].media.length - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[0].slug +
+              "/" +
+              galleryData[0].media[galleryData[0].media.length - 1].slug
+          );
+        }, 500);
       } else {
         // Previous Media
-        navigate(
-          "/gallery/" +
-            galleryData[1].slug +
-            "/" +
-            galleryData[1].media[mediaId - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[1].slug +
+              "/" +
+              galleryData[1].media[mediaId - 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 2) {
       if (mediaId === 0) {
         // Previous Section's Last Media
-        navigate(
-          "/gallery/" +
-            galleryData[1].slug +
-            "/" +
-            galleryData[1].media[galleryData[1].media.length - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[1].slug +
+              "/" +
+              galleryData[1].media[galleryData[1].media.length - 1].slug
+          );
+        }, 500);
       } else {
         // Previous Media
-        navigate(
-          "/gallery/" +
-            galleryData[2].slug +
-            "/" +
-            galleryData[2].media[mediaId - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[2].slug +
+              "/" +
+              galleryData[2].media[mediaId - 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 3) {
       if (mediaId === 0) {
         // Previous Section's Last Media
-        navigate(
-          "/gallery/" +
-            galleryData[2].slug +
-            "/" +
-            galleryData[2].media[galleryData[2].media.length - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[2].slug +
+              "/" +
+              galleryData[2].media[galleryData[2].media.length - 1].slug
+          );
+        }, 500);
       } else {
         // Previous Media
-        navigate(
-          "/gallery/" +
-            galleryData[3].slug +
-            "/" +
-            galleryData[3].media[mediaId - 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[3].slug +
+              "/" +
+              galleryData[3].media[mediaId - 1].slug
+          );
+        }, 500);
       }
     }
   };
@@ -132,54 +171,86 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
     if (sectionId === 0) {
       if (mediaId === galleryData[0].media.length - 1) {
         //  Next Section's First Media
-        navigate("/gallery/" + galleryData[1].slug);
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate("/gallery/" + galleryData[1].slug);
+        }, 500);
       } else {
         // Next Media
-        navigate(
-          "/gallery/" +
-            galleryData[0].slug +
-            "/" +
-            galleryData[0].media[mediaId + 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[0].slug +
+              "/" +
+              galleryData[0].media[mediaId + 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 1) {
       if (mediaId === galleryData[1].media.length - 1) {
         //  Next Section's First Media
-        navigate("/gallery/" + galleryData[2].slug);
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate("/gallery/" + galleryData[2].slug);
+        }, 500);
       } else {
         // Next Media
-        navigate(
-          "/gallery/" +
-            galleryData[1].slug +
-            "/" +
-            galleryData[1].media[mediaId + 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[1].slug +
+              "/" +
+              galleryData[1].media[mediaId + 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 2) {
       if (mediaId === galleryData[2].media.length - 1) {
         //  Next Section's First Media
-        navigate("/gallery/" + galleryData[3].slug);
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate("/gallery/" + galleryData[3].slug);
+        }, 500);
       } else {
         // Next Media
-        navigate(
-          "/gallery/" +
-            galleryData[2].slug +
-            "/" +
-            galleryData[2].media[mediaId + 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[2].slug +
+              "/" +
+              galleryData[2].media[mediaId + 1].slug
+          );
+        }, 500);
       }
     } else if (sectionId === 3) {
       if (mediaId === galleryData[3].media.length - 1) {
         //  Next Section's First Media
-        navigate("/gallery/" + galleryData[0].slug);
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate("/gallery/" + galleryData[0].slug);
+        }, 500);
       } else {
         // Next Media
-        navigate(
-          "/gallery/" +
-            galleryData[3].slug +
-            "/" +
-            galleryData[3].media[mediaId + 1].slug
-        );
+        setIsExisting(true);
+        scrollCooldown(1000);
+        setTimeout(() => {
+          navigate(
+            "/gallery/" +
+              galleryData[3].slug +
+              "/" +
+              galleryData[3].media[mediaId + 1].slug
+          );
+        }, 500);
       }
     }
   };
@@ -191,8 +262,9 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
   useEffect(() => {
     return () => {
       setReturnPath(null);
+      setIsExisting(false);
     };
-  }, [setReturnPath]);
+  }, [setReturnPath, setIsExisting]);
 
   useEffect(() => {
     setGlobalConfig({
@@ -221,47 +293,45 @@ const SlideshowMedia = ({ sectionId, media, mediaId }) => {
       pauseListeners={pauseScroll}
       upHandler={() => {
         previousMedia();
-        scrollCooldown(1000);
       }}
       downHandler={() => {
         nextMedia();
-        scrollCooldown(1000);
       }}
       rightHandler={() => {
         previousMedia();
-        scrollCooldown(1000);
       }}
       leftHandler={() => {
         nextMedia();
-        scrollCooldown(1000);
       }}
     >
       <SlideshowContainer>
         <SlideshowPrevious onClick={previousMedia} />
         <SlideshowNext onClick={nextMedia} />
-        {media.type === "image" ? (
-          <SlideshowImage>
-            <ResponsiveImage srcPath={media.source} />
-          </SlideshowImage>
-        ) : (
-          <SlideshowVideo>
-            <ReactPlayer
-              url={media.source}
-              preload="true"
-              controls
-              playsinline
-              width="100%"
-              height="56.25vw"
-              style={videoElement()}
-              config={{
-                vimeo: {
-                  playerVars: { transparent: true }
-                }
-              }}
-            />
-          </SlideshowVideo>
-        )}
-        <SlideshowCaption>{media.caption}</SlideshowCaption>
+        <SlideShowMedia isExisting={isExisting}>
+          {media.type === "image" ? (
+            <SlideshowImage>
+              <ResponsiveImage srcPath={media.source} />
+            </SlideshowImage>
+          ) : (
+            <SlideshowVideo>
+              <ReactPlayer
+                url={media.source}
+                preload="true"
+                controls
+                playsinline
+                width="100%"
+                height="56.25vw"
+                style={videoElement()}
+                config={{
+                  vimeo: {
+                    playerVars: { transparent: true }
+                  }
+                }}
+              />
+            </SlideshowVideo>
+          )}
+          <SlideshowCaption>{media.caption}</SlideshowCaption>
+        </SlideShowMedia>
       </SlideshowContainer>
     </ReactScrollWheelHandler>
   );
