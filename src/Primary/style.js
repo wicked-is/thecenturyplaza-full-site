@@ -207,22 +207,20 @@ export const ImageSoloStyled = css`
     justify-content: center;
     align-items: center;
     align-content: center;
-    display: inline-block;
     overflow: hidden;
+    text-align: center;
+    flex-grow: 0;
+    flex-shrink: 1;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+
 
     img {
-      height: auto;
       flex-grow: 0;
-      flex-shrink: 1;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      flex-shrink: 0;
     }
   }
 `;
@@ -245,8 +243,6 @@ export const CrossFadeStyled = css`
   overflow: hidden;
 
   ${mediaMin.phoneXL`
-
-  
     height: calc(
       100% - ${props =>
         parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px
@@ -275,59 +271,43 @@ export const CrossFadeStyled = css`
     justify-content: center;
     align-items: center;
     align-content: center;
-    display: inline-block;
     overflow: hidden;
     text-align: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease-in-out;
 
     &:nth-child(1) {
-      flex-grow: 0;
-      flex-shrink: 1;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 1) return "1";
         return "0";
       }};
-      transition: opacity 0.5s ease-in-out;
       z-index: 300;
     }
 
     &:nth-child(2) {
-      flex-grow: 0;
-      flex-shrink: 1;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 2) return "1";
         return "0";
       }};
-      transition: opacity 0.5s ease-in-out;
       z-index: 200;
     }
 
     &:nth-child(3) {
-      flex-grow: 0;
-      flex-shrink: 1;
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       opacity: ${props => {
         if (props.activeCrossFade === 3) return "1";
         return "0";
       }};
-      transition: opacity 0.5s ease-in-out;
       z-index: 100;
+    }
+
+    img {
+      flex-grow: 0;
+      flex-shrink: 0;
     }
   }
 `;
