@@ -7,10 +7,6 @@ const TeamMembers = styled.ul`
   ${MenuStyled};
 `;
 
-// const isActive = ({ isCurrent }) => {
-//   return isCurrent ? { className: "active" } : null;
-// };
-
 const TeamMenu = props => {
   const { teamData } = props;
   const [isOpen, setIsOpen] = useState(false);

@@ -65,6 +65,7 @@ export const PageFooter = css`
       return "inline-block";
     if (props.globalConfig.footerDisplay && props.navActive) return "none";
     if (!props.globalConfig.footerDisplay && !props.navActive) return "none";
+    return "none";
   }};
   position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
   bottom: 0;
