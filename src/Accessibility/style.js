@@ -4,7 +4,7 @@ import { mediaMin } from "../shared/styled-components/MediaQueries.js";
 
 export const ContainerStyled = css`
   ${Container}
-  width: ${props => parseFloat(props.theme.mobileColumn) * 12}vw;
+  width: 100%;
 
   ${mediaMin.tabletLandscape` 
     width: ${props => parseFloat(props.theme.desktopColumn) * 6}vw;
@@ -18,9 +18,9 @@ export const ContainerStyled = css`
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    
+
     a {
-      color:  ${props => props.theme.black};
+      color: ${props => props.theme.black};
 
       &:hover {
         opacity: 0.5;

@@ -16,22 +16,14 @@ const SlideContainer = styled.div`
   ${SlideContainerStyled};
 `;
 
-// Will be refactoring props to Context as needed
-// Comments only temporary
-
 const TextSlide = ({
   slide, // Oobject
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  firstSlide, // Refactor
-  firstSectionSlide, //Refactor
-  lastSlide, //Refactor
-  lastSectionSlide, //Refactor
-  isFirstSection, //Refactor
-  isFirstSlide, //Refactor
+  // lastSlide, //Used for Swipe PreStaging
+  // lastSectionSlide, //Used for Swipe PreStaging
   sectionIndex, //Used For FooterCaptions
-  slideIndex, //Used For FooterCaptions
-  uri //Used For Return Path
+  slideIndex //Used For FooterCaptions
 }) => {
   const context = useContext(Context);
   const {
@@ -68,8 +60,8 @@ const TextSlide = ({
       leftHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
         isExisting={isExisting}
       >
         <SlideContainer>

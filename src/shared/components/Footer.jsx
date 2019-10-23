@@ -112,7 +112,12 @@ const Footer = props => {
           )}
           {location.pathname === "/press" && (
             <Message>
-              <Link to="/gallery">Visit the Gallery</Link>
+              <Link to="/gallery">View the Gallery</Link>
+            </Message>
+          )}
+          {location.pathname === "/gallery" && (
+            <Message>
+              <Link to="/contact">Visit the Sales Gallery</Link>
             </Message>
           )}
           <ul>

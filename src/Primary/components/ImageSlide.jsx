@@ -21,19 +21,12 @@ const ImageSolo = styled.div`
   ${ImageSoloStyled};
 `;
 
-// Will be refactoring props to Context as needed
-// Comments only temporary
-
 const ImageSlide = ({
   slide, // Object
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  firstSlide, // Refactor
-  firstSectionSlide, //Refactor
-  lastSlide, //Refactor
-  lastSectionSlide, //Refactor
-  isFirstSection, //Refactor
-  isFirstSlide, //Refactor
+  // lastSlide, //Used for Swipe PreStaging
+  // lastSectionSlide, //Used for Swipe PreStaging
   sectionIndex, //Used For FooterCaptions
   slideIndex //Used For FooterCaptions
 }) => {
@@ -67,8 +60,8 @@ const ImageSlide = ({
       leftHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
         isExisting={isExisting}
       >
         <SlideContainer>

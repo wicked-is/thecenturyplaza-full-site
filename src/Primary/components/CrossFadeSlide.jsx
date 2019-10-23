@@ -22,19 +22,12 @@ const CrossFade = styled.div`
   ${CrossFadeStyled};
 `;
 
-// Will be refactoring props to Context as needed
-// Comments only temporary
-
 const CrossFadeSlide = ({
   slide, // Object
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  firstSlide, // Refactor
-  firstSectionSlide, //Refactor
-  lastSlide, //Refactor
-  lastSectionSlide, //Refactor
-  isFirstSection, //Refactor
-  isFirstSlide, //Refactor
+  // lastSlide, //Used for Swipe PreStaging
+  // lastSectionSlide, //Used for Swipe PreStaging
   sectionIndex, //Used For FooterCaptions
   slideIndex //Used For FooterCaptions
 }) => {
@@ -103,8 +96,8 @@ const CrossFadeSlide = ({
       leftHandler={() => toggleImage("next")}
     >
       <SlideMask
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
         isExisting={isExisting}
       >
         <SlideContainer>

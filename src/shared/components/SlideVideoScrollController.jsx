@@ -35,22 +35,18 @@ const InnerScrollContainer = styled.span`
           parseFloat(props.theme.mobileLandscapeHeaderHeight * 2) +
           "px)"};
     padding: 0;
-
   `}
 
   ${mediaMin.tablet`
-  top: ${props =>
-    props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px"};
-  
+    top: ${props =>
+      props.isExpanded ? "0" : props.theme.desktopHeaderHeight + "px"};
     height: ${props =>
       props.isExpanded
         ? "100%"
         : "calc(100% - " +
           parseFloat(props.theme.desktopHeaderHeight * 2) +
           "px)"};
-
-  padding: 0;
-
+    padding: 0;
   `}
 
 
