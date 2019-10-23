@@ -7,7 +7,6 @@ import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import { mediaMin } from "../../shared/styled-components/MediaQueries.js";
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};

@@ -65,7 +65,8 @@ const Listings = props => {
     }
   };
 
-  for (let filterType in filters) {
+  let filterType;
+  for (filterType in filters) {
     if (filterType === "beds") {
       filteredListings = filterByBeds(filteredListings, filters[filterType]);
     } else if (filterType === "views") {

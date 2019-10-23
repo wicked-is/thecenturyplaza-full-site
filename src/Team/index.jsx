@@ -45,6 +45,11 @@ const Team = props => {
               key={index}
               path={member.slug}
               member={member}
+              nextMemberPath={
+                teamData[index + 1] !== undefined
+                  ? teamData[index + 1].slug
+                  : null
+              }
             />
           ))}
         </Router>
