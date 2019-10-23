@@ -11,6 +11,7 @@ export const HeaderStyled = css`
   ${Container}
   width: 100%;
   height: auto;
+  min-height: 0;
   @supports (object-fit: cover) {
     height: 38%;
   }

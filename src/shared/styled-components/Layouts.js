@@ -98,10 +98,19 @@ export const Container = css`
   height: auto;
   width: auto;
   margin: 20px 0;
+  min-height: calc(100vh - ${props =>
+    parseFloat(props.theme.mobilePortraitHeaderHeight) * 2}px - 40px);
+
+  ${mediaMin.phoneXL`
+    min-height: calc(100vh - ${props =>
+      parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2}px - 40px);
+  `}
 
   ${mediaMin.tabletLandscape`
     width: 100%;
     margin: 40px 0;
+    min-height: calc(100vh - ${props =>
+      parseFloat(props.theme.desktopHeaderHeight) * 2}px - 80px);
   `}
 
   ${mediaMin.desktop`
