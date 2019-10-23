@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import Context from "../../config/Context";
 import { navigate } from "@reach/router";
 import styled from "styled-components/macro";
 import Grid from "styled-components-grid";
@@ -16,13 +17,16 @@ const MemberItems = styled.div`
 `;
 
 const Member = ({ member, teamData, nextMemberPath }) => {
-  const callback = () => {
-    console.log(nextMemberPath);
+  const context = useContext(Context);
+  const { navActive } = context;
 
-    nextMemberPath !== null && navigate("/team/" + nextMemberPath);
+  const nextMember = () => {
+    nextMemberPath !== null &&
+      !navActive &&
+      navigate("/team/" + nextMemberPath);
   };
 
-  useBottomScrollListener(callback, 40, 500);
+  useBottomScrollListener(nextMember, 60, 500);
 
   useEffect(() => {
     window.scrollTo(0, 0);
