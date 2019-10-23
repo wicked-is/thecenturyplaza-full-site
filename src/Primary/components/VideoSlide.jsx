@@ -74,20 +74,15 @@ const videoElement = () => ({
   zIndex: "500"
 });
 
-// Will be refactoring props to Context as needed
-// Comments only temporary
-
 const VideoSlide = ({
   slide, // Oobject
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
   isExpanded, //Check for Expansion
-  firstSlide, // Refactor
-  firstSectionSlide, //Refactor
-  lastSlide, //Refactor
-  lastSectionSlide, //Refactor
-  isFirstSection, //Refactor
-  isFirstSlide, //Refactor
+  // firstSlide, //Previosuly Used for Intro View
+  firstSectionSlide, //Used for Intro View
+  isFirstSection, //Used for Video Transition Option
+  isFirstSlide, //Used for Video Transition Option
   toggleExpand, //Toggle Expansion
   closeExpand, //Force Close Expansion
   sectionIndex, //Used For FooterCaptions
@@ -191,8 +186,6 @@ const VideoSlide = ({
       }}
     >
       <SlideMask
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
         isExisting={isExisting}
         isFirstSlide={isFirstSlide}
         isFirstSection={isFirstSection}

@@ -61,15 +61,9 @@ const SlideContainer = styled.div`
 // Comments only temporary
 
 const PanoramaSlide = ({
-  slide, // Oobject
+  slide, // Object
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
-  firstSlide, // Refactor
-  firstSectionSlide, //Refactor
-  lastSlide, //Refactor
-  lastSectionSlide, //Refactor
-  isFirstSection, //Refactor
-  isFirstSlide, //Refactor
   sectionIndex, //Used For FooterCaptions
   slideIndex //Used For FooterCaptions
 }) => {
@@ -110,8 +104,8 @@ const PanoramaSlide = ({
       downHandler={() => triggerExit(nextPath)}
     >
       <SlideMask
-        lastSectionSlide={lastSectionSlide}
-        lastSlide={lastSlide}
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
         isExisting={isExisting}
       >
         <SlideContainer>

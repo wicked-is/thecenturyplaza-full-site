@@ -44,7 +44,7 @@ const Section = ({
       }
     }
 
-    // Largely unsed but valuable
+    // Used for Intro Video
 
     let firstSectionSlide;
     if (index === 0) {
@@ -53,26 +53,26 @@ const Section = ({
       firstSectionSlide = false;
     }
 
-    let firstSlide;
-    if (index === 0 && previousSection === null) {
-      firstSlide = true;
-    } else {
-      firstSlide = false;
-    }
+    // let firstSlide;
+    // if (index === 0 && previousSection === null) {
+    //   firstSlide = true;
+    // } else {
+    //   firstSlide = false;
+    // }
 
-    let lastSectionSlide;
-    if (index === section.slides.length - 1) {
-      lastSectionSlide = true;
-    } else {
-      lastSectionSlide = false;
-    }
+    // let lastSectionSlide;
+    // if (index === section.slides.length - 1) {
+    //   lastSectionSlide = true;
+    // } else {
+    //   lastSectionSlide = false;
+    // }
 
-    let lastSlide;
-    if (index === section.slides.length - 1 && nextSection === null) {
-      lastSlide = true;
-    } else {
-      lastSlide = false;
-    }
+    // let lastSlide;
+    // if (index === section.slides.length - 1 && nextSection === null) {
+    //   lastSlide = true;
+    // } else {
+    //   lastSlide = false;
+    // }
 
     if (slide.type === "video") {
       return (
@@ -88,10 +88,8 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
+          // firstSlide={firstSlide}
           firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -107,10 +105,8 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
-          firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
+          // lastSlide={lastSlide}
+          // lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -126,10 +122,8 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
-          firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
+          // lastSlide={lastSlide}
+          // lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -145,10 +139,8 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
-          firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
+          // lastSlide={lastSlide}
+          // lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -164,10 +156,8 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
-          firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
+          // lastSlide={lastSlide}
+          // lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
@@ -183,10 +173,6 @@ const Section = ({
           path={slide.slug}
           nextPath={nextPath}
           previousPath={previousPath}
-          firstSlide={firstSlide}
-          firstSectionSlide={firstSectionSlide}
-          lastSlide={lastSlide}
-          lastSectionSlide={lastSectionSlide}
           sectionIndex={sectionIndex}
           slideIndex={index}
         />
