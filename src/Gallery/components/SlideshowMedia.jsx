@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import Context from "../../config/Context";
 import { navigate } from "@reach/router";
 import styled from "styled-components/macro";

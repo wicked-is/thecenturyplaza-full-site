@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { navigate } from "@reach/router";
 import styled from "styled-components/macro";
 import Grid from "styled-components-grid";
 import parse from "html-react-parser";
-
 import { AsideStyled, ItemsStyled } from "Team/style.js";
 import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import TeamMenu from "Team/components/TeamMenu.jsx";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
 
 const TeamAside = styled.aside`
   ${AsideStyled};
@@ -14,7 +15,19 @@ const MemberItems = styled.div`
   ${ItemsStyled}
 `;
 
-const Member = ({ member, teamData }) => {
+const Member = ({ member, teamData, nextMemberPath }) => {
+  const callback = () => {
+    console.log(nextMemberPath);
+
+    nextMemberPath !== null && navigate("/team/" + nextMemberPath);
+  };
+
+  useBottomScrollListener(callback, 40, 500);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Grid>
       <Grid.Unit
