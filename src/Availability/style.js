@@ -9,14 +9,9 @@ import checkedIconSVG from "icons/checked-icon.svg";
 export const ContainerStyled = css`
   ${Container}
   width: 100%;
-  margin: 20px 0 0;
 
   ${mediaMin.tabletLandscape` 
     width: ${props => parseFloat(props.theme.desktopColumn) * 10}vw;
-    margin: 40px 0 0;
-  `}
-  ${mediaMin.desktop`
-    margin: 80px 0 0;
   `}
 `;
 
@@ -393,6 +388,15 @@ export const TableStyled = css`
         margin: 2em 0;
         padding: 0;
       `}
+
+      &:last-child {
+        border-bottom: 0;
+        td {
+          ${mediaMin.tablet`
+            border-bottom: 0;
+         `}
+        }
+      }
 
       td {
         display: inline-block;

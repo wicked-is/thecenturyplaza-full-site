@@ -57,7 +57,7 @@ const Legal = props => {
 
   return (
     <LegalWrapper navActive={navActive}>
-      <LegalContainer>
+      <LegalContainer navActive={navActive}>
         <LegalTitle>Disclosures</LegalTitle>
         <p>
           Fairmont Century Plaza Residences (the “Residences”) is not owned,

@@ -35,7 +35,7 @@ const Press = props => {
 
   return (
     <GalleryWrapper galleryData={galleryData} navActive={navActive}>
-      <GalleryContainer>
+      <GalleryContainer navActive={navActive}>
         {galleryData.map((section, index) => (
           <Section key={index} section={section} />
         ))}

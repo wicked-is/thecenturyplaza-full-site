@@ -452,7 +452,7 @@ const Contact = props => {
 
   return (
     <ContactWrapper navActive={navActive}>
-      <ContactContainer>
+      <ContactContainer navActive={navActive}>
         <LeftCol>
           <InfoCluster>
             <p>

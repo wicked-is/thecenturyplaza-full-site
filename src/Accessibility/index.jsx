@@ -56,7 +56,7 @@ const Accessibility = props => {
 
   return (
     <AccessibilityWrapper navActive={navActive}>
-      <AccessibilityContainer>
+      <AccessibilityContainer navActive={navActive}>
         <AccessibilityTitle>Accessibility Statement</AccessibilityTitle>
         <p>
           Next Century Partners, LLC is committed to providing a website that is

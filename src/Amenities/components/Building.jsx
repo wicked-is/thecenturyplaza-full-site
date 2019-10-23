@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/macro";
 import {
   PageTitle,
@@ -15,6 +15,7 @@ import {
   LinksStyled,
   DisclaimerStyled
 } from "Amenities/style.js";
+import Context from "../../config/Context";
 
 const Container = styled.div`
   ${ContainerStyled};
@@ -62,9 +63,11 @@ const Disclaimer = styled.p`
 
 const Building = props => {
   const { building } = props;
+  const context = useContext(Context);
+  const { navActive } = context;
 
   return (
-    <Container>
+    <Container navActive={navActive}>
       <PreTitle>{building.pretitle}</PreTitle>
       <Title>{building.title}</Title>
       <Content>

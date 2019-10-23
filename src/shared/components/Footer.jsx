@@ -2,16 +2,23 @@ import React, { useState, useContext } from "react";
 import { Link, Location } from "@reach/router";
 import styled from "styled-components/macro";
 import Context from "../../config/Context";
-import { Caption } from "../styled-components/Typography.js";
+import {
+  SlideCaption,
+  FooterMessage
+} from "../styled-components/Typography.js";
 import { FooterWrapper } from "shared/styled-components/Navigation.js";
 import parse from "html-react-parser";
 
-const FooterContainer = styled.footer`
+const Wrapper = styled.footer`
   ${FooterWrapper};
 `;
 
-const SlideCaption = styled.div`
-  ${Caption};
+const Caption = styled.div`
+  ${SlideCaption};
+`;
+
+const Message = styled.div`
+  ${FooterMessage};
 `;
 
 const Footer = props => {
@@ -38,7 +45,7 @@ const Footer = props => {
   return (
     <Location>
       {({ location }) => (
-        <FooterContainer
+        <Wrapper
           navActive={navActive}
           isLight={
             location.pathname === "/contact" ||
@@ -47,7 +54,7 @@ const Footer = props => {
         >
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length === 1 && (
-              <SlideCaption
+              <Caption
                 emptyCaption={
                   primaryData[isSection].slides[isSlide].caption[0] === ""
                 }
@@ -62,12 +69,12 @@ const Footer = props => {
                 <p>
                   {parse(primaryData[isSection].slides[isSlide].caption[0])}
                 </p>
-              </SlideCaption>
+              </Caption>
             )}
 
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length > 1 && (
-              <SlideCaption
+              <Caption
                 emptyCaption={
                   primaryData[isSection].slides[isSlide].caption[0] === ""
                 }
@@ -86,9 +93,28 @@ const Footer = props => {
                     ]
                   )}
                 </p>
-              </SlideCaption>
+              </Caption>
             )}
-
+          {location.pathname === "/neighborhood" && (
+            <Message>
+              <Link to="/team">Meet the Team</Link>
+            </Message>
+          )}
+          {location.pathname.includes("team") && (
+            <Message>
+              <Link to="/availability">Browse the Availability</Link>
+            </Message>
+          )}
+          {location.pathname.includes("availability") && (
+            <Message>
+              <Link to="/press">Read the Press</Link>
+            </Message>
+          )}
+          {location.pathname === "/press" && (
+            <Message>
+              <Link to="/gallery">Visit the Gallery</Link>
+            </Message>
+          )}
           <ul>
             <li>
               <Link onClick={declareReturnPath} to="/contact">
@@ -111,7 +137,7 @@ const Footer = props => {
               </Link>
             </li>
           </ul>
-        </FooterContainer>
+        </Wrapper>
       )}
     </Location>
   );

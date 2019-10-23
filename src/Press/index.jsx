@@ -84,7 +84,7 @@ const Press = props => {
 
   return (
     <PressWrapper navActive={navActive}>
-      <PressContainer>
+      <PressContainer navActive={navActive}>
         <PressTitle>Featured Press</PressTitle>
         {generatePress()}
       </PressContainer>
