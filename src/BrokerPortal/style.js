@@ -8,7 +8,12 @@ export const ContainerStyled = css`
   display: flex;
   flex-direction: column;
 
+  ${mediaMin.phoneXL`
+    width: 50vw; 
+  `}
+
   ${mediaMin.tabletLandscape` 
     flex-direction: row;
+    width: 100%;
   `}
 `;
