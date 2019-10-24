@@ -1,14 +1,16 @@
-import React, { useEffect, useContext } from "react";
-import Context from "../config/Context";
-import styled from "styled-components/macro";
-import { PageTitle } from "../shared/styled-components/Typography.js";
-import { Wrapper } from "../shared/styled-components/Layouts.js";
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import React, { useEffect, useContext } from 'react';
+import Context from '../config/Context';
+import styled from 'styled-components/macro';
+import { PageTitle } from '../shared/styled-components/Typography.js';
+import { Wrapper } from '../shared/styled-components/Layouts.js';
 import {
   ContainerStyled,
   EntryStyled,
   PubDateStyled,
   PubInfoStyled
-} from "Press/style.js";
+} from 'Press/style.js';
 
 const PressWrapper = styled.div`
   ${Wrapper};
@@ -43,9 +45,9 @@ const Press = props => {
             <h2>
               <a
                 href={
-                  entry["source-url"]
-                    ? entry["source-url"]
-                    : entry["source-pdf"]
+                  entry['source-url']
+                    ? entry['source-url']
+                    : entry['source-pdf']
                 }
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,17 +70,17 @@ const Press = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.body.style.backgroundColor = "#FFFFFF";
-    setPageColor("white");
+    document.body.style.backgroundColor = '#FFFFFF';
+    setPageColor('white');
   }, [setPageColor]);
 
   useEffect(() => {
     setGlobalConfig({
       headerBackground: props => props.theme.whiteGradient,
-      footerBackground: "transparent",
+      footerBackground: 'transparent',
       footerDisplay: true,
       footerFixed: false,
-      sidebarBackground: "transparent"
+      sidebarBackground: 'transparent'
     });
   }, [setGlobalConfig]);
 
