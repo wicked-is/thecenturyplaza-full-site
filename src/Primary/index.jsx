@@ -1,39 +1,75 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import Context from "../config/Context";
 import { Router } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
+import { ViewportWrapper } from "../shared/styled-components/Layouts.js";
 import Section from "Primary/components/Section.jsx";
 
-const PrimaryContainer = styled.div`
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.05s;
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 80px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  margin: ${props => props.isExpanded ? "-80px 0 0" : "0 40px"};
-  background:  transparent;
-  overflow: hidden;
-`
+const PrimaryWrapper = styled.div`
+  ${ViewportWrapper};
+`;
 
 const Primary = props => {
-  const { isExpanded, primaryData } = props;
+  const { isExpanded, primaryData, setPageColor } = props;
+  const context = useContext(Context);
+  const { setHasCaptions, setGlobalConfig, navActive } = context;
 
-  const getPreviousSection = index => index !== 0 ? primaryData[index - 1].slug + "/" + primaryData[index - 1].slides[primaryData[index - 1].slides.length - 1].slug : null;
-  const getNextSection = index => index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
+  const getPreviousSectionPath = index =>
+    index !== 0
+      ? primaryData[index - 1].slug +
+        "/" +
+        primaryData[index - 1].slides[primaryData[index - 1].slides.length - 1]
+          .slug
+      : null;
+  const getNextSectionPath = index =>
+    index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
+
+  useEffect(() => {
+    setHasCaptions(true);
+    document.body.style.backgroundColor = "#FFFFFF";
+    setPageColor("white");
+  }, [setHasCaptions, setPageColor]);
+
+  useEffect(() => {
+    return () => {
+      setHasCaptions(false);
+    };
+  }, [setHasCaptions]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      headerBackground: "white",
+      footerBackground: "white",
+      footerDisplay: true,
+      footerFixed: true,
+      sidebarBackground: "white"
+    });
+  }, [setGlobalConfig]);
 
   return (
-    <PrimaryContainer isExpanded={isExpanded}>
-      <Router>
+    <PrimaryWrapper isExpanded={isExpanded} navActive={navActive}>
+      <Router primary={false}>
         {primaryData.map((section, index) => (
-          <Section isFirstSection={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} path={section.slug} section={section} previousSection={getPreviousSection(index)} nextSection={getNextSection(index)}>
-            {
-              section.slides.map((slide, index) => (
-                <div key={index} path={slide.slug} />
-              ))
+          <Section
+            key={index}
+            path={section.slug + "/*"}
+            isFirstSection={index === 0 && true}
+            isExpanded={isExpanded}
+            toggleExpand={props.toggleExpand}
+            closeExpand={props.closeExpand}
+            section={section}
+            previousSection={
+              primaryData[index - 1] ? primaryData[index - 1] : null
             }
-          </Section>
+            nextSection={primaryData[index + 1] ? primaryData[index + 1] : null}
+            previousSectionPath={getPreviousSectionPath(index)}
+            nextSectionPath={getNextSectionPath(index)}
+            sectionIndex={index}
+          />
         ))}
       </Router>
-    </PrimaryContainer>
+    </PrimaryWrapper>
   );
-}
+};
 
 export default Primary;

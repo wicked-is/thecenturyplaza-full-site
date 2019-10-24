@@ -1,49 +1,85 @@
-import React from "react";
-import { Router } from "@reach/router";
-import styled, { keyframes } from "styled-components";
+import React, { useEffect, useContext } from "react";
+import Context from "../../config/Context";
+import { navigate } from "@reach/router";
+import styled from "styled-components/macro";
+import Grid from "styled-components-grid";
 import parse from "html-react-parser";
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import { fadeIn } from "shared/styled-components/Transitions.js";
+import { AsideStyled, ItemsStyled } from "Team/style.js";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import TeamMenu from "Team/components/TeamMenu.jsx";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
 
-const MemberContainer = styled.article`
-  ${'' /* width: 70%;
-  float: right; */}
-  ${'' /* display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.25s;
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
-  will-change: opacity; */}
-  ${'' /* background: green; */}
+const TeamAside = styled.aside`
+  ${AsideStyled};
+`;
+const MemberItems = styled.div`
+  ${ItemsStyled}
+`;
 
-  p {
-    ${'' /* position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-    transition: all 0.5s ease-in-out;
-    opacity: ${props => props.isExpanded ? "0" : "1"};  */}
-  }
-`
+const Member = ({ member, teamData, nextMemberPath }) => {
+  const context = useContext(Context);
+  const { navActive } = context;
 
-const Member = props => {
-  const { member, isExpanded, teamData } = props;
+  const nextMember = () => {
+    nextMemberPath !== null &&
+      !navActive &&
+      navigate("/team/" + nextMemberPath);
+  };
+
+  useBottomScrollListener(nextMember, 60, 500);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <MemberContainer id={member.slug}>
-      <TeamMenu isExpanded={isExpanded} teamData={teamData} />
-      <p>{parse(member.bio)}</p>
-
-      {member.images.map((image, index) => (
-        <ResponsiveImage key={index} srcPath={image.source} />
-      ))}
-
-    </MemberContainer>
+    <Grid>
+      <Grid.Unit
+        size={{
+          phone: 1,
+          phoneXL: 5 / 12,
+          tablet: 1,
+          tabletLandscape: 3 / 10,
+          desktopSmall: 2 / 8
+        }}
+      >
+        <TeamAside>
+          <TeamMenu teamData={teamData} />
+          <p>{parse(member.bio)}</p>
+        </TeamAside>
+      </Grid.Unit>
+      <Grid.Unit
+        size={{
+          phone: 1,
+          phoneXL: 7 / 12,
+          tablet: 1,
+          tabletLandscape: 7 / 10,
+          desktopSmall: 6 / 8
+        }}
+      >
+        <Grid>
+          {member.images.map((image, index) => (
+            <Grid.Unit
+              key={index}
+              size={{
+                phone: 1,
+                phoneXL: image.span[0] / 10,
+                tabletLandscape: image.span[1] / 6
+              }}
+            >
+              <MemberItems
+                mobileLift={image.lift[0]}
+                desktopLift={image.lift[1]}
+              >
+                {image.source.length > 0 && (
+                  <ResponsiveImage key={index} srcPath={image.source} reveal />
+                )}
+              </MemberItems>
+            </Grid.Unit>
+          ))}
+        </Grid>
+      </Grid.Unit>
+    </Grid>
   );
 };
 

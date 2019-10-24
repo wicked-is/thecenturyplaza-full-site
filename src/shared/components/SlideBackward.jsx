@@ -1,23 +1,29 @@
 import React from "react";
 import { Link } from "@reach/router";
-import styled from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
-
-import leftArrowBlackPNG from 'icons/left-arrow-black.png';
-import leftArrowBlackSVG from 'icons/left-arrow-black.svg';
-import leftArrowGrayPNG from 'icons/left-arrow-gray.png';
-import leftArrowGraySVG from 'icons/left-arrow-gray.svg';
+import styled from "styled-components/macro";
+import { mediaMin } from "../styled-components/MediaQueries.js";
 
 const SlideBackwardContainer = styled.span`
   position: absolute;
   left: 0;
-  top: 100px;
+  top: 0;
   display: inline-block;
-  width: 100px;
-  height: calc(100vh - 200px);
+  width: ${props => props.theme.mobileSideMargin + "px"};
+  height: 100%;
   margin: 0;
   z-index: 600;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
+  background: white;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(
+    ${props =>
+      props.isExpanded ? "-" + props.theme.mobileSideMargin + "px" : "0"}
+  );
+
+  ${mediaMin.tabletLandscape` 
+    width: ${props => props.theme.desktopSideMargin + "px"};
+    transform: translateX(${props =>
+      props.isExpanded ? "-" + props.theme.desktopSideMargin + "px" : "0"});
+  `}
 
   a {
     display: inline-block;
@@ -25,26 +31,14 @@ const SlideBackwardContainer = styled.span`
     text-decoration: none;
     width: 100%;
     height: 100%;
-    background: url(${leftArrowGrayPNG}) no-repeat center center;
-    background: url(${leftArrowGraySVG}) no-repeat center center, none;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
-    ${'' /* opacity: ${props => props.isExpanded ? "0" : "1"};  */}
-
-    &:hover {
-      opacity: 1;
-      background: url(${leftArrowBlackPNG}) no-repeat center center;
-      background: url(${leftArrowBlackSVG}) no-repeat center center, none;      
-    }
   }
-`
+`;
 
 const SlideBackward = props => {
-
-  const { previousPath, isFull, isExpanded } = props;
+  const { previousPath, isExpanded } = props;
 
   return (
-    <SlideBackwardContainer isExpanded={isExpanded} isFull={isFull}>
+    <SlideBackwardContainer isExpanded={isExpanded}>
       <Link to={previousPath}>&larr;</Link>
     </SlideBackwardContainer>
   );

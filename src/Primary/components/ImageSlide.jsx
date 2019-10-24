@@ -1,64 +1,79 @@
-import React from "react";
-import styled from "styled-components";
-import { fadeIn } from "shared/styled-components/Transitions.js";
-import parse from "html-react-parser";
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
+import React, { useContext, useEffect } from "react";
+import styled from "styled-components/macro";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import Context from "../../config/Context";
+import {
+  SlideMaskStyled,
+  SlideContainerStyled,
+  ImageSoloStyled
+} from "Primary/style.js";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import { navigate } from "@reach/router";
 
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
+const ImageSolo = styled.div`
+  ${ImageSoloStyled};
+`;
 
-// Wil be refactored into global slide styled compontent
-const ImageSlideContainer = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 160px);
-  opacity: 0;
-  animation: ${fadeIn} 0.25s ease-in-out forwards;
-  will-change: opacity;
+const ImageSlide = ({
+  slide, // Object
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  // lastSlide, //Used for Swipe PreStaging
+  // lastSectionSlide, //Used for Swipe PreStaging
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
+}) => {
+  const context = useContext(Context);
+  const {
+    pauseScroll,
+    isExisting,
+    triggerExit,
+    setIsExisting,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
-  &:focus {
-    outline: none;
-  }
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
-  img {
-    max-height: calc(80vh - 160px);
-    max-width: calc(70vw - 80px);
-  }
-
-  p {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-  }
-`
-
-const ImageSlide = props => {
-  const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler
-      pauseListeners={true}
-      upHandler={() => {
-        // console.log("scroll up");
-        closeExpand();
-        navigate(previousPath);
-      }}
-      downHandler={() => {
-        // console.log("scroll down")
-        closeExpand();
-        navigate(nextPath);
-      }}
+      pauseListeners={pauseScroll}
+      upHandler={() => triggerExit(previousPath)}
+      downHandler={() => triggerExit(nextPath)}
+      rightHandler={() => triggerExit(previousPath)}
+      leftHandler={() => triggerExit(nextPath)}
     >
-      <ImageSlideContainer>
-        <SlideBackward previousPath={previousPath} />
-        <SlideForward nextPath={nextPath} />
-        <ResponsiveImage srcPath={slide.source} />
-        <p>{parse(slide.caption)}</p>
-      </ImageSlideContainer>
+      <SlideMask
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
+        isExisting={isExisting}
+      >
+        <SlideContainer>
+          <SlideBackward previousPath={previousPath} />
+          <SlideForward nextPath={nextPath} />
+          <ImageSolo>
+            <div>
+              <ResponsiveImage srcPath={slide.source[0]} />
+            </div>
+          </ImageSolo>
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };

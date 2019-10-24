@@ -1,59 +1,54 @@
-import React from "react";
-import { Link } from "@reach/router";
-import styled from "styled-components";
+import React, { useState } from "react";
+import { Link, Location } from "@reach/router";
+import styled from "styled-components/macro";
+import { MenuStyled } from "../style.js";
 
-const ActiveMenuContainer = styled.ul`
-  display: inline-block;
-  width: 30%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  transition: all 0.5s ease-in-out;
-  opacity: ${props => props.isExpanded ? "0" : "1"};
+const TeamMembers = styled.ul`
+  ${MenuStyled};
+`;
 
-  li {
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    margin: 0 0 20px;
+const TeamMenu = props => {
+  const { teamData } = props;
+  const [isOpen, setIsOpen] = useState(false);
 
-    a {
-      color: ${props => props.theme.black};
-      text-decoration: none;
-      padding: 0 0 5px;
-    }
-  }
-`
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
-const ActiveMenu = props => {
-  const { isExpanded, teamData } = props;
-
-  const ActiveMenuLink = props => (
-    <li>
-      <Link
-        {...props}
-        getProps={({ isPartiallyCurrent }) => {
-          return {
-            style: {
-              fontWeight: isPartiallyCurrent ? "bold" : "normal",
-              opacity: isPartiallyCurrent ? "1" : "0.5"
-            }
-          };
-        }}
-      />
-    </li>
+  const TeamMember = props => (
+    <Location>
+      {({ location }) => (
+        <li
+          className={props.to === location.pathname ? "active" : "inactive"}
+          onClick={toggleOpen}
+        >
+          <Link
+            {...props}
+            getProps={({ isCurrent }) => {
+              return {
+                style: {
+                  color: isCurrent ? "#101820" : "#B4BAC1"
+                }
+              };
+            }}
+          />
+        </li>
+      )}
+    </Location>
   );
 
   return (
     <div>
       <nav>
-        <ActiveMenuContainer isExpanded={isExpanded}>
+        <TeamMembers isOpen={isOpen}>
           {teamData.map((member, index) => (
-            <ActiveMenuLink key={index} to={"/team/" + member.slug}>{member.title}</ActiveMenuLink>
+            <TeamMember key={index} to={"/team/" + member.slug}>
+              {member.title}
+            </TeamMember>
           ))}
-        </ActiveMenuContainer>
+        </TeamMembers>
       </nav>
     </div>
   );
 };
-export default ActiveMenu;
+export default TeamMenu;

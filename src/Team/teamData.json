@@ -6,43 +6,68 @@
     "images": [
       {
         "source": "fairmont-san-francisco-exterior",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "fairmont-san-francisco-lobby",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "the-carlyle",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "ritz-carlton-kapalua-ocean",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "ritz-carlton-kapalua-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "hotel-californian-exterior",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [0, 2],
+        "lift": [0, 0]
       },
       {
         "source": "hotel-californian-interior",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "century-plaza-aerial",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       }
     ]
   },
@@ -53,43 +78,73 @@
     "images": [
       {
         "source": "the-plaza-hotel-nyc",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "the-savoy-london",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "fairmont-san-francisco-exterior",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "fairmont-san-francisco-penthouse",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "peace-hotel-shanghai",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "chateau-frontenac-quebec",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "pacific-rim-vancouver-exterior",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [6, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "pacific-rim-vancouver-suite",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       }
     ]
   },
@@ -100,43 +155,73 @@
     "images": [
       {
         "source": "the-louvre-paris",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "bank-of-china-hong-kong",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "torre-espacio-madrid",
-        "portrait": 0,
-        "landscape": 0
+        "span": [4, 2],
+        "lift": [-2, -2]
       },
       {
         "source": "the-ellipse-360-tai-pei",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "us-bank-tower-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "7-bryant-park-new-york",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [-3, -3]
       },
       {
         "source": "fountain-place-dallas",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "first-international-bank-of-israel-tel-aviv",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       }
     ]
   },
@@ -147,43 +232,73 @@
     "images": [
       {
         "source": "park-hyatt-new-york-lobby",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "park-hyatt-new-york-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "four-seasons-new-york-suite",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "ohori-park-residences-japan-lobby",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "parkland-toronto-lounge",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "parkland-toronto-master-bath",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "waldorf-astoria-beijing-dining",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "waldorf-astoria-beijing-stair",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       }
     ]
   },
@@ -194,43 +309,73 @@
     "images": [
       {
         "source": "neutra-kaufmann-house-palm-springs-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "neutra-kaufmann-house-palm-springs-living",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "summitridge-beverly-hills-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "summitridge-beverly-hills-entrance",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "james-perse-malibu",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "palm-springs-art-museum",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "ward-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "the-accelerated-school-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       }
     ]
   },
@@ -241,43 +386,68 @@
     "images": [
       {
         "source": "westin-denver-international-airport",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "shanghai-tower-china",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "ritz-carlton-jw-marriott-lalive-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "banc-of-california-stadium-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "the-tower-pnc-plaza-pittsburgh",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "jackson-hole-airport-terminal-wyoming",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "hyundai-card-air-lounge-south-korea",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "two-thousand-avenue-of-the-stars-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       }
     ]
   },
@@ -288,43 +458,68 @@
     "images": [
       {
         "source": "the-carlyle-westwood-residence",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "the-carlyle-westwood-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "americana-at-brand-california-pool",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "americana-at-brand-california-retail",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "circa-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "usc-village-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "the-vermont-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "metropolis-downtown-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       }
     ]
   },
@@ -335,43 +530,73 @@
     "images": [
       {
         "source": "private-residence-one",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-two",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-three",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-four",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-five",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-six",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
       },
       {
         "source": "grand-park-los-angeles",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "private-residence-seven",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       }
     ]
   },
@@ -382,43 +607,68 @@
     "images": [
       {
         "source": "jaume-plensa-awilda-brazil",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-crown-fountain-chicago",
-        "portrait": 0,
-        "landscape": 0
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [5, 3],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-poets-in-bordeaux-france",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-awilda-and-laura-palm-springs",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-awilda-and-irma-tennessee",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-house-of-knowledge-bordeaux-france",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-lou-olivia-duna",
-        "portrait": 0,
-        "landscape": 0
+        "span": [6, 4],
+        "lift": [0, 0]
+      },
+      {
+        "source": "",
+        "span": [4, 2],
+        "lift": [0, 0]
       },
       {
         "source": "jaume-plensa-air-water-void-germany",
-        "portrait": 0,
-        "landscape": 0
+        "span": [10, 6],
+        "lift": [0, 0]
       }
     ]
   }

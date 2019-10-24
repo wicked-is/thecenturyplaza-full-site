@@ -1,30 +1,61 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import Context from "../config/Context";
 import { Router } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
+import { Wrapper } from "../shared/styled-components/Layouts.js";
+import { ContainerStyled } from "Team/style.js";
 import Member from "Team/components/Member.jsx";
 
-const PrimaryContainer = styled.div`
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.25s;
-  height: auto;
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  margin: ${props => props.isExpanded ? "-80px 0 0" : "0 40px"};
-  ${'' /* background:  red; */}
-  overflow: hidden;
-`
+const TeamWrapper = styled.div`
+  ${Wrapper};
+`;
+const TeamContainer = styled.div`
+  ${ContainerStyled};
+`;
 
 const Team = props => {
-  const { isExpanded, teamData } = props;
+  const { teamData, setPageColor } = props;
+  const context = useContext(Context);
+  const { setGlobalConfig, navActive } = context;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.backgroundColor = "#FFFFFF";
+    setPageColor("white");
+  }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      headerBackground: "white",
+      footerBackground: "transparent",
+      footerDisplay: true,
+      footerFixed: false,
+      sidebarBackground: "transparent"
+    });
+  }, [setGlobalConfig]);
 
   return (
-    <PrimaryContainer isExpanded={isExpanded}>
-      <Router>
-        {teamData.map((member, index) => (
-          <Member teamData={teamData} default={index === 0 && true} isExpanded={isExpanded} toggleExpand={props.toggleExpand} closeExpand={props.closeExpand} key={index} path={member.slug} member={member} />
-        ))}
-      </Router>
-    </PrimaryContainer>
+    <TeamWrapper navActive={navActive}>
+      <TeamContainer navActive={navActive}>
+        <Router primary={false}>
+          {teamData.map((member, index) => (
+            <Member
+              teamData={teamData}
+              default={index === 0 && true}
+              key={index}
+              path={member.slug}
+              member={member}
+              nextMemberPath={
+                teamData[index + 1] !== undefined
+                  ? teamData[index + 1].slug
+                  : null
+              }
+            />
+          ))}
+        </Router>
+      </TeamContainer>
+    </TeamWrapper>
   );
-}
+};
 
 export default Team;

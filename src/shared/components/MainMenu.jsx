@@ -1,105 +1,65 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import Context from "../../config/Context";
 import { Link } from "@reach/router";
-import styled from "styled-components";
-import hamburgerBlackPNG from "icons/hamburger-black.png";
-import hamburgerBlackSVG from "icons/hamburger-black.svg";
-import hamburgerGrayPNG from "icons/hamburger-gray.png";
-import hamburgerGraySVG from "icons/hamburger-gray.svg";
-import closeGrayPNG from "icons/close-gray.png";
-import closeGraySVG from "icons/close-gray.svg";
-import logoGrayPNG from 'icons/logo-gray.png';
-import logoGraySVG from 'icons/logo-gray.svg';
+import styled from "styled-components/macro";
+import { mediaMin } from "shared/styled-components/MediaQueries.js";
 
-const MainMenuOpen = styled.button`
-  position: absolute;
-  right: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 25px;
-  height: 16px;
-  overflow: hidden;
-  border: 0;
-  text-indent: -99999px;
-  background: url(${hamburgerBlackPNG}) no-repeat center center;
-  background: url(${hamburgerBlackSVG}) no-repeat center center, none;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  opacity: ${props => props.isExpanded ? "0" : "1"}; 
-  
-  &:hover {
-    background: url(${hamburgerGrayPNG}) no-repeat center center;
-    background: url(${hamburgerGraySVG}) no-repeat center center, none;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`
-
-const MainMenuClose = styled.button`
-  position: absolute;
-  right: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 25px;
-  height: 16px;
-  overflow: hidden;
-  border: 0;
-  text-indent: -99999px;
-  background: url(${closeGrayPNG}) no-repeat center center;
-  background: url(${closeGraySVG}) no-repeat center center, none;
-  cursor: pointer;
-  
-  &:hover {
-    opacity: 0.5;
-  }
-
-  &:focus {
-    outline: none;
-  }
-`
-
-const MainMenuContainer = styled.div`
-  display: ${props => props.isOpen ? "flex" : "none"};
-  position: fixed;
-  top: 0;
-  left: 0;
+const MainMenuWrapper = styled.div`
+  opacity: ${props => (props.navActive ? "1" : "0")};
+  visibility: ${props => (props.navActive ? "visible" : "hidden")};
+  display: ${props => (props.navActive ? "flex" : "none")};
+  flex-wrap: wrap;
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  background: ${props => props.theme.black};
-  z-index: ${props => props.isExpanded ? "0" : "1000"};
+  height: 100%;
+  min-height: 100vh;
+  z-index: ${props => (props.navActive ? "10000" : "0")};
   text-indent: 0;
   color: ${props => props.theme.gray};
+  background: ${props => props.theme.black};
+  z-index: 1000;
 
   a:hover {
     opacity: 0.5;
   }
-`
-
-const Logo = styled.div`
-  position: absolute;
-  left: 40px;
-  top: 25px;
-  display: inline-block;
-  width: 250px;
-  height: 17px;
-  background: url(${logoGrayPNG}) no-repeat center center;
-  background: url(${logoGraySVG}) no-repeat center center, none;
-`
+`;
 
 const LinksContainer = styled.nav`
+  display: inline-block;
   position: relative;
-  width: 400px;
-  margin: 0 0 100px 35vw;
-  align-self: flex-end;
-`
+  width: 100%;
+  padding: 0 ${props => props.theme.mobileSideMargin}px;
+  height: auto;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(${props => props.theme.mobilePortraitHeaderHeight}px + 20px);
+
+  ${mediaMin.phoneXL`
+    margin-top: calc(${props =>
+      props.theme.mobileLandscapeHeaderHeight}px + 20px);
+  `}
+  ${mediaMin.tablet`
+    margin-top: calc(${props => props.theme.desktopHeaderHeight}px + 20px);
+  `}
+
+  ${mediaMin.tabletLandscape`
+    width: 70vw;
+    padding: 0 0 0 30vw;
+    margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 40px );
+  `}
+
+  ${mediaMin.desktop`
+      margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 80px );
+  `}
+`;
 
 const PrimaryLinks = styled.ul`
   display: inline-block;
-  width: 100%;
+  width: auto;
   height: auto;
   text-align: left;
-  margin: 0 0 30px;
+  margin: -5px 0 30px;
   padding: 0;
 
   li {
@@ -107,21 +67,29 @@ const PrimaryLinks = styled.ul`
     margin: 0 0 10px;
 
     a {
-      font-family: ${props => props.theme.serifLight};
-      font-size: 40px;
-      letter-spacing: 1.5px;
+      font-family: ${props => props.theme.serifRoman}, serif;
+      font-weight: 300;
+      font-size: 30px;
+      line-height: 1.1em;
+      letter-spacing: 0.05em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: antialiased;
       color: ${props => props.theme.gray};
       text-decoration: none;
+
+      ${mediaMin.tablet`
+         font-size: 40px;
+      `}
     }
   }
-`
+`;
 
 const SecondaryLinks = styled.ul`
   display: inline-block;
-  width: 100%;
+  width: auto;
   height: auto;
   text-align: left;
-  margin: 0 0 60px;
+  margin: 0 0 30px;
   padding: 0;
 
   li {
@@ -136,50 +104,76 @@ const SecondaryLinks = styled.ul`
       text-decoration: none;
     }
   }
-`
+`;
 
 const InfoCluster = styled.div`
-  position: absolute;
-  left: calc(-35vw + 40px);
-  top: 0;
+  ${mediaMin.tabletLandscape`
+    position: absolute;
+    left: ${props => props.theme.desktopSideMargin}px;
+    top: 0;
+ `}
 
   p {
     font-family: ${props => props.theme.sansSerifLight};
     line-height: 1.4em;
+    letter-spacing: 0.05em;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
     margin: 0 0 20px;
 
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 400;
       font-weight: normal;
     }
 
     a {
       color: ${props => props.theme.gray};
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 
   > a {
     display: inline-block;
-    margin: 30px 0 0;
+    margin: 10px 0 30px;
     font-family: ${props => props.theme.sansSerifRegular};
     color: ${props => props.theme.gray};
     text-decoration: none;
+
+    ${mediaMin.tabletLandscape`
+      margin: 25px 0 0;
+    `}
   }
-`
+`;
 
 const DownloadsLinks = styled.ul`
   display: inline-block;
-  width: 100%;
-  height: auto;
   text-align: left;
   margin: 0;
   padding: 0;
 
+  ${mediaMin.tabletLandscape`
+    position: absolute;
+    left: ${props => props.theme.desktopSideMargin}px;
+    top: 245px
+ `}
+
+  ${mediaMin.desktop`
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 0 30px;
+ `}
+
+
   li {
     font-family: ${props => props.theme.sansSerifRegular};
     display: block;
-    margin: 0 0 5px;
+    margin: 0 0 0.25em;
 
     &:first-child {
       margin: 0 0 15px;
@@ -188,78 +182,195 @@ const DownloadsLinks = styled.ul`
     a {
       font-family: ${props => props.theme.sansSerifLight};
       letter-spacing: 0.6px;
+      line-height: 1.35em;
       color: ${props => props.theme.gray};
       text-decoration: none;
-
     }
   }
-`
+`;
+
+const FooterLinks = styled.ul`
+  display: inline-block;
+  margin: 30px ${props => props.theme.mobileSideMargin}px;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+
+  ${mediaMin.tabletLandscape`
+    margin: 0;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    width: auto;
+  `}
+
+  li {
+    display: block;
+    margin: 0 0 0.25em;
+
+    ${mediaMin.tabletLandscape`
+      display: inline-block;
+      margin: 0 0 0 20px;
+    `}
+
+    a {
+      color: ${props => props.theme.gray};
+      font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.35em;
+      letter-spacing: 0.03em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: antialiased;
+      text-decoration: none;
+
+      ${mediaMin.tabletLandscape`
+        font-size: 12px;
+      `}
+    }
+  }
+`;
 
 const MainMenu = props => {
-  const { isExpanded, primaryData } = props;
-  const [isOpen, setIsOpen] = useState(false);
+  const { primaryData } = props;
+  const context = useContext(Context);
+  const { navActive, toggleMenu, setReturnPath } = context;
+
+  const declareReturnPath = () => {
+    toggleMenu();
+    setReturnPath(window.location.pathname);
+  };
 
   return (
-    <React.Fragment>
-      <MainMenuContainer isOpen={isOpen} >
-        <Link to="/" onClick={() => setIsOpen(false)}><Logo /></Link>
-        <MainMenuClose onClick={() => setIsOpen(false)}>
-          Toggle Main Menu
-        </MainMenuClose>
-        <LinksContainer>
-          <PrimaryLinks>
-            {primaryData.map((section, index) => (
-              <li key={index}><Link to={"/" + section.slug + "/" + section.slides[0].slug} onClick={() => setIsOpen(false)}>{section.title}</Link></li>
-            ))}
-          </PrimaryLinks>
-          <SecondaryLinks>
-            <li>
-              <Link to="/neighborhood" onClick={() => setIsOpen(false)}>Neighborhood</Link>
+    <MainMenuWrapper navActive={navActive}>
+      <LinksContainer>
+        <PrimaryLinks>
+          {primaryData.map((section, index) => (
+            <li key={index}>
+              <Link
+                to={"/" + section.slug + "/" + section.slides[0].slug}
+                onClick={toggleMenu}
+              >
+                {section.title}
+              </Link>
             </li>
-            <li>
-              <Link to="/team" onClick={() => setIsOpen(false)}>Team</Link>
-            </li>
-            <li>
-              <a href="https://www.thecenturyplaza.com/availability/?hotel" target="_blank" onClick={() => setIsOpen(false)}>Availability</a>
-            </li>
-            <li>
-              <Link to="/press" onClick={() => setIsOpen(false)}>Press</Link>
-            </li>
-            <li>
-              <Link to="/gallery" onClick={() => setIsOpen(false)}>Gallery</Link>
-            </li>
-          </SecondaryLinks>
-          <InfoCluster>
-            <p>
-              <strong>Sales Gallery</strong>
-              10250 Consteallation Boulevard<br />
+          ))}
+        </PrimaryLinks>
+        <SecondaryLinks>
+          <li>
+            <Link to="/neighborhood" onClick={toggleMenu}>
+              Neighborhood
+            </Link>
+          </li>
+          <li>
+            <Link to="/team" onClick={toggleMenu}>
+              Team
+            </Link>
+          </li>
+          <li>
+            <Link to="/availability" onClick={toggleMenu}>
+              Availability
+            </Link>
+          </li>
+          <li>
+            <Link to="/press" onClick={toggleMenu}>
+              Press
+            </Link>
+          </li>
+          <li>
+            <Link to="/gallery" onClick={toggleMenu}>
+              Gallery
+            </Link>
+          </li>
+        </SecondaryLinks>
+        <InfoCluster>
+          <p>
+            <strong>Sales Gallery</strong>
+            <a
+              href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              10250 Consteallation Boulevard
+              <br />
               Los Angeles, California 90067
-            </p>
-            <p>
-              <strong>Schedule an Appointment</strong>
-              +1 310 246 4777<br />
-              <a href="mailto:info@thecenturyplaza.com" >info@thecenturyplaza.com</a>
-            </p>
-            <Link to="/register" onClick={() => setIsOpen(false)}>Register Your Interest</Link>
-          </InfoCluster>
-          <DownloadsLinks>
-            <li>Downloads</li>
-            <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Brochure</a>
-            </li>
-            <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Hotel Fact Sheet</a>
-            </li>
-            <li>
-              <a href={process.env.PUBLIC_URL + '/downloads/placeholder.pdf'} target="_blank" rel="noopener noreferrer">Tower Fact Sheet</a>
-            </li>
-          </DownloadsLinks>
-        </LinksContainer>
-      </MainMenuContainer>
-      <MainMenuOpen isExpanded={isExpanded} onClick={() => setIsOpen(true)}>
-        Open Main Menu
-      </MainMenuOpen>
-    </React.Fragment>
+            </a>
+          </p>
+          <p>
+            <strong>Schedule an Appointment</strong>
+            +1 310 246 4777
+            <br />
+            <a href="mailto:info@thecenturyplaza.com" rel="noopener noreferrer">
+              info@thecenturyplaza.com
+            </a>
+          </p>
+          <Link to="/contact" onClick={declareReturnPath}>
+            Register Your Interest
+          </Link>
+        </InfoCluster>
+        <DownloadsLinks>
+          <li>Downloads</li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Brochure
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Fairmont-Century-Plaza-Residences.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hotel Fact Sheet
+            </a>
+          </li>
+          <li>
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                "/downloads/Century-Plaza_Tower-Residences.pdf"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tower Fact Sheet
+            </a>
+          </li>
+        </DownloadsLinks>
+      </LinksContainer>
+      <FooterLinks>
+        <li>
+          <Link to="/contact" onClick={declareReturnPath}>
+            Contact
+          </Link>
+        </li>
+        <li>
+          <Link to="/broker-portal" onClick={declareReturnPath}>
+            Broker Portal
+          </Link>
+        </li>
+        <li>
+          <Link to="/legal" onClick={declareReturnPath}>
+            Legal
+          </Link>
+        </li>
+        <li>
+          <Link to="/accessibility" onClick={declareReturnPath}>
+            Accessibility
+          </Link>
+        </li>
+      </FooterLinks>
+    </MainMenuWrapper>
   );
 };
 export default MainMenu;

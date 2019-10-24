@@ -1,29 +1,97 @@
-import React from "react";
-import styled from "styled-components";
+/* eslint-disable react-hooks/exhaustive-deps */
 
-const PrimaryContainer = styled.div`
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.25s;
-  height: auto;
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  margin: ${props => props.isExpanded ? "-80px 0 0" : "0 40px"};
-  ${'' /* background:  red; */}
-  overflow: hidden;
-`
+import React, { useEffect, useContext } from 'react';
+import Context from '../config/Context';
+import styled from 'styled-components/macro';
+import { PageTitle } from '../shared/styled-components/Typography.js';
+import { Wrapper } from '../shared/styled-components/Layouts.js';
+import {
+  ContainerStyled,
+  EntryStyled,
+  PubDateStyled,
+  PubInfoStyled
+} from 'Press/style.js';
+
+const PressWrapper = styled.div`
+  ${Wrapper};
+`;
+const PressContainer = styled.div`
+  ${ContainerStyled};
+`;
+const PressTitle = styled.h1`
+  ${PageTitle};
+`;
+const PressEntry = styled.article`
+  ${EntryStyled};
+`;
+const PressPubDate = styled.div`
+  ${PubDateStyled};
+`;
+const PressPubInfo = styled.div`
+  ${PubInfoStyled};
+`;
 
 const Press = props => {
-  const { pressData } = props;
+  const { setPageColor } = props;
+  const context = useContext(Context);
+  const { fetchPress, pressItems, setGlobalConfig, navActive } = context;
+
+  const generatePress = () => {
+    return pressItems.map(entry => {
+      return (
+        <PressEntry key={entry.id}>
+          <PressPubDate>{entry.date}</PressPubDate>
+          <PressPubInfo>
+            <h2>
+              <a
+                href={
+                  entry['source-url']
+                    ? entry['source-url']
+                    : entry['source-pdf']
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {entry.headline}
+              </a>
+            </h2>
+            <p>{entry.publication}</p>
+          </PressPubInfo>
+        </PressEntry>
+      );
+    });
+  };
+
+  useEffect(() => {
+    if (!pressItems || !pressItems.length) {
+      fetchPress();
+    }
+  }, [pressItems]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.style.backgroundColor = '#FFFFFF';
+    setPageColor('white');
+  }, [setPageColor]);
+
+  useEffect(() => {
+    setGlobalConfig({
+      headerBackground: props => props.theme.whiteGradient,
+      footerBackground: 'transparent',
+      footerDisplay: true,
+      footerFixed: false,
+      sidebarBackground: 'transparent'
+    });
+  }, [setGlobalConfig]);
+
   return (
-    <PrimaryContainer>
-      {pressData.map((entry, index) => (
-        <article key={index}>
-          <span>{entry.date}</span>
-          <h2><a href="{entry.source}" target="_blank">{entry.headline}</a></h2>
-          <p>{entry.publication}</p>
-        </article>
-      ))}
-    </PrimaryContainer>
+    <PressWrapper navActive={navActive}>
+      <PressContainer navActive={navActive}>
+        <PressTitle>Featured Press</PressTitle>
+        {generatePress()}
+      </PressContainer>
+    </PressWrapper>
   );
-}
+};
 
 export default Press;

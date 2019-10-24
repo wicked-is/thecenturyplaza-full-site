@@ -1,0 +1,205 @@
+[
+  {
+    "slug": "tower",
+    "title": "Tower Residences",
+    "pretitle": "Select Features & Amenities",
+    "sections": [
+      {
+        "title": "RESIDENCE FEATURES",
+        "lists": [
+          {
+            "title": "",
+            "subline": "Interiors by Yabu Pushelberg",
+            "items": [
+              "Oak or Walnut wood wall paneling in foyer",
+              "7 1/2” plank Oak flooring with painted wood base",
+              "Fireplace stone surround with wood paneled wall",
+              "Miele washer and dryer"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Chef’s Kitchens",
+            "items": [
+              "Professional appliances include Miele cooktop, stainless steel Miele oven, paneled Miele dishwasher, stainless steel Miele microwave drawer, paneled Sub-Zero refrigerator, Kallista faucet and Kohler sink",
+              "7 1/2” plank Oak flooring",
+              "Quartzite countertops and islands",
+              "Stone backsplash with matching kitchen hood paneling",
+              "Snaidero Natural Oak or Espresso Walnut Cabinets"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Spa-Inspired Master Baths",
+            "items": [
+              "Marble featured in flooring, walls, shower, and vanity",
+              "Oak or Walnut accent wood wall paneling",
+              "Apaiser Seascapes free-standing soaking tub",
+              "Custom-designed framed mirrors"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Secondary Baths",
+            "items": [
+              "Marble featured in flooring, walls, shower, and vanity",
+              "Kallista bath fixtures, Kohler sink, and Toto toilet",
+              "Custom-designed framed mirrors"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Powder Rooms",
+            "items": [
+              "Kallista faucet, Kohler sink and Toto toilet",
+              "Marble flooring, vanity counter and backsplash",
+              "Custom-designed antique bronze vanity & Mirror"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "BUILDING AMENITIES",
+        "lists": [
+          {
+            "title": "",
+            "subline": "",
+            "items": [
+              "24/7 Guard Gate, Valet, Doorperson, and Concierge",
+              "Wine Room",
+              "Library Lounge",
+              "Game Room w/ bar, billiard table and large screen TV",
+              "Catering Kitchen",
+              "Meeting Room/Private Dining Room",
+              "Pre-Function Lounge opens to Party Room",
+              "Children’s Play Room",
+              "Screening Room",
+              "Business Center",
+              "Men’s and Women’s Locker Rooms",
+              "Steam/Sauna in each Locker Room",
+              "Pilates Studio",
+              "Yoga Studio",
+              "Fitness Center",
+              "Pool with Jacuzzi",
+              "Dog Park"
+            ]
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "cta": "View Full Features & Amenities List",
+        "url": "/downloads/Century-Plaza_Tower-Residences.pdf",
+        "path": ""
+      },
+      {
+        "cta": "View Tower Residence Availability",
+        "url": "",
+        "path": "/availability/tower"
+      }
+    ],
+    "disclaimer": "The developer reserves the right to substitute finishes, materials, fixtures, equipment and appliances of similar quality as determined by the developer. Exclusive sales and marketing: Next Century Realty, Inc., BRE # 02028123. Equal Housing Opportunity"
+  },
+  {
+    "slug": "hotel",
+    "title": "Hotel Residences",
+    "pretitle": "Select Features & Amenities",
+    "sections": [
+      {
+        "title": "RESIDENCE FEATURES",
+        "lists": [
+          {
+            "title": "",
+            "subline": "Foyer",
+            "items": [
+              "Stained oak veneer walls and door",
+              "7.5” wide oak flooring"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Interiors",
+            "items": ["7.5” wide oak flooring", "Miele Washer/Dryer"]
+          },
+          {
+            "title": "",
+            "subline": "Kitchen",
+            "items": [
+              "7.5” wide oak flooring",
+              "Quartzite or granite",
+              "Snaidero stained oak veneer cabinets",
+              "Sub-Zero refrigerator, JenAir cooktop, convection oven"
+            ]
+          },
+          {
+            "title": "",
+            "subline": "Master Bathroom",
+            "items": [
+              "marble featured in floors and walls",
+              "Custom designed mirror",
+              "Cooper & Graham Emile faucet in brushed nickel",
+              "Snaidero stained oak veneer custom towel cabinet"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "",
+        "lists": [
+          {
+            "title": "RESIDENCE SERVICES",
+            "subline": "Included in HOA dues",
+            "items": [
+              "Dedicated Residences Director",
+              "24-hour Concierge, Guard Gate, and valet parking",
+              "Lounge, Fitness center, Business center",
+              "Rooftop Pool Shared with hotel guests",
+              "Residents-Only Rooftop Amenity Deck includes",
+              "a Dog Park & Outdoor Kitchen with BBQ"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "",
+        "lists": [
+          {
+            "title": "A LA CARTE SERVICES",
+            "subline": "Not included in HOA dues",
+            "items": [
+              "Access to In-room dining, catering, housekeeping, laundry/dry Cleaning, and in-home maintenance",
+              "While You’re Away” Maintenance Program"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "",
+        "lists": [
+          {
+            "title": "LE CLUB ACCORHOTELS",
+            "subline": "Residence Benefits",
+            "items": [
+              "Platinum status in Le Club AccorHotels offered as long as residential ownership is maintained and owners are included in the Owner Benefits Program.",
+              "Discount on Spa treatments, hotel restaurant, etc"
+            ]
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "cta": "View Full Features & Amenities List",
+        "url": "/downloads/Fairmont-Century-Plaza-Residences.pdf",
+        "path": ""
+      },
+      {
+        "cta": "View Hotel Residence Availability",
+        "url": "",
+        "path": "/availability/hotel"
+      }
+    ],
+    "disclaimer": "The developer reserves the right to substitute finishes, materials, fixtures, equipment and appliances of similar quality as determined by the developer. Exclusive sales and marketing: Next Century Realty, Inc., BRE # 02028123. Equal Housing Opportunity"
+  }
+]

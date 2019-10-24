@@ -1,75 +1,80 @@
-import React from "react";
-import styled from "styled-components";
-import { cascadeText } from "shared/styled-components/Transitions.js";
+import React, { useEffect, useContext } from "react";
+import styled from "styled-components/macro";
 import parse from "html-react-parser";
+import { Link } from "@reach/router";
+import Context from "../../config/Context";
+import { SlideMaskStyled, SlideContainerStyled } from "Primary/style.js";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import { navigate } from "@reach/router";
 
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
 
-// Wil be refactored into global slide styled compontent
-const TextSlideContainer = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 160px);
-  ${'' /* opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out 0.25s forwards;
-  will-change: opacity; */}
-  
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
 
-  h2 {
-    font-family:  ${props => props.theme.serifMedium};
-    font-size: 34px;
-    letter-spacing: .34px;    
-    width: 55vw;
-    text-align: center;
-    position: relative;
-  }
+const TextSlide = ({
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  // lastSlide, //Used for Swipe PreStaging
+  // lastSectionSlide, //Used for Swipe PreStaging
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
+}) => {
+  const context = useContext(Context);
+  const {
+    setReturnPath,
+    pauseScroll,
+    isExisting,
+    setIsExisting,
+    triggerExit,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
-  p {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-  }
-`
+  const declareReturnPath = () => {
+    setReturnPath(window.location.pathname);
+  };
 
-const TransMask = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background: linear-gradient(0deg, rgba(255,255,255,1) 45%, rgba(255,255,255,0) 100%);
-    animation: ${cascadeText} 1.5s ease-in forwards;
-    will-change: transform;
-`
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
-const TextSlide = props => {
-  const { slide, nextPath, previousPath, toggleExpand, closeExpand } = props;
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler
-      pauseListeners={true}
-      upHandler={() => {
-        // console.log("scroll up");
-        closeExpand();
-        navigate(previousPath);
-      }}
-      downHandler={() => {
-        // console.log("scroll down")
-        closeExpand();
-        navigate(nextPath);
-      }}
+      pauseListeners={pauseScroll}
+      upHandler={() => triggerExit(previousPath)}
+      downHandler={() => triggerExit(nextPath)}
+      rightHandler={() => triggerExit(previousPath)}
+      leftHandler={() => triggerExit(nextPath)}
     >
-      <TextSlideContainer>
-        <SlideBackward previousPath={previousPath} />
-        <SlideForward nextPath={nextPath} />
-        {slide.headline.length > 0 && <h2><TransMask />{parse(slide.headline)}</h2>}
-        {slide.caption.length > 0 && <p>{parse(slide.caption)}</p>}
-      </TextSlideContainer>
+      <SlideMask
+        // lastSectionSlide={lastSectionSlide}
+        // lastSlide={lastSlide}
+        isExisting={isExisting}
+      >
+        <SlideContainer>
+          <SlideBackward previousPath={previousPath} />
+          <SlideForward nextPath={nextPath} />
+          {slide.headline.length > 0 && <h2>{parse(slide.headline)}</h2>}
+          {slide.path.length > 0 && slide.cta.length > 0 && (
+            <Link onClick={declareReturnPath} to={slide.path}>
+              {slide.cta}
+            </Link>
+          )}
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };

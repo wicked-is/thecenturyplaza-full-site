@@ -1,170 +1,239 @@
-import React, { useState, useEffect } from "react";
-import { navigate, Match } from "@reach/router";
-import styled, { keyframes } from "styled-components";
-import parse from "html-react-parser";
+import React, { useState, useEffect, useContext } from "react";
+import styled from "styled-components/macro";
+import ReactPlayer from "react-player";
+import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import Context from "../../config/Context";
+import {
+  SlideMaskStyled,
+  SlideContainerStyled,
+  PlayerContainerStyled,
+  FullScreenStyled
+} from "Primary/style.js";
 import SlideForward from "shared/components/SlideForward.jsx";
 import SlideBackward from "shared/components/SlideBackward.jsx";
-import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js"
-import ResponsiveImage from "shared/components/ResponsiveImage.js"
-import ReactPlayer from 'react-player';
-import { fadeIn } from "shared/styled-components/Transitions.js";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
+import SlideVideoScrollController from "shared/components/SlideVideoScrollController.jsx";
+import ResponsiveImage from "shared/components/ResponsiveImage.js";
 
-// Wil be refactored into global slide styled compontent
-const VideoSlideContainer = styled.article`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.05s;
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  opacity: 0;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
-  will-change: opacity;
+const SlideMask = styled.div`
+  ${SlideMaskStyled};
+`;
 
-  p {
-    position: absolute;
-    bottom: 30px;
-    left: 40px;
-    margin: 0;
-    transition: all 0.5s ease-in-out;
-    opacity: ${props => props.isExpanded ? "0" : "1"}; 
-  }
-`
+const SlideContainer = styled.div`
+  ${SlideContainerStyled};
+`;
 
-const ToggleFullScreen = styled.div`
-    position: absolute;
-    display: inline-block;
-    transition: all 0.5s ease-in-out;
-    transition-delay: 0.05s;
-    height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-    width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-    top: ${props => props.isExpanded ? "0" : "80px"};
-    left: ${props => props.isExpanded ? "0" : "40px"};
-    z-index: ${props => props.isExpanded ? "1000" : "500"};
-    opacity: 0;
-    cursor: pointer;
-`
-
-const VideoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.05s;
-  height: ${props => props.isExpanded ? "100vh" : "calc(100vh - 160px)"};
-  width: ${props => props.isExpanded ? "100vw" : "calc(100vw - 80px)"};
-  overflow: hidden;
-  position: relative;
-`
+const PlayerContainer = styled.div`
+  ${PlayerContainerStyled};
+`;
 
 const FullScreen = styled.div`
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  ${'' /* transition: all 0.5s ease-in-out;
-  transform: scale(2.5);
-  ${mediaMin.tabletLandscape`
-    transform: scale(1);
-  `} */}
-`
-
-const videoElement = (isExpanded) => ({
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  transition: 'all 0.5s ease-in-out',
-  transitionDelay: '0.05s',
-  top: isExpanded ? '0' : '-80px',
-  left: isExpanded ? '0' : '-40px',
-});
-
+  ${FullScreenStyled};
+`;
 
 const PlaceHolder = styled.div`
   width: 100vw;
-  height: 100vh;
-  display: ${props => props.isPlaying ? "none" : "flex"};
+  height: 56.25vw;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  transition: all 0.5s ease-in-out;
-  transition-delay: 0.05s;
-  top: ${props => props.isExpanded ? "0" : "-80px"};
-  left: ${props => props.isExpanded ? "0" : "-40px"};
-  overflow: hidden;
+  z-index: ${props => (props.activePlaceholder ? "900" : "100")};
 
   img {
+    width: 100vw;
+    height: 56.25vw;
+    min-height: 100vh;
+    min-width: 177.77vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0;
+    display: inline-block;
     position: relative;
-    width: auto;
-    height: auto;
   }
-`
+`;
 
-const VideoSlide = props => {
-  const { slide, nextPath, previousPath, isExpanded, isFirstSection, isFirstLoad, toggleExpand, closeExpand } = props;
+const videoElement = () => ({
+  width: "100vw",
+  height: "56.25vw",
+  minHeight: "100vh",
+  minWidth: "177.77vh",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  background: "transparent",
+  zIndex: "500"
+});
 
-  // const [isFull, setIsFull] = useState(() => checkDelay());
+const VideoSlide = ({
+  slide, // Oobject
+  nextPath, //Path for Naigation
+  previousPath, //Path for Navigation
+  isExpanded, //Check for Expansion
+  // firstSlide, //Previosuly Used for Intro View
+  firstSectionSlide, //Used for Intro View
+  isFirstSection, //Used for Video Transition Option
+  isFirstSlide, //Used for Video Transition Option
+  toggleExpand, //Toggle Expansion
+  closeExpand, //Force Close Expansion
+  sectionIndex, //Used For FooterCaptions
+  slideIndex //Used For FooterCaptions
+}) => {
+  const context = useContext(Context);
+  const {
+    firstLocation,
+    pauseScroll,
+    isExisting,
+    setIsExisting,
+    triggerExit,
+    hasPlayed,
+    markPlayed,
+    // firstShouldSwipe,
+    // setFirstShouldSwipe,
+    currentSlideIndex,
+    currentSectionIndex
+  } = context;
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const removePlaceholder = () => {
+  const [activePlaceholder, setActivePlaceholder] = useState(true);
+  const [startVideo, setStartVideo] = useState(false);
+
+  const startTimer = () => {
+    toggleExpand();
     setTimeout(() => {
-      setIsPlaying(true);
-    }, 100)
+      closeExpand();
+    }, slide.delay);
   };
 
-  // const startTimer = props => {
-  //   props.closeExpand()
-  //   slide.delay.length > 0 && setTimeout(() => {
-  //     props.closeExpand()
-  //   }, slide.delay)
-  // };
+  const removePlaceholder = () => {
+    setStartVideo(true);
+    setTimeout(() => {
+      setActivePlaceholder(false);
+    }, 250);
+  };
 
-  // useEffect(() => {
-  //   if (isFirstSection && isFirstLoad) {
-  //     toggleExpand();
-  //   }
-  // }, [isFirstSection, isFirstLoad, toggleExpand]);
+  useEffect(() => {
+    if (
+      isFirstSection &&
+      isFirstSlide &&
+      !hasPlayed &&
+      (firstLocation === window.location.pathname || firstLocation === "/")
+    ) {
+      startTimer();
+      markPlayed();
+    }
+  });
 
-  // const forceSmall = () => {
-  //   setIsFull(!isFull);
-  // };
+  useEffect(() => {
+    currentSectionIndex(sectionIndex);
+    currentSlideIndex(slideIndex);
+  }, [currentSectionIndex, sectionIndex, currentSlideIndex, slideIndex]);
 
-  // const advancePath = () => {
-  //   <Match path={curre}>
-  //     {props => (
-  //       // props.match.uri === "/somewhere/deep"
-  //       <div>{props.match.uri}</div>
-  //     )}
-  //   </Match>
-  // }
+  useEffect(() => {
+    return () => {
+      setIsExisting(false);
+    };
+  }, [setIsExisting]);
 
   return (
     <ReactScrollWheelHandler
-      pauseListeners={true}
+      pauseListeners={pauseScroll}
       upHandler={() => {
-        // console.log("scroll up");
-        closeExpand();
-        navigate(previousPath);
+        isExpanded && toggleExpand();
+        !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
+        !isExpanded &&
+          !isFirstSection &&
+          !isFirstSlide &&
+          triggerExit(previousPath);
+        !isExpanded &&
+          !isFirstSection &&
+          isFirstSlide &&
+          triggerExit(previousPath);
+        !isExpanded &&
+          isFirstSection &&
+          !isFirstSlide &&
+          triggerExit(previousPath);
       }}
       downHandler={() => {
-        // console.log("scroll down")
-        closeExpand();
-        navigate(nextPath);
+        isExpanded ? toggleExpand() : triggerExit(nextPath);
+      }}
+      rightHandler={() => {
+        isExpanded && toggleExpand();
+        !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
+        !isExpanded &&
+          !isFirstSection &&
+          !isFirstSlide &&
+          triggerExit(previousPath);
+        !isExpanded &&
+          !isFirstSection &&
+          isFirstSlide &&
+          triggerExit(previousPath);
+        !isExpanded &&
+          isFirstSection &&
+          !isFirstSlide &&
+          triggerExit(previousPath);
+      }}
+      leftHandler={() => {
+        isExpanded ? toggleExpand() : triggerExit(nextPath);
       }}
     >
-      <VideoSlideContainer isExpanded={isExpanded}>
-        {/* <ToggleFullScreen onClick={toggleExpand} isExpanded={isExpanded} /> */}
-        <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
-        <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
-        <VideoContainer isExpanded={isExpanded}>
-          <FullScreen isExpanded={isExpanded}>
-            <PlaceHolder isPlaying={isPlaying} isExpanded={isExpanded}><ResponsiveImage srcPath={slide.placeholder} /></PlaceHolder>
-            <ReactPlayer url={slide.source} playing muted playsinline loop width="100vw" height="100vh" onStart={() => removePlaceholder(props)} style={videoElement(isExpanded)} preload="true" />
-          </FullScreen>
-        </VideoContainer>
-        <p>{parse(slide.caption)}</p>
-      </VideoSlideContainer>
+      <SlideMask
+        isExisting={isExisting}
+        isFirstSlide={isFirstSlide}
+        isFirstSection={isFirstSection}
+        // firstShouldSwipe={firstShouldSwipe}
+      >
+        <SlideContainer isExpanded={isExpanded}>
+          <SlideBackward previousPath={previousPath} isExpanded={isExpanded} />
+          <SlideForward nextPath={nextPath} isExpanded={isExpanded} />
+          <SlideVideoScrollController
+            nextPath={nextPath}
+            previousPath={previousPath}
+            isExpanded={isExpanded}
+            isFirstSection={isFirstSection}
+            isFirstSlide={isFirstSlide}
+            toggleExpand={toggleExpand}
+          />
+          <PlayerContainer
+            isExpanded={isExpanded}
+            firstSectionSlide={firstSectionSlide}
+          >
+            <FullScreen isExpanded={isExpanded}>
+              <PlaceHolder
+                activePlaceholder={activePlaceholder}
+                isExpanded={isExpanded}
+              >
+                <ResponsiveImage srcPath={slide.placeholder} />
+              </PlaceHolder>
+              <ReactPlayer
+                url={slide.source[0]}
+                muted
+                playing={startVideo}
+                playsinline
+                loop
+                width="100vw"
+                height="56.25vw"
+                onReady={removePlaceholder}
+                style={videoElement(isExpanded)}
+                preload="true"
+                config={{
+                  vimeo: {
+                    playerVars: { transparent: true }
+                  }
+                }}
+              />
+            </FullScreen>
+          </PlayerContainer>
+        </SlideContainer>
+      </SlideMask>
     </ReactScrollWheelHandler>
   );
 };
