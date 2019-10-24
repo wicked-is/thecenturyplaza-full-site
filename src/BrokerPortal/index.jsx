@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import Context from "../config/Context";
-import styled from "styled-components/macro";
-import { Wrapper } from "../shared/styled-components/Layouts.js";
-import { PageTitle } from "../shared/styled-components/Typography.js";
-import { ContainerStyled } from "BrokerPortal/style.js";
-import { mediaMin } from "../shared/styled-components/MediaQueries";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../config/Context';
+import styled from 'styled-components/macro';
+import { Wrapper } from '../shared/styled-components/Layouts.js';
+import { PageTitle } from '../shared/styled-components/Typography.js';
+import { ContainerStyled } from 'BrokerPortal/style.js';
+import { mediaMin } from '../shared/styled-components/MediaQueries';
 
 const PortalWrapper = styled.div`
   ${Wrapper};
 `;
 const PortalContainer = styled.div`
   ${ContainerStyled};
-  display: ${props => (props.navActive ? "none" : "flex")};
+  display: ${props => (props.navActive ? 'none' : 'flex')};
   justify-content: center;
 `;
 
@@ -59,15 +60,15 @@ const TextInput = styled.input`
   background-color: transparent;
   color: ${props => props.theme.black};
   border: ${props =>
-    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
+    props.error ? '1px solid red' : '1px solid ' + props.theme.black + ''};
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
 
   width: ${props => {
-    if (props.halfWidth) return "50%";
-    if (props.quarterWidth) return "25%";
-    return "100%";
+    if (props.halfWidth) return '50%';
+    if (props.quarterWidth) return '25%';
+    return '100%';
   }};
 
   margin: 0 12px;
@@ -85,7 +86,7 @@ const TextInput = styled.input`
   &:focus {
     outline: none;
     colors: white;
-    border: ${props => (props.error ? "1px solid red" : "1px solid white")};
+    border: ${props => (props.error ? '1px solid red' : '1px solid white')};
     background-color: transparent;
   }
 `;
@@ -110,8 +111,8 @@ const SubmitButton = styled.button`
 const Error = styled.p`
   text-align: center;
   color: red;
-  opacity: ${props => (!props.active ? "1" : "0")};
-  visibility: ${props => (!props.active ? "visible" : "hidden")};
+  opacity: ${props => (!props.active ? '1' : '0')};
+  visibility: ${props => (!props.active ? 'visible' : 'hidden')};
   transition: opacity 0.25s ease, visibility 0.25s ease;
 `;
 
@@ -121,8 +122,8 @@ const BrokerPortal = props => {
   const { setGlobalConfig, setReturnPath, navActive } = context;
 
   const [formData, setFormData] = useState({
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -134,8 +135,8 @@ const BrokerPortal = props => {
 
   const clearForm = () => {
     setFormData({
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     });
     setFormErrors({
       username: false,
@@ -149,8 +150,8 @@ const BrokerPortal = props => {
   };
 
   const responseHandler = response => {
-    var trimResponse = response.replace(/['"]+/g, "");
-    if (trimResponse === "Authentication Failed") {
+    var trimResponse = response.replace(/['"]+/g, '');
+    if (trimResponse === 'Authentication Failed') {
       clearForm();
       setAuthenticationStatus(false);
     } else {
@@ -175,16 +176,16 @@ const BrokerPortal = props => {
     if (!handleErrors()) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
           responseHandler(this.response);
         }
       };
       xhttp.open(
-        "POST",
-        "https://85k7ayvqz1.execute-api.us-east-1.amazonaws.com/prod/",
+        'POST',
+        'https://85k7ayvqz1.execute-api.us-east-1.amazonaws.com/prod/',
         true
       );
-      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.setRequestHeader('Content-type', 'application/json');
       const data = JSON.stringify(formData);
       xhttp.send(data);
     }
@@ -192,8 +193,8 @@ const BrokerPortal = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.body.style.backgroundColor = "#E7E7E7";
-    setPageColor("#E7E7E7");
+    document.body.style.backgroundColor = '#E7E7E7';
+    setPageColor('#E7E7E7');
   }, [setPageColor]);
 
   useEffect(() => {
@@ -202,19 +203,19 @@ const BrokerPortal = props => {
       footerBackground: props => props.theme.grayLight,
       footerDisplay: false,
       footerFixed: false,
-      sidebarBackground: "transparent"
+      sidebarBackground: 'transparent'
     });
   }, [setGlobalConfig]);
 
   useEffect(() => {
     return () => {
-      document.body.style.backgroundColor = "#FFFFFF";
+      document.body.style.backgroundColor = '#FFFFFF';
       setGlobalConfig({
-        headerBackground: "transparent",
-        footerBackground: "transparent",
+        headerBackground: 'transparent',
+        footerBackground: 'transparent',
         footerDisplay: false,
         footerFixed: true,
-        sidebarBackground: "transparent"
+        sidebarBackground: 'transparent'
       });
     };
   }, [setGlobalConfig]);

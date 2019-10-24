@@ -116,7 +116,7 @@
         "caption": [
           "The Fairmont Century Plaza hotel has full valet service at the lobby arrival and direct ballroom access making your stay or visit truly effortless.",
           "The state-of-the-art red-carpet-ready ballroom at Fairmont Century Plaza is the epitome of Hollywood glamour.",
-          "This text is TBD until we get the square footage information for this and the main ballroom."
+          ""
         ],
         "source": ["ballroom-arrival", "ballroom", "junior-ballroom"],
         "placeholder": "",
