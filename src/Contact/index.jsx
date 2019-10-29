@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import Context from "../config/Context";
-import styled from "styled-components/macro";
-import Select from "react-select";
-import { Link } from "@reach/router";
-import $ from "jquery";
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../config/Context';
+import styled from 'styled-components/macro';
+import Select from 'react-select';
+import { Link } from '@reach/router';
+import $ from 'jquery';
 
-import { states } from "./states";
-import { Wrapper } from "../shared/styled-components/Layouts.js";
-import { ContainerStyled } from "Contact/style.js";
-import { mediaMin } from "../shared/styled-components/MediaQueries";
+import { states } from './states';
+import { Wrapper } from '../shared/styled-components/Layouts.js';
+import { ContainerStyled } from 'Contact/style.js';
+import { mediaMin } from '../shared/styled-components/MediaQueries';
 
 const ContactWrapper = styled.div`
   ${Wrapper};
@@ -80,8 +80,8 @@ const RightCol = styled.div`
 `;
 
 const ContactForm = styled.form`
-  opacity: ${props => (props.formVisible ? "1" : "0")};
-  visibility: ${props => (props.formVisible ? "visible" : "hidden")};
+  opacity: ${props => (props.formVisible ? '1' : '0')};
+  visibility: ${props => (props.formVisible ? 'visible' : 'hidden')};
   transition: opacity 0.5s ease, visibility 0.5s ease;
   display: flex;
   flex-direction: column;
@@ -105,8 +105,8 @@ const ContactForm = styled.form`
 `;
 
 const ContactSuccess = styled.form`
-  opacity: ${props => (props.confirmationVisible ? "1" : "0")};
-  visibility: ${props => (props.confirmationVisible ? "visible" : "hidden")};
+  opacity: ${props => (props.confirmationVisible ? '1' : '0')};
+  visibility: ${props => (props.confirmationVisible ? 'visible' : 'hidden')};
   transition: opacity 0.25s ease, visibility 0.25s ease;
   display: flex;
   flex-direction: column;
@@ -176,15 +176,15 @@ const TextInput = styled.input`
   background-color: transparent;
   color: ${props => props.theme.black};
   border: ${props =>
-    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
+    props.error ? '1px solid red' : '1px solid ' + props.theme.black + ''};
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
 
   width: ${props => {
-    if (props.halfWidth) return "50%";
-    if (props.quarterWidth) return "25%";
-    return "100%";
+    if (props.halfWidth) return '50%';
+    if (props.quarterWidth) return '25%';
+    return '100%';
   }};
 
   margin: 0 12px;
@@ -202,7 +202,7 @@ const TextInput = styled.input`
   &:focus {
     outline: none;
     colors: white;
-    border: ${props => (props.error ? "1px solid red" : "1px solid white")};
+    border: ${props => (props.error ? '1px solid red' : '1px solid white')};
     background-color: transparent;
   }
 `;
@@ -244,12 +244,12 @@ const RadioInput = styled.label`
       background-color: transparent;
       &::before {
         color: ${props => props.theme.black};
-        ${"" /* border: 1px solid ${props => props.theme.black}; */}
+        ${'' /* border: 1px solid ${props => props.theme.black}; */}
         position: absolute;
-        font: 13px/1 "Open Sans", sans-serif;
+        font: 13px/1 'Open Sans', sans-serif;
         left: 7px;
         top: 3px;
-        content: "\\02143";
+        content: '\\02143';
         transform: rotate(40deg);
       }
     }
@@ -311,18 +311,18 @@ const Contact = props => {
   const [confirmationMounted, setConfirmationMounted] = useState(false);
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
     agent: false,
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    agencyName: "",
-    agencyPhone: "",
-    agencyAddress: ""
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    agencyName: '',
+    agencyPhone: '',
+    agencyAddress: ''
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -364,10 +364,10 @@ const Contact = props => {
 
   const parseFormData = () => {
     return {
-      projectname: "thecenturyplaza",
+      projectname: 'thecenturyplaza',
       data: {
-        FollowupCode: "E",
-        Source: "Website",
+        FollowupCode: 'E',
+        Source: 'Website',
         FirstName: formData.firstName,
         LastName: formData.lastName,
         Email: formData.email,
@@ -388,17 +388,17 @@ const Contact = props => {
     e.preventDefault();
     if (!checkForErrors()) {
       $.ajax({
-        url: "http://form.api.dbxd.com/post-buildercms-form/",
-        type: "POST",
-        dataType: "json",
+        url: 'http://form.api.dbxd.com/post-buildercms-form/',
+        type: 'POST',
+        dataType: 'json',
         data: parseFormData(),
         crossDomain: true,
         success: (/* res  textStatus, jqXHR */) => {
-          console.log("success - form submitted");
+          console.log('success - form submitted');
           showSuccess();
         },
         error: (jqXHR, textStatus, errorThrown) => {
-          console.log("http request failed", errorThrown);
+          console.log('http request failed', errorThrown);
         }
       });
     }
@@ -417,8 +417,8 @@ const Contact = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.body.style.backgroundColor = "#E7E7E7";
-    setPageColor("#E7E7E7");
+    document.body.style.backgroundColor = '#E7E7E7';
+    setPageColor('#E7E7E7');
   }, [setPageColor]);
 
   useEffect(() => {
@@ -427,19 +427,19 @@ const Contact = props => {
       footerBackground: props => props.theme.grayLight,
       footerDisplay: false,
       footerFixed: false,
-      sidebarBackground: "transparent"
+      sidebarBackground: 'transparent'
     });
   }, [setGlobalConfig]);
 
   useEffect(() => {
     return () => {
-      document.body.style.backgroundColor = "#FFFFFF";
+      document.body.style.backgroundColor = '#FFFFFF';
       setGlobalConfig({
-        headerBackground: "transparent",
-        footerBackground: "transparent",
+        headerBackground: 'transparent',
+        footerBackground: 'transparent',
         footerDisplay: false,
         footerFixed: true,
-        sidebarBackground: "transparent"
+        sidebarBackground: 'transparent'
       });
     };
   }, [setGlobalConfig]);
@@ -462,7 +462,7 @@ const Contact = props => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                10250 Consteallation Boulevard
+                10250 Constellation Boulevard
                 <br />
                 Los Angeles, California 90067
               </a>

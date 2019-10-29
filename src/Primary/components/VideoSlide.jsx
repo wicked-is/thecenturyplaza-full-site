@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components/macro";
-import ReactPlayer from "react-player";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import Context from "../../config/Context";
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import styled from 'styled-components/macro';
+import ReactPlayer from 'react-player';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import Context from '../../config/Context';
 import {
   SlideMaskStyled,
   SlideContainerStyled,
   PlayerContainerStyled,
   FullScreenStyled
-} from "Primary/style.js";
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-import SlideVideoScrollController from "shared/components/SlideVideoScrollController.jsx";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
+} from 'Primary/style.js';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
+import SlideVideoScrollController from 'shared/components/SlideVideoScrollController.jsx';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};
@@ -44,7 +44,7 @@ const PlaceHolder = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: ${props => (props.activePlaceholder ? "900" : "100")};
+  z-index: ${props => (props.activePlaceholder ? '900' : '100')};
 
   img {
     width: 100vw;
@@ -62,16 +62,16 @@ const PlaceHolder = styled.div`
 `;
 
 const videoElement = () => ({
-  width: "100vw",
-  height: "56.25vw",
-  minHeight: "100vh",
-  minWidth: "177.77vh",
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  background: "transparent",
-  zIndex: "500"
+  width: '100vw',
+  height: '56.25vw',
+  minHeight: '100vh',
+  minWidth: '177.77vh',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  background: 'transparent',
+  zIndex: '500'
 });
 
 const VideoSlide = ({
@@ -89,6 +89,7 @@ const VideoSlide = ({
   slideIndex //Used For FooterCaptions
 }) => {
   const context = useContext(Context);
+  const VideoRef = useRef(null);
   const {
     firstLocation,
     pauseScroll,
@@ -125,7 +126,7 @@ const VideoSlide = ({
       isFirstSection &&
       isFirstSlide &&
       !hasPlayed &&
-      (firstLocation === window.location.pathname || firstLocation === "/")
+      (firstLocation === window.location.pathname || firstLocation === '/')
     ) {
       startTimer();
       markPlayed();
@@ -214,11 +215,20 @@ const VideoSlide = ({
                 <ResponsiveImage srcPath={slide.placeholder} />
               </PlaceHolder>
               <ReactPlayer
+                ref={VideoRef}
                 url={slide.source[0]}
                 muted
-                playing={startVideo}
-                playsinline
                 loop
+                playing={startVideo}
+                onProgress={progress => {
+                  if (progress.played >= 0.95) {
+                    VideoRef.current.seekTo(0);
+                  }
+                }}
+                onEnded={() => {
+                  VideoRef.current.seekTo(0);
+                }}
+                playsinline
                 width="100vw"
                 height="56.25vw"
                 onReady={removePlaceholder}
