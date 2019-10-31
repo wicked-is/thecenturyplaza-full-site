@@ -35,7 +35,9 @@ export const PageHeader = css`
   transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props =>
-      props.isExpanded && window.location.pathname.includes("/home")
+      props.isExpanded &&
+      (window.location.pathname.includes("/intro") ||
+        window.location.pathname === "/")
         ? "-" + props.theme.desktopHeaderHeight + "px"
         : "0"}
   );
@@ -82,8 +84,8 @@ export const PageFooter = css`
   );
   visibility: ${props => (props.navActive ? "hidden" : "visible")};
   overflow: ${props => (props.navActive ? "hidden" : "visible")};
-  opacity: 0;
-  animation: ${enterFadeIn};
+  opacity: ${props => (props.hasCaptions ? 1 : 0)};
+  animation: ${props => (props.hasCaptions ? "none" : enterFadeIn)};
   will-change: opacity;
 
   ${mediaMin.phoneXL`

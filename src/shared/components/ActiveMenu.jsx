@@ -11,14 +11,14 @@ const ActiveMenuContainer = styled.ul`
 const ActiveMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { pauseScroll } = context;
+  const { pauseScroll, isSection } = context;
 
   const ActiveMenuLink = props => (
     <li>
       <Link
         {...props}
-        getProps={({ isPartiallyCurrent }) => {
-          return isPartiallyCurrent ? { className: "active" } : null;
+        getProps={() => {
+          return isSection === props.index ? { className: "active" } : null;
         }}
       />
     </li>
@@ -26,7 +26,7 @@ const ActiveMenu = props => {
 
   const PrimaryMenu = () =>
     primaryData.map((section, index) => (
-      <ActiveMenuLink key={index} to={section.slug}>
+      <ActiveMenuLink key={index} index={index} to={section.slug}>
         {section.title}
       </ActiveMenuLink>
     ));
@@ -44,11 +44,28 @@ const ActiveMenu = props => {
   return (
     <nav>
       <ActiveMenuContainer pauseScroll={pauseScroll}>
-        {primaryData.map((section, index) => (
-          <Match key={index} path={"/" + section.slug + "/*"}>
-            {props => props.match && <PrimaryMenu />}
-          </Match>
-        ))}
+        <Match path={"/"}>{props => props.match && <PrimaryMenu />}</Match>
+        <Match path={primaryData[0].slides[0].slug}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[0].slides[1].slug}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[0].slides[2].slug}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[0].slides[3].slug}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[1].slug + "/*"}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[2].slug + "/*"}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
+        <Match path={primaryData[3].slug + "/*"}>
+          {props => props.match && <PrimaryMenu />}
+        </Match>
         <Match path="/neighborhood">
           {props => props.match && <SecondaryMenu />}
         </Match>
