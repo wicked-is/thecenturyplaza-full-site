@@ -11,14 +11,14 @@ const ActiveMenuContainer = styled.ul`
 const ActiveMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
-  const { pauseScroll } = context;
+  const { pauseScroll, isSection } = context;
 
   const ActiveMenuLink = props => (
     <li>
       <Link
         {...props}
-        getProps={({ isPartiallyCurrent }) => {
-          return isPartiallyCurrent ? { className: "active" } : null;
+        getProps={() => {
+          return isSection === props.index ? { className: "active" } : null;
         }}
       />
     </li>

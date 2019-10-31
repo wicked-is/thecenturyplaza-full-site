@@ -246,8 +246,8 @@ const MainMenu = props => {
       <LinksContainer>
         <PrimaryLinks>
           <li>
-            <Link to={"/" + primaryData[0].slides[0].slug} onClick={toggleMenu}>
-              {primaryData[0].slides[0].title}
+            <Link to={"/"} onClick={toggleMenu}>
+              Century Plaza
             </Link>
           </li>
           {primaryData.slice(1).map((section, index) => (
