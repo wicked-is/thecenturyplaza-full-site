@@ -1,11 +1,11 @@
-import React from 'react';
-import { Router } from '@reach/router';
-import VideoSlide from 'Primary/components/VideoSlide.jsx';
-import SplitSlide from 'Primary/components/SplitSlide.jsx';
-import ImageSlide from 'Primary/components/ImageSlide.jsx';
-import CrossFadeSlide from 'Primary/components/CrossFadeSlide.jsx';
-import TextSlide from 'Primary/components/TextSlide.jsx';
-import PanoramaSlide from 'Primary/components/PanoSlide.jsx';
+import React from "react";
+import { Router } from "@reach/router";
+import VideoSlide from "Primary/components/VideoSlide.jsx";
+import SplitSlide from "Primary/components/SplitSlide.jsx";
+import ImageSlide from "Primary/components/ImageSlide.jsx";
+import CrossFadeSlide from "Primary/components/CrossFadeSlide.jsx";
+import TextSlide from "Primary/components/TextSlide.jsx";
+import PanoramaSlide from "Primary/components/PanoSlide.jsx";
 
 const Section = ({
   section,
@@ -22,23 +22,38 @@ const Section = ({
 
     let previousPath;
     if (index !== 0) {
-      previousPath = '/' + section.slug + '/' + section.slides[index - 1].slug;
+      if (sectionIndex === 0) {
+        previousPath = "/" + section.slides[index - 1].slug;
+      } else {
+        previousPath =
+          "/" + section.slug + "/" + section.slides[index - 1].slug;
+      }
     } else {
       if (previousSectionPath === null) {
-        previousPath = '/' + section.slug; // First Slide
+        previousPath = "/" + section.slug; // First Slide
       } else {
-        previousPath = '/' + previousSectionPath;
+        // Only applicable if returning to Section 0 where there is no root path
+        if (sectionIndex === 1) {
+          previousPath = previousSectionPath;
+        } else {
+          previousPath = "/" + previousSectionPath;
+        }
       }
     }
 
     let nextPath;
     if (index !== section.slides.length - 1) {
-      nextPath = '/' + section.slug + '/' + section.slides[index + 1].slug;
+      // Only applicable if advancing in Section 0 where there is no root path
+      if (sectionIndex === 0) {
+        nextPath = "/" + section.slides[index + 1].slug;
+      } else {
+        nextPath = "/" + section.slug + "/" + section.slides[index + 1].slug;
+      }
     } else {
       if (nextSectionPath === null) {
-        nextPath = '/continue'; // Last Slide
+        nextPath = "/continue"; // Last Slide
       } else {
-        nextPath = '/' + nextSectionPath;
+        nextPath = "/" + nextSectionPath;
       }
     }
 
@@ -51,7 +66,7 @@ const Section = ({
       firstSectionSlide = false;
     }
 
-    if (slide.type === 'video') {
+    if (slide.type === "video") {
       return (
         <VideoSlide
           isFirstSection={isFirstSection}
@@ -70,7 +85,7 @@ const Section = ({
           slideIndex={index}
         />
       );
-    } else if (slide.type === 'image') {
+    } else if (slide.type === "image") {
       return (
         <ImageSlide
           isFirstSection={isFirstSection}
@@ -85,7 +100,7 @@ const Section = ({
           slideIndex={index}
         />
       );
-    } else if (slide.type === 'crossfade') {
+    } else if (slide.type === "crossfade") {
       return (
         <CrossFadeSlide
           isFirstSection={isFirstSection}
@@ -100,7 +115,7 @@ const Section = ({
           slideIndex={index}
         />
       );
-    } else if (slide.type === 'split') {
+    } else if (slide.type === "split") {
       return (
         <SplitSlide
           isFirstSection={isFirstSection}
@@ -115,7 +130,7 @@ const Section = ({
           slideIndex={index}
         />
       );
-    } else if (slide.type === 'text') {
+    } else if (slide.type === "text") {
       return (
         <TextSlide
           isFirstSection={isFirstSection}
@@ -130,7 +145,7 @@ const Section = ({
           slideIndex={index}
         />
       );
-    } else if (slide.type === 'panorama') {
+    } else if (slide.type === "panorama") {
       return (
         <PanoramaSlide
           isFirstSection={isFirstSection}

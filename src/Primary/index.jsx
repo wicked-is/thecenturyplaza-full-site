@@ -1,34 +1,39 @@
-import React, { useEffect, useContext } from 'react';
-import Context from '../config/Context';
-import { Router } from '@reach/router';
-import styled from 'styled-components/macro';
-import { ViewportWrapper } from '../shared/styled-components/Layouts.js';
-import Section from 'Primary/components/Section.jsx';
+import React, { useEffect, useContext } from "react";
+import Context from "../config/Context";
+import { Router } from "@reach/router";
+import styled from "styled-components/macro";
+import { ViewportWrapper } from "../shared/styled-components/Layouts.js";
+import Section from "Primary/components/Section.jsx";
 
 const PrimaryWrapper = styled.div`
   ${ViewportWrapper};
 `;
 
 const Primary = props => {
-  const { isExpanded, primaryData, setPageColor } = props;
+  const { isExpanded, primaryData, setPageColor, sectionIndex } = props;
   const context = useContext(Context);
   const { setHasCaptions, setGlobalConfig, navActive } = context;
 
-  const getPreviousSectionPath = index =>
-    index !== 0
-      ? primaryData[index - 1].slug +
-        '/' +
+  const getPreviousSectionPath = index => {
+    if (index !== 0) {
+      return (
+        primaryData[index - 1].slug +
+        "/" +
         primaryData[index - 1].slides[primaryData[index - 1].slides.length - 1]
           .slug
-      : null;
+      );
+    } else {
+      return null;
+    }
+  };
 
   const getNextSectionPath = index =>
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
     setHasCaptions(true);
-    document.body.style.backgroundColor = '#FFFFFF';
-    setPageColor('white');
+    document.body.style.backgroundColor = "#FFFFFF";
+    setPageColor("white");
   }, [setHasCaptions, setPageColor]);
 
   useEffect(() => {
@@ -39,11 +44,11 @@ const Primary = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      headerBackground: 'white',
-      footerBackground: 'white',
+      headerBackground: "white",
+      footerBackground: "white",
       footerDisplay: true,
       footerFixed: true,
-      sidebarBackground: 'white'
+      sidebarBackground: "white"
     });
   }, [setGlobalConfig]);
 
@@ -53,7 +58,7 @@ const Primary = props => {
         {primaryData.map((section, index) => (
           <Section
             key={index}
-            path={section.slug + '/*'}
+            path={section.slug + "/*"}
             isFirstSection={index === 0 && true}
             isExpanded={isExpanded}
             toggleExpand={props.toggleExpand}
@@ -63,7 +68,7 @@ const Primary = props => {
               primaryData[index - 1] ? primaryData[index - 1] : null
             }
             nextSection={primaryData[index + 1] ? primaryData[index + 1] : null}
-            previousSectionPath={getPreviousSectionPath(index)}
+            previousSectionPath={getPreviousSectionPath(index, sectionIndex)}
             nextSectionPath={getNextSectionPath(index)}
             sectionIndex={index}
           />

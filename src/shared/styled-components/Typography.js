@@ -35,7 +35,9 @@ export const PageHeader = css`
   transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props =>
-      props.isExpanded && window.location.pathname.includes("/home")
+      props.isExpanded &&
+      (window.location.pathname.includes("/intro") ||
+        window.location.pathname === "/")
         ? "-" + props.theme.desktopHeaderHeight + "px"
         : "0"}
   );

@@ -245,7 +245,12 @@ const MainMenu = props => {
     <MainMenuWrapper navActive={navActive}>
       <LinksContainer>
         <PrimaryLinks>
-          {primaryData.map((section, index) => (
+          <li>
+            <Link to={"/" + primaryData[0].slides[0].slug} onClick={toggleMenu}>
+              {primaryData[0].slides[0].title}
+            </Link>
+          </li>
+          {primaryData.slice(1).map((section, index) => (
             <li key={index}>
               <Link
                 to={"/" + section.slug + "/" + section.slides[0].slug}
