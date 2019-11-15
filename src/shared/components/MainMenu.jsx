@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
-import Context from "../../config/Context";
-import { Link } from "@reach/router";
-import styled from "styled-components/macro";
-import { mediaMin } from "shared/styled-components/MediaQueries.js";
+import React, { useContext } from 'react';
+import Context from '../../config/Context';
+import { Link } from '@reach/router';
+import styled from 'styled-components/macro';
+import { mediaMin } from 'shared/styled-components/MediaQueries.js';
 
 const MainMenuWrapper = styled.div`
-  opacity: ${props => (props.navActive ? "1" : "0")};
-  visibility: ${props => (props.navActive ? "visible" : "hidden")};
-  display: ${props => (props.navActive ? "flex" : "none")};
+  opacity: ${props => (props.navActive ? '1' : '0')};
+  visibility: ${props => (props.navActive ? 'visible' : 'hidden')};
+  display: ${props => (props.navActive ? 'flex' : 'none')};
   flex-wrap: wrap;
   position: relative;
   width: 100vw;
   height: 100%;
   min-height: 100vh;
-  z-index: ${props => (props.navActive ? "10000" : "0")};
+  z-index: ${props => (props.navActive ? '10000' : '0')};
   text-indent: 0;
   color: ${props => props.theme.gray};
   background: ${props => props.theme.black};
@@ -246,14 +246,14 @@ const MainMenu = props => {
       <LinksContainer>
         <PrimaryLinks>
           <li>
-            <Link to={"/"} onClick={toggleMenu}>
+            <Link to={'/'} onClick={toggleMenu}>
               Century Plaza
             </Link>
           </li>
           {primaryData.slice(1).map((section, index) => (
             <li key={index}>
               <Link
-                to={"/" + section.slug + "/" + section.slides[0].slug}
+                to={'/' + section.slug + '/' + section.slides[0].slug}
                 onClick={toggleMenu}
               >
                 {section.title}
@@ -296,7 +296,7 @@ const MainMenu = props => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              10250 Consteallation Boulevard
+              10250 Constellation Boulevard
               <br />
               Los Angeles, California 90067
             </a>
@@ -319,7 +319,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
+                '/downloads/Century-Plaza-Newsletter-2017-Q2.pdf'
               }
               target="_blank"
               rel="noopener noreferrer"
@@ -331,7 +331,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                "/downloads/Fairmont-Century-Plaza-Residences.pdf"
+                '/downloads/Fairmont-Century-Plaza-Residences.pdf'
               }
               target="_blank"
               rel="noopener noreferrer"
@@ -343,7 +343,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                "/downloads/Century-Plaza_Tower-Residences.pdf"
+                '/downloads/Century-Plaza_Tower-Residences.pdf'
               }
               target="_blank"
               rel="noopener noreferrer"
