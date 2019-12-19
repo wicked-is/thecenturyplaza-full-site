@@ -138,8 +138,14 @@ const FormRow = styled.div`
   flex-direction: row;
   width: 100%;
   margin-bottom: 24px;
+  
   .react-select-container {
     width: 25%;
+    .react-select__placeholder {
+      font-weight: bold;
+      font-family: 'Austin-Medium';
+      color: black;
+    }
     .react-select__indicator-separator {
       display: none;
     }
@@ -181,6 +187,24 @@ const TextInput = styled.input`
   box-sizing: border-box;
   letter-spacing: 0.1em;
 
+  ::placeholder {
+    color: ${props => props.theme.black};
+    font-weight: bold;
+    font-family: 'Austin-Medium';
+  }
+
+  :-ms-input-placeholder {
+    color: ${props => props.theme.black};
+    font-weight: bold;
+    font-family: 'Austin-Medium';
+  }
+
+  ::-ms-input-placeholder {
+    color: ${props => props.theme.black};
+    font-weight: bold;
+    font-family: 'Austin-Medium';
+  }
+
   width: ${props => {
     if (props.halfWidth) return '50%';
     if (props.quarterWidth) return '25%';
@@ -194,11 +218,7 @@ const TextInput = styled.input`
   &:last-child {
     margin-right: 0;
   }
-
-  &:placeholder {
-    colors: ${props => props.theme.black};
-  }
-
+  
   &:focus {
     outline: none;
     colors: white;
@@ -217,6 +237,8 @@ const RadioInput = styled.label`
   color: ${props => props.theme.black};
   letter-spacing: 0.1em;
   cursor: pointer;
+  font-weight: bold;
+  font-family: 'Austin-Medium';
 
   &:first-child {
     margin-left: 0;
@@ -239,6 +261,24 @@ const RadioInput = styled.label`
     cursor: pointer;
     outline: none;
     border: 1px solid ${props => props.theme.black};
+
+    ::placeholder {
+      color: ${props => props.theme.black};
+      font-weight: bold;
+      font-family: 'Austin-Medium';
+    }
+
+    :-ms-input-placeholder {
+      color: ${props => props.theme.black};
+      font-weight: bold;
+      font-family: 'Austin-Medium';
+    }
+
+    ::-ms-input-placeholder {
+      color: ${props => props.theme.black};
+      font-weight: bold;
+      font-family: 'Austin-Medium';
+    }
 
     &:checked {
       background-color: transparent;
