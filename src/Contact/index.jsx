@@ -138,7 +138,7 @@ const FormRow = styled.div`
   flex-direction: row;
   width: 100%;
   margin-bottom: 24px;
-  
+
   .react-select-container {
     width: 25%;
     .react-select__placeholder {
@@ -218,7 +218,7 @@ const TextInput = styled.input`
   &:last-child {
     margin-right: 0;
   }
-  
+
   &:focus {
     outline: none;
     colors: white;
@@ -428,7 +428,7 @@ const Contact = props => {
     e.preventDefault();
     if (!checkForErrors()) {
       $.ajax({
-        url: 'http://form.api.dbxd.com/post-buildercms-form/',
+        url: 'https://form.api.dbxd.com/post-buildercms-form/',
         type: 'POST',
         dataType: 'json',
         data: parseFormData(),
