@@ -142,9 +142,8 @@ const FormRow = styled.div`
   .react-select-container {
     width: 25%;
     .react-select__placeholder {
-      // font-weight: bold;
       font-family: ${props => props.theme.sansSerifRegular};
-      color: black;
+      color: ${props => props.theme.black};
     }
     .react-select__indicator-separator {
       display: none;
