@@ -186,6 +186,7 @@ const TextInput = styled.input`
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
+  font-family: ${props => props.theme.sansSerifRegular};
 
   ::placeholder {
     color: ${props => props.theme.black};
