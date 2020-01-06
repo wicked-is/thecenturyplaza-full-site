@@ -190,19 +190,19 @@ const TextInput = styled.input`
   ::placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   :-ms-input-placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   ::-ms-input-placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   width: ${props => {
@@ -238,7 +238,7 @@ const RadioInput = styled.label`
   letter-spacing: 0.1em;
   cursor: pointer;
   font-weight: bold;
-  font-family: 'Austin-Medium';
+  font-family: ${props => props.theme.sansSerifRegular};
 
   &:first-child {
     margin-left: 0;
@@ -265,19 +265,19 @@ const RadioInput = styled.label`
     ::placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     :-ms-input-placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     ::-ms-input-placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     &:checked {
