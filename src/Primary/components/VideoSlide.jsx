@@ -13,6 +13,8 @@ import SlideForward from 'shared/components/SlideForward.jsx';
 import SlideBackward from 'shared/components/SlideBackward.jsx';
 import SlideVideoScrollController from 'shared/components/SlideVideoScrollController.jsx';
 import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries';
+import CPLogo from 'icons/logo-white-with-sub.svg';
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};
@@ -59,6 +61,17 @@ const PlaceHolder = styled.div`
     display: inline-block;
     position: relative;
   }
+`;
+
+const Logo = styled.img`
+  width: 80%;
+  ${mediaMin.tabletLandscape`
+    width: 40%;
+  `}
+  z-index: 1000;
+  opacity: ${props => (props.isExpanded ? '1' : '0')};
+  visibility: ${props => (props.isExpanded ? 'visible' : 'hidden')};
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 `;
 
 const videoElement = () => ({
@@ -208,6 +221,11 @@ const VideoSlide = ({
             firstSectionSlide={firstSectionSlide}
           >
             <FullScreen isExpanded={isExpanded}>
+              <Logo
+                src={CPLogo}
+                alt="century plaza logo"
+                isExpanded={isExpanded}
+              />
               <PlaceHolder
                 activePlaceholder={activePlaceholder}
                 isExpanded={isExpanded}
