@@ -1,15 +1,14 @@
-import React, { useContext } from "react";
-import { Link, Location } from "@reach/router";
-import styled from "styled-components/macro";
-import { mediaMin } from "../styled-components/MediaQueries.js";
-import Context from "../../config/Context";
-import ActiveMenu from "shared/components/ActiveMenu.jsx";
+import React, { useContext } from 'react';
+import { Link, Location } from '@reach/router';
+import styled from 'styled-components/macro';
+import { mediaMin } from '../styled-components/MediaQueries.js';
+import Context from '../../config/Context';
+import ActiveMenu from 'shared/components/ActiveMenu.jsx';
 
-import logoBlackSVG from "icons/logo-black.svg";
-import logoGraySVG from "icons/logo-gray.svg";
-import hamburgerBlackSVG from "icons/hamburger-black.svg";
-import closeGraySVG from "icons/close-gray.svg";
-import closeBlackSVG from "icons/close-black.svg";
+import logoBlackSVG from 'icons/logo-black.svg';
+import logoGraySVG from 'icons/logo-gray.svg';
+import hamburgerBlackSVG from 'icons/hamburger-black.svg';
+import closeGraySVG from 'icons/close-gray.svg';
 
 const HeaderContainer = styled.header`
   display: inline-block;
@@ -33,7 +32,10 @@ const NavRow = styled.div`
   );
   justify-content: space-between;
   padding: 30px ${props => props.theme.mobileSideMargin}px 0;
-
+  .logo {
+    display: flex;
+    align-items: center;
+  }
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
       parseFloat(props.theme.desktopSideMargin) * 2}px);
@@ -41,35 +43,52 @@ const NavRow = styled.div`
   `}
 `;
 
+const HamburgerRow = styled.div`
+  display: flex;
+  align-items: center;
+  top: 20px;
+  z-index: 11000;
+  ${mediaMin.phoneXL`
+    top: 10px;
+  `}
+  ${mediaMin.tablet`
+    top: 30px;
+  `}
+  ${mediaMin.tabletLandscape`
+    right: ${props => props.theme.desktopSideMargin}px;
+  `}
+  .register {
+    display: none;
+    ${mediaMin.tabletLandscape`
+    display: flex;
+    `}
+    align-items: center;
+    margin-right: 32px;
+    border: 1px solid ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+    padding: 8px 16px;
+    cursor: pointer;
+    color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+    &:visited{
+      color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+    }
+    &:hover{
+      opacity: .5;
+    }
+  }
+`;
+
 const Logo = styled.div`
-  left: ${props => props.theme.mobileSideMargin}px;
-  top: 22px;
-  display: inline-block;
   width: 250px;
   height: 16px;
   z-index: 11000;
-  position: absolute;
   background: url(${props => (props.navActive ? logoGraySVG : logoBlackSVG)})
       no-repeat center center,
     none;
-
-  ${mediaMin.phoneXL`
-  top: 12px;
-  `}
-  ${mediaMin.tablet`
-    top: 32px;
-  `}
-  
-  ${mediaMin.tabletLandscape`
-    left: ${props => props.theme.desktopSideMargin}px;
-  `}
 `;
 
 const Hamburger = styled.button`
   right: ${props => props.theme.mobileSideMargin}px;
-  top: 20px;
-  position: absolute;
-  display: inline-block;
+
   width: 25px;
   height: 20px;
   overflow: hidden;
@@ -77,10 +96,10 @@ const Hamburger = styled.button`
   text-indent: -99999px;
 
   background: url(${props => {
-    if (props.navActive) return closeGraySVG;
-    if (props.isLight) return hamburgerBlackSVG;
-    return hamburgerBlackSVG;
-  }})
+        if (props.navActive) return closeGraySVG;
+        if (props.isLight) return hamburgerBlackSVG;
+        return hamburgerBlackSVG;
+      }})
       no-repeat center center,
     none;
   cursor: pointer;
@@ -89,7 +108,7 @@ const Hamburger = styled.button`
 
   &:hover {
     background: url(${props =>
-      props.navActive ? closeGraySVG : hamburgerBlackSVG})
+          props.navActive ? closeGraySVG : hamburgerBlackSVG})
         no-repeat center center,
       none;
   }
@@ -97,96 +116,34 @@ const Hamburger = styled.button`
   &:focus {
     outline: none;
   }
-
-  ${mediaMin.phoneXL`
-    top: 10px;
-  `}
-  ${mediaMin.tablet`
-    top: 30px;
-  `}
-
-  ${mediaMin.tabletLandscape`
-    right: ${props => props.theme.desktopSideMargin}px;
-  `}
 `;
 
-const Close = styled.span`
-  right: ${props => props.theme.mobileSideMargin}px;
-  top: 22px;
-  position: absolute;
-  display: inline-block;
-  width: 25px;
-  height: 16px;
-  overflow: hidden;
-  border: 0;
-  text-indent: -99999px;
-
-  background: url(${closeBlackSVG}) no-repeat center center, none;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  z-index: 11000;
-
-  &:hover {
-    background: url(${closeBlackSVG}) no-repeat center center, none;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  ${mediaMin.phoneXL`
-  top: 12px;
-  `}
-  
-  ${mediaMin.tablet`
-    top: 32px;
-  `}
-
-  ${mediaMin.tabletLandscape`
-    right: ${props => props.theme.desktopSideMargin}px;
-  `}
-`;
-
-const Header = ({ primaryData, pageColor }) => {
+const Header = ({ primaryData }) => {
   const context = useContext(Context);
-  const { navActive, toggleMenu, returnPath } = context;
+  const { navActive, toggleMenu } = context;
 
   return (
     <Location>
-      {({ location }) => {
+      {() => {
         return (
           <HeaderContainer navActive={navActive}>
             <NavRow>
-              <Link to="/">
+              <Link className="logo" to="/">
                 <Logo
                   navActive={navActive}
-                  isLight={
-                    location.pathname === "/contact" ||
-                    location.pathname === "broker-portal"
-                  }
                   onClick={navActive ? toggleMenu : undefined}
                 />
               </Link>
-              {returnPath === null ||
-              returnPath === window.location.pathname ? (
-                <Hamburger
-                  isLight={
-                    location.pathname === "/contact" ||
-                    location.pathname === "broker-portal"
-                  }
-                  navActive={navActive}
-                  onClick={toggleMenu}
-                />
-              ) : (
-                <Link to={returnPath}>
-                  <Close
-                    isLight={
-                      location.pathname === "/contact" ||
-                      location.pathname === "broker-portal"
-                    }
-                  />
+              <HamburgerRow isLight={navActive}>
+                <Link
+                  onClick={navActive ? toggleMenu : undefined}
+                  className="register"
+                  to="/contact"
+                >
+                  REGISTER
                 </Link>
-              )}
+                <Hamburger navActive={navActive} onClick={toggleMenu} />
+              </HamburgerRow>
             </NavRow>
             <ActiveMenu primaryData={primaryData} />
           </HeaderContainer>

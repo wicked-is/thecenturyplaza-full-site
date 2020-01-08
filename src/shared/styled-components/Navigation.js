@@ -9,10 +9,12 @@ import { mediaMin } from '../styled-components/MediaQueries.js';
 export const ActiveMenuContainerStyled = css`
   display: none;
 
-  ${mediaMin.tabletLandscape`
-    display: inline-block;
+  ${mediaMin.desktopSmall`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 121%;
-    height: auto;
+    height: 40px;
     text-align: center;
     top: 15px;
     position: absolute;

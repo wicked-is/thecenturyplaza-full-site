@@ -355,11 +355,6 @@ const MainMenu = props => {
       </LinksContainer>
       <FooterLinks>
         <li>
-          <Link to="/contact" onClick={declareReturnPath}>
-            Contact
-          </Link>
-        </li>
-        <li>
           <Link to="/broker-portal" onClick={declareReturnPath}>
             Broker Portal
           </Link>
