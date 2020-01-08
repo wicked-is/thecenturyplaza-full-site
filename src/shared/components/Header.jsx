@@ -11,7 +11,7 @@ import hamburgerBlackSVG from 'icons/hamburger-black.svg';
 import closeGraySVG from 'icons/close-gray.svg';
 
 const HeaderContainer = styled.header`
-  display: inline-block;
+  display: flex;
   position: relative;
   width: 100%;
   height: ${props => props.theme.mobilePortraitHeaderHeight}px;
@@ -31,7 +31,7 @@ const NavRow = styled.div`
     100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
   );
   justify-content: space-between;
-  padding: 30px ${props => props.theme.mobileSideMargin}px 0;
+  padding: 0 ${props => props.theme.mobileSideMargin}px;
   .logo {
     display: flex;
     align-items: center;
@@ -39,7 +39,6 @@ const NavRow = styled.div`
   ${mediaMin.tabletLandscape`
     width: calc(100vw - ${props =>
       parseFloat(props.theme.desktopSideMargin) * 2}px);
-    padding: 30px ${props => props.theme.desktopSideMargin}px 0;
   `}
 `;
 

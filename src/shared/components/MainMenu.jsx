@@ -212,6 +212,11 @@ const FooterLinks = styled.ul`
       display: inline-block;
       margin: 0 0 0 20px;
     `}
+    &.mobile-only {
+      ${mediaMin.tabletLandscape`
+        display: none;
+      `}
+    }
 
     a {
       color: ${props => props.theme.gray};
@@ -354,6 +359,11 @@ const MainMenu = props => {
         </DownloadsLinks>
       </LinksContainer>
       <FooterLinks>
+        <li className="mobile-only">
+          <Link to="/contact" onClick={declareReturnPath}>
+            Contact
+          </Link>
+        </li>
         <li>
           <Link to="/broker-portal" onClick={declareReturnPath}>
             Broker Portal
