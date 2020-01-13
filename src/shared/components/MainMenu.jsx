@@ -111,6 +111,9 @@ const InfoCluster = styled.div`
     position: absolute;
     left: ${props => props.theme.desktopSideMargin}px;
     top: 0;
+    .mobile{
+      display: none;
+    }
  `}
 
   p {
@@ -120,8 +123,12 @@ const InfoCluster = styled.div`
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    margin: 0 0 20px;
-
+    margin: 20px 0 30px;
+    &.margin-top-0 {
+      ${mediaMin.tabletLandscape`
+        margin-top: 0;
+      `}
+    }
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
@@ -139,7 +146,7 @@ const InfoCluster = styled.div`
 
   > a {
     display: inline-block;
-    margin: 10px 0 30px;
+    margin: 10px 0;
     font-family: ${props => props.theme.sansSerifRegular};
     color: ${props => props.theme.gray};
     text-decoration: none;
@@ -212,6 +219,11 @@ const FooterLinks = styled.ul`
       display: inline-block;
       margin: 0 0 0 20px;
     `}
+    &.mobile-only {
+      ${mediaMin.tabletLandscape`
+        display: none;
+      `}
+    }
 
     a {
       color: ${props => props.theme.gray};
@@ -289,7 +301,10 @@ const MainMenu = props => {
           </li>
         </SecondaryLinks>
         <InfoCluster>
-          <p>
+          <Link to="/contact" onClick={declareReturnPath} className="mobile">
+            Register Your Interest
+          </Link>
+          <p className="margin-top-0">
             <strong>Sales Gallery</strong>
             <a
               href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
@@ -309,9 +324,6 @@ const MainMenu = props => {
               info@thecenturyplaza.com
             </a>
           </p>
-          <Link to="/contact" onClick={declareReturnPath}>
-            Register Your Interest
-          </Link>
         </InfoCluster>
         <DownloadsLinks>
           <li>Downloads</li>
@@ -354,7 +366,7 @@ const MainMenu = props => {
         </DownloadsLinks>
       </LinksContainer>
       <FooterLinks>
-        <li>
+        <li className="mobile-only">
           <Link to="/contact" onClick={declareReturnPath}>
             Contact
           </Link>

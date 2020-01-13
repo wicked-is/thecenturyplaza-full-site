@@ -1,24 +1,25 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 import {
   enterActiveLink,
   enterFromBottomText,
   enterFadeIn
-} from "../styled-components/Transitions.js";
-import { mediaMin } from "../styled-components/MediaQueries.js";
+} from '../styled-components/Transitions.js';
+import { mediaMin } from '../styled-components/MediaQueries.js';
 
 export const ActiveMenuContainerStyled = css`
   display: none;
 
-  ${mediaMin.tabletLandscape`
-    display: inline-block;
-    width: 121%;
-    height: auto;
+  ${mediaMin.desktopSmall`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     text-align: center;
     top: 15px;
-    position: absolute;
     padding: 0;
     opacity: 1;
-
+    margin: 0;
     li {
       display: inline-block;
       margin: 0 15px;
@@ -71,7 +72,7 @@ export const ActiveMenuContainerStyled = css`
 `;
 
 export const SecondaryMenuContainerStyled = css`
-   display: ${props => (props.navActive ? "none" : "inline-block")};
+   display: ${props => (props.navActive ? 'none' : 'inline-block')};
   position: relative;
   width: auto;
   height: auto;
@@ -95,7 +96,7 @@ export const SecondaryMenuContainerStyled = css`
         font-family: ${props => props.theme.sansSerifThin};
         font-size: 28px;
         letter-spacing: 1.5px;
-        color:white;
+        color: white;
 
         &:hover {
           opacity: 0.5;
@@ -150,9 +151,7 @@ export const FooterWrapper = css`
         -moz-osx-font-smoothing: antialiased;
 
         color: ${props =>
-          props.navActive || props.isLight
-            ? props.theme.black
-            : props.theme.gray};
+          props.navActive || props.isLight ? props.theme.black : '#101820'};
         &:hover {
           opacity: 0.5;
         }

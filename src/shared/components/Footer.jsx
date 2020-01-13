@@ -1,13 +1,14 @@
-import React, { useState, useContext } from "react";
-import { Link, Location } from "@reach/router";
-import styled from "styled-components/macro";
-import Context from "../../config/Context";
+import React, { useState, useContext } from 'react';
+import { Link, Location } from '@reach/router';
+import styled from 'styled-components/macro';
+import parse from 'html-react-parser';
+
+import Context from '../../config/Context';
+import { FooterWrapper } from 'shared/styled-components/Navigation.js';
 import {
   SlideCaption,
   FooterMessage
-} from "../styled-components/Typography.js";
-import { FooterWrapper } from "shared/styled-components/Navigation.js";
-import parse from "html-react-parser";
+} from '../styled-components/Typography.js';
 
 const Wrapper = styled.footer`
   ${FooterWrapper};
@@ -48,22 +49,22 @@ const Footer = props => {
         <Wrapper
           navActive={navActive}
           isLight={
-            location.pathname === "/contact" ||
-            location.pathname === "/broker-portal"
+            location.pathname === '/contact' ||
+            location.pathname === '/broker-portal'
           }
         >
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length === 1 && (
               <Caption
                 emptyCaption={
-                  primaryData[isSection].slides[isSlide].caption[0] === ""
+                  primaryData[isSection].slides[isSlide].caption[0] === ''
                 }
                 isOpen={isOpen}
               >
                 <span>{parse(primaryData[isSection].title)}</span>
-                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
+                {primaryData[isSection].slides[isSlide].caption[0] !== '' && (
                   <button onClick={toggleCaption}>
-                    {isOpen ? "Close" : "Info"}
+                    {isOpen ? 'Close' : 'Info'}
                   </button>
                 )}
                 <p>
@@ -76,14 +77,14 @@ const Footer = props => {
             primaryData[isSection].slides[isSlide].caption.length > 1 && (
               <Caption
                 emptyCaption={
-                  primaryData[isSection].slides[isSlide].caption[0] === ""
+                  primaryData[isSection].slides[isSlide].caption[0] === ''
                 }
                 isOpen={isOpen}
               >
                 <span>{parse(primaryData[isSection].title)}</span>
-                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
+                {primaryData[isSection].slides[isSlide].caption[0] !== '' && (
                   <button onClick={toggleCaption}>
-                    {isOpen ? "Close" : "Info"}
+                    {isOpen ? 'Close' : 'Info'}
                   </button>
                 )}
                 <p>
@@ -95,37 +96,32 @@ const Footer = props => {
                 </p>
               </Caption>
             )}
-          {location.pathname === "/neighborhood" && (
+          {location.pathname === '/neighborhood' && (
             <Message>
               <Link to="/team">Meet the Team</Link>
             </Message>
           )}
-          {location.pathname.includes("team") && (
+          {location.pathname.includes('team') && (
             <Message>
               <Link to="/availability">Browse the Availability</Link>
             </Message>
           )}
-          {location.pathname.includes("availability") && (
+          {location.pathname.includes('availability') && (
             <Message>
               <Link to="/press">Read the Press</Link>
             </Message>
           )}
-          {location.pathname === "/press" && (
+          {location.pathname === '/press' && (
             <Message>
               <Link to="/gallery">View the Gallery</Link>
             </Message>
           )}
-          {location.pathname === "/gallery" && (
+          {location.pathname === '/gallery' && (
             <Message>
               <Link to="/contact">Visit the Sales Gallery</Link>
             </Message>
           )}
           <ul>
-            <li>
-              <Link onClick={declareReturnPath} to="/contact">
-                Contact
-              </Link>
-            </li>
             <li>
               <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
-import Context from "../config/Context";
-import { navigate } from "@reach/router";
+import React, { useState } from 'react';
+import Context from '../config/Context';
+import { navigate } from '@reach/router';
 
 const parsePress = pressData => {
   return pressData
@@ -28,11 +28,11 @@ const ContextProvider = props => {
   const [hasCaptions, setHasCaptions] = useState(false);
   const [activeCrossFade, setActiveCrossFade] = useState(1);
   const [globalConfig, setGlobalConfig] = useState({
-    headerBackground: "white",
-    footerBackground: "white",
+    headerBackground: 'white',
+    footerBackground: 'white',
     footerDisplay: true,
     footerFixed: true,
-    sidebarBackground: "white"
+    sidebarBackground: 'white'
   });
 
   const scrollCooldown = delay => {
@@ -44,7 +44,7 @@ const ContextProvider = props => {
     setNavActive(!navActive);
     window.scrollTo(0, 0);
     if (!navActive) {
-      document.body.style.backgroundColor = "#101820";
+      document.body.style.backgroundColor = '#101820';
     } else {
       document.body.style.backgroundColor = props.pageColor;
     }
@@ -71,10 +71,10 @@ const ContextProvider = props => {
   };
 
   const fetchPress = async () => {
-    console.log("Fetching Press");
+    console.log('Fetching Press');
     try {
       const pressData = await fetch(
-        "https://cms.dbox.com/wp-json/wp/v2/cp_press?per_page=100"
+        'https://cms.dbox.com/wp-json/wp/v2/cp_press?per_page=100'
       );
       const pressItems = await pressData.json();
       console.log(parsePress(pressItems));

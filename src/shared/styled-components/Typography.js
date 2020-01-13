@@ -1,8 +1,8 @@
-import { css } from "styled-components";
-import { enterFadeIn } from "shared/styled-components/Transitions.js";
-import { mediaMin } from "./MediaQueries.js";
-import plusCloseSVG from "icons/plus-icon.svg";
-import footerMessageSVG from "icons/footer-message.svg";
+import { css } from 'styled-components';
+import { enterFadeIn } from 'shared/styled-components/Transitions.js';
+import { mediaMin } from './MediaQueries.js';
+import plusCloseSVG from 'icons/plus-icon.svg';
+import footerMessageSVG from 'icons/footer-message.svg';
 
 export const PageBody = css`
   font-family: ${props => props.theme.sansSerifRegular}, courier;
@@ -13,7 +13,7 @@ export const PageBody = css`
   height: auto;
   min-height: 100%;
   position: relative;
-  ${"" /* overflow: auto; */}
+  ${'' /* overflow: auto; */}
 
   a {
     text-decoration: none;
@@ -36,10 +36,10 @@ export const PageHeader = css`
   transform: translateY(
     ${props =>
       props.isExpanded &&
-      (window.location.pathname.includes("/intro") ||
-        window.location.pathname === "/")
-        ? "-" + props.theme.desktopHeaderHeight + "px"
-        : "0"}
+      (window.location.pathname.includes('/intro') ||
+        window.location.pathname === '/')
+        ? '-' + props.theme.desktopHeaderHeight + 'px'
+        : '0'}
   );
   opacity: 0;
   animation: ${enterFadeIn};
@@ -62,37 +62,31 @@ export const PageHeader = css`
 `;
 
 export const PageFooter = css`
-  display: ${props => {
-    if (props.globalConfig.footerDisplay && !props.navActive)
-      return "inline-block";
-    if (props.globalConfig.footerDisplay && props.navActive) return "none";
-    if (!props.globalConfig.footerDisplay && !props.navActive) return "none";
-    return "none";
-  }};
-  position: ${props => (props.globalConfig.footerFixed ? "fixed" : "relative")};
+  display: ${props => (props.navActive ? 'none' : 'flex')};
+  position: ${props => (props.globalConfig.footerFixed ? 'fixed' : 'relative')};
   bottom: 0;
   left: 0;
   z-index: 900;
   width: 100%;
   height: ${props =>
-    props.navActive ? "0" : props.theme.mobilePortraitHeaderHeight + "px"};
+    props.navActive ? '0' : props.theme.mobilePortraitHeaderHeight + 'px'};
   background: ${props => props.globalConfig.footerBackground};
   transition: transform 0.5s ease-in-out;
   transform: translateY(
     ${props =>
-      props.isExpanded ? props.theme.mobilePortraitHeaderHeight + "px" : "0"}
+      props.isExpanded ? props.theme.mobilePortraitHeaderHeight + 'px' : '0'}
   );
-  visibility: ${props => (props.navActive ? "hidden" : "visible")};
-  overflow: ${props => (props.navActive ? "hidden" : "visible")};
+  visibility: ${props => (props.navActive ? 'hidden' : 'visible')};
+  overflow: ${props => (props.navActive ? 'hidden' : 'visible')};
   opacity: ${props => (props.hasCaptions ? 1 : 0)};
-  animation: ${props => (props.hasCaptions ? "none" : enterFadeIn)};
+  animation: ${props => (props.hasCaptions ? 'none' : enterFadeIn)};
   will-change: opacity;
 
   ${mediaMin.phoneXL`
     height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
     transform: translateY(
       ${props =>
-        props.isExpanded ? props.theme.mobileLandscapeHeaderHeight + "px" : "0"}
+        props.isExpanded ? props.theme.mobileLandscapeHeaderHeight + 'px' : '0'}
     );
   `}
 
@@ -100,14 +94,14 @@ export const PageFooter = css`
     height: ${props => props.theme.desktopHeaderHeight}px;
     transform: translateY(
       ${props =>
-        props.isExpanded ? props.theme.desktopHeaderHeight + "px" : "0"}
+        props.isExpanded ? props.theme.desktopHeaderHeight + 'px' : '0'}
     );
     
   `}
 
   ${mediaMin.tabletLandscape`
     position: ${props =>
-      props.globalConfig.footerFixed ? "fixed" : "absolute"};
+      props.globalConfig.footerFixed ? 'fixed' : 'absolute'};
   `}
   
   footer {
@@ -198,7 +192,7 @@ export const FooterMessage = css`
       display: inline-block;
       height: 0.5em;
       width: 100%;
-      content: "";
+      content: '';
       background: url(${footerMessageSVG}) no-repeat center center;
       background-size: contain;
       margin: 0.25em 0 0;
@@ -243,36 +237,36 @@ export const SlideCaption = css`
   will-change: opacity;
   transition: all 0.25s ease-in-out;
   ${
-    "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+    '' /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
   }
   transform: translateY(
-      ${props => (!props.emptyCaption && props.isOpen ? "-100%" : "0")}
+      ${props => (!props.emptyCaption && props.isOpen ? '-100%' : '0')}
     )
     translateY(${props =>
-      !props.emptyCaption && props.isOpen ? "36px" : "0"});
+      !props.emptyCaption && props.isOpen ? '36px' : '0'});
 
   ${mediaMin.phoneXL`
     padding: 14px ${props => props.theme.mobileSideMargin}px 0;
     ${
-      "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+      '' /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
     }
     transform: translateY(${props =>
       !props.emptyCaption && props.isOpen
-        ? "-100%"
-        : "0"}) translateY(${props =>
-    !props.emptyCaption && props.isOpen ? "26px" : "0"});
+        ? '-100%'
+        : '0'}) translateY(${props =>
+    !props.emptyCaption && props.isOpen ? '26px' : '0'});
   `}
 
   ${mediaMin.tablet`
     padding: 35px ${props => props.theme.mobileSideMargin}px 0;
     ${
-      "" /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
+      '' /* Second translateY should be top-padding - height, this ensures dynamic lift based on caption length. Cannot declare Calc inside Translate due to IE error. */
     }
     transform: translateY(${props =>
       !props.emptyCaption && props.isOpen
-        ? "-100%"
-        : "0"}) translateY(${props =>
-    !props.emptyCaption && props.isOpen ? "45px" : "0"});
+        ? '-100%'
+        : '0'}) translateY(${props =>
+    !props.emptyCaption && props.isOpen ? '45px' : '0'});
   `}
 
   ${mediaMin.tabletLandscape`
@@ -290,7 +284,7 @@ export const SlideCaption = css`
 
   p {
     display: inline-block;
-    opacity: ${props => (!props.emptyCaption && props.isOpen ? "1" : "0")};
+    opacity: ${props => (!props.emptyCaption && props.isOpen ? '1' : '0')};
     font-weight: 300;
     width: 100%;
     font-size: 12px;
@@ -330,7 +324,7 @@ export const SlideCaption = css`
       vertical-align: top;
       margin: 0 0.75em 0 0;
       transform: rotate(
-        ${props => (!props.emptyCaption && props.isOpen ? "45deg" : "0")}
+        ${props => (!props.emptyCaption && props.isOpen ? '45deg' : '0')}
       );
       transition: transform 0.25s ease-in-out;
     }

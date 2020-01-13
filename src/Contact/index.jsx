@@ -142,9 +142,8 @@ const FormRow = styled.div`
   .react-select-container {
     width: 25%;
     .react-select__placeholder {
-      font-weight: bold;
-      font-family: 'Austin-Medium';
-      color: black;
+      font-family: ${props => props.theme.sansSerifRegular};
+      color: ${props => props.theme.black};
     }
     .react-select__indicator-separator {
       display: none;
@@ -158,6 +157,7 @@ const FormRow = styled.div`
       color: ${props => props.theme.black};
       border: 1px solid ${props => props.theme.black};
       box-shadow: 0 0 0 transparent;
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     .react-select__menu-list {
@@ -186,23 +186,24 @@ const TextInput = styled.input`
   padding: 8px;
   box-sizing: border-box;
   letter-spacing: 0.1em;
+  font-family: ${props => props.theme.sansSerifRegular};
 
   ::placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   :-ms-input-placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   ::-ms-input-placeholder {
     color: ${props => props.theme.black};
     font-weight: bold;
-    font-family: 'Austin-Medium';
+    font-family: ${props => props.theme.sansSerifRegular};
   }
 
   width: ${props => {
@@ -238,7 +239,7 @@ const RadioInput = styled.label`
   letter-spacing: 0.1em;
   cursor: pointer;
   font-weight: bold;
-  font-family: 'Austin-Medium';
+  font-family: ${props => props.theme.sansSerifRegular};
 
   &:first-child {
     margin-left: 0;
@@ -265,19 +266,19 @@ const RadioInput = styled.label`
     ::placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     :-ms-input-placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     ::-ms-input-placeholder {
       color: ${props => props.theme.black};
       font-weight: bold;
-      font-family: 'Austin-Medium';
+      font-family: ${props => props.theme.sansSerifRegular};
     }
 
     &:checked {
