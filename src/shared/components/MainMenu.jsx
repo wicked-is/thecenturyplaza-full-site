@@ -111,6 +111,9 @@ const InfoCluster = styled.div`
     position: absolute;
     left: ${props => props.theme.desktopSideMargin}px;
     top: 0;
+    .mobile{
+      display: none;
+    }
  `}
 
   p {
@@ -121,7 +124,11 @@ const InfoCluster = styled.div`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
     margin: 20px 0 30px;
-
+    &.margin-top-0 {
+      ${mediaMin.tabletLandscape`
+        margin-top: 0;
+      `}
+    }
     strong {
       display: block;
       font-family: ${props => props.theme.sansSerifRegular};
@@ -294,10 +301,10 @@ const MainMenu = props => {
           </li>
         </SecondaryLinks>
         <InfoCluster>
-          <Link to="/contact" onClick={declareReturnPath}>
+          <Link to="/contact" onClick={declareReturnPath} className="mobile">
             Register Your Interest
           </Link>
-          <p>
+          <p className="margin-top-0">
             <strong>Sales Gallery</strong>
             <a
               href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
