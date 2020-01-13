@@ -120,7 +120,7 @@ const InfoCluster = styled.div`
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    margin: 0 0 20px;
+    margin: 20px 0;
 
     strong {
       display: block;
@@ -294,6 +294,9 @@ const MainMenu = props => {
           </li>
         </SecondaryLinks>
         <InfoCluster>
+          <Link to="/contact" onClick={declareReturnPath}>
+            Register Your Interest
+          </Link>
           <p>
             <strong>Sales Gallery</strong>
             <a
@@ -314,9 +317,6 @@ const MainMenu = props => {
               info@thecenturyplaza.com
             </a>
           </p>
-          <Link to="/contact" onClick={declareReturnPath}>
-            Register Your Interest
-          </Link>
         </InfoCluster>
         <DownloadsLinks>
           <li>Downloads</li>
