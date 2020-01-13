@@ -13,14 +13,13 @@ export const ActiveMenuContainerStyled = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 121%;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     text-align: center;
     top: 15px;
-    position: absolute;
     padding: 0;
     opacity: 1;
-
+    margin: 0;
     li {
       display: inline-block;
       margin: 0 15px;

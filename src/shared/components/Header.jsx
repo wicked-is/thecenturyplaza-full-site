@@ -15,7 +15,11 @@ const HeaderContainer = styled.header`
   position: relative;
   width: 100%;
   height: ${props => props.theme.mobilePortraitHeaderHeight}px;
-
+  nav {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
   ${mediaMin.phoneXL`
     height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
   `}
@@ -37,8 +41,8 @@ const NavRow = styled.div`
     align-items: center;
   }
   ${mediaMin.tabletLandscape`
-    width: calc(100vw - ${props =>
-      parseFloat(props.theme.desktopSideMargin) * 2}px);
+    width: 100%;
+    padding: 0 40px;
   `}
 `;
 
