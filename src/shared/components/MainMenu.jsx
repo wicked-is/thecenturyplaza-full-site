@@ -120,7 +120,7 @@ const InfoCluster = styled.div`
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
-    margin: 20px 0;
+    margin: 20px 0 30px;
 
     strong {
       display: block;
@@ -139,7 +139,7 @@ const InfoCluster = styled.div`
 
   > a {
     display: inline-block;
-    margin: 10px 0 30px;
+    margin: 10px 0;
     font-family: ${props => props.theme.sansSerifRegular};
     color: ${props => props.theme.gray};
     text-decoration: none;
