@@ -343,7 +343,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                '/downloads/Fairmont-Century-Plaza-Residences.pdf'
+                '/downloads/Fairmont_Century_Plaza_Residences.pdf'
               }
               target="_blank"
               rel="noopener noreferrer"
