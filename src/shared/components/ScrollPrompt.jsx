@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import Context from "../../config/Context";
-import { Location } from "@reach/router";
-import styled from "styled-components/macro";
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../../config/Context';
+import { Location } from '@reach/router';
+import styled from 'styled-components/macro';
 import {
   showScrollPlease,
   enterFromCenter,
   exitFromCenter
-} from "../styled-components/Transitions.js";
-import { mediaMin } from "../styled-components/MediaQueries.js";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import primaryData from "Primary/primaryData.json";
+} from '../styled-components/Transitions.js';
+import { mediaMin } from '../styled-components/MediaQueries.js';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import primaryData from 'Primary/primaryData.json';
 
 const ScrollPromptWrapper = styled.div`
   animation: ${props => props.fadePrompt && exitFromCenter};
-  display: ${props => (props.preventScroll ? "flex" : "none")};
-  opacity: ${props => (props.preventScroll ? "1" : "0")};
-  z-index: ${props => (props.preventScroll ? "999999" : "-1")};
+  display: ${props => (props.preventScroll ? 'flex' : 'none')};
+  opacity: ${props => (props.preventScroll ? '1' : '0')};
+  z-index: ${props => (props.preventScroll ? '999999' : '-1')};
   position: fixed;
   width: 100vw;
   height: 100%;
@@ -67,7 +67,7 @@ const ScrollPromptIcon = styled.span`
   position: relative;
 
   &::before {
-    content: "\u2022";
+    content: '\u2022';
     font-size: 12px;
     text-align: center;
     width: 27px;
@@ -104,13 +104,14 @@ const ScrollPrompt = ({ isExpanded }) => {
           location.pathname.includes(primaryData[1].slug) ||
           location.pathname.includes(primaryData[2].slug) ||
           location.pathname.includes(primaryData[3].slug)) &&
-        (!isExpanded && (
+        !isExpanded && (
           <ReactScrollWheelHandler
             pauseListeners={pauseScroll}
             upHandler={() => fadeAway()}
             downHandler={() => fadeAway()}
             rightHandler={() => fadeAway()}
             leftHandler={() => fadeAway()}
+            onClick={() => fadeAway()}
           >
             <ScrollPromptWrapper
               preventScroll={preventScroll}
@@ -126,7 +127,7 @@ const ScrollPrompt = ({ isExpanded }) => {
               </ScrollPromptMessage>
             </ScrollPromptWrapper>
           </ReactScrollWheelHandler>
-        ))
+        )
       }
     </Location>
   );
