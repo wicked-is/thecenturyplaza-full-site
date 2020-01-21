@@ -6,6 +6,7 @@ import { Link } from '@reach/router';
 import $ from 'jquery';
 
 import { states } from './states';
+import { sourceDetail } from './sourceDetail';
 import { Wrapper } from '../shared/styled-components/Layouts.js';
 import { ContainerStyled } from 'Contact/style.js';
 import { mediaMin } from '../shared/styled-components/MediaQueries';
@@ -162,10 +163,12 @@ const FormRow = styled.div`
 
     .react-select__menu-list {
       border: 0;
+      display: block;
     }
 
     .react-select__menu {
       z-index: 20000;
+      display: block;
       margin-bottom: 81px;
     }
 
@@ -174,6 +177,18 @@ const FormRow = styled.div`
         fill: ${props => props.theme.black};
         stroke: ${props => props.theme.black};
       }
+    }
+  }
+  .select-full {
+    width: 100%;
+    .react-select__control,
+    .react-select__menu,
+    .react-select__menu-list {
+      border: none;
+      border: 1px solid ${props => (props.error ? 'red' : props.theme.black)};
+    }
+    .react-select__menu-list {
+      border: 0;
     }
   }
 `;
@@ -363,7 +378,8 @@ const Contact = props => {
     zip: '',
     agencyName: '',
     agencyPhone: '',
-    agencyAddress: ''
+    agencyAddress: '',
+    sourceDetail: ''
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -371,7 +387,8 @@ const Contact = props => {
     lastName: false,
     email: false,
     phone: false,
-    agencyName: false
+    agencyName: false,
+    sourceDetail: false
   });
 
   const checkForErrors = () => {
@@ -380,12 +397,14 @@ const Contact = props => {
       lastName: false,
       email: false,
       phone: false,
-      agencyName: false
+      agencyName: false,
+      sourceDetail: false
     };
     if (!formData.firstName) newErrors.firstName = true;
     if (!formData.lastName) newErrors.lastName = true;
     if (!formData.email) newErrors.email = true;
     if (!formData.phone) newErrors.phone = true;
+    if (!formData.sourceDetail) newErrors.sourceDetail = true;
     if (JSON.parse(formData.agent)) {
       if (!formData.agencyName) newErrors.agencyName = true;
     }
@@ -409,6 +428,7 @@ const Contact = props => {
       data: {
         FollowupCode: 'E',
         Source: 'Website',
+        sourceDetail: formData.sourceDetail,
         FirstName: formData.firstName,
         LastName: formData.lastName,
         Email: formData.email,
@@ -661,6 +681,16 @@ const Contact = props => {
                   </FormRow>
                 </>
               )}
+              <FormRow error={formErrors.sourceDetail}>
+                <Select
+                  name="sourceDetail"
+                  className="react-select-container select-full"
+                  classNamePrefix="react-select"
+                  placeholder="How did you hear about us?*"
+                  onChange={handleSelect}
+                  options={sourceDetail}
+                />
+              </FormRow>
               <SubmitButton type="submit">SUBMIT</SubmitButton>
             </ContactForm>
           )}
