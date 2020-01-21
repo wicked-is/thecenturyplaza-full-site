@@ -144,6 +144,7 @@ const FormRow = styled.div`
     width: 25%;
     .react-select__placeholder {
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 300;
       color: ${props => props.theme.black};
     }
     .react-select__indicator-separator {
@@ -159,6 +160,7 @@ const FormRow = styled.div`
       border: 1px solid ${props => props.theme.black};
       box-shadow: 0 0 0 transparent;
       font-family: ${props => props.theme.sansSerifRegular};
+      font-weight: 300;
     }
 
     .react-select__menu-list {
