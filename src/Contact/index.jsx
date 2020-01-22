@@ -207,19 +207,7 @@ const TextInput = styled.input`
 
   ::placeholder {
     color: ${props => props.theme.black};
-    font-weight: bold;
-    font-family: ${props => props.theme.sansSerifRegular};
-  }
-
-  :-ms-input-placeholder {
-    color: ${props => props.theme.black};
-    font-weight: bold;
-    font-family: ${props => props.theme.sansSerifRegular};
-  }
-
-  ::-ms-input-placeholder {
-    color: ${props => props.theme.black};
-    font-weight: bold;
+    font-weight: 300;
     font-family: ${props => props.theme.sansSerifRegular};
   }
 
