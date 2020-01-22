@@ -243,7 +243,7 @@ const RadioInput = styled.label`
   color: ${props => props.theme.black};
   letter-spacing: 0.1em;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 300;
   font-family: ${props => props.theme.sansSerifRegular};
 
   &:first-child {
@@ -270,19 +270,7 @@ const RadioInput = styled.label`
 
     ::placeholder {
       color: ${props => props.theme.black};
-      font-weight: bold;
-      font-family: ${props => props.theme.sansSerifRegular};
-    }
-
-    :-ms-input-placeholder {
-      color: ${props => props.theme.black};
-      font-weight: bold;
-      font-family: ${props => props.theme.sansSerifRegular};
-    }
-
-    ::-ms-input-placeholder {
-      color: ${props => props.theme.black};
-      font-weight: bold;
+      font-weight: 300;
       font-family: ${props => props.theme.sansSerifRegular};
     }
 
