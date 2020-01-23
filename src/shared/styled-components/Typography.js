@@ -71,7 +71,7 @@ export const PageFooter = css`
   height: ${props =>
     props.navActive ? '0' : props.theme.mobilePortraitHeaderHeight + 'px'};
   background: ${props => props.globalConfig.footerBackground};
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity .5s ease-in-out;
   transform: translateY(
     ${props =>
       props.isExpanded ? props.theme.mobilePortraitHeaderHeight + 'px' : '0'}
@@ -79,8 +79,7 @@ export const PageFooter = css`
   visibility: ${props => (props.navActive ? 'hidden' : 'visible')};
   overflow: ${props => (props.navActive ? 'hidden' : 'visible')};
   opacity: ${props => (props.hasCaptions ? 1 : 0)};
-  animation: ${props => (props.hasCaptions ? 'none' : enterFadeIn)};
-  will-change: opacity;
+
 
   ${mediaMin.phoneXL`
     height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
