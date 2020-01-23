@@ -79,6 +79,7 @@ export const PageFooter = css`
   visibility: ${props => (props.navActive ? 'hidden' : 'visible')};
   overflow: ${props => (props.navActive ? 'hidden' : 'visible')};
   opacity: ${props => (props.hasCaptions ? 1 : 0)};
+  animation: ${props => (props.hasCaptions ? 'none' : enterFadeIn)};
 
 
   ${mediaMin.phoneXL`

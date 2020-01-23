@@ -67,8 +67,6 @@ const HamburgerRow = styled.div`
     `}
     align-items: center;
     margin-right: 32px;
-    border: 1px solid ${props => (props.isLight ? '#B4BAC1' : '#101820')};
-    padding: 8px 16px;
     cursor: pointer;
     color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
     &:visited{
@@ -89,15 +87,39 @@ const Logo = styled.div`
     none;
 `;
 
+const MenuButton = styled.button`
+  display: none;
+  ${mediaMin.tabletLandscape`
+  display: flex;
+  `}
+  align-items: center;
+  border: 1px solid ${props => (props.navActive ? 'transparent' : '#101820')};
+  padding: 8px 16px;
+  cursor: pointer;
+  color: ${props => (props.navActive ? 'transparent' : '#101820')};
+  background-color: transparent;
+  background: url(${props => {
+        if (props.navActive) return closeGraySVG;
+        return '';
+      }})
+      no-repeat center center,
+    none;
+
+  &:visited {
+    color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+  }
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
 const Hamburger = styled.button`
   right: ${props => props.theme.mobileSideMargin}px;
-
   width: 25px;
   height: 20px;
   overflow: hidden;
   border: 0;
   text-indent: -99999px;
-
   background: url(${props => {
         if (props.navActive) return closeGraySVG;
         if (props.isLight) return hamburgerBlackSVG;
@@ -108,17 +130,18 @@ const Hamburger = styled.button`
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   z-index: 11000;
-
   &:hover {
     background: url(${props =>
           props.navActive ? closeGraySVG : hamburgerBlackSVG})
         no-repeat center center,
       none;
   }
-
   &:focus {
     outline: none;
   }
+  ${mediaMin.tabletLandscape`
+    display: none;
+  `}
 `;
 
 const Header = ({ primaryData }) => {
@@ -143,12 +166,14 @@ const Header = ({ primaryData }) => {
                   className="register"
                   to="/contact"
                 >
-                  REGISTER
+                  Register
                 </Link>
                 <Hamburger navActive={navActive} onClick={toggleMenu} />
+                <MenuButton navActive={navActive} onClick={toggleMenu}>
+                  Menu
+                </MenuButton>
               </HamburgerRow>
             </NavRow>
-            <ActiveMenu primaryData={primaryData} />
           </HeaderContainer>
         );
       }}
