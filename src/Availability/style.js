@@ -476,7 +476,7 @@ export const TableStyled = css`
 
           ${mediaMin.tablet` 
             display: table-cell;
-            font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+            font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
             font-weight: 300;
             padding: 2em 0;
             width: auto;
