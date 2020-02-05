@@ -27,7 +27,7 @@ export const HeaderStyled = css`
     text-align: left;
     margin: 0 0 0.5em;
     text-transform: uppercase;
-    font-family: ${props => props.theme.sansSerifMedium}, sans-serif;
+    font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
     font-weight: 300;
     font-size: 14px;
     line-height: 1.35em;
