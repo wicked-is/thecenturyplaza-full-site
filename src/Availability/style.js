@@ -1,10 +1,10 @@
-import { css } from "styled-components";
-import { Container } from "../shared/styled-components/Layouts.js";
-import { mediaMin } from "../shared/styled-components/MediaQueries.js";
-import sortAscendingSVG from "icons/sort-ascending.svg";
-import sortDescendingSVG from "icons/sort-descending.svg";
-import checkboxIconSVG from "icons/checkbox-icon.svg";
-import checkedIconSVG from "icons/checked-icon.svg";
+import { css } from 'styled-components';
+import { Container } from '../shared/styled-components/Layouts.js';
+import { mediaMin } from '../shared/styled-components/MediaQueries.js';
+import sortAscendingSVG from 'icons/sort-ascending.svg';
+import sortDescendingSVG from 'icons/sort-descending.svg';
+import checkboxIconSVG from 'icons/checkbox-icon.svg';
+import checkedIconSVG from 'icons/checked-icon.svg';
 
 export const ContainerStyled = css`
   ${Container}
@@ -27,7 +27,7 @@ export const HeaderStyled = css`
     text-align: left;
     margin: 0 0 0.5em;
     text-transform: uppercase;
-    font-family: ${props => props.theme.sansSerifMedium}, sans-serif;
+    font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
     font-weight: 300;
     font-size: 14px;
     line-height: 1.35em;
@@ -38,7 +38,7 @@ export const HeaderStyled = css`
     ${mediaMin.tabletLandscape` 
       text-align: center;
       text-transform: none;
-      font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+      font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
       letter-spacing: 0.035em;
 
       &::after {
@@ -134,7 +134,7 @@ export const FilterButtonStyled = css`
   }
 
   border-bottom: 1px solid
-    ${props => (props.active ? "white" : props.theme.gray)};
+    ${props => (props.active ? 'white' : props.theme.gray)};
 
   ${mediaMin.tabletLandscape` 
       top: 0;
@@ -193,7 +193,7 @@ export const FilterList = css`
     margin: 0 0 0.5em;
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     visibility: hidden;
   }
 
@@ -213,7 +213,7 @@ export const FilterList = css`
       left: -2.25em;
       top: 0;
       display: inline-block;
-      content: "";
+      content: '';
       height: 16px;
       width: 16px;
       margin: 0 1em 0 0;
@@ -222,7 +222,7 @@ export const FilterList = css`
     }
   }
 
-  input[type="checkbox"]:checked + label {
+  input[type='checkbox']:checked + label {
     &::before {
       background: url(${checkedIconSVG}) no-repeat center center;
     }
@@ -278,7 +278,7 @@ export const TableStyled = css`
         text-align: left;
         border-bottom: 1px solid ${props => props.theme.grayLight};
         text-transform: uppercase;
-        font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+        font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
         font-weight: 300;
         font-size: 12px;
         line-height: 1.2em;
@@ -403,7 +403,7 @@ export const TableStyled = css`
         text-align: left;
         border-bottom: 0;
         text-transform: none;
-        font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+        font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
         font-weight: 300;
         font-size: 12px;
         letter-spacing: 0.1em;
@@ -476,7 +476,7 @@ export const TableStyled = css`
 
           ${mediaMin.tablet` 
             display: table-cell;
-            font-family: ${props => props.theme.sansSerifLight}, sans-serif;
+            font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
             font-weight: 300;
             padding: 2em 0;
             width: auto;

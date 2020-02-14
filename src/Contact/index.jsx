@@ -169,13 +169,13 @@ const FormRow = styled.div`
         }
 
         .react-select__menu {
+            position: initial;
             z-index: 20000;
             display: block;
             margin-bottom: 81px;
-            position: initial;
             ${mediaMin.tabletLandscape`
-        position: absolute;
-      `}
+              position: absolute;
+            `}
         }
 
         .react-select__indicator {
@@ -508,6 +508,9 @@ const Contact = props => {
                             >
                                 10250 Constellation Boulevard
                                 <br />
+                                Suite 3050
+                                <br />
+
                                 Los Angeles, California 90067
                             </a>
                         </p>

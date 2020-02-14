@@ -123,6 +123,11 @@ const Footer = props => {
           )}
           <ul>
             <li>
+              <Link onClick={declareReturnPath} to="/availability">
+                Availability
+              </Link>
+            </li>
+            <li>
               <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal
               </Link>

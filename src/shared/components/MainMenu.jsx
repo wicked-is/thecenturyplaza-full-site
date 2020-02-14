@@ -256,7 +256,7 @@ const MainMenu = props => {
   return (
     <MainMenuWrapper navActive={navActive}>
       <LinksContainer>
-        <PrimaryLinks>
+        <SecondaryLinks>
           <li>
             <Link to={'/'} onClick={toggleMenu}>
               Century Plaza
@@ -272,8 +272,6 @@ const MainMenu = props => {
               </Link>
             </li>
           ))}
-        </PrimaryLinks>
-        <SecondaryLinks>
           <li>
             <Link to="/neighborhood" onClick={toggleMenu}>
               Neighborhood
@@ -312,6 +310,8 @@ const MainMenu = props => {
               rel="noopener noreferrer"
             >
               10250 Constellation Boulevard
+              <br />
+              Suite 3050
               <br />
               Los Angeles, California 90067
             </a>
@@ -369,6 +369,11 @@ const MainMenu = props => {
         <li className="mobile-only">
           <Link to="/contact" onClick={declareReturnPath}>
             Contact
+          </Link>
+        </li>
+        <li>
+          <Link to="/availability" onClick={declareReturnPath}>
+            Availability
           </Link>
         </li>
         <li>
