@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import styled from "styled-components/macro";
-import ReactPlayer from "react-player";
-import ReactScrollWheelHandler from "react-scroll-wheel-handler";
-import Context from "../../config/Context";
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import styled from 'styled-components/macro';
+import ReactPlayer from 'react-player';
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import Context from '../../config/Context';
 import {
   SlideMaskStyled,
   SlideContainerStyled,
   PlayerContainerStyled,
   FullScreenStyled
-} from "Primary/style.js";
-import SlideForward from "shared/components/SlideForward.jsx";
-import SlideBackward from "shared/components/SlideBackward.jsx";
-import SlideVideoScrollController from "shared/components/SlideVideoScrollController.jsx";
-import ResponsiveImage from "shared/components/ResponsiveImage.js";
-import { mediaMin } from "shared/styled-components/MediaQueries";
-import CPLogo from "icons/logo-white-with-sub.svg";
+} from 'Primary/style.js';
+import SlideForward from 'shared/components/SlideForward.jsx';
+import SlideBackward from 'shared/components/SlideBackward.jsx';
+import SlideVideoScrollController from 'shared/components/SlideVideoScrollController.jsx';
+import ResponsiveImage from 'shared/components/ResponsiveImage.js';
+import { mediaMin } from 'shared/styled-components/MediaQueries';
+import CPLogo from 'icons/logo-white-with-sub.svg';
 
 const SlideMask = styled.div`
   ${SlideMaskStyled};
@@ -46,7 +46,7 @@ const PlaceHolder = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  z-index: ${props => (props.activePlaceholder ? "900" : "100")};
+  z-index: ${props => (props.activePlaceholder ? '900' : '100')};
 
   img {
     width: 100vw;
@@ -69,22 +69,22 @@ const Logo = styled.img`
     width: 40%;
   `}
   z-index: 1000;
-  opacity: ${props => (props.isExpanded ? "1" : "0")};
-  visibility: ${props => (props.isExpanded ? "visible" : "hidden")};
+  opacity: ${props => (props.isExpanded ? '1' : '0')};
+  visibility: ${props => (props.isExpanded ? 'visible' : 'hidden')};
   transition: opacity 0.5s ease, visibility 0.5s ease;
 `;
 
 const videoElement = () => ({
-  width: "100vw",
-  height: "56.25vw",
-  minHeight: "100vh",
-  minWidth: "177.77vh",
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  background: "transparent",
-  zIndex: "500"
+  width: '100vw',
+  height: '56.25vw',
+  minHeight: '100vh',
+  minWidth: '177.77vh',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  background: 'transparent',
+  zIndex: '500'
 });
 
 const VideoSlide = ({
@@ -111,8 +111,6 @@ const VideoSlide = ({
     triggerExit,
     hasPlayed,
     markPlayed,
-    // firstShouldSwipe,
-    // setFirstShouldSwipe,
     currentSlideIndex,
     currentSectionIndex
   } = context;
@@ -129,9 +127,7 @@ const VideoSlide = ({
 
   const removePlaceholder = () => {
     setStartVideo(true);
-    setTimeout(() => {
-      setActivePlaceholder(false);
-    });
+    setActivePlaceholder(false);
   };
 
   useEffect(() => {
@@ -139,7 +135,7 @@ const VideoSlide = ({
       isFirstSection &&
       isFirstSlide &&
       !hasPlayed &&
-      (firstLocation === window.location.pathname || firstLocation === "/")
+      (firstLocation === window.location.pathname || firstLocation === '/')
     ) {
       startTimer();
       markPlayed();
@@ -234,7 +230,11 @@ const VideoSlide = ({
               </PlaceHolder>
               <ReactPlayer
                 ref={VideoRef}
-                url={slide.source[0]}
+                url={
+                  window.innerWidth < 1024 && window.mobileSource
+                    ? slide.mobileSource[0]
+                    : slide.source[0]
+                }
                 muted
                 loop
                 playing={startVideo}
@@ -250,7 +250,7 @@ const VideoSlide = ({
                 width="100vw"
                 height="56.25vw"
                 onReady={removePlaceholder}
-                style={videoElement(isExpanded)}
+                style={videoElement()}
                 preload="true"
                 config={{
                   vimeo: {
