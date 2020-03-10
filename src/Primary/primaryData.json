@@ -10,7 +10,9 @@
         "caption": [
           "Century Plaza. Be at the center of it all. Hotel, Dining, Shopping, and Estate Residences."
         ],
-        "source": ["https://player.vimeo.com/video/383127813"],
+        "source": [
+          "https://player.vimeo.com/external/383127813.hd.mp4?s=703cddf7803be6912f7ba64722b53084ab7bad79&profile_id=174"
+        ],
         "placeholder": "49b4dda06c",
         "delay": "12000",
         "inverted": "",
