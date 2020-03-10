@@ -377,13 +377,9 @@ const MainMenu = props => {
           </Link>
         </li>
         <li>
-          <a
-            href="https://www.dropbox.com/sh/x1p0rgupij26raw/AACeYLqy7-y_axQrTKZpSYJda?dl=0"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <Link onClick={declareReturnPath} to="/broker-portal">
             Broker Portal
-          </a>
+          </Link>
         </li>
         <li>
           <Link to="/legal" onClick={declareReturnPath}>

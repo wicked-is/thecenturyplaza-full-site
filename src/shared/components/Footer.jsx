@@ -128,13 +128,9 @@ const Footer = props => {
               </Link>
             </li>
             <li>
-              <a
-                href="https://www.dropbox.com/sh/x1p0rgupij26raw/AACeYLqy7-y_axQrTKZpSYJda?dl=0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal
-              </a>
+              </Link>
             </li>
             <li>
               <Link onClick={declareReturnPath} to="/legal">
