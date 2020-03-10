@@ -377,7 +377,7 @@ const MainMenu = props => {
           </Link>
         </li>
         <li>
-          <Link to="/broker-portal" onClick={declareReturnPath}>
+          <Link onClick={declareReturnPath} to="/broker-portal">
             Broker Portal
           </Link>
         </li>

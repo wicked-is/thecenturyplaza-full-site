@@ -111,8 +111,6 @@ const VideoSlide = ({
     triggerExit,
     hasPlayed,
     markPlayed,
-    // firstShouldSwipe,
-    // setFirstShouldSwipe,
     currentSlideIndex,
     currentSectionIndex
   } = context;
@@ -129,9 +127,7 @@ const VideoSlide = ({
 
   const removePlaceholder = () => {
     setStartVideo(true);
-    setTimeout(() => {
-      setActivePlaceholder(false);
-    }, 250);
+    setActivePlaceholder(false);
   };
 
   useEffect(() => {
@@ -234,7 +230,11 @@ const VideoSlide = ({
               </PlaceHolder>
               <ReactPlayer
                 ref={VideoRef}
-                url={slide.source[0]}
+                url={
+                  window.innerWidth < 1024 && window.mobileSource
+                    ? slide.mobileSource[0]
+                    : slide.source[0]
+                }
                 muted
                 loop
                 playing={startVideo}
@@ -250,7 +250,7 @@ const VideoSlide = ({
                 width="100vw"
                 height="56.25vw"
                 onReady={removePlaceholder}
-                style={videoElement(isExpanded)}
+                style={videoElement()}
                 preload="true"
                 config={{
                   vimeo: {
