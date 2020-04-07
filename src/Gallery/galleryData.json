@@ -1,278 +1,285 @@
 [
-  {
-    "title": "Century Plaza",
-    "slug": "century-plaza",
-    "media": [
-      {
-        "type": "video",
-        "slug": "full-film",
-        "caption": "",
-        "source": "https://vimeo.com/366524252",
-        "placeholder": "full-film-intro"
-      },
-      {
-        "type": "image",
-        "slug": "aerial-one",
-        "caption": "Century Plaza, Los Angeles",
-        "source": "century-plaza-aerial-one",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "restaurant-plaza-day",
-        "caption": "Restaurant Plaza in the Daytime",
-        "source": "century-plaza-restaurant-plaza-day",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "restaurant-plaza-dusk",
-        "caption": "Restaurant Plaza at Night",
-        "source": "century-plaza-restaurant-plaza-dusk",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "retail-plaza",
-        "caption": "Retail Plaza",
-        "source": "century-plaza-retail-plaza",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "aerial-two",
-        "caption": "Century Plaza, Los Angeles",
-        "source": "century-plaza-aerial-two",
-        "placeholder": ""
-      }
-    ]
-  },
-  {
-    "title": "Fairmont Hotel",
-    "slug": "fairmont-hotel",
-    "media": [
-      {
-        "type": "image",
-        "slug": "plaza-hotel-lobby",
-        "caption": "Fairmont Century Plaza Hotel Lobby",
-        "source": "fairmont-century-plaza-hotel-lobby",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "rooftop-pool",
-        "caption": "Fairmont Century Plaza Hotel Rooftop Pool",
-        "source": "fairmont-century-plaza-hotel-rooftop-pool",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "fitness-center",
-        "caption": "Fairmont Century Plaza Hotel Fitness Center",
-        "source": "fairmont-century-plaza-hotel-fitness-center",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "ballroom-arrival",
-        "caption": "Fairmont Century Plaza Hotel Ballroom Arrival",
-        "source": "fairmont-century-plaza-hotel-ballroom-arrival",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "ballroom",
-        "caption": "Fairmont Century Plaza Hotel Ballroom",
-        "source": "fairmont-century-plaza-hotel-ballroom",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "junior-ballroom",
-        "caption": "Fairmont Century Plaza Hotel Junior Ballroom",
-        "source": "fairmont-century-plaza-hotel-junior-ballroom",
-        "placeholder": ""
-      }
-    ]
-  },
-  {
-    "title": "Fairmont Residences",
-    "slug": "fairmont-residences",
-    "media": [
-      {
-        "type": "image",
-        "slug": "duplex-living",
-        "caption": "Fairmont Century Plaza Residences Townhouse Residence",
-        "source": "fairmont-century-plaza-hotel-residences-duplex-living",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "kitchen-dining",
-        "caption": "Fairmont Century Plaza Residences Single-Story Residence",
-        "source": "fairmont-century-plaza-hotel-residences-kitchen-dining",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bedroom",
-        "caption": "Fairmont Century Plaza Residences Master Bedroom",
-        "source": "fairmont-century-plaza-hotel-residences-master-bedroom",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bathroom-one",
-        "caption": "Fairmont Century Plaza Residences Master Bathroom",
-        "source": "fairmont-century-plaza-hotel-residences-master-bathroom-one",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bathroom-two",
-        "caption": "Fairmont Century Plaza Residences Master Bathroom",
-        "source": "fairmont-century-plaza-hotel-residences-master-bathroom-two",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "library-lounge",
-        "caption": "Private Resident's Library Lounge",
-        "source": "fairmont-century-plaza-hotel-residences-library-lounge",
-        "placeholder": ""
-      }
-    ]
-  },
-  {
-    "title": "Tower Residences",
-    "slug": "tower-residences",
-    "media": [
-      {
-        "type": "image",
-        "slug": "towers-looking-up",
-        "caption": "The Tower Residences at Century Plaza Looking Up",
-        "source": "century-plaza-tower-residences-looking-up",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "crowns-sunset",
-        "caption": "The Tower Residences at Century Plaza, Looking West",
-        "source": "century-plaza-tower-residences-crowns-sunset",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "crowns-dusk",
-        "caption": "The Tower Residences at Century Plaza Looking North",
-        "source": "century-plaza-tower-residences-crowns-dusk",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "sunset-view",
-        "caption": "Tower Residence Living Room Looking West",
-        "source": "century-plaza-tower-residences-sunset-view",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "dusk-view",
-        "caption": "Tower Residence Living Room Looking North",
-        "source": "century-plaza-tower-residences-dusk-view",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "lobby",
-        "caption": "Tower Residence Lobby",
-        "source": "century-plaza-tower-residences-lobby",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "library-lounge",
-        "caption": "Tower Residence Library Lounge, Located on Amenity Level One",
-        "source": "century-plaza-tower-residences-library-lounge",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "wine-room",
-        "caption": "Tower Residence Wine Room, Located on Amenity Level One",
-        "source": "century-plaza-tower-residences-wine-room",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "pool-one",
-        "caption": "Tower Residence Pool, Located on Amenity Level Two",
-        "source": "century-plaza-tower-residences-pool-one",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "pool-two",
-        "caption": "Tower Residence Pool, Located on Amenity Level Two",
-        "source": "century-plaza-tower-residences-pool-two",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "fitness-center",
-        "caption": "Tower Residence Fitness Center, Located on Amenity Level Two",
-        "source": "century-plaza-tower-residences-fitness-center",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "screening-room",
-        "caption": "Tower Residence Screening Room, Located on Amenity Level Two",
-        "source": "century-plaza-tower-residences-screening-room",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "living-room",
-        "caption": "Tower Residence Living Room",
-        "source": "century-plaza-tower-residences-living-room",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "fireplace",
-        "caption": "Tower Residence Living Room Fireplace",
-        "source": "century-plaza-tower-residences-fireplace",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "kitchen-dining",
-        "caption": "Tower Residence Kitchen and Dining Room",
-        "source": "century-plaza-tower-residences-kitchen-dining",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bedroom",
-        "caption": "Tower Residence Master Bedroom",
-        "source": "century-plaza-tower-residences-master-bedroom",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bathroom",
-        "caption": "Tower Residence Master Bathroom",
-        "source": "century-plaza-tower-residences-master-bathroom",
-        "placeholder": ""
-      },
-      {
-        "type": "image",
-        "slug": "master-bathroom-tub",
-        "caption": "Tower Residence Master Bathroom",
-        "source": "century-plaza-tower-residences-master-bathroom-tub",
-        "placeholder": ""
-      }
-    ]
-  }
+    {
+        "title": "Century Plaza",
+        "slug": "century-plaza",
+        "media": [
+            {
+                "type": "video",
+                "slug": "full-film",
+                "caption": "",
+                "source": "https://vimeo.com/366524252",
+                "placeholder": "full-film-intro"
+            },
+            {
+                "type": "image",
+                "slug": "aerial-one",
+                "caption": "Century Plaza, Los Angeles",
+                "source": "century-plaza-aerial-one",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "restaurant-plaza-day",
+                "caption": "Restaurant Plaza in the Daytime",
+                "source": "century-plaza-restaurant-plaza-day",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "restaurant-plaza-dusk",
+                "caption": "Restaurant Plaza at Night",
+                "source": "century-plaza-restaurant-plaza-dusk",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "retail-plaza",
+                "caption": "Retail Plaza",
+                "source": "century-plaza-retail-plaza",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "aerial-two",
+                "caption": "Century Plaza, Los Angeles",
+                "source": "century-plaza-aerial-two",
+                "placeholder": ""
+            }
+        ]
+    },
+    {
+        "title": "Fairmont Hotel",
+        "slug": "fairmont-hotel",
+        "media": [
+            {
+                "type": "video",
+                "slug": "full-film",
+                "caption": "",
+                "source": "https://vimeo.com/404769421",
+                "placeholder": "fairmont_placeholder"
+            },
+            {
+                "type": "image",
+                "slug": "plaza-hotel-lobby",
+                "caption": "Fairmont Century Plaza Hotel Lobby",
+                "source": "fairmont-century-plaza-hotel-lobby",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "rooftop-pool",
+                "caption": "Fairmont Century Plaza Hotel Rooftop Pool",
+                "source": "fairmont-century-plaza-hotel-rooftop-pool",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "fitness-center",
+                "caption": "Fairmont Century Plaza Hotel Fitness Center",
+                "source": "fairmont-century-plaza-hotel-fitness-center",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "ballroom-arrival",
+                "caption": "Fairmont Century Plaza Hotel Ballroom Arrival",
+                "source": "fairmont-century-plaza-hotel-ballroom-arrival",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "ballroom",
+                "caption": "Fairmont Century Plaza Hotel Ballroom",
+                "source": "fairmont-century-plaza-hotel-ballroom",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "junior-ballroom",
+                "caption": "Fairmont Century Plaza Hotel Junior Ballroom",
+                "source": "fairmont-century-plaza-hotel-junior-ballroom",
+                "placeholder": ""
+            }
+        ]
+    },
+    {
+        "title": "Fairmont Residences",
+        "slug": "fairmont-residences",
+        "media": [
+            {
+                "type": "image",
+                "slug": "duplex-living",
+                "caption": "Fairmont Century Plaza Residences Townhouse Residence",
+                "source": "fairmont-century-plaza-hotel-residences-duplex-living",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "kitchen-dining",
+                "caption": "Fairmont Century Plaza Residences Single-Story Residence",
+                "source": "fairmont-century-plaza-hotel-residences-kitchen-dining",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bedroom",
+                "caption": "Fairmont Century Plaza Residences Master Bedroom",
+                "source": "fairmont-century-plaza-hotel-residences-master-bedroom",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bathroom-one",
+                "caption": "Fairmont Century Plaza Residences Master Bathroom",
+                "source": "fairmont-century-plaza-hotel-residences-master-bathroom-one",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bathroom-two",
+                "caption": "Fairmont Century Plaza Residences Master Bathroom",
+                "source": "fairmont-century-plaza-hotel-residences-master-bathroom-two",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "library-lounge",
+                "caption": "Private Resident's Library Lounge",
+                "source": "fairmont-century-plaza-hotel-residences-library-lounge",
+                "placeholder": ""
+            }
+        ]
+    },
+    {
+        "title": "Tower Residences",
+        "slug": "tower-residences",
+        "media": [
+            {
+                "type": "image",
+                "slug": "towers-looking-up",
+                "caption": "The Tower Residences at Century Plaza Looking Up",
+                "source": "century-plaza-tower-residences-looking-up",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "crowns-sunset",
+                "caption": "The Tower Residences at Century Plaza, Looking West",
+                "source": "century-plaza-tower-residences-crowns-sunset",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "crowns-dusk",
+                "caption": "The Tower Residences at Century Plaza Looking North",
+                "source": "century-plaza-tower-residences-crowns-dusk",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "sunset-view",
+                "caption": "Tower Residence Living Room Looking West",
+                "source": "century-plaza-tower-residences-sunset-view",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "dusk-view",
+                "caption": "Tower Residence Living Room Looking North",
+                "source": "century-plaza-tower-residences-dusk-view",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "lobby",
+                "caption": "Tower Residence Lobby",
+                "source": "century-plaza-tower-residences-lobby",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "library-lounge",
+                "caption": "Tower Residence Library Lounge, Located on Amenity Level One",
+                "source": "century-plaza-tower-residences-library-lounge",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "wine-room",
+                "caption": "Tower Residence Wine Room, Located on Amenity Level One",
+                "source": "century-plaza-tower-residences-wine-room",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "pool-one",
+                "caption": "Tower Residence Pool, Located on Amenity Level Two",
+                "source": "century-plaza-tower-residences-pool-one",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "pool-two",
+                "caption": "Tower Residence Pool, Located on Amenity Level Two",
+                "source": "century-plaza-tower-residences-pool-two",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "fitness-center",
+                "caption": "Tower Residence Fitness Center, Located on Amenity Level Two",
+                "source": "century-plaza-tower-residences-fitness-center",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "screening-room",
+                "caption": "Tower Residence Screening Room, Located on Amenity Level Two",
+                "source": "century-plaza-tower-residences-screening-room",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "living-room",
+                "caption": "Tower Residence Living Room",
+                "source": "century-plaza-tower-residences-living-room",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "fireplace",
+                "caption": "Tower Residence Living Room Fireplace",
+                "source": "century-plaza-tower-residences-fireplace",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "kitchen-dining",
+                "caption": "Tower Residence Kitchen and Dining Room",
+                "source": "century-plaza-tower-residences-kitchen-dining",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bedroom",
+                "caption": "Tower Residence Master Bedroom",
+                "source": "century-plaza-tower-residences-master-bedroom",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bathroom",
+                "caption": "Tower Residence Master Bathroom",
+                "source": "century-plaza-tower-residences-master-bathroom",
+                "placeholder": ""
+            },
+            {
+                "type": "image",
+                "slug": "master-bathroom-tub",
+                "caption": "Tower Residence Master Bathroom",
+                "source": "century-plaza-tower-residences-master-bathroom-tub",
+                "placeholder": ""
+            }
+        ]
+    }
 ]
