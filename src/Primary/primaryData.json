@@ -13,6 +13,9 @@
         "source": [
           "https://player.vimeo.com/external/383127813.hd.mp4?s=703cddf7803be6912f7ba64722b53084ab7bad79&profile_id=174"
         ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/383127813.sd.mp4?s=bfd375003ca57ab623b7112376ab7330bd79a91a&profile_id=165"
+        ],
         "placeholder": "49b4dda06c",
         "delay": "12000",
         "inverted": "",
@@ -40,7 +43,12 @@
         "caption": [
           "Expansive plazas and gardens with an iconic sculpture by Jaume Plensa are surrounded by world-class shopping and dining."
         ],
-        "source": ["https://vimeo.com/362866711/6e78197afc"],
+        "source": [
+          "https://player.vimeo.com/external/362866711.hd.mp4?s=5729c1a0133b85a880146bdf5acab420683e6015&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866711.sd.mp4?s=3fb8675e97483397dbbd19ff1579c9bc7c03bec9&profile_id=165"
+        ],
         "placeholder": "6e78197afc",
         "delay": "",
         "inverted": "",
@@ -72,7 +80,12 @@
         "caption": [
           "Since 1966, The Century Plaza Hotel has been hailed as an internationally preeminent destination known for its design and service."
         ],
-        "source": ["https://vimeo.com/362866735/e562c25475"],
+        "source": [
+          "https://player.vimeo.com/external/362866735.hd.mp4?s=334a770b378bb603bf4e2cfaa5c944427b9698c1&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866735.sd.mp4?s=ac0c9828cac8f2b0e39c0749517f1dd40dddbe10&profile_id=165"
+        ],
         "placeholder": "e562c25475",
         "delay": "",
         "inverted": "",
@@ -104,7 +117,12 @@
         "caption": [
           "The visionary open-air lobby will be Los Angeles' place to see and be seen for business, entertainment and leisure."
         ],
-        "source": ["https://vimeo.com/362866754/d4b236dfaf"],
+        "source": [
+          "https://player.vimeo.com/external/362866754.hd.mp4?s=1081f9884444ead961a8b0b625c57641adba27b3&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866754.sd.mp4?s=7584fad7a05482a8dcf1ad3be9396196dad17e38&profile_id=165"
+        ],
         "placeholder": "d4b236dfaf",
         "delay": "",
         "inverted": "",
@@ -140,7 +158,12 @@
         "caption": [
           "The Fairmont Century Plaza Residences provide luxury full service living with access to all the amenities of a 5-star hotel."
         ],
-        "source": ["https://vimeo.com/362866782/ed783c5836"],
+        "source": [
+          "https://player.vimeo.com/external/362866782.hd.mp4?s=8af4257f85ef65375a2f96a880438d576e5bc7d8&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866782.sd.mp4?s=86e73d0a1272d6915ee001d21e7bdc1792f81dcc&profile_id=165"
+        ],
         "placeholder": "ed783c5836",
         "delay": "",
         "inverted": "",
@@ -166,7 +189,12 @@
         "caption": [
           "Fairmont residents will enjoy access to the hotel's rooftop pool, spa, and a complimentary AccorHotel Platinum Level membership."
         ],
-        "source": ["https://vimeo.com/362866803/3ef23a0758"],
+        "source": [
+          "https://player.vimeo.com/external/362866803.hd.mp4?s=e785ad5e78da154ddec05650562267d064d6abfa&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866803.sd.mp4?s=0167f7eb7f0f7ebe6424bfc7d9ec2c4c942f3240&profile_id=165"
+        ],
         "placeholder": "3ef23a0758",
         "delay": "",
         "inverted": "",
@@ -200,7 +228,12 @@
         "caption": [
           "The Tower Residences at Century Plaza offer residents panoramic views stretching from the Hollywood hills to the Pacific Ocean."
         ],
-        "source": ["https://vimeo.com/362866829/2b2bda4bf0"],
+        "source": [
+          "https://player.vimeo.com/external/362866829.hd.mp4?s=ee97ad639495cdd529830f397a790f91d5c36e93&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866829.sd.mp4?s=8ea63622dbbaf9d53292fec40c31824168f90ffb&profile_id=165"
+        ],
         "placeholder": "2b2bda4bf0",
         "delay": "",
         "inverted": "",
@@ -226,7 +259,12 @@
         "caption": [
           "The tower amenities are lavish, with carefully considered spaces that cater to residents’ every need— both inside and outside."
         ],
-        "source": ["https://vimeo.com/362866857/a1228218f1"],
+        "source": [
+          "https://player.vimeo.com/external/362866857.hd.mp4?s=98daff367d5457e88ba0133b3b63cfe72420607e&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866857.sd.mp4?s=fa04cbffe19aec40b5993192736b2c8b6ef9325e&profile_id=165"
+        ],
         "placeholder": "a1228218f1",
         "delay": "",
         "inverted": "",
@@ -252,7 +290,12 @@
         "caption": [
           "Gracious private residences feature the finest quality finishes, embracing sophisticated, elevated living."
         ],
-        "source": ["https://vimeo.com/362866875/d31c9f5698"],
+        "source": [
+          "https://player.vimeo.com/external/362866875.hd.mp4?s=1349707de9b8c6bbeda95387c9488d301a431dcb&profile_id=174"
+        ],
+        "mobileSource": [
+          "https://player.vimeo.com/external/362866875.sd.mp4?s=b253d8817d10b322da43f79ee6849b17cfd9bbe8&profile_id=165"
+        ],
         "placeholder": "d31c9f5698",
         "delay": "",
         "inverted": "",
