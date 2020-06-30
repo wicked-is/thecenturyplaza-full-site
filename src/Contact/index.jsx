@@ -178,8 +178,8 @@ const FormRow = styled.div`
       display: block;
       margin-bottom: 81px;
       ${mediaMin.tabletLandscape`
-              position: absolute;
-            `}
+        position: absolute;
+      `}
     }
 
     .react-select__indicator {
@@ -220,7 +220,7 @@ const TextInput = styled.input`
   }
 
   width: ${(props) => {
-    if (props.halfWidth) return "50%";
+    if (props.halfWidth) return "calc(50% - 6px)";
     if (props.quarterWidth) return "25%";
     return "100%";
   }};
@@ -231,6 +231,7 @@ const TextInput = styled.input`
   }
   &:last-child {
     margin-right: 0;
+    margin-left: 0;
   }
 
   &:focus {
@@ -607,14 +608,11 @@ const Contact = (props) => {
                       name="city"
                       onChange={handleInput}
                     />
-                    <Select
+                    <TextInput
                       halfWidth
+                      placeholder="State/Province"
                       name="state"
-                      className="react-select-container half-width"
-                      classNamePrefix="react-select"
-                      placeholder="State"
-                      onChange={handleSelect}
-                      options={states}
+                      onChange={handleInput}
                     />
                   </FormRow>
                   <FormRow>
