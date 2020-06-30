@@ -665,19 +665,28 @@ const Contact = (props) => {
                       name="city"
                       onChange={handleInput}
                     />
-                    <Select
-                      name="state"
-                      className="react-select-container"
-                      classNamePrefix="react-select"
-                      placeholder="State"
-                      onChange={handleSelect}
-                      options={states}
-                    />
                     <TextInput
-                      quarterWidth
+                      halfWidth
+                      placeholder="State/Province"
+                      name="state"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      halfWidth
                       placeholder="Zip"
                       name="zip"
                       onChange={handleInput}
+                    />
+                    <Select
+                      halfWidth
+                      name="country"
+                      className="react-select-container half-width"
+                      classNamePrefix="react-select"
+                      placeholder="Country"
+                      onChange={handleSelect}
+                      options={countryMap}
                     />
                   </FormRow>
                 </>
