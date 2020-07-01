@@ -437,21 +437,20 @@ const Contact = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!checkForErrors()) {
-      console.log(parseFormData());
-      //   $.ajax({
-      //     url: "https://form.api.dbxd.com/post-buildercms-form/",
-      //     type: "POST",
-      //     dataType: "json",
-      //     data: parseFormData(),
-      //     crossDomain: true,
-      //     success: (/* res  textStatus, jqXHR */) => {
-      //       console.log("success - form submitted");
-      //       showSuccess();
-      //     },
-      //     error: (jqXHR, textStatus, errorThrown) => {
-      //       console.log("http request failed", errorThrown);
-      //     },
-      //   });
+      $.ajax({
+        url: "https://form.api.dbxd.com/post-buildercms-form/",
+        type: "POST",
+        dataType: "json",
+        data: parseFormData(),
+        crossDomain: true,
+        success: (/* res  textStatus, jqXHR */) => {
+          console.log("success - form submitted");
+          showSuccess();
+        },
+        error: (jqXHR, textStatus, errorThrown) => {
+          console.log("http request failed", errorThrown);
+        },
+      });
     }
   };
 
