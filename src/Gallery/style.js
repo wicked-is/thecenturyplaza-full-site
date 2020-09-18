@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 import { Container } from "../shared/styled-components/Layouts.js";
-import { mediaMin } from "../shared/styled-components/MediaQueries.js";
+import { mediaMin, mediaMax } from "../shared/styled-components/MediaQueries.js";
 import { enterFadeIn } from "../shared/styled-components/Transitions.js";
 import playBtnSVG from "icons/play-btn.svg";
 import leftCycleSVG from "icons/left-cycle.svg";
@@ -64,12 +64,22 @@ export const SectionTitleStyled = css`
 `;
 
 export const SectionMediaStyled = css`
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  // display: flex;
+  display: grid;  
+  grid-template-rows: unset;
+  grid-template-columns: repeat(3, auto);;
+
+  ${mediaMax.phoneXL`
+  grid-template-columns: repeat(2, auto);
+`}
+  
+  justify-items: stretch;
   align-items: stretch;
-  align-content: center;
+  
+  justify-content: space-between;
+  align-content: space-between;
+  grid-auto-flow: dense;
+  width: 100%;
 
   .react-reveal {
     width: 100%;
@@ -99,8 +109,11 @@ export const PlaceholderStyled = css`
 
 export const MediaStyled = css`
   margin: 0 10px 20px 10px;
-  width: ${props =>
-    props.type === "video" ? "calc(100% - 20px)" : "calc(50% - 20px)"};
+  grid-column: ${props =>
+    props.type === "video" ? "span 2" : "span 1"};
+  grid-row: ${props =>
+    props.type === "video" ? "span 2" : "span 1"};
+  width: "calc(100% - 20px)";
   height: ${props =>
     props.type === "video" ? "calc(54vw - 20px)" : "calc(27vw - 20px)"};
   float: left;
@@ -108,8 +121,7 @@ export const MediaStyled = css`
 
   ${mediaMin.phoneXL`
     margin: 0 10px 20px 10px;
-    width: ${props =>
-      props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
+    width: "calc(100% - 20px)";
     height: ${props =>
       props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
   `}
@@ -170,8 +182,8 @@ export const MediaStyled = css`
     + [type="image"]
     + [type="image"] {
     ${mediaMin.phoneXL` 
-      transform: translateX(200%) translateX(40px);
-      margin-top: -36vw;
+      // transform: translateX(200%) translateX(40px);
+      // margin-top: -36vw;
     `}
   }
 `;
