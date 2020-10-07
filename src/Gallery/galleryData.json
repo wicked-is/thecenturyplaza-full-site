@@ -153,14 +153,14 @@
     {
         "title": "Tower Residences",
         "slug": "tower-residences",
-        "media": [
+        "media": [                      
             {
                 "type": "video",
                 "slug": "construction-update",
                 "caption": "",
                 "source": "https://vimeo.com/457011297/482854347e",
-                "placeholder": ""
-            },                 
+                "placeholder": "construction_update_placeholder"
+            },
             {
                 "type": "image",
                 "slug": "towers-looking-up",
