@@ -69,7 +69,7 @@ const Accessibility = props => {
           <a href="mailto:mosborn@thecenturyplaza.com">
             mosborn@thecenturyplaza.com
           </a>{" "}
-          or calling us at (+1) 310.246.4777.
+          or calling us at <span class="InfinityNumber clickable">3102464777</span>.
         </p>
       </AccessibilityContainer>
     </AccessibilityWrapper>

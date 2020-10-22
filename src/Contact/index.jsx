@@ -521,7 +521,7 @@ const Contact = (props) => {
             </p>
             <p>
               <strong>Schedule an Appointment</strong>
-              +1 310 246 4777
+              <span class="InfinityNumber clickable">3102464777</span>
               <br />
               <a
                 href="mailto:info@thecenturyplaza.com"
