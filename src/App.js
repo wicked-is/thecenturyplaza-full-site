@@ -20,6 +20,7 @@ import Press from "Press";
 import Gallery from "Gallery";
 import SlideshowSection from "Gallery/components/SlideshowSection.jsx";
 import galleryData from "Gallery/galleryData.json";
+import landingData from "Landing/landingData.json";
 import Contact from "Contact";
 import Legal from "Legal";
 import Accessibility from "Accessibility";
@@ -182,7 +183,10 @@ class App extends Component {
                       ))}
                       <Legal path="legal" setPageColor={this.setPageColor}/>
                       <Contact path="contact" setPageColor={this.setPageColor}/>
-                      <Landing path="landing" setPageColor={this.setPageColor}/>
+                      <Landing
+                        path="landing"
+                        landingData={landingData}
+                               setPageColor={this.setPageColor}/>
                       <Accessibility
                         path="accessibility"
                         setPageColor={this.setPageColor}
