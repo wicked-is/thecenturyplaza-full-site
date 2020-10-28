@@ -1,9 +1,11 @@
 {
-  "media": {
-    "type": "video",
-    "slug": "topping-off",
-    "caption": "The Tower Residences at Century Plaza Topping Off 2020",
-    "source": "https://vimeo.com/457011297/482854347e",
-    "placeholder": "topping_off_placeholder"
-  }
+  "media": [
+    {
+      "type": "video",
+      "slug": "topping-off",
+      "caption": "The Tower Residences at Century Plaza Topping Off 2020",
+      "source": "https://vimeo.com/457011297/482854347e",
+      "placeholder": "topping_off_placeholder"
+    }
+  ]
 }

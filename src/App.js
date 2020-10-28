@@ -91,7 +91,7 @@ class App extends Component {
   };
 
   setPageColor = color => {
-    this.setState(state => ({pageColor: color}));
+    this.setState(() => ({pageColor: color}));
   };
 
   toggleExpand = () => {
@@ -99,7 +99,7 @@ class App extends Component {
   };
 
   closeExpand = () => {
-    this.setState(state => ({isExpanded: false}));
+    this.setState(() => ({isExpanded: false}));
   };
 
   render() {
@@ -186,7 +186,7 @@ class App extends Component {
                       <Landing
                         path="landing"
                         landingData={landingData}
-                               setPageColor={this.setPageColor}/>
+                        setPageColor={this.setPageColor}/>
                       <Accessibility
                         path="accessibility"
                         setPageColor={this.setPageColor}

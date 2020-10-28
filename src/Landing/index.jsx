@@ -1,19 +1,15 @@
-import React, {useState, useEffect, useContext} from "react";
-import CPLogo from 'icons/logo-black-with-sub.svg';
-import styled from "styled-components/macro";
-import {MediaStyled, PlaceholderStyled, SectionStyled} from "../Gallery/style";
-import ResponsiveImage from "../shared/components/ResponsiveImage";
+import React, {useState} from "react";
+import {Link} from "@reach/router";
 import ReactPlayer from "react-player";
 import Select from "react-select";
-import {countryMap} from "../Contact/countries";
-import {sourceDetail} from "../Contact/sourceDetail";
-import {mediaMin} from "../shared/styled-components/MediaQueries";
-import $ from "jquery";
 import Fade from "react-reveal/Fade";
-import {Link} from "@reach/router";
-import Context from "../config/Context";
+import $ from "jquery";
+import styled from "styled-components/macro";
+import ResponsiveImage from "../shared/components/ResponsiveImage";
+import {countryMap} from "../Contact/countries";
+import {mediaMin} from "../shared/styled-components/MediaQueries";
+import CPLogo from 'icons/logo-black-with-sub.svg';
 import playBtnSVG from "icons/play-btn.svg";
-
 
 const LandingSection = styled.section`
   display: flex;
@@ -37,7 +33,7 @@ const Logo = styled.img`
 `;
 
 const LandingHeader = styled.h2`
-  font-family:  ${(props) => props.theme.serifMedium}, sans-serif;
+  font-family:  ${(props) => props.theme.serifRoman}, sans-serif;
   color: #101830;
   letter-spacing: 1.28px;
   font-size: 34px;
@@ -45,6 +41,7 @@ const LandingHeader = styled.h2`
   margin: 0 0 24px;
   text-align: center;
 `;
+
 const LandingSubhead = styled.p`
   font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
   color: #101830;
@@ -53,7 +50,9 @@ const LandingSubhead = styled.p`
   line-height: 24px;
   margin: 0 0 32px;
   text-align: center;
+  text-transform: uppercase;
 `;
+
 const LandingText = styled.p`
   font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
   color: #101830;
@@ -64,8 +63,9 @@ const LandingText = styled.p`
   text-align: center;
   max-width: 800px;
 `;
+
 const LandingStrongText = styled.strong`
-  font-family:  ${(props) => props.theme.sansSerifMedium}, sans-serif;
+  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
   letter-spacing: 0.96px;
   font-size: 12px;
@@ -75,7 +75,7 @@ const LandingStrongText = styled.strong`
   text-align: center;
 `;
 
-const ContactScrollButton = styled.button`
+const ContactScrollButton = styled.a`
   display: inline-flex;
   font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
@@ -91,10 +91,11 @@ const ContactScrollButton = styled.button`
 `;
 
 const Placeholder = styled.div`
-  display: inline-block;
+  display: 'inline-block';
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer;
 
   &::before {
     content: "";
@@ -110,11 +111,12 @@ const Placeholder = styled.div`
   }
 `;
 
-const videoElement = () => ({
-  width: "100%",
-  height: "100%",
-  display: "none"
-});
+const ContactContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
 
 const ContactForm = styled.form`
   opacity: ${(props) => (props.formVisible ? "1" : "0")};
@@ -155,11 +157,13 @@ const ContactSuccess = styled.form`
 
   p {
     font-family: ${(props) => props.theme.sansSerifLight};
-    line-height: 1.4em;
-    letter-spacing: 0.05em;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 0.02px;
     font-weight: 300;
-    margin: 0 0 20px;
+    margin: 0 0 40px;
     color: ${(props) => props.theme.black};
+    text-align: center;
   }
 
   a {
@@ -171,11 +175,20 @@ const ContactSuccess = styled.form`
   }
 `;
 
+const FormConfirmationWrapper = styled.div`
+   height: ${props => props.confirmationMounted && '650px' || 'auto'};
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+`;
+
 const FormRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 38px;
 
   .react-select-container {
     width: 25%;
@@ -184,6 +197,8 @@ const FormRow = styled.div`
     }
     .react-select__placeholder {
       font-family: ${(props) => props.theme.sansSerifRegular};
+      font-size: 18px;
+      line-height: 18px;
       font-weight: 300;
       color: ${(props) => props.theme.black};
     }
@@ -201,6 +216,12 @@ const FormRow = styled.div`
       box-shadow: 0 0 0 transparent;
       font-family: ${(props) => props.theme.sansSerifRegular};
       font-weight: 300;
+      font-size: 20px;
+      line-height: 18px;
+    }
+    
+    .react-select__control {
+      height: 100%
     }
 
     .react-select__menu-list {
@@ -244,10 +265,12 @@ const TextInput = styled.input`
   color: ${(props) => props.theme.black};
   border: ${(props) =>
   props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
-  padding: 8px;
+  padding: 14px 16px;
   box-sizing: border-box;
-  letter-spacing: 0.1em;
+  letter-spacing: 0px;
   font-family: ${(props) => props.theme.sansSerifRegular};
+  font-size: 18px;
+  line-height: 18px;
 
   ::placeholder {
     color: ${(props) => props.theme.black};
@@ -273,7 +296,7 @@ const TextInput = styled.input`
   &:focus {
     outline: none;
     colors: white;
-    border: ${(props) => (props.error ? "1px solid red" : "1px solid white")};
+    border: ${(props) => (props.error ? "1px solid red" : "1px solid black")};
     background-color: transparent;
   }
 `;
@@ -286,10 +309,12 @@ const RadioInput = styled.label`
   margin: 0 10px;
   width: 50%;
   color: ${(props) => props.theme.black};
-  letter-spacing: 0.1em;
+  letter-spacing: 0px;
   cursor: pointer;
   font-weight: 300;
   font-family: ${(props) => props.theme.sansSerifRegular};
+  font-size: 18px;
+  line-height: 18px;
 
   &:first-child {
     margin-left: 0;
@@ -306,8 +331,8 @@ const RadioInput = styled.label`
     position: relative;
     background-color: transparent;
     color: ${(props) => props.theme.black};
-    height: 24px;
-    width: 24px;
+    height: 36px;
+    width: 36px;
     border: 0;
     cursor: pointer;
     outline: none;
@@ -323,11 +348,11 @@ const RadioInput = styled.label`
       background-color: transparent;
       &::before {
         color: ${(props) => props.theme.black};
-        ${"" /* border: 1px solid ${props => props.theme.black}; */}
         position: absolute;
-        font: 13px/1 "Open Sans", sans-serif;
-        left: 7px;
-        top: 3px;
+        font: 22px / 1 "Open Sans", sans-serif;
+        font-weight: 600;
+        left: 10px;
+        top: 5px;
         content: "\\02143";
         transform: rotate(40deg);
       }
@@ -340,14 +365,14 @@ const SubmitButton = styled.button`
   background-color: transparent;
   color: ${(props) => props.theme.black};
   border: ${(props) => `1px solid ${props.theme.black}`};
-  padding: 10px 8px 8px;
+  padding: 12px 8px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
   text-align: center;
-  font-family: ${(props) => props.theme.sansSerifLight};
-  line-height: 1.2em;
-  letter-spacing: 0.2em;
+  font-family: ${(props) => props.theme.sansSerifRegular};
+  line-height: 14px;
+  letter-spacing: 0.14px;
   font-weight: 300;
   margin: 0 auto;
 
@@ -359,7 +384,8 @@ const SubmitButton = styled.button`
 const InfoCluster = styled.div`
   p {
     font-family: ${(props) => props.theme.sansSerifLight};
-    line-height: 1.4em;
+    line-height: 30px;
+    font-size: 22px;
     letter-spacing: 0.05em;
     font-weight: 300;
     margin: 0 0 20px;
@@ -370,6 +396,8 @@ const InfoCluster = styled.div`
     strong {
       display: block;
       font-family: ${(props) => props.theme.sansSerifMedium};
+      line-height: 24px;
+      font-size: 12px;
       font-weight: 400;
       font-weight: normal;
       letter-spacing: 0.96px;
@@ -402,7 +430,7 @@ const LandingFooter = styled.div`
   a {
     font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
     color: #FFFFFF;
-    letter-spacing: 0px;
+    letter-spacing: 0.02px;
     font-size: 22px;
     line-height: 30px;
     
@@ -411,6 +439,7 @@ const LandingFooter = styled.div`
     }
   }
 `;
+
 const MainPageLink = styled(Link)`
   font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
@@ -423,7 +452,7 @@ const MainPageLink = styled(Link)`
   border-bottom: 1px solid black;
 `;
 
-const GalleryMedia = styled.div`
+const LandingMedia = styled.div`
   margin: 0 0 40px;
   width: 100%;
   padding-bottom: 56.27%;
@@ -495,11 +524,9 @@ const GalleryMedia = styled.div`
 `;
 
 const Landing = ({landingData}) => {
-
-  const context = useContext(Context);
-  const {globalConfig, setGlobalConfig} = context;
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
+  const [videoState, setVideoState] = useState(false);
 
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [confirmationMounted, setConfirmationMounted] = useState(false);
@@ -517,7 +544,6 @@ const Landing = ({landingData}) => {
     agencyName: "",
     agencyPhone: "",
     agencyAddress: "",
-    sourceDetail: "",
   });
 
   const [formErrors, setFormErrors] = useState({
@@ -526,8 +552,8 @@ const Landing = ({landingData}) => {
     email: false,
     phone: false,
     agencyName: false,
-    sourceDetail: false,
   });
+
   const checkForErrors = () => {
     const newErrors = {
       firstName: false,
@@ -535,13 +561,11 @@ const Landing = ({landingData}) => {
       email: false,
       phone: false,
       agencyName: false,
-      sourceDetail: false,
     };
     if (!formData.firstName) newErrors.firstName = true;
     if (!formData.lastName) newErrors.lastName = true;
     if (!formData.email) newErrors.email = true;
     if (!formData.phone) newErrors.phone = true;
-    if (!formData.sourceDetail) newErrors.sourceDetail = true;
     if (JSON.parse(formData.agent)) {
       if (!formData.agencyName) newErrors.agencyName = true;
     }
@@ -565,7 +589,6 @@ const Landing = ({landingData}) => {
       data: {
         FollowupCode: "E",
         Source: "Website",
-        sourceDetail: formData.sourceDetail,
         FirstName: formData.firstName,
         LastName: formData.lastName,
         Email: formData.email,
@@ -576,8 +599,8 @@ const Landing = ({landingData}) => {
         State: formData.state,
         Zip: formData.zip,
         WorkStreetAddress: formData.agencyAddress,
-        WorkCity: formData.agencyCity,
-        WorkState: formData.agencyState,
+        WorkName: formData.agencyName,
+        WorkPhone: formData.agencyPhone,
         WorkZip: formData.zip,
       },
     };
@@ -614,14 +637,10 @@ const Landing = ({landingData}) => {
     }, 1000);
   };
 
-
-  const declareReturnPath = () => {
-    setGlobalConfig({
-      ...globalConfig,
-      headerBackground: "transparent",
-      returnPath: "/gallery"
-    });
+  const showVideo = () => {
+    setVideoState(true)
   };
+
   return (
     <LandingSection>
       <Logo
@@ -634,27 +653,33 @@ const Landing = ({landingData}) => {
         <br/>
         Tower Residences Anticipated Opening Mid-2021
       </LandingSubhead>
-      <ContactScrollButton>Schedule a Private Appointment</ContactScrollButton>
-      <GalleryMedia type={landingData.media.type}>
+      <ContactScrollButton href={'#contact'}>Schedule a Private Appointment</ContactScrollButton>
+      <LandingMedia type={landingData.media[0].type}>
         <Fade>
-          <Link
-            onClick={declareReturnPath}
-            to={"/landing/" + landingData.media.slug + "/" + landingData.media.slug}
-          >
-            <React.Fragment>
-              <Placeholder>
-                <ResponsiveImage srcPath={landingData.media.placeholder}/>
-              </Placeholder>
-              <ReactPlayer
-                url={landingData.media.source}
-                width="100%"
-                height="100%"
-                style={videoElement()}
-              />
-            </React.Fragment>
-          </Link>
+          <React.Fragment>
+            {!videoState &&
+            <Placeholder onClick={showVideo}>
+              <ResponsiveImage srcPath={landingData.media[0].placeholder}/>
+            </Placeholder>
+            }
+            <ReactPlayer
+              url={landingData.media[0].source}
+              preload="true"
+              controls
+              playsinline
+              width="100%"
+              height="100%"
+              playing={videoState}
+              style={{display: videoState ? 'inline-flex' : "none"}}
+              config={{
+                vimeo: {
+                  playerVars: {transparent: true}
+                }
+              }}
+            />
+          </React.Fragment>
         </Fade>
-      </GalleryMedia>
+      </LandingMedia>
       <LandingText>
         Ascending 44 stories into the sky above Century City in Los Angeles, are two glass residential condominium
         towers masterfully designed by world-renowned architects, Pei Cobb Freed & Partners, and the newly re-envisioned
@@ -666,187 +691,201 @@ const Landing = ({landingData}) => {
         <br/>
         The Tower Residences at Century Plaza starting at $1.7m
       </LandingStrongText>
-
-      <ContactForm onSubmit={handleSubmit} formVisible={formVisible}>
-        <LandingHeader>Register For More Information</LandingHeader>
-        <FormRow>
-          <TextInput
-            halfWidth
-            placeholder="First Name*"
-            name="firstName"
-            onChange={handleInput}
-            error={formErrors.firstName}
-          />
-          <TextInput
-            halfWidth
-            placeholder="Last Name*"
-            name="lastName"
-            onChange={handleInput}
-            error={formErrors.lastName}
-          />
-        </FormRow>
-        <FormRow>
-          <TextInput
-            placeholder="Email*"
-            name="email"
-            onChange={handleInput}
-            error={formErrors.email}
-          />
-        </FormRow>
-        <FormRow>
-          <TextInput
-            placeholder="Phone*"
-            name="phone"
-            onChange={handleInput}
-            error={formErrors.phone}
-          />
-        </FormRow>
-        <FormRow>
-          <RadioInput htmlFor="radio-1">
-            <input
-              defaultChecked
-              id="radio-1"
-              type="radio"
-              name="agent"
-              value={false}
-              onChange={handleInput}
-            />
-            Future Resident
-          </RadioInput>
-          <RadioInput htmlFor="radio-2">
-            <input
-              id="radio-2"
-              type="radio"
-              name="agent"
-              value={true}
-              onChange={handleInput}
-            />
-            Sales Agent
-          </RadioInput>
-        </FormRow>
-        {!JSON.parse(formData.agent) && (
+      <ContactContainer id={'contact'}>
+        {formMounted && (
           <>
-            <FormRow>
-              <TextInput
-                placeholder="Address"
-                name="address"
-                onChange={handleInput}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                halfWidth
-                placeholder="City"
-                name="city"
-                onChange={handleInput}
-              />
-              <TextInput
-                halfWidth
-                placeholder="State/Province"
-                name="state"
-                onChange={handleInput}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                halfWidth
-                placeholder="Zip"
-                name="zip"
-                onChange={handleInput}
-              />
-              <Select
-                halfWidth
-                name="country"
-                className="react-select-container half-width"
-                classNamePrefix="react-select"
-                placeholder="Country"
-                onChange={handleSelect}
-                options={countryMap}
-              />
-            </FormRow>
+            <ContactForm onSubmit={handleSubmit} formVisible={formVisible}>
+              <LandingHeader>Schedule a Private Appointment</LandingHeader>
+              <FormRow>
+                <TextInput
+                  halfWidth
+                  placeholder="First Name*"
+                  name="firstName"
+                  onChange={handleInput}
+                  error={formErrors.firstName}
+                />
+                <TextInput
+                  halfWidth
+                  placeholder="Last Name*"
+                  name="lastName"
+                  onChange={handleInput}
+                  error={formErrors.lastName}
+                />
+              </FormRow>
+              <FormRow>
+                <TextInput
+                  placeholder="Email*"
+                  name="email"
+                  onChange={handleInput}
+                  error={formErrors.email}
+                />
+              </FormRow>
+              <FormRow>
+                <TextInput
+                  placeholder="Phone*"
+                  name="phone"
+                  onChange={handleInput}
+                  error={formErrors.phone}
+                />
+              </FormRow>
+              <FormRow>
+                <RadioInput htmlFor="radio-1">
+                  <input
+                    defaultChecked
+                    id="radio-1"
+                    type="radio"
+                    name="agent"
+                    value={false}
+                    onChange={handleInput}
+                  />
+                  Future Resident
+                </RadioInput>
+                <RadioInput htmlFor="radio-2">
+                  <input
+                    id="radio-2"
+                    type="radio"
+                    name="agent"
+                    value={true}
+                    onChange={handleInput}
+                  />
+                  Sales Agent
+                </RadioInput>
+              </FormRow>
+              {!JSON.parse(formData.agent) && (
+                <>
+                  <FormRow>
+                    <TextInput
+                      placeholder="Address"
+                      name="address"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      halfWidth
+                      placeholder="City"
+                      name="city"
+                      onChange={handleInput}
+                    />
+                    <TextInput
+                      halfWidth
+                      placeholder="State/Province"
+                      name="state"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      halfWidth
+                      placeholder="Zip"
+                      name="zip"
+                      onChange={handleInput}
+                    />
+                    <Select
+                      halfWidth
+                      name="country"
+                      className="react-select-container half-width"
+                      classNamePrefix="react-select"
+                      placeholder="Country"
+                      onChange={handleSelect}
+                      options={countryMap}
+                    />
+                  </FormRow>
+                </>
+              )}
+              {JSON.parse(formData.agent) && (
+                <>
+                  <FormRow>
+                    <TextInput
+                      placeholder="Agency Name*"
+                      name="agencyName"
+                      onChange={handleInput}
+                      error={formErrors.agencyName}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      placeholder="Agency Phone"
+                      name="agencyPhone"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      placeholder="Agency Address"
+                      name="agencyAddress"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      halfWidth
+                      placeholder="City"
+                      name="city"
+                      onChange={handleInput}
+                    />
+                    <TextInput
+                      halfWidth
+                      placeholder="State/Province"
+                      name="state"
+                      onChange={handleInput}
+                    />
+                  </FormRow>
+                  <FormRow>
+                    <TextInput
+                      halfWidth
+                      placeholder="Zip"
+                      name="zip"
+                      onChange={handleInput}
+                    />
+                    <Select
+                      halfWidth
+                      name="country"
+                      className="react-select-container half-width"
+                      classNamePrefix="react-select"
+                      placeholder="Country"
+                      onChange={handleSelect}
+                      options={countryMap}
+                    />
+                  </FormRow>
+                </>
+              )}
+              <SubmitButton type="submit">SUBMIT</SubmitButton>
+            </ContactForm>
+            <InfoCluster>
+              <p>
+                <strong>Sales Gallery</strong>
+                <a
+                  href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  10250 Constellation Boulevard
+                  <br/>
+                  Suite 3050
+                  <br/>
+                  Los Angeles, California 90067
+                </a>
+              </p>
+            </InfoCluster>
           </>
         )}
-        {JSON.parse(formData.agent) && (
-          <>
-            <FormRow>
-              <TextInput
-                placeholder="Agency Name*"
-                name="agencyName"
-                onChange={handleInput}
-                error={formErrors.agencyName}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                placeholder="Agency Phone"
-                name="agencyPhone"
-                onChange={handleInput}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                placeholder="Agency Address"
-                name="agencyAddress"
-                onChange={handleInput}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                halfWidth
-                placeholder="City"
-                name="city"
-                onChange={handleInput}
-              />
-              <TextInput
-                halfWidth
-                placeholder="State/Province"
-                name="state"
-                onChange={handleInput}
-              />
-            </FormRow>
-            <FormRow>
-              <TextInput
-                halfWidth
-                placeholder="Zip"
-                name="zip"
-                onChange={handleInput}
-              />
-              <Select
-                halfWidth
-                name="country"
-                className="react-select-container half-width"
-                classNamePrefix="react-select"
-                placeholder="Country"
-                onChange={handleSelect}
-                options={countryMap}
-              />
-            </FormRow>
-          </>
-        )}
-        <SubmitButton type="submit">SUBMIT</SubmitButton>
-      </ContactForm>
-
-      <InfoCluster>
-        <p>
-          <strong>Sales Gallery</strong>
-          <a
-            href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            10250 Constellation Boulevard
-            <br/>
-            Suite 3050
-            <br/>
-            Los Angeles, California 90067
-          </a>
-        </p>
-      </InfoCluster>
+        <FormConfirmationWrapper confirmationMounted={confirmationMounted}>
+          {confirmationMounted && (
+            <ContactSuccess confirmationVisible={confirmationVisible}>
+              <p>
+                Thank you for your interest!
+                <br/>A representative from our team will reach out to you soon.
+              </p>
+            </ContactSuccess>
+          )}
+          <MainPageLink to="/">CONTINUE TO MAIN SITE</MainPageLink>
+        </FormConfirmationWrapper>
+      </ContactContainer>
       <LandingFooter>
-        <a href="#">310 246 4777</a>
-        <a href="#">info@thecenturyplaza.com</a>
+        <a href="tel:310 246 4777">310 246 4777</a>
+        <a href="mailto:info@thecenturyplaza.com">info@thecenturyplaza.com</a>
       </LandingFooter>
-      <MainPageLink  to="/">CONTINUE TO MAIN SITE</MainPageLink>
     </LandingSection>
   );
 };
