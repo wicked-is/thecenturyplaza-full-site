@@ -24,14 +24,18 @@ const LandingSection = styled.section`
   `}
 `;
 
-const Logo = styled.img`
+const LogoLink = styled(Link)`
   max-width: 264px;
   width: 100%;
   margin-bottom: 40px;
-  
+  cursor: pointer;
   ${mediaMin.tablet` 
     max-width: 320px;
   `}
+`;
+
+const Logo = styled.img`
+  width: 100%;
 `;
 
 const LandingHeader = styled.h2`
@@ -453,12 +457,12 @@ const LandingFooter = styled.div`
     font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
     color: #FFFFFF;
     letter-spacing: 0.02px;
-    font-size: 22px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 18px;
     
     ${mediaMin.tablet` 
-      font-size: 16px;
-      line-height: 18px;
+      font-size: 22px;
+      line-height: 30px;
     `}
     &:nth-child(1) {
       margin-right: 40px;
@@ -669,10 +673,12 @@ const Landing = ({landingData}) => {
 
   return (
     <LandingSection>
-      <Logo
-        src={CPLogo}
-        alt="century plaza logo"
-      />
+      <LogoLink to="/">
+        <Logo
+          src={CPLogo}
+          alt="century plaza logo"
+        />
+      </LogoLink>
       <LandingHeader>The Premier Destination for Luxury Living, Shopping and Dining</LandingHeader>
       <LandingSubhead>
         Fairmont Century Plaza Hotel and Residences Opening Winter 2020
