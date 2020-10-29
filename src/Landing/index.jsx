@@ -17,7 +17,7 @@ const LandingSection = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 80px auto 20px;
-  padding: 0 20px 80px;
+  padding: 0 16px 80px;
   max-width: 1400px;
  
   ${mediaMin.tablet` 
@@ -43,8 +43,8 @@ const LandingHeader = styled.h2`
   font-family:  ${(props) => props.theme.serifRoman}, sans-serif;
   color: #101830;
   letter-spacing: 0;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 26px;
   margin: 0 0 24px;
   text-align: center;
  
@@ -53,17 +53,27 @@ const LandingHeader = styled.h2`
     line-height: 40px;
     letter-spacing: 1.28px;
   `}
+  ${mediaMin.phone` 
+    font-size: 24px;
+    line-height: 30px;
+  `}
 `;
 
 const LandingSubhead = styled.p`
   font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
   color: #101830;
-  letter-spacing: 1.28px;
-  font-size: 16px;
-  line-height: 24px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 22px;
   margin: 0 0 32px;
   text-align: center;
   text-transform: uppercase;
+  
+  ${mediaMin.phone` 
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1.28px;
+  `}
 `;
 
 const ContactScrollButton = styled.div`
@@ -258,7 +268,8 @@ const TextInput = styled.input`
   return "100%";
 }};
   margin: 0 12px;
- 
+  border-radius: 0;
+  
   ${mediaMin.tablet` 
     font-size: 18px;
     line-height: 18px;
@@ -327,7 +338,7 @@ const RadioInput = styled.label`
     cursor: pointer;
     outline: none;
     border: 1px solid ${(props) => props.theme.black};
-
+    border-radius: 0;
     ::placeholder {
       color: ${(props) => props.theme.black};
       font-weight: 300;
@@ -336,6 +347,7 @@ const RadioInput = styled.label`
 
     &:checked {
       background-color: transparent;
+      border-radius: 0;
       &::before {
         color: ${(props) => props.theme.black};
         position: absolute;
@@ -447,7 +459,7 @@ const LandingFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 40px);
   height: 40px;
   position: fixed;
   bottom: 0;
@@ -467,7 +479,11 @@ const LandingFooter = styled.div`
       line-height: 30px;
     `}
     &:nth-child(1) {
-      margin-right: 40px;
+      margin-right: 10px;
+      
+      ${mediaMin.phoneLarge` 
+        margin-right: 40px;
+      `}
     }
   }
 `;
