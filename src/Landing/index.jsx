@@ -3,6 +3,7 @@ import {Link} from "@reach/router";
 import ReactPlayer from "react-player";
 import Select from "react-select";
 import Fade from "react-reveal/Fade";
+import { scroller } from "react-scroll";
 import $ from "jquery";
 import styled from "styled-components/macro";
 import ResponsiveImage from "../shared/components/ResponsiveImage";
@@ -65,7 +66,7 @@ const LandingSubhead = styled.p`
   text-transform: uppercase;
 `;
 
-const ContactScrollButton = styled.a`
+const ContactScrollButton = styled.div`
   display: inline-flex;
   font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
@@ -78,6 +79,7 @@ const ContactScrollButton = styled.a`
   border: 1px solid #101820;
   background: none;
   outline: none;
+  cursor: pointer;
 `;
 
 const LandingText = styled.p`
@@ -557,7 +559,6 @@ const Landing = ({landingData}) => {
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [videoState, setVideoState] = useState(false);
-
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [confirmationMounted, setConfirmationMounted] = useState(false);
   const [formData, setFormData] = useState({
@@ -575,7 +576,6 @@ const Landing = ({landingData}) => {
     agencyPhone: "",
     agencyAddress: "",
   });
-
   const [formErrors, setFormErrors] = useState({
     firstName: false,
     lastName: false,
@@ -671,6 +671,13 @@ const Landing = ({landingData}) => {
     setVideoState(true)
   };
 
+  const executeScroll = () => {
+    scroller.scrollTo("contact-form", {
+      duration: 700,
+      delay: 0,
+      smooth: "easeInOutQuad",
+    });
+  }
   return (
     <LandingSection>
       <LogoLink to="/">
@@ -685,7 +692,7 @@ const Landing = ({landingData}) => {
         <br/>
         Tower Residences Anticipated Opening Mid-2021
       </LandingSubhead>
-      <ContactScrollButton href={'#contact'}>Schedule a Private Appointment</ContactScrollButton>
+      <ContactScrollButton onClick={executeScroll}>Schedule a Private Appointment</ContactScrollButton>
       <LandingMedia type={landingData.media[0].type}>
         <Fade>
           <React.Fragment>
@@ -723,7 +730,7 @@ const Landing = ({landingData}) => {
         <br/>
         The Tower Residences at Century Plaza starting at $1.7m
       </LandingStrongText>
-      <ContactContainer id={'contact'}>
+      <ContactContainer className={'contact-form'}>
         {formMounted && (
           <>
             <ContactForm onSubmit={handleSubmit} formVisible={formVisible}>
