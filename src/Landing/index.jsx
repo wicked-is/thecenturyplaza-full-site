@@ -16,30 +16,38 @@ const LandingSection = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 80px auto 20px;
-  padding: 0 20px 156px;
+  padding: 0 20px 80px;
   max-width: 1400px;
- /* ${mediaMin.tablet` 
-    margin: 0 0 20px;
+ 
+  ${mediaMin.tablet` 
+    padding: 0 20px 156px;
   `}
-
-  ${mediaMin.desktop`
-    margin: 0 0 60px; 
-  `}*/
 `;
 
 const Logo = styled.img`
-  max-width: 320px;
+  max-width: 264px;
+  width: 100%;
   margin-bottom: 40px;
+  
+  ${mediaMin.tablet` 
+    max-width: 320px;
+  `}
 `;
 
 const LandingHeader = styled.h2`
   font-family:  ${(props) => props.theme.serifRoman}, sans-serif;
   color: #101830;
-  letter-spacing: 1.28px;
-  font-size: 34px;
-  line-height: 40px;
+  letter-spacing: 0;
+  font-size: 24px;
+  line-height: 30px;
   margin: 0 0 24px;
   text-align: center;
+ 
+  ${mediaMin.tablet` 
+    font-size: 34px;
+    line-height: 40px;
+    letter-spacing: 1.28px;
+  `}
 `;
 
 const LandingSubhead = styled.p`
@@ -51,6 +59,21 @@ const LandingSubhead = styled.p`
   margin: 0 0 32px;
   text-align: center;
   text-transform: uppercase;
+`;
+
+const ContactScrollButton = styled.a`
+  display: inline-flex;
+  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
+  color: #101830;
+  letter-spacing: 0.14px;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0 0 32px;
+  padding: 12px 14px;
+  border: 1px solid #101820;
+  background: none;
+  outline: none;
 `;
 
 const LandingText = styled.p`
@@ -73,21 +96,6 @@ const LandingStrongText = styled.strong`
   margin: 0 0 64px;
   text-transform: uppercase;
   text-align: center;
-`;
-
-const ContactScrollButton = styled.a`
-  display: inline-flex;
-  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
-  color: #101830;
-  letter-spacing: 0.14px;
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 14px;
-  margin: 0 0 32px;
-  padding: 12px 14px;
-  border: 1px solid #101820;
-  background: none;
-  outline: none;
 `;
 
 const Placeholder = styled.div`
@@ -126,10 +134,7 @@ const ContactForm = styled.form`
   flex-direction: column;
   max-width: 700px;
   margin-bottom: 64px;
-
-  ${mediaMin.tabletLandscape`
-    width: 50%;
-  `}
+  width: 100%;
 
   font-family: ${(props) => props.theme.sansSerifThin};
   line-height: 1.4em;
@@ -142,46 +147,6 @@ const ContactForm = styled.form`
     margin: 0 0 20px;
   }
 
-`;
-
-const ContactSuccess = styled.form`
-  opacity: ${(props) => (props.confirmationVisible ? "1" : "0")};
-  visibility: ${(props) => (props.confirmationVisible ? "visible" : "hidden")};
-  transition: opacity 0.25s ease, visibility 0.25s ease;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  ${mediaMin.tabletLandscape`
-    width: 50%;
-  `}
-
-  p {
-    font-family: ${(props) => props.theme.sansSerifLight};
-    font-size: 22px;
-    line-height: 30px;
-    letter-spacing: 0.02px;
-    font-weight: 300;
-    margin: 0 0 40px;
-    color: ${(props) => props.theme.black};
-    text-align: center;
-  }
-
-  a {
-    color: ${(props) => props.theme.black};
-
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-`;
-
-const FormConfirmationWrapper = styled.div`
-   height: ${props => props.confirmationMounted && '650px' || 'auto'};
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   width: 100%;
 `;
 
 const FormRow = styled.div`
@@ -197,10 +162,15 @@ const FormRow = styled.div`
     }
     .react-select__placeholder {
       font-family: ${(props) => props.theme.sansSerifRegular};
-      font-size: 18px;
-      line-height: 18px;
+      font-size: 14px;
+      line-height: 14px;
       font-weight: 300;
       color: ${(props) => props.theme.black};
+      
+      ${mediaMin.tablet` 
+        font-size: 18px;
+        line-height: 18px;
+      `}
     }
     .react-select__indicator-separator {
       display: none;
@@ -216,8 +186,13 @@ const FormRow = styled.div`
       box-shadow: 0 0 0 transparent;
       font-family: ${(props) => props.theme.sansSerifRegular};
       font-weight: 300;
-      font-size: 20px;
-      line-height: 18px;
+      font-size: 16px;
+      line-height: 14px;
+      
+      ${mediaMin.tablet` 
+        font-size: 18px;
+        line-height: 18px;
+      `}
     }
     
     .react-select__control {
@@ -269,25 +244,30 @@ const TextInput = styled.input`
   box-sizing: border-box;
   letter-spacing: 0px;
   font-family: ${(props) => props.theme.sansSerifRegular};
-  font-size: 18px;
-  line-height: 18px;
-
+  font-size: 14px;
+  line-height: 14px;
+  width: ${(props) => {
+  if (props.halfWidth) return "calc(50% - 6px)";
+  if (props.quarterWidth) return "25%";
+  return "100%";
+}};
+  margin: 0 12px;
+ 
+  ${mediaMin.tablet` 
+    font-size: 18px;
+    line-height: 18px;
+  `}
+  
   ::placeholder {
     color: ${(props) => props.theme.black};
     font-weight: 300;
     font-family: ${(props) => props.theme.sansSerifRegular};
   }
 
-  width: ${(props) => {
-  if (props.halfWidth) return "calc(50% - 6px)";
-  if (props.quarterWidth) return "25%";
-  return "100%";
-}};
-
-  margin: 0 12px;
   &:first-child {
     margin-left: 0;
   }
+  
   &:last-child {
     margin-right: 0;
     margin-left: 0;
@@ -313,9 +293,13 @@ const RadioInput = styled.label`
   cursor: pointer;
   font-weight: 300;
   font-family: ${(props) => props.theme.sansSerifRegular};
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 14px;
 
+  ${mediaMin.tablet` 
+    font-size: 18px;
+    line-height: 18px;
+  `}
   &:first-child {
     margin-left: 0;
   }
@@ -375,9 +359,9 @@ const SubmitButton = styled.button`
   letter-spacing: 0.14px;
   font-weight: 300;
   margin: 0 auto;
-
+  width: 100%;
   ${mediaMin.tabletLandscape`
-    width: 37%;
+    max-width: 360px;
   `}
 `;
 
@@ -416,16 +400,54 @@ const InfoCluster = styled.div`
   }
 `;
 
+const ContactSuccess = styled.form`
+  opacity: ${(props) => (props.confirmationVisible ? "1" : "0")};
+  visibility: ${(props) => (props.confirmationVisible ? "visible" : "hidden")};
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  p {
+    font-family: ${(props) => props.theme.sansSerifLight};
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 0.02px;
+    font-weight: 300;
+    margin: 0 0 40px;
+    color: ${(props) => props.theme.black};
+    text-align: center;
+  }
+
+  a {
+    color: ${(props) => props.theme.black};
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+`;
+
+const FormConfirmationWrapper = styled.div`
+   height: ${props => props.confirmationMounted && '650px' || 'auto'};
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+`;
+
 const LandingFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 40px;
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 6px 10px 8px;
+  padding: 0 20px;
   background: #101820 0% 0% no-repeat padding-box;
   a {
     font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
@@ -434,6 +456,10 @@ const LandingFooter = styled.div`
     font-size: 22px;
     line-height: 30px;
     
+    ${mediaMin.tablet` 
+      font-size: 16px;
+      line-height: 18px;
+    `}
     &:nth-child(1) {
       margin-right: 40px;
     }
