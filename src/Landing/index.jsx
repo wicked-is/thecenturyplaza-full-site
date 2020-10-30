@@ -47,16 +47,23 @@ const LandingHeader = styled.h2`
   line-height: 26px;
   margin: 0 0 24px;
   text-align: center;
+  white-space: nowrap;
  
   ${mediaMin.tablet` 
     font-size: 34px;
     line-height: 40px;
     letter-spacing: 1.28px;
   `}
-  ${mediaMin.phone` 
+  ${mediaMin.phoneLarge` 
     font-size: 24px;
     line-height: 30px;
+    white-space: unset;
+    
+    br {
+      display: none;
+    }
   `}
+  
 `;
 
 const LandingSubhead = styled.p`
@@ -702,7 +709,7 @@ const Landing = ({landingData}) => {
           alt="century plaza logo"
         />
       </LogoLink>
-      <LandingHeader>The Premier Destination for Luxury Living, Shopping and Dining</LandingHeader>
+      <LandingHeader>The Premier Destination <br/> for Luxury Living, Shopping and Dining</LandingHeader>
       <LandingSubhead>
         Fairmont Century Plaza Hotel and Residences Opening Winter 2020
         <br/>
