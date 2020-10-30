@@ -466,24 +466,34 @@ const LandingFooter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(100% - 40px);
+  width: calc(100% - 32px);
   height: 40px;
   position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 0 20px;
+  padding: 0 16px;
   background: #101820 0% 0% no-repeat padding-box;
+  
+  
+  ${mediaMin.tablet` 
+    padding: 0 20px;
+    width: calc(100% - 40px);
+  `}
   a {
     font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
     color: #FFFFFF;
     letter-spacing: 0.02px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 18px;
     
     ${mediaMin.tablet` 
       font-size: 22px;
       line-height: 30px;
+    `}
+    ${mediaMin.phoneLarge` 
+      font-size: 16px;
+      line-height: 18px;
     `}
     &:nth-child(1) {
       margin-right: 10px;
