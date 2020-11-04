@@ -57,11 +57,6 @@ const LandingHeader = styled.h2`
   ${mediaMin.phoneLarge` 
     font-size: 24px;
     line-height: 30px;
-    white-space: unset;
-    
-    br {
-      display: none;
-    }
   `}
   
 `;
