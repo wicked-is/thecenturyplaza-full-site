@@ -183,10 +183,10 @@ class App extends Component {
                       ))}
                       <Legal path="legal" setPageColor={this.setPageColor}/>
                       <Contact path="contact" setPageColor={this.setPageColor}/>
-                      <Landing
+                      {/*<Landing
                         path="landing"
                         landingData={landingData}
-                        setPageColor={this.setPageColor}/>
+                        setPageColor={this.setPageColor}/>*/}
                       <Accessibility
                         path="accessibility"
                         setPageColor={this.setPageColor}
