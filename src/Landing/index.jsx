@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Link} from "@reach/router";
+import React, { useState } from "react";
+import { Link } from "@reach/router";
 import ReactPlayer from "react-player";
 import Select from "react-select";
 import Fade from "react-reveal/Fade";
@@ -7,9 +7,9 @@ import { scroller } from "react-scroll";
 import $ from "jquery";
 import styled from "styled-components/macro";
 import ResponsiveImage from "../shared/components/ResponsiveImage";
-import {countryMap} from "../Contact/countries";
-import {mediaMin} from "../shared/styled-components/MediaQueries";
-import CPLogo from 'icons/logo-black-with-sub.svg';
+import { countryMap } from "../Contact/countries";
+import { mediaMin } from "../shared/styled-components/MediaQueries";
+import CPLogo from "icons/logo-black-with-sub.svg";
 import playBtnSVG from "icons/play-btn.svg";
 
 const LandingSection = styled.section`
@@ -19,7 +19,7 @@ const LandingSection = styled.section`
   margin: 80px auto 20px;
   padding: 0 16px 80px;
   max-width: 1400px;
- 
+
   ${mediaMin.tablet` 
     padding: 0 20px 156px;
   `}
@@ -40,7 +40,7 @@ const Logo = styled.img`
 `;
 
 const LandingHeader = styled.h2`
-  font-family:  ${(props) => props.theme.serifRoman}, sans-serif;
+  font-family: ${(props) => props.theme.serifRoman}, sans-serif;
   color: #101830;
   letter-spacing: 0;
   font-size: 20px;
@@ -48,7 +48,7 @@ const LandingHeader = styled.h2`
   margin: 0 0 24px;
   text-align: center;
   white-space: nowrap;
- 
+
   ${mediaMin.tablet` 
     font-size: 34px;
     line-height: 40px;
@@ -58,11 +58,10 @@ const LandingHeader = styled.h2`
     font-size: 24px;
     line-height: 30px;
   `}
-  
 `;
 
 const LandingSubhead = styled.p`
-  font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
+  font-family: ${(props) => props.theme.sansSerifLight}, sans-serif;
   color: #101830;
   letter-spacing: 1px;
   font-size: 14px;
@@ -70,7 +69,7 @@ const LandingSubhead = styled.p`
   margin: 0 0 32px;
   text-align: center;
   text-transform: uppercase;
-  
+
   ${mediaMin.phone` 
     font-size: 16px;
     line-height: 24px;
@@ -80,7 +79,7 @@ const LandingSubhead = styled.p`
 
 const ContactScrollButton = styled.div`
   display: inline-flex;
-  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
+  font-family: ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
   letter-spacing: 0.14px;
   text-transform: uppercase;
@@ -95,18 +94,18 @@ const ContactScrollButton = styled.div`
 `;
 
 const LandingText = styled.p`
-  font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
+  font-family: ${(props) => props.theme.sansSerifLight}, sans-serif;
   color: #101830;
   letter-spacing: 0.02px;
   font-size: 22px;
-  line-height: 30px ;
+  line-height: 30px;
   margin: 0 0 32px;
   text-align: center;
   max-width: 800px;
 `;
 
 const LandingStrongText = styled.strong`
-  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
+  font-family: ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
   letter-spacing: 0.96px;
   font-size: 12px;
@@ -117,7 +116,7 @@ const LandingStrongText = styled.strong`
 `;
 
 const Placeholder = styled.div`
-  display: 'inline-block';
+  display: "inline-block";
   position: absolute;
   top: 0;
   left: 0;
@@ -164,7 +163,6 @@ const ContactForm = styled.form`
     font-weight: 400;
     margin: 0 0 20px;
   }
-
 `;
 
 const FormRow = styled.div`
@@ -184,7 +182,7 @@ const FormRow = styled.div`
       line-height: 14px;
       font-weight: 300;
       color: ${(props) => props.theme.black};
-      
+
       ${mediaMin.tablet` 
         font-size: 18px;
         line-height: 18px;
@@ -206,15 +204,15 @@ const FormRow = styled.div`
       font-weight: 300;
       font-size: 16px;
       line-height: 14px;
-      
+
       ${mediaMin.tablet` 
         font-size: 18px;
         line-height: 18px;
       `}
     }
-    
+
     .react-select__control {
-      height: 100%
+      height: 100%;
     }
 
     .react-select__menu-list {
@@ -257,7 +255,7 @@ const TextInput = styled.input`
   background-color: transparent;
   color: ${(props) => props.theme.black};
   border: ${(props) =>
-  props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
+    props.error ? "1px solid red" : "1px solid " + props.theme.black + ""};
   padding: 14px 16px;
   box-sizing: border-box;
   letter-spacing: 0px;
@@ -265,18 +263,18 @@ const TextInput = styled.input`
   font-size: 14px;
   line-height: 14px;
   width: ${(props) => {
-  if (props.halfWidth) return "calc(50% - 6px)";
-  if (props.quarterWidth) return "25%";
-  return "100%";
-}};
+    if (props.halfWidth) return "calc(50% - 6px)";
+    if (props.quarterWidth) return "25%";
+    return "100%";
+  }};
   margin: 0 12px;
   border-radius: 0;
-  
+
   ${mediaMin.tablet` 
     font-size: 18px;
     line-height: 18px;
   `}
-  
+
   ::placeholder {
     color: ${(props) => props.theme.black};
     font-weight: 300;
@@ -286,7 +284,7 @@ const TextInput = styled.input`
   &:first-child {
     margin-left: 0;
   }
-  
+
   &:last-child {
     margin-right: 0;
     margin-left: 0;
@@ -449,12 +447,12 @@ const ContactSuccess = styled.form`
 `;
 
 const FormConfirmationWrapper = styled.div`
-   height: ${props => props.confirmationMounted && '650px' || 'auto'};
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   width: 100%;
+  height: ${(props) => (props.confirmationMounted && "650px") || "auto"};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const LandingFooter = styled.div`
@@ -469,19 +467,18 @@ const LandingFooter = styled.div`
   left: 0;
   padding: 0 16px;
   background: #101820 0% 0% no-repeat padding-box;
-  
-  
+
   ${mediaMin.tablet` 
     padding: 0 20px;
     width: calc(100% - 40px);
   `}
   a {
-    font-family:  ${(props) => props.theme.sansSerifLight}, sans-serif;
-    color: #FFFFFF;
+    font-family: ${(props) => props.theme.sansSerifLight}, sans-serif;
+    color: #ffffff;
     letter-spacing: 0.02px;
     font-size: 14px;
     line-height: 18px;
-    
+
     ${mediaMin.tablet` 
       font-size: 22px;
       line-height: 30px;
@@ -492,7 +489,7 @@ const LandingFooter = styled.div`
     `}
     &:nth-child(1) {
       margin-right: 10px;
-      
+
       ${mediaMin.phoneLarge` 
         margin-right: 40px;
       `}
@@ -501,7 +498,7 @@ const LandingFooter = styled.div`
 `;
 
 const MainPageLink = styled(Link)`
-  font-family:  ${(props) => props.theme.sansSerifRegular}, sans-serif;
+  font-family: ${(props) => props.theme.sansSerifRegular}, sans-serif;
   color: #101830;
   letter-spacing: 0.14px;
   font-size: 14px;
@@ -517,14 +514,14 @@ const LandingMedia = styled.div`
   width: 100%;
   padding-bottom: 56.27%;
   position: relative;
-/*
+  /*
 
   ${mediaMin.phoneXL`
     margin: 0 10px 20px 10px;
-    width: ${props =>
-  props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
-    height: ${props =>
-  props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
+    width: ${(props) =>
+      props.type === "video" ? "calc(66.666% - 20px)" : "calc(33.333% - 20px)"};
+    height: ${(props) =>
+      props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
   `}
 
   ${mediaMin.tabletLandscape` 
@@ -583,7 +580,7 @@ const LandingMedia = styled.div`
   }
 `;
 
-const Landing = ({landingData}) => {
+const Landing = ({ landingData }) => {
   const [formVisible, setFormVisible] = useState(true);
   const [formMounted, setFormMounted] = useState(true);
   const [videoState, setVideoState] = useState(false);
@@ -632,13 +629,13 @@ const Landing = ({landingData}) => {
   };
 
   const handleInput = (e) => {
-    const {name, value} = e.target;
-    setFormData({...formData, [name]: value});
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSelect = (e) => {
-    const {name, value} = e;
-    setFormData({...formData, [name]: value});
+    const { name, value } = e;
+    setFormData({ ...formData, [name]: value });
   };
 
   const parseFormData = () => {
@@ -696,7 +693,7 @@ const Landing = ({landingData}) => {
   };
 
   const showVideo = () => {
-    setVideoState(true)
+    setVideoState(true);
   };
 
   const executeScroll = () => {
@@ -705,30 +702,31 @@ const Landing = ({landingData}) => {
       delay: 0,
       smooth: "easeInOutQuad",
     });
-  }
+  };
   return (
     <LandingSection>
       <LogoLink to="/">
-        <Logo
-          src={CPLogo}
-          alt="century plaza logo"
-        />
+        <Logo src={CPLogo} alt="century plaza logo" />
       </LogoLink>
-      <LandingHeader>The Premier Destination <br/> for Luxury Living, Shopping and Dining</LandingHeader>
+      <LandingHeader>
+        The Premier Destination <br /> for Luxury Living, Shopping and Dining
+      </LandingHeader>
       <LandingSubhead>
         Fairmont Century Plaza Hotel and Residences Opening Winter 2020
-        <br/>
+        <br />
         Tower Residences Anticipated Opening Mid-2021
       </LandingSubhead>
-      <ContactScrollButton onClick={executeScroll}>Schedule a Private Appointment</ContactScrollButton>
+      <ContactScrollButton onClick={executeScroll}>
+        Schedule a Private Appointment
+      </ContactScrollButton>
       <LandingMedia type={landingData.media[0].type}>
         <Fade>
           <React.Fragment>
-            {!videoState &&
-            <Placeholder onClick={showVideo}>
-              <ResponsiveImage srcPath={landingData.media[0].placeholder}/>
-            </Placeholder>
-            }
+            {!videoState && (
+              <Placeholder onClick={showVideo}>
+                <ResponsiveImage srcPath={landingData.media[0].placeholder} />
+              </Placeholder>
+            )}
             <ReactPlayer
               url={landingData.media[0].source}
               preload="true"
@@ -737,28 +735,30 @@ const Landing = ({landingData}) => {
               width="100%"
               height="100%"
               playing={videoState}
-              style={{display: videoState ? 'inline-flex' : "none"}}
+              style={{ display: videoState ? "inline-flex" : "none" }}
               config={{
                 vimeo: {
-                  playerVars: {transparent: true}
-                }
+                  playerVars: { transparent: true },
+                },
               }}
             />
           </React.Fragment>
         </Fade>
       </LandingMedia>
       <LandingText>
-        Ascending 44 stories into the sky above Century City in Los Angeles, are two glass residential condominium
-        towers masterfully designed by world-renowned architects, Pei Cobb Freed & Partners, and the newly re-envisioned
-        Fairmont Century Plaza Hotel and Residences—all anchored by over six acres of landscaped gardens, premier
-        shopping, and world-class dining.
+        Ascending 44 stories into the sky above Century City in Los Angeles, are
+        two glass residential condominium towers masterfully designed by
+        world-renowned architects, Pei Cobb Freed & Partners, and the newly
+        re-envisioned Fairmont Century Plaza Hotel and Residences—all anchored
+        by over six acres of landscaped gardens, premier shopping, and
+        world-class dining.
       </LandingText>
       <LandingStrongText>
         Fairmont Century Plaza Hotel Residences starting at $2.2m
-        <br/>
+        <br />
         The Tower Residences at Century Plaza starting at $1.7m
       </LandingStrongText>
-      <ContactContainer className={'contact-form'}>
+      <ContactContainer className={"contact-form"}>
         {formMounted && (
           <>
             <ContactForm onSubmit={handleSubmit} formVisible={formVisible}>
@@ -928,9 +928,9 @@ const Landing = ({landingData}) => {
                   rel="noopener noreferrer"
                 >
                   10250 Constellation Boulevard
-                  <br/>
+                  <br />
                   Suite 3050
-                  <br/>
+                  <br />
                   Los Angeles, California 90067
                 </a>
               </p>
@@ -942,7 +942,7 @@ const Landing = ({landingData}) => {
             <ContactSuccess confirmationVisible={confirmationVisible}>
               <p>
                 Thank you for your interest!
-                <br/>A representative from our team will reach out to you soon.
+                <br />A representative from our team will reach out to you soon.
               </p>
             </ContactSuccess>
           )}
@@ -950,7 +950,8 @@ const Landing = ({landingData}) => {
         </FormConfirmationWrapper>
       </ContactContainer>
       <LandingFooter>
-        <a href="tel:310 246 4777">310 246 4777</a>
+        <span class="InfinityNumber clickable">3102464777</span>
+        {/* <a href="tel:310 246 4777">310 246 4777</a> */}
         <a href="mailto:info@thecenturyplaza.com">info@thecenturyplaza.com</a>
       </LandingFooter>
     </LandingSection>
