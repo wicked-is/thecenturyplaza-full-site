@@ -7,6 +7,8 @@ import {PageBody} from "shared/styled-components/Typography.js";
 import AppHeader from "shared/components/AppHeader.jsx";
 import MainMenu from "shared/components/MainMenu.jsx";
 import AppFooter from "shared/components/AppFooter.jsx";
+import SEO from "shared/components/SEO.jsx";
+import seoData from "config/seoData.json";
 import Primary from "Primary";
 import BrokerPortal from "BrokerPortal";
 import primaryData from "Primary/primaryData.json";
@@ -129,6 +131,9 @@ class App extends Component {
                         </> :
                         null
                     }
+                    <Router primary={false}>
+                      <SEO path="*" seoData={seoData} />
+                    </Router>
                     <Router>
                       {/* <Redirect from="/" to="home" noThrow /> */}
                       {primaryData.map((section, index) => (

@@ -1,0 +1,52 @@
+{
+  "default": {
+    "title": "The Century Plaza | Luxury Condos for Sale in Los Angeles",
+    "description": "Two residential towers with every amenity imaginable. Welcome to the new Century Plaza. Luxury hotel residences in Century City, Los Angeles."
+  },
+  "routes": {
+    "availability/tower": {
+      "title": "Availability | Tower Residences |  The Century Plaza",
+      "description": "Luxury Tower Residences designed by Yabu Pushelberg. A new standard of Los Angeles living. View availability for the Century Plaza Tower Residences.  "
+    },
+    "availability/hotel": {
+      "title": "Availability | Hotel Residences | The Century Plaza",
+      "description": "Luxury Los Angeles Hotel Residences designed by Yabu Pushelberg. Full-service living with 5-star hotel amenities. View availability for the Century Plaza Hotel Residences.  "
+    },
+    "fairmont/hotel": {
+      "title": "The Fairmont Century Plaza Hotel | The Century Plaza",
+      "description": "The Fairmont Century Plaza Hotel has been reenvisioned for the 21st-century with unrivaled services and 5-star amenities. Learn more."
+    },
+    "intro": {
+      "title": "Introduction | The Century Plaza | Luxury Century City Condos",
+      "description": "The Century Plaza in Century City, Los Angeles. Be at the center of it all. Hotel, dining, shopping, and estate residences. Learn more. "
+    },
+    "press": {
+      "title": "Press | The Century Plaza | Hotel Residences Los Angeles",
+      "description": "The Century Plaza has been featured in a variety of local and national outlets, covering multiple facets of our re-designs. Read about what the press has to say about us."
+    },
+    "project": {
+      "title": "Project | The Century Plaza | Luxury Residences Century City",
+      "description": "Century Plaza is the premier destination for shopping, dining, entertainment, hospitality, and luxury living in Century City, Los Angeles. Learn more."
+    },
+    "retail": {
+      "title": "Retail | The Century Plaza | Luxury Condos in Los Angeles",
+      "description": "At The Century Plaza, world-class dining and shops are just outside your door. All shops and dining surround our newly renovated extensive plaza & gardens. "
+    },
+    "location": {
+      "title": "Location | The Century Plaza | Luxury Condos Los Angeles",
+      "description": "For the first time in the city’s history, Century Plaza residents can live at the intersection of arts, entertainment and culture. Welcome to the new, modern, walkable Los Angeles."
+    },
+    "neighborhood": {
+      "title": "Neighborhood | The Century Plaza | Luxury Condos Century City",
+      "description": "The Century Plaza is luxury-living in the burgeoning heart of Los Angeles. Just minutes from Beverly Hills and Rodeo Drive. Learn more."
+    },
+    "contact": {
+      "title": "Contact | The Century Plaza | Luxury Los Angeles Condominiums",
+      "description": "Exclusive Hotel and Tower Residences at The Century Plaza in Century City, Los Angeles. Contact us today to schedule an appointment. "
+    },
+    "gallery": {
+      "title": "Gallery | The Century Plaza | Luxury Los Angeles Residences",
+      "description": "See what true luxury in the heart of Los Angeles looks like at The Century Plaza. View our photo and video gallery to learn more."
+    }
+  }
+}
