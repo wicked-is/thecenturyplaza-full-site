@@ -727,21 +727,23 @@ const Landing = ({ landingData }) => {
                 <ResponsiveImage srcPath={landingData.media[0].placeholder} />
               </Placeholder>
             )}
-            <ReactPlayer
-              url={landingData.media[0].source}
-              preload="true"
-              controls
-              playsinline
-              width="100%"
-              height="100%"
-              playing={videoState}
-              style={{ display: videoState ? "inline-flex" : "none" }}
-              config={{
-                vimeo: {
-                  playerVars: { transparent: true },
-                },
-              }}
-            />
+            {videoState && (
+              <ReactPlayer
+                url={landingData.media[0].source}
+                preload="true"
+                controls
+                playsinline
+                width="100%"
+                height="100%"
+                playing={videoState}
+                style={{ display: videoState ? "inline-flex" : "none" }}
+                config={{
+                  vimeo: {
+                    playerVars: { transparent: true },
+                  },
+                }}
+              />
+            )}
           </React.Fragment>
         </Fade>
       </LandingMedia>
