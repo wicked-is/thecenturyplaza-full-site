@@ -117,9 +117,11 @@ const VideoSlide = ({
 
   const [activePlaceholder, setActivePlaceholder] = useState(true);
   const [startVideo, setStartVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+
+  setTimeout(() => setShowVideo(true), 2000);
 
   const startTimer = () => {
-    toggleExpand();
     setTimeout(() => {
       closeExpand();
     }, slide.delay);
@@ -228,36 +230,39 @@ const VideoSlide = ({
               >
                 <ResponsiveImage srcPath={slide.placeholder} />
               </PlaceHolder>
-              <ReactPlayer
-                ref={VideoRef}
-                url={
-                  window.innerWidth < 1024 && window.mobileSource
-                    ? slide.mobileSource[0]
-                    : slide.source[0]
-                }
-                muted
-                loop
-                playing={startVideo}
-                onProgress={progress => {
-                  if (progress.played >= 0.95) {
-                    VideoRef.current.seekTo(0);
-                  }
-                }}
-                onEnded={() => {
-                  VideoRef.current.seekTo(0);
-                }}
-                playsinline
-                width="100vw"
-                height="56.25vw"
-                onReady={removePlaceholder}
-                style={videoElement()}
-                preload="true"
-                config={{
-                  vimeo: {
-                    playerVars: { transparent: true }
-                  }
-                }}
-              />
+              {
+                showVideo ?
+                  <ReactPlayer
+                    ref={VideoRef}
+                    url={
+                      window.innerWidth < 1024 && window.mobileSource
+                        ? slide.mobileSource[0]
+                        : slide.source[0]
+                    }
+                    muted
+                    loop
+                    playing={startVideo}
+                    onProgress={progress => {
+                      if (progress.played >= 0.95) {
+                        VideoRef.current.seekTo(0);
+                      }
+                    }}
+                    onEnded={() => {
+                      VideoRef.current.seekTo(0);
+                    }}
+                    playsinline
+                    width="100vw"
+                    height="56.25vw"
+                    onReady={removePlaceholder}
+                    style={videoElement()}
+                    preload="true"
+                    config={{
+                      vimeo: {
+                        playerVars: { transparent: true }
+                      }
+                    }}
+                  /> : null
+              }
             </FullScreen>
           </PlayerContainer>
         </SlideContainer>
