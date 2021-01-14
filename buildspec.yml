@@ -5,6 +5,8 @@ phases:
       nodejs: 10
   pre_build:
     commands:
+      - '# This installs Chrome on any RHEL/CentOS/Amazon Linux variant.'
+      - curl https://intoli.com/install-google-chrome.sh | bash
       - echo Installing source NPM dependencies...
       - npm install
   build:
