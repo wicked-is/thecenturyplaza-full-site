@@ -712,9 +712,9 @@ const Landing = ({ landingData }) => {
         The Premier Destination <br /> for Luxury Living, Shopping and Dining
       </LandingHeader>
       <LandingSubhead>
-        Fairmont Century Plaza Hotel and Residences Opening Winter 2020
+        Fairmont Century Plaza Residences Move In Ready
         <br />
-        Tower Residences Anticipated Opening Mid-2021
+        Tower Estate Residences Anticipated Opening Summer 2021
       </LandingSubhead>
       <ContactScrollButton onClick={executeScroll}>
         Schedule a Private Appointment
