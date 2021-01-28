@@ -242,6 +242,16 @@ const TextInput = styled.input`
   }
 `;
 
+const TextInputPot = styled.input`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+`;
+
 const RadioInput = styled.label`
   display: flex;
   align-items: center;
@@ -358,6 +368,10 @@ const Contact = (props) => {
     lastName: "",
     email: "",
     phone: "",
+    firstNamexggltw: "",
+    lastNamexggltw: "",
+    emailxggltw: "",
+    phonexggltw: "",
     agent: false,
     address: "",
     city: "",
@@ -388,11 +402,11 @@ const Contact = (props) => {
       agencyName: false,
       sourceDetail: false,
     };
-    if (!formData.firstName) newErrors.firstName = true;
-    if (!formData.lastName) newErrors.lastName = true;
-    if (!formData.email) newErrors.email = true;
-    if (!formData.phone) newErrors.phone = true;
-    if (!formData.sourceDetail) newErrors.sourceDetail = true;
+    if (!formData.firstName && !formData.firstNamexggltw) newErrors.firstName = true;
+    if (!formData.lastName && !formData.lastNamexggltw) newErrors.lastName = true;
+    if (!formData.email && !formData.emailxggltw) newErrors.email = true;
+    if (!formData.phone && !formData.phonexggltw) newErrors.phone = true;
+    if (!formData.sourceDetail && !formData.sourceDetailxggltw) newErrors.sourceDetail = true;
     if (JSON.parse(formData.agent)) {
       if (!formData.agencyName) newErrors.agencyName = true;
     }
@@ -421,6 +435,10 @@ const Contact = (props) => {
         LastName: formData.lastName,
         Email: formData.email,
         Phone: formData.phone,
+        FirstNamexggltw: formData.firstNamexggltw,
+        LastNamexggltw: formData.lastNamexggltw,
+        Emailxggltw: formData.emailxggltw,
+        Phonexggltw: formData.phonexggltw,
         StreetAddress: formData.address,
         City: formData.city,
         Country: formData.country,
@@ -536,18 +554,42 @@ const Contact = (props) => {
           {formMounted && (
             <ContactForm onSubmit={handleSubmit} formVisible={formVisible}>
               <h3>Register For More Information</h3>
+              {/* H o n e y p o t */}
+              <TextInputPot
+                halfWidth
+                placeholder="First Name*"
+                name="firstName"
+                onChange={handleInput}
+              />
+              <TextInputPot
+                halfWidth
+                placeholder="Last Name*"
+                name="lastName"
+                onChange={handleInput}
+              />
+              <TextInputPot
+                placeholder="Email*"
+                name="email"
+                onChange={handleInput}
+              />
+              <TextInputPot
+                placeholder="Phone*"
+                name="phone"
+                onChange={handleInput}
+              />
+              {/* Real form */}
               <FormRow>
                 <TextInput
                   halfWidth
                   placeholder="First Name*"
-                  name="firstName"
+                  name="firstNamexggltw"
                   onChange={handleInput}
                   error={formErrors.firstName}
                 />
                 <TextInput
                   halfWidth
                   placeholder="Last Name*"
-                  name="lastName"
+                  name="lastNamexggltw"
                   onChange={handleInput}
                   error={formErrors.lastName}
                 />
@@ -555,7 +597,7 @@ const Contact = (props) => {
               <FormRow>
                 <TextInput
                   placeholder="Email*"
-                  name="email"
+                  name="emailxggltw"
                   onChange={handleInput}
                   error={formErrors.email}
                 />
@@ -563,7 +605,7 @@ const Contact = (props) => {
               <FormRow>
                 <TextInput
                   placeholder="Phone*"
-                  name="phone"
+                  name="phonexggltw"
                   onChange={handleInput}
                   error={formErrors.phone}
                 />
