@@ -114,7 +114,7 @@ class App extends Component {
                 {({location}) => (
                   <>
                     {
-                      location.pathname !== '/landing' ?
+                      location.pathname !== '/landing' && location.pathname !== '/landing/' ?
                         <>
                           <ScrollPrompt isExpanded={this.state.isExpanded}/>
                           <AppHeader
@@ -208,7 +208,7 @@ class App extends Component {
                       />
                     </Router>
                     {
-                      location.pathname !== '/landing' ?
+                      location.pathname !== '/landing' && location.pathname !== '/landing/' ?
                         <AppFooter
                           pageColor={this.state.pageColor}
                           isExpanded={this.state.isExpanded}
