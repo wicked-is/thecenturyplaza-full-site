@@ -30,6 +30,7 @@ import Amenities from "Amenities";
 import amenitiesData from "Amenities/amenitiesData.json";
 import Div100vh from "react-div-100vh";
 import Landing from "./Landing";
+import Leed from "Leed";
 
 const theme = {
   breakpoints: {
@@ -116,7 +117,11 @@ class App extends Component {
                     {
                       location.pathname !== '/landing' && location.pathname !== '/landing/' ?
                         <>
-                          <ScrollPrompt isExpanded={this.state.isExpanded}/>
+                          {
+                            location.pathname !== '/leed' && location.pathname !== '/leed/'
+                              ? <ScrollPrompt isExpanded={this.state.isExpanded}/>
+                              : null
+                          }
                           <AppHeader
                             pageColor={this.state.pageColor}
                             isExpanded={this.state.isExpanded}
@@ -187,6 +192,7 @@ class App extends Component {
                         />
                       ))}
                       <Legal path="legal" setPageColor={this.setPageColor}/>
+                      <Leed path="leed" setPageColor={this.setPageColor}/>
                       <Contact path="contact" setPageColor={this.setPageColor}/>
                       <Landing
                         path="landing"
