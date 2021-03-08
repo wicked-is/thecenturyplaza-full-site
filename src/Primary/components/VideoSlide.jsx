@@ -160,7 +160,7 @@ const VideoSlide = ({
       pauseListeners={pauseScroll}
       upHandler={() => {
         isExpanded && toggleExpand();
-        !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
+        // !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
         !isExpanded &&
           !isFirstSection &&
           !isFirstSlide &&
@@ -179,7 +179,7 @@ const VideoSlide = ({
       }}
       rightHandler={() => {
         isExpanded && toggleExpand();
-        !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
+        // !isExpanded && isFirstSection && isFirstSlide && toggleExpand();
         !isExpanded &&
           !isFirstSection &&
           !isFirstSlide &&

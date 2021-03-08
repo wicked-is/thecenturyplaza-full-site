@@ -89,7 +89,7 @@ const AppBody = styled.div`
 
 class App extends Component {
   state = {
-    isExpanded: window.location.pathname === '/',
+    isExpanded: false,
     pageColor: "white"
   };
 
