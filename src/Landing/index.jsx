@@ -20,7 +20,7 @@ const LandingSection = styled.section`
   padding: 0 16px 80px;
   max-width: 1400px;
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     padding: 0 20px 156px;
   `}
 `;
@@ -30,7 +30,7 @@ const LogoLink = styled(Link)`
   width: 100%;
   margin-bottom: 40px;
   cursor: pointer;
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     max-width: 320px;
   `}
 `;
@@ -49,12 +49,12 @@ const LandingHeader = styled.h2`
   text-align: center;
   white-space: nowrap;
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     font-size: 34px;
     line-height: 40px;
     letter-spacing: 1.28px;
   `}
-  ${mediaMin.phoneLarge` 
+  ${mediaMin.phoneLarge`
     font-size: 24px;
     line-height: 30px;
   `}
@@ -70,7 +70,7 @@ const LandingSubhead = styled.p`
   text-align: center;
   text-transform: uppercase;
 
-  ${mediaMin.phone` 
+  ${mediaMin.phone`
     font-size: 16px;
     line-height: 24px;
     letter-spacing: 1.28px;
@@ -85,12 +85,34 @@ const ContactScrollButton = styled.div`
   text-transform: uppercase;
   font-size: 14px;
   line-height: 14px;
-  margin: 0 0 32px;
+  margin: 0 0 16px;
   padding: 12px 14px;
   border: 1px solid #101820;
   background: none;
   outline: none;
   cursor: pointer;
+`;
+
+const ContactCallButton = styled.div`
+  margin: 0 0 32px;
+  color: #ffffff;
+
+  a {
+    font-family: ${(props) => props.theme.sansSerifLight}, sans-serif;
+    color: #101830;
+    letter-spacing: 0.02px;
+    font-size: 14px;
+    line-height: 18px;
+
+    ${mediaMin.tablet`
+      font-size: 22px;
+      line-height: 30px;
+    `}
+    ${mediaMin.phoneLarge`
+      font-size: 16px;
+      line-height: 18px;
+    `}
+  }
 `;
 
 const LandingText = styled.p`
@@ -183,7 +205,7 @@ const FormRow = styled.div`
       font-weight: 300;
       color: ${(props) => props.theme.black};
 
-      ${mediaMin.tablet` 
+      ${mediaMin.tablet`
         font-size: 18px;
         line-height: 18px;
       `}
@@ -205,7 +227,7 @@ const FormRow = styled.div`
       font-size: 16px;
       line-height: 14px;
 
-      ${mediaMin.tablet` 
+      ${mediaMin.tablet`
         font-size: 18px;
         line-height: 18px;
       `}
@@ -270,7 +292,7 @@ const TextInput = styled.input`
   margin: 0 12px;
   border-radius: 0;
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     font-size: 18px;
     line-height: 18px;
   `}
@@ -323,7 +345,7 @@ const RadioInput = styled.label`
   font-size: 14px;
   line-height: 14px;
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     font-size: 18px;
     line-height: 18px;
   `}
@@ -478,7 +500,7 @@ const LandingFooter = styled.div`
   padding: 0 16px;
   background: #101820 0% 0% no-repeat padding-box;
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     padding: 0 20px;
     width: calc(100% - 40px);
   `}
@@ -489,18 +511,18 @@ const LandingFooter = styled.div`
     font-size: 14px;
     line-height: 18px;
 
-    ${mediaMin.tablet` 
+    ${mediaMin.tablet`
       font-size: 22px;
       line-height: 30px;
     `}
-    ${mediaMin.phoneLarge` 
+    ${mediaMin.phoneLarge`
       font-size: 16px;
       line-height: 18px;
     `}
     &:nth-child(1) {
       margin-right: 10px;
 
-      ${mediaMin.phoneLarge` 
+      ${mediaMin.phoneLarge`
         margin-right: 40px;
       `}
     }
@@ -534,7 +556,7 @@ const LandingMedia = styled.div`
       props.type === "video" ? "calc(36vw - 20px)" : "calc(18vw - 20px)"};
   `}
 
-  ${mediaMin.tabletLandscape` 
+  ${mediaMin.tabletLandscape`
     margin: 0 0 20px 20px;
   `}
 */
@@ -583,7 +605,7 @@ const LandingMedia = styled.div`
     + [type="image"]
     + [type="image"]
     + [type="image"] {
-    ${mediaMin.phoneXL` 
+    ${mediaMin.phoneXL`
       transform: translateX(200%) translateX(40px);
       margin-top: -36vw;
     `}
@@ -732,15 +754,19 @@ const Landing = ({ landingData }) => {
       <LandingSubhead>
         Fairmont Century Plaza Residences Move In Ready
         <br />
-        Tower Estate Residences Anticipated Opening Summer 2021
+        Tower Estate Residences Anticipated Opening Winter 2021
       </LandingSubhead>
       <ContactScrollButton onClick={executeScroll}>
         Schedule a Private Appointment
       </ContactScrollButton>
+      <ContactCallButton>
+        <span class="InfinityNumber clickable">3102464777</span>
+      </ContactCallButton>
       <LandingMedia type={landingData.media[0].type}>
         <Fade>
           <React.Fragment>
-            {!videoState && (
+            <ResponsiveImage srcPath={landingData.media[0].placeholder} />
+            {/* {!videoState && (
               <Placeholder onClick={showVideo}>
                 <ResponsiveImage srcPath={landingData.media[0].placeholder} />
               </Placeholder>
@@ -761,7 +787,7 @@ const Landing = ({ landingData }) => {
                   },
                 }}
               />
-            )}
+            )} */}
           </React.Fragment>
         </Fade>
       </LandingMedia>
