@@ -305,15 +305,13 @@ const MainMenu = props => {
           <p className="margin-top-0">
             <strong>Sales Gallery</strong>
             <a
-              href="https://www.google.com/maps/place/10250+Constellation+Blvd,+Century+City,+CA+90067/@34.0570794,-118.4196399,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bb8d3cafffff:0x7165eaa7048208a8!8m2!3d34.0570794!4d-118.4174512"
+              href="https://goo.gl/maps/vcBc5iq8PTft8RVC8"
               target="_blank"
               rel="noopener noreferrer"
             >
-              10250 Constellation Boulevard
+              2025 Avenue of the Stars
               <br />
-              Suite 3050
-              <br />
-              Los Angeles, California 90067
+              Los Angeles, CA 90067
             </a>
           </p>
           <p>
