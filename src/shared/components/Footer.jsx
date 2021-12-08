@@ -107,9 +107,23 @@ const Footer = props => {
             </Message>
           )}
           {location.pathname.includes('availability') && (
-            <Message>
-              <Link to="/press">Read the Press</Link>
-            </Message>
+            <>
+              <Caption
+                emptyCaption={false}
+                isOpen={isOpen}
+              >
+                <span>&npsp;</span>
+                <button onClick={toggleCaption}>
+                  {isOpen ? 'Close' : 'Info'}
+                </button>
+                <p>
+                  {parse('FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022')}
+                </p>
+              </Caption>
+              <Message>
+                <Link to="/press">Read the Press</Link>
+              </Message>
+            </>
           )}
           {location.pathname === '/press' && (
             <Message>
