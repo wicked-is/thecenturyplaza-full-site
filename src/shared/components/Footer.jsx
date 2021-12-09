@@ -28,16 +28,17 @@ const Message = styled.div`
 
 const SocialIcon = styled.li`
   position: relative;
-  width: 24px;
+  width: 20px;
   height: 17px;
   a {
     display: block;
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 0;
   }
   img {
     filter: invert(100%);
+    width: 20px;
   }
 `;
 

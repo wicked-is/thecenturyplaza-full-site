@@ -249,7 +249,7 @@ const FooterLinks = styled.ul`
 
 const SocialIcon = styled.li`
   position: relative;
-  width: 24px;
+  width: 20px;
   height: 17px;
 
   ${mediaMax.tabletLandscape`
@@ -261,8 +261,11 @@ const SocialIcon = styled.li`
   a {
     display: block;
     position: absolute;
-    top: 5%;
+    top: 15%;
     left: 0;
+  }
+  img {
+    width: 20px;
   }
 `;
 
