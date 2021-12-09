@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Context from '../../config/Context';
 import { Link } from '@reach/router';
 import styled from 'styled-components/macro';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
 
 import iconFB from 'icons/social/icon-fb.svg';
 import iconIG from 'icons/social/icon-ig.svg';
@@ -251,6 +251,13 @@ const SocialIcon = styled.li`
   position: relative;
   width: 24px;
   height: 17px;
+
+  ${mediaMax.tabletLandscape`
+    height: 32px;
+    display: inline-block !important;
+    margin-right: 12px !important;
+  `}
+
   a {
     display: block;
     position: absolute;
