@@ -12,6 +12,10 @@ import { mediaMin } from "../shared/styled-components/MediaQueries";
 import CPLogo from "icons/logo-black-with-sub.svg";
 import playBtnSVG from "icons/play-btn.svg";
 
+import iconFB from 'icons/social/icon-fb.svg';
+import iconIG from 'icons/social/icon-ig.svg';
+import iconTW from 'icons/social/icon-tw.svg';
+
 const LandingSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -424,7 +428,7 @@ const InfoCluster = styled.div`
     font-weight: 300;
     margin: 0 0 20px;
     text-align: center;
-    margin: 0 0 72px;
+    margin: 0 0 36px;
     color: ${(props) => props.theme.black};
 
     strong {
@@ -609,6 +613,25 @@ const LandingMedia = styled.div`
       transform: translateX(200%) translateX(40px);
       margin-top: -36vw;
     `}
+  }
+`;
+
+const SocialIconsSection = styled.div`
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const SocialIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  margin: 0 8px;
+  a:hover {
+    opacity: 0.5;
+  }
+  img {
+    filter: invert(100%);
+    width: 20px;
   }
 `;
 
@@ -1005,6 +1028,23 @@ const Landing = ({ landingData }) => {
             </InfoCluster>
           </>
         )}
+        <SocialIconsSection>
+          <SocialIcon>
+            <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+              <img src={iconIG} alt="Instagram" />
+            </a>
+          </SocialIcon>
+          <SocialIcon>
+            <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+              <img src={iconFB} alt="Facebook" />
+            </a>
+          </SocialIcon>
+          <SocialIcon>
+            <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+              <img src={iconTW} alt="Twitter" />
+            </a>
+          </SocialIcon>
+        </SocialIconsSection>
         <FormConfirmationWrapper confirmationMounted={confirmationMounted}>
           {confirmationMounted && (
             <ContactSuccess confirmationVisible={confirmationVisible}>
