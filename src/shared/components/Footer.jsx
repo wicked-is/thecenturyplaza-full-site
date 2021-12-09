@@ -10,6 +10,10 @@ import {
   FooterMessage
 } from '../styled-components/Typography.js';
 
+import iconFB from 'icons/social/icon-fb.svg';
+import iconIG from 'icons/social/icon-ig.svg';
+import iconTW from 'icons/social/icon-tw.svg';
+
 const Wrapper = styled.footer`
   ${FooterWrapper};
 `;
@@ -20,6 +24,21 @@ const Caption = styled.div`
 
 const Message = styled.div`
   ${FooterMessage};
+`;
+
+const SocialIcon = styled.li`
+  position: relative;
+  width: 24px;
+  height: 17px;
+  a {
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 0;
+  }
+  img {
+    filter: invert(100%);
+  }
 `;
 
 const Footer = props => {
@@ -136,6 +155,21 @@ const Footer = props => {
             </Message>
           )}
           <ul>
+            <SocialIcon>
+              <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+                <img src={iconIG} alt="Instagram" />
+              </a>
+            </SocialIcon>
+            <SocialIcon>
+              <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+                <img src={iconFB} alt="Facebook" />
+              </a>
+            </SocialIcon>
+            <SocialIcon>
+              <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+                <img src={iconTW} alt="Twitter" />
+              </a>
+            </SocialIcon>
             <li>
               <Link onClick={declareReturnPath} to="/availability">
                 Availability
