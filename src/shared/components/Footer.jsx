@@ -136,7 +136,7 @@ const Footer = props => {
                   {isOpen ? 'Close' : 'Info'}
                 </button>
                 <p>
-                  {parse('FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022')}
+                  {parse('FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY<br />TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022')}
                 </p>
               </Caption>
               <Message>
