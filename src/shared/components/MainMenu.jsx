@@ -2,7 +2,11 @@ import React, { useContext } from 'react';
 import Context from '../../config/Context';
 import { Link } from '@reach/router';
 import styled from 'styled-components/macro';
-import { mediaMin } from 'shared/styled-components/MediaQueries.js';
+import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
+
+import iconFB from 'icons/social/icon-fb.svg';
+import iconIG from 'icons/social/icon-ig.svg';
+import iconTW from 'icons/social/icon-tw.svg';
 
 const MainMenuWrapper = styled.div`
   opacity: ${props => (props.navActive ? '1' : '0')};
@@ -243,6 +247,28 @@ const FooterLinks = styled.ul`
   }
 `;
 
+const SocialIcon = styled.li`
+  position: relative;
+  width: 20px;
+  height: 17px;
+
+  ${mediaMax.tabletLandscape`
+    height: 32px;
+    display: inline-block !important;
+    margin-right: 12px !important;
+  `}
+
+  a {
+    display: block;
+    position: absolute;
+    top: 15%;
+    left: 0;
+  }
+  img {
+    width: 20px;
+  }
+`;
+
 const MainMenu = props => {
   const { primaryData } = props;
   const context = useContext(Context);
@@ -364,6 +390,21 @@ const MainMenu = props => {
         </DownloadsLinks>
       </LinksContainer>
       <FooterLinks>
+        <SocialIcon>
+          <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+            <img src={iconIG} alt="Instagram" />
+          </a>
+        </SocialIcon>
+        <SocialIcon>
+          <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+            <img src={iconFB} alt="Facebook" />
+          </a>
+        </SocialIcon>
+        <SocialIcon>
+          <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+            <img src={iconTW} alt="Twitter" />
+          </a>
+        </SocialIcon>
         <li className="mobile-only">
           <Link to="/contact" onClick={declareReturnPath}>
             Contact

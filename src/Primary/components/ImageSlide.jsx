@@ -25,6 +25,8 @@ const ImageSlide = ({
   slide, // Object
   nextPath, //Path for Naigation
   previousPath, //Path for Navigation
+  isFirstSection, //Used for Video Transition Option
+  isFirstSlide, //Used for Video Transition Option
   // lastSlide, //Used for Swipe PreStaging
   // lastSectionSlide, //Used for Swipe PreStaging
   sectionIndex, //Used For FooterCaptions
@@ -54,7 +56,10 @@ const ImageSlide = ({
   return (
     <ReactScrollWheelHandler
       pauseListeners={pauseScroll}
-      upHandler={() => triggerExit(previousPath)}
+      upHandler={() => {
+        console.log('upHandler', !isFirstSection && !isFirstSlide)
+        return !isFirstSection && !isFirstSlide && triggerExit(previousPath)
+      }}
       downHandler={() => triggerExit(nextPath)}
       rightHandler={() => triggerExit(previousPath)}
       leftHandler={() => triggerExit(nextPath)}

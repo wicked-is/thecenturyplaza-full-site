@@ -174,7 +174,7 @@ class App extends Component {
                         path="availability/*"
                         setPageColor={this.setPageColor}
                       />
-                      <Redirect from="availability" to="availability/hotel" noThrow/>
+                      <Redirect from="availability" to="/availability/hotel" noThrow/>
                       <Press path="press" setPageColor={this.setPageColor}/>
                       <Gallery
                         galleryData={galleryData}

@@ -193,34 +193,27 @@ export const ImageSoloStyled = css`
 
   ${mediaMin.tabletLandscape`
     height: calc(
-      90% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
+      100% - ${props => parseFloat(props.theme.desktopHeaderHeight) * 2}px
     );
     width: calc(
-      80vw - ${props => parseFloat(props.theme.desktopSideMargin) * 2}px
+      100vw - ${props => parseFloat(props.theme.desktopSideMargin) * 2}px
     );
   `}
 
   div {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    overflow: hidden;
-    text-align: center;
-    flex-grow: 0;
-    flex-shrink: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     transition: opacity 0.5s ease-in-out;
 
-
     img {
-      flex-grow: 0;
-      flex-shrink: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 30% 50%;
     }
   }
 `;

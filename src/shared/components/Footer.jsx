@@ -10,6 +10,10 @@ import {
   FooterMessage
 } from '../styled-components/Typography.js';
 
+import iconFB from 'icons/social/icon-fb.svg';
+import iconIG from 'icons/social/icon-ig.svg';
+import iconTW from 'icons/social/icon-tw.svg';
+
 const Wrapper = styled.footer`
   ${FooterWrapper};
 `;
@@ -20,6 +24,22 @@ const Caption = styled.div`
 
 const Message = styled.div`
   ${FooterMessage};
+`;
+
+const SocialIcon = styled.li`
+  position: relative;
+  width: 20px;
+  height: 17px;
+  a {
+    display: block;
+    position: absolute;
+    top: 15%;
+    left: 0;
+  }
+  img {
+    filter: invert(100%);
+    width: 20px;
+  }
 `;
 
 const Footer = props => {
@@ -107,9 +127,23 @@ const Footer = props => {
             </Message>
           )}
           {location.pathname.includes('availability') && (
-            <Message>
-              <Link to="/press">Read the Press</Link>
-            </Message>
+            <>
+              <Caption
+                emptyCaption={false}
+                isOpen={isOpen}
+              >
+                <span>&npsp;</span>
+                <button onClick={toggleCaption}>
+                  {isOpen ? 'Close' : 'Info'}
+                </button>
+                <p>
+                  {parse('FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY<br />TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022')}
+                </p>
+              </Caption>
+              <Message>
+                <Link to="/press">Read the Press</Link>
+              </Message>
+            </>
           )}
           {location.pathname === '/press' && (
             <Message>
@@ -122,6 +156,21 @@ const Footer = props => {
             </Message>
           )}
           <ul>
+            <SocialIcon>
+              <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+                <img src={iconIG} alt="Instagram" />
+              </a>
+            </SocialIcon>
+            <SocialIcon>
+              <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+                <img src={iconFB} alt="Facebook" />
+              </a>
+            </SocialIcon>
+            <SocialIcon>
+              <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+                <img src={iconTW} alt="Twitter" />
+              </a>
+            </SocialIcon>
             <li>
               <Link onClick={declareReturnPath} to="/availability">
                 Availability
