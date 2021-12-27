@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Context from "../config/Context";
-import { Router, Link } from "@reach/router";
+import { Router, useLocation } from "@reach/router";
 import * as api from "./api";
 import Listings from "./components/Listings";
 import Filter from "./components/Filter";
@@ -26,6 +26,9 @@ const AvailabilityHeader = styled.header`
 
 const AvailabilityControls = styled.ul`
   ${ControlsStyled};
+  > li:first-child::after {
+    content: "";
+  }
 `;
 
 const AvailabilityFilter = styled.button`
@@ -36,6 +39,7 @@ const Availability = props => {
   const { setPageColor } = props;
   const context = useContext(Context);
   const { setGlobalConfig, navActive } = context;
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -93,33 +97,34 @@ const Availability = props => {
 
   const handleFilter = () => setShowFilter(!showFilter);
 
-  const ActiveListingLink = props => (
-    <li>
-      <Link
-        {...props}
-        getProps={({ isPartiallyCurrent }) => {
-          return {
-            style: {
-              color: isPartiallyCurrent ? "#101820" : "#B4BAC1"
-            }
-          };
-        }}
-      />
-    </li>
-  );
+  // const ActiveListingLink = props => (
+  //   <li>
+  //     <Link
+  //       {...props}
+  //       getProps={({ isPartiallyCurrent }) => {
+  //         return {
+  //           style: {
+  //             color: isPartiallyCurrent ? "#101820" : "#B4BAC1"
+  //           }
+  //         };
+  //       }}
+  //     />
+  //   </li>
+  // );
 
   return (
     <AvailabilityWrapper navActive={navActive}>
       <AvailabilityContainer navActive={navActive}>
         <AvailabilityHeader>
-          <p>Select a Residence</p>
+          {/* <p>Select a Residence</p> */}
           <AvailabilityControls>
-            <ActiveListingLink to="/availability/hotel">
+            <li>{location.pathname === '/availability/tower' ? 'Anticipated Completion Spring 2022' : 'Fairmont Century Plaza Residences are Move-in-Ready' }</li>
+            {/* <ActiveListingLink to="/availability/hotel">
               Hotel<span>&nbsp;Residences</span>
             </ActiveListingLink>
             <ActiveListingLink to="/availability/tower">
               Tower<span>&nbsp;Residences</span>
-            </ActiveListingLink>
+            </ActiveListingLink> */}
             <AvailabilityFilter onClick={handleFilter} active={showFilter}>
               Filter
             </AvailabilityFilter>
