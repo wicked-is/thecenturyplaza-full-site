@@ -9,18 +9,19 @@ import checkedIconSVG from 'icons/checked-icon.svg';
 export const ContainerStyled = css`
   ${Container}
   width: 100%;
+  margin: 40px 0 20px 0;
 
-  ${mediaMin.tabletLandscape` 
+  ${mediaMin.tabletLandscape`
     width: ${props => parseFloat(props.theme.desktopColumn) * 10}vw;
   `}
 `;
 
 export const HeaderStyled = css`
   width: 100%;
-  margin: 0 0 2em;
+  margin: 0 0 4em;
 
-  ${mediaMin.tabletLandscape` 
-    margin: 0 0 3em;
+  ${mediaMin.tabletLandscape`
+    margin: 0 0 4em;
   `}
 
   p {
@@ -35,7 +36,7 @@ export const HeaderStyled = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
 
-    ${mediaMin.tabletLandscape` 
+    ${mediaMin.tabletLandscape`
       text-align: center;
       text-transform: none;
       font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
@@ -48,7 +49,7 @@ export const HeaderStyled = css`
       &::after {
         display: inline-block;
         content: "Availability List";
-        margin: 0 0 0 0.4em; 
+        margin: 0 0 0 0.4em;
       }
     `}
   }
@@ -60,7 +61,7 @@ export const ControlsStyled = css`
   list-style: none;
   position: relative;
 
-  ${mediaMin.tabletLandscape` 
+  ${mediaMin.tabletLandscape`
     text-align: center;
   `}
 
@@ -75,15 +76,15 @@ export const ControlsStyled = css`
     text-transform: uppercase;
     margin: 0;
 
-    ${mediaMin.phoneXL` 
+    ${mediaMin.phoneXL`
       font-size: 24px;
     `}
 
-    ${mediaMin.tabletLandscape` 
+    ${mediaMin.tabletLandscape`
       font-size: 22px;
     `}
 
-    ${mediaMin.desktop` 
+    ${mediaMin.desktop`
       font-size: 24px;
     `}
 
@@ -99,7 +100,7 @@ export const ControlsStyled = css`
       display: none;
 
       ${mediaMin.tabletLandscape`
-        display: inline-block; 
+        display: inline-block;
       `}
     }
 
@@ -112,7 +113,7 @@ export const ControlsStyled = css`
 
 export const FilterButtonStyled = css`
   position: absolute;
-  top: -2em;
+  bottom: -3.5em;
   right: 0;
   border: 1px solid ${props => props.theme.gray};
   background: white;
@@ -136,8 +137,8 @@ export const FilterButtonStyled = css`
   border-bottom: 1px solid
     ${props => (props.active ? 'white' : props.theme.gray)};
 
-  ${mediaMin.tabletLandscape` 
-      top: 0;
+  ${mediaMin.desktop`
+      // top: 0;
     `}
 `;
 
@@ -154,7 +155,7 @@ export const FilterContainer = css`
   background: white;
   border: 1px solid ${props => props.theme.gray};
 
-  ${mediaMin.tabletLandscape` 
+  ${mediaMin.tabletLandscape`
     top: 30.8px;
     `}
 `;
@@ -232,14 +233,14 @@ export const FilterList = css`
 export const AscendingStyled = css`
   display: none;
 
-  ${mediaMin.tabletLandscape` 
+  ${mediaMin.tabletLandscape`
   width: 9px;
     height: 5px;
     display: inline-block;
     margin: 0 0 0.15em 0.65em;
     background: url(${sortAscendingSVG}) no-repeat center center;
     background-size: contain;
-    
+
   `}
 `;
 
@@ -253,7 +254,7 @@ export const DescendingStyled = css`
     margin: 0 0 0.15em 0.65em;;
     background: url(${sortDescendingSVG}) no-repeat center center;
     background-size: contain;
-    
+
   `}
 `;
 
@@ -261,7 +262,7 @@ export const TableStyled = css`
   width: 100%;
   border-top: 1px solid ${props => props.theme.grayLight};
 
-  ${mediaMin.tablet` 
+  ${mediaMin.tablet`
     table-layout: fixed;
     border-top: 0;
   `}
@@ -269,7 +270,7 @@ export const TableStyled = css`
   thead {
     display: none;
 
-    ${mediaMin.tablet` 
+    ${mediaMin.tablet`
       display: table-header-group;
     `}
 
@@ -288,30 +289,30 @@ export const TableStyled = css`
         -moz-osx-font-smoothing: antialiased;
 
         &:nth-child(3) {
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             padding: 0 1.75em 1.5em 2em;
           `}
 
-          ${mediaMin.tabletLandscape` 
+          ${mediaMin.tabletLandscape`
             padding: 0 2em 1.5em 2em;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             padding: 0 0.5em 1.5em 1em;
           `}
 
         }
 
         &:nth-child(4) {
-          ${mediaMin.tabletLandscape` 
+          ${mediaMin.tabletLandscape`
             padding: 0 2em 1.5em 0;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             padding: 0 2.5em 1.5em 0;
-          `}      
+          `}
 
-          ${mediaMin.desktop` 
+          ${mediaMin.desktop`
             padding: 0 0 1.5em 0;
           `}
 
@@ -319,35 +320,35 @@ export const TableStyled = css`
             display: block;
             white-space: nowrap;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: inline-block;
             `}
 
-            ${mediaMin.desktop` 
+            ${mediaMin.desktop`
               padding: 0 0 0 0.5em;
             `}
           }
         }
 
         &:nth-child(5) {
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             padding: 0 0 1.5em 2em;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             text-align: left;
             padding-left: 35px;
           `}
         }
 
         &:nth-child(6) {
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             padding-left: 10px;
           `}
         }
 
         &:nth-child(7) {
-          ${mediaMin.desktop` 
+          ${mediaMin.desktop`
             &::before {
               content: "Interior";
               display: inline-block;
@@ -357,7 +358,7 @@ export const TableStyled = css`
         }
 
         &:nth-child(8) {
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             text-align: right;
           `}
         }
@@ -377,11 +378,11 @@ export const TableStyled = css`
       padding: 2em 0;
       position: relative;
 
-      ${mediaMin.phoneXL` 
+      ${mediaMin.phoneXL`
         padding: 2em 0 1em;
       `}
 
-      ${mediaMin.tablet` 
+      ${mediaMin.tablet`
         display: table-row;
         border-bottom: 0;
         width: auto;
@@ -417,7 +418,7 @@ export const TableStyled = css`
           width: 24%;
         `}
 
-        ${mediaMin.tablet` 
+        ${mediaMin.tablet`
           width: auto:
           margin: 0;
           display: table-cell;
@@ -429,7 +430,7 @@ export const TableStyled = css`
         .mobile-label {
           text-transform: uppercase;
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             display: none;
           `}
         }
@@ -438,7 +439,7 @@ export const TableStyled = css`
           text-transform: uppercase;
           padding: 0 0 0 0.5em;
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             display: none;
           `}
         }
@@ -447,7 +448,7 @@ export const TableStyled = css`
           width: 100%;
           display: inline-block;
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             width: auto;
           `}
         }
@@ -455,7 +456,7 @@ export const TableStyled = css`
         .desktop-label {
           display: none;
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             display: inline-block;
             padding: 0 0.25em;
           `}
@@ -474,7 +475,7 @@ export const TableStyled = css`
           `}
 
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             display: table-cell;
             font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
             font-weight: 300;
@@ -485,7 +486,7 @@ export const TableStyled = css`
           .mobile-label {
             padding: 0 0.5em 0 0;
           }
-        } 
+        }
 
         &:nth-child(2) {
 
@@ -493,7 +494,7 @@ export const TableStyled = css`
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
             `}
           }
@@ -501,22 +502,22 @@ export const TableStyled = css`
 
         &:nth-child(3) {
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             padding: 0 1em 0 2em;
           `}
 
-          ${mediaMin.tabletLandscape` 
+          ${mediaMin.tabletLandscape`
             padding: 0 2em 0;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
              padding: 0 0.5em 0 1em;
           `}
         }
 
         &:nth-child(4) {
-          
-          ${mediaMin.tabletLandscape` 
+
+          ${mediaMin.tabletLandscape`
             padding: 0 2em 0 0;
           `}
 
@@ -524,28 +525,28 @@ export const TableStyled = css`
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
-            `}            
+            `}
           }
         }
 
         &:nth-child(5) {
-          ${mediaMin.phoneXL` 
+          ${mediaMin.phoneXL`
             margin: 0 0 1em 24%;
           `}
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             padding: 0 2em;
             word-spacing: 100vw;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             padding-left: 35px;
             text-align: left;
           `}
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
           word-spacing: 0;
           `}
 
@@ -553,15 +554,15 @@ export const TableStyled = css`
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
-            `}            
+            `}
           }
         }
 
         &:nth-child(6) {
 
-          ${mediaMin.desktopSmall` 
+          ${mediaMin.desktopSmall`
             padding-left: 10px;
           `}
 
@@ -569,19 +570,19 @@ export const TableStyled = css`
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
-            `}            
+            `}
           }
         }
 
         &:nth-child(7) {
-          
+
           .mobile-label {
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
             `}
           }
@@ -589,7 +590,7 @@ export const TableStyled = css`
 
         &:nth-child(8) {
           margin: 0 0 0 48%;
-  
+
           ${mediaMin.phoneXL`
             display: inline-block;
             width: 24%;
@@ -599,7 +600,7 @@ export const TableStyled = css`
             bottom: 2.5em;
           `}
 
-          ${mediaMin.tablet` 
+          ${mediaMin.tablet`
             position: relative;
             bottom: auto;
             left: auto;
@@ -607,12 +608,12 @@ export const TableStyled = css`
             text-align: right;
             display: table-cell;
           `}
-          
+
           .mobile-label {
             display: inline-block;
             width: 100%;
 
-            ${mediaMin.tablet` 
+            ${mediaMin.tablet`
               display: none;
             `}
           }
