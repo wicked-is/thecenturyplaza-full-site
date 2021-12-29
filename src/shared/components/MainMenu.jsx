@@ -309,8 +309,13 @@ const MainMenu = props => {
             </Link>
           </li>
           <li>
-            <Link to="/availability" onClick={toggleMenu}>
-              Availability
+            <Link to="/availability/hotel" onClick={toggleMenu}>
+              Fairmont Availability
+            </Link>
+          </li>
+          <li>
+            <Link to="/availability/tower" onClick={toggleMenu}>
+              Tower Availability
             </Link>
           </li>
           <li>
