@@ -19,7 +19,7 @@ phases:
           if [ "$BRANCH_NAME" = "master" ]; then
             echo "Syncing files with AWS w/ Cache Control Headers"
             aws s3 sync build/ "s3://${BUCKET_NAME}" --exclude "*.html" --delete --cache-control max-age=31557600
-            aws s3 sync build/ "s3://${BUCKET_NAME}" --include "*.html" --cache-control max-age=0
+            aws s3 sync build/ "s3://${BUCKET_NAME}" --include "*.html" --delete --cache-control max-age=0
           elif [ "$BRANCH_NAME" = "develop" ]; then
             echo "Syncing files with AWS"
             aws s3 sync build/ "s3://${BUCKET_NAME}" --delete
