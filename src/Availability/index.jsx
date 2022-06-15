@@ -118,7 +118,7 @@ const Availability = props => {
         <AvailabilityHeader>
           {/* <p>Select a Residence</p> */}
           <AvailabilityControls>
-            <li>{location.pathname === '/availability/tower' ? 'Anticipated Completion Spring 2022' : 'Fairmont Century Plaza Residences are Move-in-Ready' }</li>
+            <li>{location.pathname === '/availability/tower' ? 'Century Plaza Tower Residences Are Move-in-Ready' : 'Fairmont Century Plaza Residences are Move-in-Ready'}</li>
             {/* <ActiveListingLink to="/availability/hotel">
               Hotel<span>&nbsp;Residences</span>
             </ActiveListingLink>
