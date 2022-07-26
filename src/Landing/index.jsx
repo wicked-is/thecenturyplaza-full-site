@@ -777,7 +777,7 @@ const Landing = ({ landingData }) => {
       <LandingSubhead>
         Fairmont Century Plaza Residences Move In Ready
         <br />
-        Tower Estate Residences Anticipated Opening Spring 2022
+        Tower Estate Residences Move In Ready
       </LandingSubhead>
       <ContactScrollButton onClick={executeScroll}>
         Schedule a Private Appointment
