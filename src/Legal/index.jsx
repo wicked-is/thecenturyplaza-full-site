@@ -94,6 +94,7 @@ const Legal = props => {
           Developer: Next Century Realty, Inc., BRE #02028123. Equal Housing
           Opportunity.
         </p>
+        <br /><br />
         <LegalTitle>Privacy/Security</LegalTitle>
         <p>
           Next Century Partners, LLC (the “Company,” “we,” or “us”) created this
@@ -133,7 +134,7 @@ const Legal = props => {
         <h4>UPDATES AND CHANGES TO PRIVACY POLICY; EFFECTIVE DATE.</h4>
         <p>We reserve the right, at any time and without notice, to add to, change, update or modify this Privacy Policy, simply by posting such change, update or modification on the Site. Any such change, update or modification will be effective immediately upon posting on the Site. Information we gather is subject to the Privacy Policy in effect at the time of use. We may e-mail periodic reminders of our notices and conditions, unless you have instructed us not to, but you should check our Site frequently to see recent changes. The effective date of this policy is January 2, 2019.</p>
 
-
+        <br /><br />
         <h4>CREDITS</h4>
         <p>Renderings, Animations, Photography, and Web Design by DBOX.</p>
         <h4>© CENTURY PLAZA 2019</h4>
