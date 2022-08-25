@@ -1,9 +1,9 @@
-import React, {Component} from "react";
-import {Router, Redirect, Location} from "@reach/router";
-import styled, {ThemeProvider} from "styled-components";
+import React, { Component } from "react";
+import { Router, Redirect, Location } from "@reach/router";
+import styled, { ThemeProvider } from "styled-components";
 import ScrollPrompt from "shared/components/ScrollPrompt.jsx";
 import ContextProvider from "./provider/ContextProvider";
-import {PageBody} from "shared/styled-components/Typography.js";
+import { PageBody } from "shared/styled-components/Typography.js";
 import AppHeader from "shared/components/AppHeader.jsx";
 import MainMenu from "shared/components/MainMenu.jsx";
 import AppFooter from "shared/components/AppFooter.jsx";
@@ -15,8 +15,8 @@ import primaryData from "Primary/primaryData.json";
 import SecondaryMenu from "shared/components/SecondaryMenu.jsx";
 import Neighborhood from "Neighborhood";
 import neighborhoodData from "Neighborhood/neighborhoodData.json";
-import Team from "Team";
-import teamData from "Team/teamData.json";
+// import Team from "Team";
+// import teamData from "Team/teamData.json";
 import Availability from "Availability";
 import Press from "Press";
 import Gallery from "Gallery";
@@ -94,15 +94,15 @@ class App extends Component {
   };
 
   setPageColor = color => {
-    this.setState(() => ({pageColor: color}));
+    this.setState(() => ({ pageColor: color }));
   };
 
   toggleExpand = () => {
-    this.setState(state => ({isExpanded: !state.isExpanded}));
+    this.setState(state => ({ isExpanded: !state.isExpanded }));
   };
 
   closeExpand = () => {
-    this.setState(() => ({isExpanded: false}));
+    this.setState(() => ({ isExpanded: false }));
   };
 
   render() {
@@ -112,14 +112,14 @@ class App extends Component {
           <Div100vh>
             <AppBody pageColor={this.state.pageColor}>
               <Location>
-                {({location}) => (
+                {({ location }) => (
                   <>
                     {
                       location.pathname !== '/landing' && location.pathname !== '/landing/' ?
                         <>
                           {
                             location.pathname !== '/leed' && location.pathname !== '/leed/'
-                              ? <ScrollPrompt isExpanded={this.state.isExpanded}/>
+                              ? <ScrollPrompt isExpanded={this.state.isExpanded} />
                               : null
                           }
                           <AppHeader
@@ -157,25 +157,25 @@ class App extends Component {
                         setPageColor={this.setPageColor}
                         path="continue"
                       />
-                      <Redirect from="fairmont" to="fairmont/hotel" noThrow/>
+                      <Redirect from="fairmont" to="fairmont/hotel" noThrow />
                       <Neighborhood
                         neighborhoodData={neighborhoodData}
                         path="neighborhood"
                         setPageColor={this.setPageColor}
                       />
-                      <Team
+                      {/* <Team
                         teamData={teamData}
                         path="team/*"
                         toggleExpand={this.toggleExpand}
                         setPageColor={this.setPageColor}
                       />
-                      <Redirect from="team" to={"team/" + teamData[0].slug} noThrow/>
+                      <Redirect from="team" to={"team/" + teamData[0].slug} noThrow/> */}
                       <Availability
                         path="availability/*"
                         setPageColor={this.setPageColor}
                       />
-                      <Redirect from="availability" to="/availability/hotel" noThrow/>
-                      <Press path="press" setPageColor={this.setPageColor}/>
+                      <Redirect from="availability" to="/availability/hotel" noThrow />
+                      <Press path="press" setPageColor={this.setPageColor} />
                       <Gallery
                         galleryData={galleryData}
                         path="gallery"
@@ -191,13 +191,13 @@ class App extends Component {
                           pageColor={this.state.pageColor}
                         />
                       ))}
-                      <Legal path="legal" setPageColor={this.setPageColor}/>
-                      <Leed path="leed" setPageColor={this.setPageColor}/>
-                      <Contact path="contact" setPageColor={this.setPageColor}/>
+                      <Legal path="legal" setPageColor={this.setPageColor} />
+                      <Leed path="leed" setPageColor={this.setPageColor} />
+                      <Contact path="contact" setPageColor={this.setPageColor} />
                       <Landing
                         path="landing"
                         landingData={landingData}
-                        setPageColor={this.setPageColor}/>
+                        setPageColor={this.setPageColor} />
                       <Accessibility
                         path="accessibility"
                         setPageColor={this.setPageColor}

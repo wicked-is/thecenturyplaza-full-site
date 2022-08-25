@@ -69,9 +69,9 @@ const ActiveMenu = props => {
         <Match path="/neighborhood">
           {props => props.match && <SecondaryMenu />}
         </Match>
-        <Match path="/team/*">
+        {/* <Match path="/team/*">
           {props => props.match && <SecondaryMenu />}
-        </Match>
+        </Match> */}
         <Match path="/availability/*">
           {props => props.match && <SecondaryMenu />}
         </Match>
