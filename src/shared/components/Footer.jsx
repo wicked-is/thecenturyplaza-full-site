@@ -110,17 +110,17 @@ const Footer = props => {
                 <p>
                   {parse(
                     primaryData[isSection].slides[isSlide].caption[
-                      activeCrossFade - 1
+                    activeCrossFade - 1
                     ]
                   )}
                 </p>
               </Caption>
             )}
-          {location.pathname === '/neighborhood' && (
+          {/* {location.pathname === '/neighborhood' && (
             <Message>
               <Link to="/team">Meet the Team</Link>
             </Message>
-          )}
+          )} */}
           {location.pathname.includes('team') && (
             <Message>
               <Link to="/availability">Browse the Availability</Link>

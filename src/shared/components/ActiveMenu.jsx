@@ -34,7 +34,7 @@ const ActiveMenu = props => {
   const SecondaryMenu = () => (
     <>
       <ActiveMenuLink to="/neighborhood">Neighborhood</ActiveMenuLink>
-      <ActiveMenuLink to="/team">Team</ActiveMenuLink>
+      {/* <ActiveMenuLink to="/team">Team</ActiveMenuLink> */}
       <ActiveMenuLink to="/availability">Availability</ActiveMenuLink>
       <ActiveMenuLink to="/press">Press</ActiveMenuLink>
       <ActiveMenuLink to="/gallery">Gallery</ActiveMenuLink>

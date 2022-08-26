@@ -303,11 +303,11 @@ const MainMenu = props => {
               Neighborhood
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/team" onClick={toggleMenu}>
               Team
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/availability/hotel" onClick={toggleMenu}>
               Fairmont Availability

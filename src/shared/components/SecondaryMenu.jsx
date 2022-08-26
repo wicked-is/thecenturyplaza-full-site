@@ -13,11 +13,11 @@ const SecondaryMenuWrapper = styled.div`
   justify-content: flex-start;
   min-height: calc(
     ${props =>
-      props.navActive
-        ? "0"
-        : "100vh - " +
-          parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
-          "px"}
+    props.navActive
+      ? "0"
+      : "100vh - " +
+      parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+      "px"}
   );
 
   ${mediaMin.phoneXL`
@@ -25,8 +25,8 @@ const SecondaryMenuWrapper = styled.div`
       props.navActive
         ? "0"
         : "100vh - " +
-          parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2 +
-          "px"});
+        parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2 +
+        "px"});
   `}
 
   ${mediaMin.tablet`
@@ -93,9 +93,9 @@ const SecondaryMenu = props => {
             <li>
               <Link to="/neighborhood">Explore the Neighborhood</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/team">Meet the Team</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/availability">Browse the Availability</Link>
             </li>
