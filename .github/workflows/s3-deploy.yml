@@ -1,0 +1,53 @@
+name: Build and deploy to S3
+on:
+  push:
+    branches:
+      - master
+      - develop
+  workflow_dispatch:
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment for branch
+        run: |
+          if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
+              echo "BUCKET_NAME=thecenturyplaza" >> "$GITHUB_ENV"
+              echo "CLOUDFRONT_DISTRIBUTION_ID=E1DMJDWQML9IK4" >> "$GITHUB_ENV"
+          elif [[ $GITHUB_REF == 'refs/heads/develop' ]]; then
+              echo "BUCKET_NAME=dev.thecenturyplaza" >> "$GITHUB_ENV"
+              echo "CLOUDFRONT_DISTRIBUTION_ID=E31MW88UMC88K1" >> "$GITHUB_ENV"
+          fi
+      - name: Check environment
+        run: |
+          echo "bucket variable : ${{ env.BUCKET_NAME }}"
+          echo "cloudfront distribution variable : ${{ env.CLOUDFRONT_DISTRIBUTION_ID }}"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "10"
+      - uses: actions/checkout@v3
+      - name: Caching Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-build
+          restore-keys: |
+            ${{ runner.os }}-build
+      - name: Build bundle
+        run: npm install && npm run build
+        env:
+          CI: false
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_CP }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_CP }}
+          aws-region: us-east-1
+      - name: Upload to S3
+        run: |
+          aws s3 sync build/ "s3://${{ env.BUCKET_NAME }}" --exclude "*.html" --delete --cache-control max-age=31557600
+          aws s3 sync build/ "s3://${{ env.BUCKET_NAME }}" --include "*.html" --delete --cache-control max-age=0
+      - name: Invalidate CloudFront Cache
+        if: ${{ env.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
