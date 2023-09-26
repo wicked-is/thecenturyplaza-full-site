@@ -57,11 +57,13 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
-    "react-scrolling": "0.0.2",
     "react-snap": "^1.23.0"
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
     "skipThirdPartyRequests": true,
     "crawl": false,
     "puppeteerExecutablePath": "/opt/google/chrome/google-chrome",
