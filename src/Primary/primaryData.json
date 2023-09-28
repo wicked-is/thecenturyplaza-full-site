@@ -10,12 +10,8 @@
         "caption": [
           "Century Plaza. Be at the center of it all. Hotel, Dining, Shopping, and Estate Residences."
         ],
-        "source": [
-          "landing-image"
-        ],
-        "mobileSource": [
-          "landing-image"
-        ],
+        "source": ["landing-image"],
+        "mobileSource": ["landing-image"],
         "placeholder": "",
         "delay": "12000",
         "inverted": "",
@@ -218,15 +214,15 @@
     ]
   },
   {
-    "title": "Tower Residences",
-    "slug": "tower/residences",
+    "title": "Park Elm Residences",
+    "slug": "park-elm-residences",
     "slides": [
       {
         "type": "video",
         "slug": "arrival",
         "headline": "",
         "caption": [
-          "The Tower Residences at Century Plaza offer residents panoramic views stretching from the Hollywood hills to the Pacific Ocean."
+          "Park Elm at Century Plaza offers residents panoramic views stretching from the Hollywood hills to the Pacific Ocean."
         ],
         "source": [
           "https://player.vimeo.com/external/362866829.hd.mp4?s=ee97ad639495cdd529830f397a790f91d5c36e93&profile_id=174"
@@ -243,21 +239,21 @@
       {
         "type": "text",
         "slug": "building",
-        "headline": "The Tower Residences at Century Plaza redefine luxury living in Los Angeles. An elegant gated estate arrival where valet and concierge staff welcome you at the grand lobby with <em>full-service valet and concierge staff to rival any world-class hotel.</em>",
+        "headline": "Park Elm at Century Plaza redefines luxury living in Los Angeles. An elegant gated estate arrival where valet and concierge staff welcome you at the grand lobby with <em>full-service valet and concierge staff to rival any world-class hotel.</em>",
         "caption": [""],
         "source": [""],
         "placeholder": "",
         "delay": "",
         "inverted": "",
         "path": "/amenities/tower",
-        "cta": "View Tower Residence Features & Amenities"
+        "cta": "View Park Elm at Century Plaza Features & Amenities"
       },
       {
         "type": "video",
         "slug": "amenities",
         "headline": "",
         "caption": [
-          "The tower amenities are lavish, with carefully considered spaces that cater to residents’ every need— both inside and outside."
+          "Park Elm at Century Plaza amenities are lavish, with carefully considered spaces that cater to residents’ every need— both inside and outside."
         ],
         "source": [
           "https://player.vimeo.com/external/362866857.hd.mp4?s=98daff367d5457e88ba0133b3b63cfe72420607e&profile_id=174"
@@ -290,12 +286,8 @@
         "caption": [
           "Gracious private residences feature the finest quality finishes, embracing sophisticated, elevated living."
         ],
-        "source": [
-          "https://vimeo.com/362866875/d31c9f5698"
-        ],
-        "mobileSource": [
-          "https://vimeo.com/362866875/d31c9f5698"
-        ],
+        "source": ["https://vimeo.com/362866875/d31c9f5698"],
+        "mobileSource": ["https://vimeo.com/362866875/d31c9f5698"],
         "placeholder": "d31c9f5698",
         "delay": "",
         "inverted": "",
@@ -306,9 +298,7 @@
         "type": "panorama",
         "slug": "views",
         "headline": "",
-        "caption": [
-          "Panoramic views from the Tower Residences at Century Plaza."
-        ],
+        "caption": ["Panoramic views from the Park Elm at Century Plaza."],
         "source": ["../../imgs/panorama/pano_10000.jpg"],
         "placeholder": "d31c9f5698",
         "delay": "",

@@ -10,7 +10,7 @@ import {
   ContainerStyled,
   HeaderStyled,
   ControlsStyled,
-  FilterButtonStyled
+  FilterButtonStyled,
 } from "Availability/style.js";
 
 const AvailabilityWrapper = styled.div`
@@ -35,7 +35,7 @@ const AvailabilityFilter = styled.button`
   ${FilterButtonStyled};
 `;
 
-const Availability = props => {
+const Availability = (props) => {
   const { setPageColor } = props;
   const context = useContext(Context);
   const { setGlobalConfig, navActive } = context;
@@ -49,11 +49,11 @@ const Availability = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      headerBackground: props => props.theme.whiteGradient,
+      headerBackground: (props) => props.theme.whiteGradient,
       footerBackground: "transparent",
       footerDisplay: true,
       footerFixed: false,
-      sidebarBackground: "transparent"
+      sidebarBackground: "transparent",
     });
   }, [setGlobalConfig]);
 
@@ -62,23 +62,23 @@ const Availability = props => {
   const [showFilter, setShowFilter] = useState(false);
   const [currentHotelFilters, setCurrentHotelFilters] = useState({
     beds: [],
-    views: []
+    views: [],
   });
   const [currentTowerFilters, setCurrentTowerFilters] = useState({
     beds: [],
-    views: []
+    views: [],
   });
   const listings = {
     hotel: hotelListings,
-    tower: towerListings
+    tower: towerListings,
   };
   const currentFilters = {
     hotel: currentHotelFilters,
-    tower: currentTowerFilters
+    tower: currentTowerFilters,
   };
   const setCurrentFilterFns = {
     hotel: setCurrentHotelFilters,
-    tower: setCurrentTowerFilters
+    tower: setCurrentTowerFilters,
   };
 
   useEffect(() => {
@@ -118,7 +118,11 @@ const Availability = props => {
         <AvailabilityHeader>
           {/* <p>Select a Residence</p> */}
           <AvailabilityControls>
-            <li>{location.pathname === '/availability/tower' ? 'Century Plaza Tower Residences Are Move-in-Ready' : 'Fairmont Century Plaza Residences are Move-in-Ready'}</li>
+            <li>
+              {location.pathname === "/park-elm-residences"
+                ? "Century Plaza Tower Residences Are Move-in-Ready"
+                : "Fairmont Century Plaza Residences are Move-in-Ready"}
+            </li>
             {/* <ActiveListingLink to="/availability/hotel">
               Hotel<span>&nbsp;Residences</span>
             </ActiveListingLink>
@@ -146,6 +150,16 @@ const Availability = props => {
           />
           <Listings
             path="tower"
+            listings={towerListings}
+            filters={currentTowerFilters}
+          />
+          <Listings
+            path="park-elm"
+            listings={towerListings}
+            filters={currentTowerFilters}
+          />
+          <Listings
+            path="/"
             listings={towerListings}
             filters={currentTowerFilters}
           />

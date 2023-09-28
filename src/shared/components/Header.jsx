@@ -1,41 +1,41 @@
-import React, { useContext } from 'react';
-import { Link, Location } from '@reach/router';
-import styled from 'styled-components/macro';
-import { mediaMin } from '../styled-components/MediaQueries.js';
-import Context from '../../config/Context';
-import ActiveMenu from 'shared/components/ActiveMenu.jsx';
+import React, { useContext } from "react";
+import { Link, Location } from "@reach/router";
+import styled from "styled-components/macro";
+import { mediaMin } from "../styled-components/MediaQueries.js";
+import Context from "../../config/Context";
+import ActiveMenu from "shared/components/ActiveMenu.jsx";
 
-import logoBlackSVG from 'icons/logo-black.svg';
-import logoGraySVG from 'icons/logo-gray.svg';
-import hamburgerBlackSVG from 'icons/hamburger-black.svg';
-import closeGraySVG from 'icons/close-gray.svg';
+import logoBlackSVG from "icons/logo-black.svg";
+import logoGraySVG from "icons/logo-gray.svg";
+import hamburgerBlackSVG from "icons/hamburger-black.svg";
+import closeGraySVG from "icons/close-gray.svg";
 
 const HeaderContainer = styled.header`
   display: flex;
   position: relative;
   width: 100%;
-  height: ${props => props.theme.mobilePortraitHeaderHeight}px;
+  height: ${(props) => props.theme.mobilePortraitHeaderHeight}px;
   nav {
     position: absolute;
     height: 100%;
     width: 100%;
   }
   ${mediaMin.phoneXL`
-    height: ${props => props.theme.mobileLandscapeHeaderHeight}px;
+    height: ${(props) => props.theme.mobileLandscapeHeaderHeight}px;
   `}
 
   ${mediaMin.tablet`
-    height: ${props => props.theme.desktopHeaderHeight}px;
+    height: ${(props) => props.theme.desktopHeaderHeight}px;
   `}
 `;
 
 const NavRow = styled.div`
   display: flex;
   width: calc(
-    100vw - ${props => parseFloat(props.theme.mobileSideMargin) * 2}px
+    100vw - ${(props) => parseFloat(props.theme.mobileSideMargin) * 2}px
   );
   justify-content: space-between;
-  padding: 0 ${props => props.theme.mobileSideMargin}px;
+  padding: 0 ${(props) => props.theme.mobileSideMargin}px;
   .logo {
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ const HamburgerRow = styled.div`
     top: 30px;
   `}
   ${mediaMin.tabletLandscape`
-    right: ${props => props.theme.desktopSideMargin}px;
+    right: ${(props) => props.theme.desktopSideMargin}px;
   `}
   .register {
     display: none;
@@ -68,12 +68,12 @@ const HamburgerRow = styled.div`
     align-items: center;
     margin-right: 32px;
     cursor: pointer;
-    color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
-    &:visited{
-      color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+    color: ${(props) => (props.isLight ? "#B4BAC1" : "#101820")};
+    &:visited {
+      color: ${(props) => (props.isLight ? "#B4BAC1" : "#101820")};
     }
-    &:hover{
-      opacity: .5;
+    &:hover {
+      opacity: 0.5;
     }
   }
 `;
@@ -82,7 +82,7 @@ const Logo = styled.div`
   width: 250px;
   height: 16px;
   z-index: 11000;
-  background: url(${props => (props.navActive ? logoGraySVG : logoBlackSVG)})
+  background: url(${(props) => (props.navActive ? logoGraySVG : logoBlackSVG)})
       no-repeat center center,
     none;
 `;
@@ -93,20 +93,20 @@ const MenuButton = styled.button`
   display: flex;
   `}
   align-items: center;
-  border: 1px solid ${props => (props.navActive ? 'transparent' : '#101820')};
+  border: 1px solid ${(props) => (props.navActive ? "transparent" : "#101820")};
   padding: 8px 16px;
   cursor: pointer;
-  color: ${props => (props.navActive ? 'transparent' : '#101820')};
+  color: ${(props) => (props.navActive ? "transparent" : "#101820")};
   background-color: transparent;
-  background: url(${props => {
+  background: url(${(props) => {
         if (props.navActive) return closeGraySVG;
-        return '';
+        return "";
       }})
       no-repeat center center,
     none;
 
   &:visited {
-    color: ${props => (props.isLight ? '#B4BAC1' : '#101820')};
+    color: ${(props) => (props.isLight ? "#B4BAC1" : "#101820")};
   }
   &:hover {
     opacity: 0.5;
@@ -114,13 +114,13 @@ const MenuButton = styled.button`
 `;
 
 const Hamburger = styled.button`
-  right: ${props => props.theme.mobileSideMargin}px;
+  right: ${(props) => props.theme.mobileSideMargin}px;
   width: 25px;
   height: 20px;
   overflow: hidden;
   border: 0;
   text-indent: -99999px;
-  background: url(${props => {
+  background: url(${(props) => {
         if (props.navActive) return closeGraySVG;
         if (props.isLight) return hamburgerBlackSVG;
         return hamburgerBlackSVG;
@@ -131,7 +131,7 @@ const Hamburger = styled.button`
   transition: all 0.5s ease-in-out;
   z-index: 11000;
   &:hover {
-    background: url(${props =>
+    background: url(${(props) =>
           props.navActive ? closeGraySVG : hamburgerBlackSVG})
         no-repeat center center,
       none;
@@ -164,16 +164,23 @@ const Header = ({ primaryData }) => {
                 <Link
                   onClick={navActive ? toggleMenu : undefined}
                   className="register"
-                  to="/availability/tower"
+                  to="park-elm-residences"
                 >
-                  Tower Availability
+                  Park Elm Residences
                 </Link>
                 <Link
                   onClick={navActive ? toggleMenu : undefined}
                   className="register"
-                  to="/availability/hotel"
+                  to="/fairmont/hotel"
                 >
-                  Fairmont Availability
+                  Fairmont Hotel
+                </Link>
+                <Link
+                  onClick={navActive ? toggleMenu : undefined}
+                  className="register"
+                  to="neighborhood"
+                >
+                  Neighborhood
                 </Link>
                 <Link
                   onClick={navActive ? toggleMenu : undefined}

@@ -1,26 +1,26 @@
-import React, { useContext } from 'react';
-import Context from '../../config/Context';
-import { Link } from '@reach/router';
-import styled from 'styled-components/macro';
-import { mediaMin, mediaMax } from 'shared/styled-components/MediaQueries.js';
+import React, { useContext } from "react";
+import Context from "../../config/Context";
+import { Link } from "@reach/router";
+import styled from "styled-components/macro";
+import { mediaMin, mediaMax } from "shared/styled-components/MediaQueries.js";
 
-import iconFB from 'icons/social/icon-fb.svg';
-import iconIG from 'icons/social/icon-ig.svg';
-import iconTW from 'icons/social/icon-tw.svg';
+import iconFB from "icons/social/icon-fb.svg";
+import iconIG from "icons/social/icon-ig.svg";
+import iconTW from "icons/social/icon-tw.svg";
 
 const MainMenuWrapper = styled.div`
-  opacity: ${props => (props.navActive ? '1' : '0')};
-  visibility: ${props => (props.navActive ? 'visible' : 'hidden')};
-  display: ${props => (props.navActive ? 'flex' : 'none')};
+  opacity: ${(props) => (props.navActive ? "1" : "0")};
+  visibility: ${(props) => (props.navActive ? "visible" : "hidden")};
+  display: ${(props) => (props.navActive ? "flex" : "none")};
   flex-wrap: wrap;
   position: relative;
   width: 100vw;
   height: 100%;
   min-height: 100vh;
-  z-index: ${props => (props.navActive ? '10000' : '0')};
+  z-index: ${(props) => (props.navActive ? "10000" : "0")};
   text-indent: 0;
-  color: ${props => props.theme.gray};
-  background: ${props => props.theme.black};
+  color: ${(props) => props.theme.gray};
+  background: ${(props) => props.theme.black};
   z-index: 1000;
 
   a:hover {
@@ -32,29 +32,32 @@ const LinksContainer = styled.nav`
   display: inline-block;
   position: relative;
   width: 100%;
-  padding: 0 ${props => props.theme.mobileSideMargin}px;
+  padding: 0 ${(props) => props.theme.mobileSideMargin}px;
   height: auto;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  margin-top: calc(${props => props.theme.mobilePortraitHeaderHeight}px + 20px);
+  margin-top: calc(
+    ${(props) => props.theme.mobilePortraitHeaderHeight}px + 20px
+  );
 
   ${mediaMin.phoneXL`
-    margin-top: calc(${props =>
+    margin-top: calc(${(props) =>
       props.theme.mobileLandscapeHeaderHeight}px + 20px);
   `}
   ${mediaMin.tablet`
-    margin-top: calc(${props => props.theme.desktopHeaderHeight}px + 20px);
+    margin-top: calc(${(props) => props.theme.desktopHeaderHeight}px + 20px);
   `}
 
   ${mediaMin.tabletLandscape`
     width: 70vw;
     padding: 0 0 0 30vw;
-    margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 40px );
+    margin-top: calc( ${(props) => props.theme.desktopHeaderHeight}px + 40px );
   `}
 
   ${mediaMin.desktop`
-      margin-top: calc( ${props => props.theme.desktopHeaderHeight}px + 80px );
+      margin-top: calc( ${(props) =>
+        props.theme.desktopHeaderHeight}px + 80px );
   `}
 `;
 
@@ -71,14 +74,14 @@ const PrimaryLinks = styled.ul`
     margin: 0 0 10px;
 
     a {
-      font-family: ${props => props.theme.serifRoman}, serif;
+      font-family: ${(props) => props.theme.serifRoman}, serif;
       font-weight: 300;
       font-size: 30px;
       line-height: 1.1em;
       letter-spacing: 0.05em;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: antialiased;
-      color: ${props => props.theme.gray};
+      color: ${(props) => props.theme.gray};
       text-decoration: none;
 
       ${mediaMin.tablet`
@@ -101,10 +104,10 @@ const SecondaryLinks = styled.ul`
     margin: 0 0 15px;
 
     a {
-      font-family: ${props => props.theme.sansSerifThin};
+      font-family: ${(props) => props.theme.sansSerifThin};
       font-size: 24px;
       letter-spacing: 1.03px;
-      color: ${props => props.theme.gray};
+      color: ${(props) => props.theme.gray};
       text-decoration: none;
     }
   }
@@ -113,7 +116,7 @@ const SecondaryLinks = styled.ul`
 const InfoCluster = styled.div`
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: ${props => props.theme.desktopSideMargin}px;
+    left: ${(props) => props.theme.desktopSideMargin}px;
     top: 0;
     .mobile{
       display: none;
@@ -121,7 +124,7 @@ const InfoCluster = styled.div`
  `}
 
   p {
-    font-family: ${props => props.theme.sansSerifLight};
+    font-family: ${(props) => props.theme.sansSerifLight};
     line-height: 1.4em;
     letter-spacing: 0.05em;
     font-weight: 300;
@@ -135,13 +138,13 @@ const InfoCluster = styled.div`
     }
     strong {
       display: block;
-      font-family: ${props => props.theme.sansSerifRegular};
+      font-family: ${(props) => props.theme.sansSerifRegular};
       font-weight: 400;
       font-weight: normal;
     }
 
     a {
-      color: ${props => props.theme.gray};
+      color: ${(props) => props.theme.gray};
       &:hover {
         opacity: 0.5;
       }
@@ -151,8 +154,8 @@ const InfoCluster = styled.div`
   > a {
     display: inline-block;
     margin: 10px 0;
-    font-family: ${props => props.theme.sansSerifRegular};
-    color: ${props => props.theme.gray};
+    font-family: ${(props) => props.theme.sansSerifRegular};
+    color: ${(props) => props.theme.gray};
     text-decoration: none;
 
     ${mediaMin.tabletLandscape`
@@ -169,7 +172,7 @@ const DownloadsLinks = styled.ul`
 
   ${mediaMin.tabletLandscape`
     position: absolute;
-    left: ${props => props.theme.desktopSideMargin}px;
+    left: ${(props) => props.theme.desktopSideMargin}px;
     top: 245px
  `}
 
@@ -182,7 +185,7 @@ const DownloadsLinks = styled.ul`
 
 
   li {
-    font-family: ${props => props.theme.sansSerifRegular};
+    font-family: ${(props) => props.theme.sansSerifRegular};
     display: block;
     margin: 0 0 0.25em;
 
@@ -191,10 +194,10 @@ const DownloadsLinks = styled.ul`
     }
 
     a {
-      font-family: ${props => props.theme.sansSerifLight};
+      font-family: ${(props) => props.theme.sansSerifLight};
       letter-spacing: 0.6px;
       line-height: 1.35em;
-      color: ${props => props.theme.gray};
+      color: ${(props) => props.theme.gray};
       text-decoration: none;
     }
   }
@@ -202,7 +205,7 @@ const DownloadsLinks = styled.ul`
 
 const FooterLinks = styled.ul`
   display: inline-block;
-  margin: 30px ${props => props.theme.mobileSideMargin}px;
+  margin: 30px ${(props) => props.theme.mobileSideMargin}px;
   padding: 0;
   list-style: none;
   width: 100%;
@@ -230,8 +233,8 @@ const FooterLinks = styled.ul`
     }
 
     a {
-      color: ${props => props.theme.gray};
-      font-family: ${props => props.theme.sansSerifRegular}, sans-serif;
+      color: ${(props) => props.theme.gray};
+      font-family: ${(props) => props.theme.sansSerifRegular}, sans-serif;
       font-weight: 300;
       font-size: 14px;
       line-height: 1.35em;
@@ -269,7 +272,7 @@ const SocialIcon = styled.li`
   }
 `;
 
-const MainMenu = props => {
+const MainMenu = (props) => {
   const { primaryData } = props;
   const context = useContext(Context);
   const { navActive, toggleMenu, setReturnPath } = context;
@@ -284,20 +287,23 @@ const MainMenu = props => {
       <LinksContainer>
         <SecondaryLinks>
           <li>
-            <Link to={'/'} onClick={toggleMenu}>
+            <Link to={"/"} onClick={toggleMenu}>
               Century Plaza
             </Link>
           </li>
-          {primaryData.slice(1).map((section, index) => (
-            <li key={index}>
-              <Link
-                to={'/' + section.slug + '/' + section.slides[0].slug}
-                onClick={toggleMenu}
-              >
-                {section.title}
-              </Link>
-            </li>
-          ))}
+          {primaryData.slice(1).map((section, index) => {
+            if (section.slug === "fairmont/residences") return null;
+            return (
+              <li key={index}>
+                <Link
+                  to={"/" + section.slug + "/" + section.slides[0].slug}
+                  onClick={toggleMenu}
+                >
+                  {section.title}
+                </Link>
+              </li>
+            );
+          })}
           <li>
             <Link to="/neighborhood" onClick={toggleMenu}>
               Neighborhood
@@ -308,14 +314,14 @@ const MainMenu = props => {
               Team
             </Link>
           </li> */}
-          <li>
+          {/* <li>
             <Link to="/availability/hotel" onClick={toggleMenu}>
               Fairmont Availability
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/availability/tower" onClick={toggleMenu}>
-              Tower Availability
+              Park Elm Availability
             </Link>
           </li>
           <li>
@@ -354,13 +360,13 @@ const MainMenu = props => {
             </a>
           </p>
         </InfoCluster>
-        <DownloadsLinks>
+        {/* <DownloadsLinks>
           <li>Downloads</li>
           <li>
             <a
               href={
                 process.env.PUBLIC_URL +
-                '/downloads/Century-Plaza-Newsletter-2017-Q2.pdf'
+                "/downloads/Century-Plaza-Newsletter-2017-Q2.pdf"
               }
               target="_blank"
               rel="noopener noreferrer"
@@ -372,7 +378,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                '/downloads/Fairmont_Century_Plaza_Residences.pdf'
+                "/downloads/Fairmont_Century_Plaza_Residences.pdf"
               }
               target="_blank"
               rel="noopener noreferrer"
@@ -384,7 +390,7 @@ const MainMenu = props => {
             <a
               href={
                 process.env.PUBLIC_URL +
-                '/downloads/Century-Plaza_Tower-Residences.pdf'
+                "/downloads/Century-Plaza_Tower-Residences.pdf"
               }
               target="_blank"
               rel="noopener noreferrer"
@@ -392,21 +398,36 @@ const MainMenu = props => {
               Tower Fact Sheet
             </a>
           </li>
-        </DownloadsLinks>
+        </DownloadsLinks> */}
       </LinksContainer>
       <FooterLinks>
         <SocialIcon>
-          <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/thecenturyplaza/"
+            target="_blank"
+            title="Instagram"
+            rel="noopener noreferrer"
+          >
             <img src={iconIG} alt="Instagram" />
           </a>
         </SocialIcon>
         <SocialIcon>
-          <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com/thecenturyplaza/"
+            target="_blank"
+            title="Facbook"
+            rel="noopener noreferrer"
+          >
             <img src={iconFB} alt="Facebook" />
           </a>
         </SocialIcon>
         <SocialIcon>
-          <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com/thecenturyplaza"
+            target="_blank"
+            title="Twitter"
+            rel="noopener noreferrer"
+          >
             <img src={iconTW} alt="Twitter" />
           </a>
         </SocialIcon>
@@ -416,7 +437,7 @@ const MainMenu = props => {
           </Link>
         </li>
         <li>
-          <Link to="/availability" onClick={declareReturnPath}>
+          <Link to="/availability/park-elm" onClick={declareReturnPath}>
             Availability
           </Link>
         </li>

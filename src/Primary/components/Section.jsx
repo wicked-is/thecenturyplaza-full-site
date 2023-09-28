@@ -15,7 +15,7 @@ const Section = ({
   isFirstSection,
   toggleExpand,
   closeExpand,
-  sectionIndex
+  sectionIndex,
 }) => {
   const getActiveSlide = (slide, index) => {
     // Used in triggerExit on Scroll Listeners

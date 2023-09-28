@@ -12,26 +12,26 @@ const SecondaryMenuWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   min-height: calc(
-    ${props =>
-    props.navActive
-      ? "0"
-      : "100vh - " +
-      parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
-      "px"}
-  );
-
-  ${mediaMin.phoneXL`
-    min-height: calc(${props =>
+    ${(props) =>
       props.navActive
         ? "0"
         : "100vh - " +
-        parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2 +
-        "px"});
+          parseFloat(props.theme.mobilePortraitHeaderHeight) * 2 +
+          "px"}
+  );
+
+  ${mediaMin.phoneXL`
+    min-height: calc(${(props) =>
+      props.navActive
+        ? "0"
+        : "100vh - " +
+          parseFloat(props.theme.mobileLandscapeHeaderHeight) * 2 +
+          "px"});
   `}
 
   ${mediaMin.tablet`
     justify-content: center;
-    min-height: calc(${props =>
+    min-height: calc(${(props) =>
       props.navActive
         ? "0"
         : "100vh - " + parseFloat(props.theme.desktopHeaderHeight) * 2 + "px"});
@@ -42,7 +42,7 @@ const SecondaryMenuContainer = styled.nav`
   ${SecondaryMenuContainerStyled};
 `;
 
-const SecondaryMenu = props => {
+const SecondaryMenu = (props) => {
   const { setPageColor } = props;
   const context = useContext(Context);
   const { pauseScroll, scrollCooldown, setGlobalConfig, navActive } = context;
@@ -55,11 +55,11 @@ const SecondaryMenu = props => {
 
   useEffect(() => {
     setGlobalConfig({
-      headerBackground: props => props.theme.grayGradient,
-      footerBackground: props => props.theme.gray,
+      headerBackground: (props) => props.theme.grayGradient,
+      footerBackground: (props) => props.theme.gray,
       footerDisplay: false,
       footerFixed: false,
-      sidebarBackground: "transparent"
+      sidebarBackground: "transparent",
     });
   }, [setGlobalConfig]);
 
@@ -70,7 +70,7 @@ const SecondaryMenu = props => {
         footerBackground: "transparent",
         footerDisplay: false,
         footerFixed: true,
-        sidebarBackground: "transparent"
+        sidebarBackground: "transparent",
       });
     };
   }, [setGlobalConfig]);
@@ -97,7 +97,7 @@ const SecondaryMenu = props => {
               <Link to="/team">Meet the Team</Link>
             </li> */}
             <li>
-              <Link to="/availability">Browse the Availability</Link>
+              <Link to="/availability/park-elm">Browse the Availability</Link>
             </li>
             <li>
               <Link to="/press">Read the Press</Link>

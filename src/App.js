@@ -42,7 +42,7 @@ const theme = {
     desktopSmall: 1250,
     desktop: 1440,
     desktopLarge: 1920,
-    desktopXLarge: 2048
+    desktopXLarge: 2048,
   },
   whiteGradient:
     "linear-gradient(to bottom, rgba(255,255,255,1) 70%,rgba(255,255,255,0) 100%)",
@@ -78,7 +78,7 @@ const theme = {
   browserBottom: "40",
   desktopSideMargin: "40",
   desktopColumn: "8.3125%",
-  desktopGutter: "20"
+  desktopGutter: "20",
 };
 
 // Size varaibles listed above declared without units for computations
@@ -90,15 +90,15 @@ const AppBody = styled.div`
 class App extends Component {
   state = {
     isExpanded: false,
-    pageColor: "white"
+    pageColor: "white",
   };
 
-  setPageColor = color => {
+  setPageColor = (color) => {
     this.setState(() => ({ pageColor: color }));
   };
 
   toggleExpand = () => {
-    this.setState(state => ({ isExpanded: !state.isExpanded }));
+    this.setState((state) => ({ isExpanded: !state.isExpanded }));
   };
 
   closeExpand = () => {
@@ -114,28 +114,26 @@ class App extends Component {
               <Location>
                 {({ location }) => (
                   <>
-                    {
-                      location.pathname !== '/landing' && location.pathname !== '/landing/' ?
-                        <>
-                          {
-                            location.pathname !== '/leed' && location.pathname !== '/leed/'
-                              ? <ScrollPrompt isExpanded={this.state.isExpanded} />
-                              : null
-                          }
-                          <AppHeader
-                            pageColor={this.state.pageColor}
-                            isExpanded={this.state.isExpanded}
-                            primaryData={primaryData}
-                          />
-                          <MainMenu
-                            pageColor={this.state.pageColor}
-                            isExpanded={this.state.isExpanded}
-                            primaryData={primaryData}
-                            setPageColor={this.setPageColor}
-                          />
-                        </> :
-                        null
-                    }
+                    {location.pathname !== "/landing" &&
+                    location.pathname !== "/landing/" ? (
+                      <>
+                        {location.pathname !== "/leed" &&
+                        location.pathname !== "/leed/" ? (
+                          <ScrollPrompt isExpanded={this.state.isExpanded} />
+                        ) : null}
+                        <AppHeader
+                          pageColor={this.state.pageColor}
+                          isExpanded={this.state.isExpanded}
+                          primaryData={primaryData}
+                        />
+                        <MainMenu
+                          pageColor={this.state.pageColor}
+                          isExpanded={this.state.isExpanded}
+                          primaryData={primaryData}
+                          setPageColor={this.setPageColor}
+                        />
+                      </>
+                    ) : null}
                     <Router primary={false}>
                       <SEO path="*" seoData={seoData} />
                     </Router>
@@ -174,7 +172,11 @@ class App extends Component {
                         path="availability/*"
                         setPageColor={this.setPageColor}
                       />
-                      <Redirect from="availability" to="/availability/hotel" noThrow />
+                      <Redirect
+                        from="availability"
+                        to="/availability/hotel"
+                        noThrow
+                      />
                       <Press path="press" setPageColor={this.setPageColor} />
                       <Gallery
                         galleryData={galleryData}
@@ -193,11 +195,15 @@ class App extends Component {
                       ))}
                       <Legal path="legal" setPageColor={this.setPageColor} />
                       <Leed path="leed" setPageColor={this.setPageColor} />
-                      <Contact path="contact" setPageColor={this.setPageColor} />
+                      <Contact
+                        path="contact"
+                        setPageColor={this.setPageColor}
+                      />
                       <Landing
                         path="landing"
                         landingData={landingData}
-                        setPageColor={this.setPageColor} />
+                        setPageColor={this.setPageColor}
+                      />
                       <Accessibility
                         path="accessibility"
                         setPageColor={this.setPageColor}
@@ -213,15 +219,14 @@ class App extends Component {
                         setPageColor={this.setPageColor}
                       />
                     </Router>
-                    {
-                      location.pathname !== '/landing' && location.pathname !== '/landing/' ?
-                        <AppFooter
-                          pageColor={this.state.pageColor}
-                          isExpanded={this.state.isExpanded}
-                          primaryData={primaryData}
-                        /> :
-                        null
-                    }
+                    {location.pathname !== "/landing" &&
+                    location.pathname !== "/landing/" ? (
+                      <AppFooter
+                        pageColor={this.state.pageColor}
+                        isExpanded={this.state.isExpanded}
+                        primaryData={primaryData}
+                      />
+                    ) : null}
                   </>
                 )}
               </Location>

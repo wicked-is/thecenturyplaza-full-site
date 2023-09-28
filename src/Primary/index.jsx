@@ -9,12 +9,12 @@ const PrimaryWrapper = styled.div`
   ${ViewportWrapper};
 `;
 
-const Primary = props => {
+const Primary = (props) => {
   const { isExpanded, primaryData, setPageColor, sectionIndex } = props;
   const context = useContext(Context);
   const { setHasCaptions, setGlobalConfig, navActive } = context;
 
-  const getPreviousSectionPath = index => {
+  const getPreviousSectionPath = (index) => {
     if (index !== 0) {
       return (
         primaryData[index - 1].slug +
@@ -27,7 +27,7 @@ const Primary = props => {
     }
   };
 
-  const getNextSectionPath = index =>
+  const getNextSectionPath = (index) =>
     index !== primaryData.length - 1 ? primaryData[index + 1].slug : null;
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Primary = props => {
       footerBackground: "white",
       footerDisplay: true,
       footerFixed: true,
-      sidebarBackground: "white"
+      sidebarBackground: "white",
     });
   }, [setGlobalConfig]);
 
