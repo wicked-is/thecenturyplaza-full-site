@@ -1,18 +1,18 @@
-import React, { useState, useContext } from 'react';
-import { Link, Location } from '@reach/router';
-import styled from 'styled-components/macro';
-import parse from 'html-react-parser';
+import React, { useState, useContext } from "react";
+import { Link, Location } from "@reach/router";
+import styled from "styled-components/macro";
+import parse from "html-react-parser";
 
-import Context from '../../config/Context';
-import { FooterWrapper } from 'shared/styled-components/Navigation.js';
+import Context from "../../config/Context";
+import { FooterWrapper } from "shared/styled-components/Navigation.js";
 import {
   SlideCaption,
-  FooterMessage
-} from '../styled-components/Typography.js';
+  FooterMessage,
+} from "../styled-components/Typography.js";
 
-import iconFB from 'icons/social/icon-fb.svg';
-import iconIG from 'icons/social/icon-ig.svg';
-import iconTW from 'icons/social/icon-tw.svg';
+import iconFB from "icons/social/icon-fb.svg";
+import iconIG from "icons/social/icon-ig.svg";
+import iconTW from "icons/social/icon-tw.svg";
 
 const Wrapper = styled.footer`
   ${FooterWrapper};
@@ -42,7 +42,7 @@ const SocialIcon = styled.li`
   }
 `;
 
-const Footer = props => {
+const Footer = (props) => {
   const { primaryData } = props;
   const context = useContext(Context);
   const {
@@ -51,7 +51,7 @@ const Footer = props => {
     isSection,
     isSlide,
     hasCaptions,
-    activeCrossFade
+    activeCrossFade,
   } = context;
   const [isOpen, setIsOpen] = useState(false);
 
@@ -69,22 +69,22 @@ const Footer = props => {
         <Wrapper
           navActive={navActive}
           isLight={
-            location.pathname === '/contact' ||
-            location.pathname === '/broker-portal'
+            location.pathname === "/contact" ||
+            location.pathname === "/broker-portal"
           }
         >
           {hasCaptions &&
             primaryData[isSection].slides[isSlide].caption.length === 1 && (
               <Caption
                 emptyCaption={
-                  primaryData[isSection].slides[isSlide].caption[0] === ''
+                  primaryData[isSection].slides[isSlide].caption[0] === ""
                 }
                 isOpen={isOpen}
               >
                 <span>{parse(primaryData[isSection].title)}</span>
-                {primaryData[isSection].slides[isSlide].caption[0] !== '' && (
+                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
                   <button onClick={toggleCaption}>
-                    {isOpen ? 'Close' : 'Info'}
+                    {isOpen ? "Close" : "Info"}
                   </button>
                 )}
                 <p>
@@ -97,20 +97,20 @@ const Footer = props => {
             primaryData[isSection].slides[isSlide].caption.length > 1 && (
               <Caption
                 emptyCaption={
-                  primaryData[isSection].slides[isSlide].caption[0] === ''
+                  primaryData[isSection].slides[isSlide].caption[0] === ""
                 }
                 isOpen={isOpen}
               >
                 <span>{parse(primaryData[isSection].title)}</span>
-                {primaryData[isSection].slides[isSlide].caption[0] !== '' && (
+                {primaryData[isSection].slides[isSlide].caption[0] !== "" && (
                   <button onClick={toggleCaption}>
-                    {isOpen ? 'Close' : 'Info'}
+                    {isOpen ? "Close" : "Info"}
                   </button>
                 )}
                 <p>
                   {parse(
                     primaryData[isSection].slides[isSlide].caption[
-                    activeCrossFade - 1
+                      activeCrossFade - 1
                     ]
                   )}
                 </p>
@@ -121,23 +121,22 @@ const Footer = props => {
               <Link to="/team">Meet the Team</Link>
             </Message>
           )} */}
-          {location.pathname.includes('team') && (
+          {location.pathname.includes("team") && (
             <Message>
-              <Link to="/availability">Browse the Availability</Link>
+              <Link to="/availability/park-elm">Browse the Availability</Link>
             </Message>
           )}
-          {location.pathname.includes('availability') && (
+          {location.pathname.includes("availability") && (
             <>
-              <Caption
-                emptyCaption={false}
-                isOpen={isOpen}
-              >
+              <Caption emptyCaption={false} isOpen={isOpen}>
                 <span>&npsp;</span>
                 <button onClick={toggleCaption}>
-                  {isOpen ? 'Close' : 'Info'}
+                  {isOpen ? "Close" : "Info"}
                 </button>
                 <p>
-                  {parse('FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY<br />TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022')}
+                  {parse(
+                    "FAIRMONT CENTURY PLAZA RESIDENCES MOVE IN READY<br />TOWER ESTATE RESIDENCES ANTICIPATED OPENING SPRING 2022"
+                  )}
                 </p>
               </Caption>
               <Message>
@@ -145,29 +144,44 @@ const Footer = props => {
               </Message>
             </>
           )}
-          {location.pathname === '/press' && (
+          {location.pathname === "/press" && (
             <Message>
               <Link to="/gallery">View the Gallery</Link>
             </Message>
           )}
-          {location.pathname === '/gallery' && (
+          {location.pathname === "/gallery" && (
             <Message>
               <Link to="/contact">Visit the Sales Gallery</Link>
             </Message>
           )}
           <ul>
             <SocialIcon>
-              <a href="https://www.instagram.com/thecenturyplaza/" target="_blank" title="Instagram" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/thecenturyplaza/"
+                target="_blank"
+                title="Instagram"
+                rel="noopener noreferrer"
+              >
                 <img src={iconIG} alt="Instagram" />
               </a>
             </SocialIcon>
             <SocialIcon>
-              <a href="https://www.facebook.com/thecenturyplaza/" target="_blank" title="Facbook" rel="noopener noreferrer">
+              <a
+                href="https://www.facebook.com/thecenturyplaza/"
+                target="_blank"
+                title="Facbook"
+                rel="noopener noreferrer"
+              >
                 <img src={iconFB} alt="Facebook" />
               </a>
             </SocialIcon>
             <SocialIcon>
-              <a href="https://twitter.com/thecenturyplaza" target="_blank" title="Twitter" rel="noopener noreferrer">
+              <a
+                href="https://twitter.com/thecenturyplaza"
+                target="_blank"
+                title="Twitter"
+                rel="noopener noreferrer"
+              >
                 <img src={iconTW} alt="Twitter" />
               </a>
             </SocialIcon>
