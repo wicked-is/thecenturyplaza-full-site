@@ -4,8 +4,8 @@
     "description": "Two residential towers with every amenity imaginable. Welcome to the new Century Plaza. Luxury hotel residences in Century City, Los Angeles."
   },
   "routes": {
-    "availability/tower": {
-      "title": "Availability | Tower Residences |  The Century Plaza",
+    "availability/park-elm": {
+      "title": "Availability | Park Elm at Century Plaza Residences |  The Century Plaza",
       "description": "Luxury Tower Residences designed by Yabu Pushelberg. A new standard of Los Angeles living. View availability for the Century Plaza Tower Residences.  "
     },
     "availability/hotel": {

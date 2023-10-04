@@ -320,7 +320,7 @@ const MainMenu = (props) => {
             </Link>
           </li> */}
           <li>
-            <Link to="/availability/tower" onClick={toggleMenu}>
+            <Link to="/availability/park-elm" onClick={toggleMenu}>
               Park Elm Availability
             </Link>
           </li>
