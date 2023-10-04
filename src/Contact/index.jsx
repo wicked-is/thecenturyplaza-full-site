@@ -103,7 +103,6 @@ const ContactForm = styled.form`
     font-weight: 400;
     margin: 0 0 20px;
   }
-
 `;
 
 const ContactSuccess = styled.form`
@@ -402,11 +401,14 @@ const Contact = (props) => {
       agencyName: false,
       sourceDetail: false,
     };
-    if (!formData.firstName && !formData.firstNamexggltw) newErrors.firstName = true;
-    if (!formData.lastName && !formData.lastNamexggltw) newErrors.lastName = true;
+    if (!formData.firstName && !formData.firstNamexggltw)
+      newErrors.firstName = true;
+    if (!formData.lastName && !formData.lastNamexggltw)
+      newErrors.lastName = true;
     if (!formData.email && !formData.emailxggltw) newErrors.email = true;
     if (!formData.phone && !formData.phonexggltw) newErrors.phone = true;
-    if (!formData.sourceDetail && !formData.sourceDetailxggltw) newErrors.sourceDetail = true;
+    if (!formData.sourceDetail && !formData.sourceDetailxggltw)
+      newErrors.sourceDetail = true;
     if (JSON.parse(formData.agent)) {
       if (!formData.agencyName) newErrors.agencyName = true;
     }
@@ -456,7 +458,7 @@ const Contact = (props) => {
     e.preventDefault();
     if (!checkForErrors()) {
       $.ajax({
-        url: "https://form.api.dbxd.com/post-buildercms-form/",
+        url: "https://hooks.zapier.com/hooks/catch/2001353/3ivuf0n/",
         type: "POST",
         dataType: "json",
         data: parseFormData(),
