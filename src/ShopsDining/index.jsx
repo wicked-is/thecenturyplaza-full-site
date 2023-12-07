@@ -206,14 +206,16 @@ const ShopsDining = (props) => {
             cclifton@estiatoriomilos.com
           </a>{" "}
           or Loanna Sourias at{" "}
-          <a href="isourias@estiatoriomilos.com">
+          <a href="mailto:isourias@estiatoriomilos.com">
             isourias@estiatoriomilos.com
           </a>
           .
         </p>
         <p>
           For media inquiries about KYU LA, please contact bread & Butter at{" "}
-          <a href="kyu@wearebreadandbutter.com">kyu@wearebreadandbutter.com</a>
+          <a href="mailto:kyu@wearebreadandbutter.com">
+            kyu@wearebreadandbutter.com
+          </a>
         </p>
         <p>
           For media inquiries about Sushi Noz, please contact Steven Hall with
