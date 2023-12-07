@@ -25,6 +25,7 @@ import galleryData from "Gallery/galleryData.json";
 import landingData from "Landing/landingData.json";
 import Contact from "Contact";
 import Legal from "Legal";
+import ShopsDining from "ShopsDining";
 import Accessibility from "Accessibility";
 import Amenities from "Amenities";
 import amenitiesData from "Amenities/amenitiesData.json";
@@ -194,6 +195,10 @@ class App extends Component {
                         />
                       ))}
                       <Legal path="legal" setPageColor={this.setPageColor} />
+                      <ShopsDining
+                        path="shops-dining"
+                        setPageColor={this.setPageColor}
+                      />
                       <Leed path="leed" setPageColor={this.setPageColor} />
                       <Contact
                         path="contact"

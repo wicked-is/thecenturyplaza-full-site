@@ -32,7 +32,7 @@
     "styled-theming": "^2.2.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "dev": "react-scripts --openssl-legacy-provider start",
     "start": "serve -s build",
     "build": "react-scripts build",
     "postbuild": "react-snap",
