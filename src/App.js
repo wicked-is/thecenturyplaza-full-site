@@ -169,7 +169,7 @@ class App extends Component {
                         setPageColor={this.setPageColor}
                       />
                       <Redirect from="team" to={"team/" + teamData[0].slug} noThrow/> */}
-                      <Availability
+                      {/* <Availability
                         path="availability/*"
                         setPageColor={this.setPageColor}
                       />
@@ -177,7 +177,7 @@ class App extends Component {
                         from="availability"
                         to="/availability/hotel"
                         noThrow
-                      />
+                      /> */}
                       <Press path="press" setPageColor={this.setPageColor} />
                       <Gallery
                         galleryData={galleryData}

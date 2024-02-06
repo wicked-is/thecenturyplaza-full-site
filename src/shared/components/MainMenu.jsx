@@ -319,11 +319,11 @@ const MainMenu = (props) => {
               Fairmont Availability
             </Link>
           </li> */}
-          <li>
+          {/* <li>
             <Link to="/availability/park-elm" onClick={toggleMenu}>
               Park Elm Availability
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/press" onClick={toggleMenu}>
               Press

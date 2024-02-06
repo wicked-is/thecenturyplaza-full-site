@@ -185,11 +185,11 @@ const Footer = (props) => {
                 <img src={iconTW} alt="Twitter" />
               </a>
             </SocialIcon>
-            <li>
+            {/* <li>
               <Link onClick={declareReturnPath} to="/availability">
                 Availability
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal
