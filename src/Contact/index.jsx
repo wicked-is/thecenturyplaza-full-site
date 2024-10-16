@@ -539,7 +539,7 @@ const Contact = (props) => {
             </p>
             <p>
               <strong>Schedule an Appointment</strong>
-              <span class="InfinityNumber clickable">3102464777</span>
+              <span class="InfinityNumber clickable">3109221124</span>
               <br />
               <a
                 href="mailto:info@thecenturyplaza.com"
