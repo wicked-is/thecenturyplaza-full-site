@@ -6,6 +6,7 @@
     "@reach/router": "^1.2.1",
     "babel-plugin-styled-components": "^1.10.6",
     "core-js": "^3.3.2",
+    "html-minifier": "^4.0.0",
     "html-react-parser": "^0.9.1",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
@@ -20,13 +21,13 @@
     "react-lazyload": "^2.6.2",
     "react-player": "^1.13.0",
     "react-reveal": "^1.2.2",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.1",
     "react-scroll-wheel-handler": "^1.0.9",
     "react-select": "^3.0.8",
     "react-waypoint": "^9.0.2",
     "regenerator-runtime": "^0.13.3",
-    "serve": "^11.1.0",
+    "serve": "^14.2.4",
     "styled-components": "^4.4.0",
     "styled-components-grid": "^2.2.2",
     "styled-theming": "^2.2.0"
@@ -35,7 +36,6 @@
     "dev": "react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
-    "react-snap": "^1.23.0"
+    "react-snap": "^1.13.1"
   },
   "reactSnap": {
     "puppeteerArgs": [
