@@ -186,6 +186,13 @@ const Header = ({ primaryData }) => {
                 <Link
                   onClick={navActive ? toggleMenu : undefined}
                   className="register"
+                  to="/shops-dining"
+                >
+                  Shops & Dining
+                </Link>
+                <Link
+                  onClick={navActive ? toggleMenu : undefined}
+                  className="register"
                   to="neighborhood"
                 >
                   Neighborhood
