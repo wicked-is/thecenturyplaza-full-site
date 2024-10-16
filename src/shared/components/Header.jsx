@@ -175,13 +175,6 @@ const Header = ({ primaryData }) => {
                 >
                   Fairmont Residences
                 </a>
-                <a
-                  className="register"
-                  href="http://fairmontresidencesla.com/"
-                  target="_blank"
-                >
-                  Fairmont Residences
-                </a>
                 <Link
                   onClick={navActive ? toggleMenu : undefined}
                   className="register"
