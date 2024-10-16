@@ -178,6 +178,14 @@ const Header = ({ primaryData }) => {
                 <Link
                   onClick={navActive ? toggleMenu : undefined}
                   className="register"
+                  to="http://fairmontresidencesla.com/"
+                  target="_blank"
+                >
+                  Fairmont Residences
+                </Link>
+                <Link
+                  onClick={navActive ? toggleMenu : undefined}
+                  className="register"
                   to="/fairmont/hotel"
                 >
                   Fairmont Hotel
