@@ -22,9 +22,9 @@ jobs:
         run: |
           echo "bucket variable : ${{ env.BUCKET_NAME }}"
           echo "cloudfront distribution variable : ${{ env.CLOUDFRONT_DISTRIBUTION_ID }}"
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
       - uses: actions/checkout@v3
       - name: Caching Build
         uses: actions/cache@v3
