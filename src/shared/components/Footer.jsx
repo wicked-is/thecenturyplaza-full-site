@@ -190,11 +190,11 @@ const Footer = (props) => {
                 Availability
               </Link>
             </li> */}
-            <li>
+            {/* <li>
               <Link onClick={declareReturnPath} to="/broker-portal">
                 Broker Portal
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link onClick={declareReturnPath} to="/legal">
                 Legal
